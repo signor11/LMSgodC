@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- camelcase 활용하면 mapper에서 resultmap 쓰지 않고 resulttype으로 쓰면서
+		(컬럼명 != 필드명) 경우 간편하게 자동으로 바꾸어 준다. -->
+	<settings>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>
+	</settings>
+	<typeAliases>
+		<typeAlias type="com.yedam.web.emp.EmpVO" alias="empVO"/>
+	</typeAliases>
+	
+	
+</configuration>
