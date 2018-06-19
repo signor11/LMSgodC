@@ -1,4 +1,4 @@
-package com.yedam.lms.lecture;
+package com.yedam.web.classs;
 
 public class LectureVO {
 	public String classapplynum;

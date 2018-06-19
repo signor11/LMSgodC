@@ -1,12 +1,12 @@
-package com.yedam.lms.lecture.impl;
+package com.yedam.web.classs.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yedam.lms.lecture.LectureService;
-import com.yedam.lms.lecture.LectureVO;
+import com.yedam.web.classs.LectureService;
+import com.yedam.web.classs.LectureVO;
 
 @Service("lectureService")
 public class LectureServiceImpl implements LectureService {
@@ -17,54 +17,47 @@ public class LectureServiceImpl implements LectureService {
 	
 	@Override
 	public boolean insertClassapply(LectureVO vo) {
-		return ;
+		return false;
+		
 	}
 
 	@Override
 	public void updateClassapply(LectureVO vo) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void deleteClassapply(String classapplynum) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public LectureVO getClassapply(String classapplynum) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public LectureVO cnClassapply(String classnum) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<LectureVO> getClassapplyList(LectureVO vo) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public boolean getClassapplyListcheck(LectureVO vo) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public LectureVO getschedulePro(LectureVO vo) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public LectureVO getcanum(LectureVO vo) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
