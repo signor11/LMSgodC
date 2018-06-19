@@ -1,4 +1,4 @@
-package com.yedam.lms.spm;
+package com.yedam.smp;
 
 public class StudentVO {
 	private String studentNum;
@@ -7,6 +7,7 @@ public class StudentVO {
 	private String studentName;
 	private String studentPhone;
 	private String studentDate;
+	
 	public String getStudentNum() {
 		return studentNum;
 	}
