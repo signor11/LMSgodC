@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.yedam.web.emp.EmpDAO">
+<mapper namespace="com.yedam.web.emp.impl.EmpDAO">
 	<!-- 단건 조회 매핑 규칙 정한 것 -->
 	<!-- resulttype으로 받으면 컬럼하고 필드명이 다르기 때문에 같은 이름으로 된것만 나온다. -->
 	<!-- <resultMap type="empVO" id="empResult"> <id property="employeeId" column="EMPLOYEE_ID"></id> 
