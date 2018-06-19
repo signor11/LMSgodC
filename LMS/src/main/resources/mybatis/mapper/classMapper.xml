@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.web.classs.impl.ClassDAO">
+
+
+	<!-- 등록 -->
+	<!-- <insert id= "classInsert" parameterType="classVO">
+		<selectKey keyProperty="classNum" resultType="string" order="BEFORE">
+			SELECT max(CLASSNUM)+1 FROM CLASS
+		</selectKey>
+		INSERT INTO CLASS(  CLASSNUM,
+							CLASSNAME, 
+							CREDIT,
+							MAXSTUDENT,
+							PROFESSORNUM,
+							CLASSTIME)
+		VALUES(
+				#{classNum}
+				#{className}
+				#{credit}
+				#{maxStudent}
+				#{professorNum}
+				#{classTime}
+					)
+	</insert> -->
+					
+	
+	
+	<!-- 단건조회 -->
+	
+	<select id ="getClass" resultType="classVO" parameterType="String">
+			<![CDATA[
+			SELECT		CLASSNUM,
+						CLASSNAME,
+						CREDIT,
+						MAXSTUDENT,
+						PROFESSORNUM,
+						CLASSTIME
+			FROM 		CLASS
+			WHERE 		CLASSNUM = #{classNum}
+			]]>
+			
+	</select>		
+			
+			
+			
+			
+			
+			
+	 <!-- 전체조회 -->
+	 <select id="getClassList" resultType="map" parameterType="classVO">
+			SELECT 			B.* FROM 
+							( SELECT A.*,ROWNUM RN FROM 
+								(SELECT C.CLASSNUM,
+										C.CLASSNAME,
+										C.CREDIT,
+										C.MAXSTUDENT,
+										P.PROFESSORNAME,
+										C.CLASSTIME,
+										(SELECT COUNT(*) FROM CLASSAPPLY CA 
+										WHERE CA.CLASSNUM = C.CLASSNUM) APPLYCNT
+								FROM CLASS C JOIN PROFESSOR P
+							 	ON C.PROFESSORNUM = P.PROFESSORNUM 
+							 	WHERE 1=1 
+							 	<if test="classNum != null and  classNum !=''">
+								AND C.CLASSNUM = #{classNum}
+								</if>
+								<if test="className != null and className !=''">
+								AND C.CLASSNAME LIKE '%' || upper(#{className}) || '%'
+								</if>
+								<if test="professorName != null and professorName != ''">
+								AND P.PROFESSORNAME LIKE '%' || upper(#{professorName}) || '%'
+								</if> 
+								<if test="classTime !=null and classTime !=''">
+								AND C.CLASSTIME LIKE '%' || upper(#{classTime}) || '%'
+								</if>
+								ORDER BY CLASSNUM
+							 	) A 
+							 )B
+							 
+							 WHERE RN BETWEEN ? AND ?";
+					 		
+	</select>			 
+			
+			
+		
+			
+	<!-- 학생 강의 이름 조회 -->
+	<select id="stu_classnameList"  resultType="map" parameterType="String">
+		
+		SELECT 		C.CLASSNUM, 
+					C.CLASSNAME 
+		FROM CLASS C JOIN CLASSAPPLY A
+		ON C.CLASSNUM = A.CLASSNUM
+		<where>
+		<if test="classNum != null and classNum !=''">
+		C.CLASSNUM = A.CLASSNUM
+		</if>
+		<if test="studentNum !=null and studentNum !=''">
+		A.STUDENTNUM = #{studentNum}
+		</if>
+		</where>
+		ORDER BY CLASSNUM
+		
+		</select>
+					
+					
+			
+	
+	<!-- 교수 강의 이름 조회 -->
+	<select id="pro_classnameList" resultType="map" parameterType="String">
+		
+			SELECT 		CLASSNUM, 
+						CLASSNAME
+		 	FROM CLASS
+		 	<where>
+		 	<if test="professorNum != null and professorNum != ''">
+			PROFESSORNUM = #{professorNum} 
+			</if>
+			</where>
+			ORDER BY CLASSNUM
+			
+	</select>
+	
+		
+	<select id="count" resultType="int" parameterType="classSearchVO"> 
+		
+		SELECT 		COUNT(*)
+		FROM CLASS C JOIN PROFESSOR P
+		ON C.PROFESSORNUM = P.PROFESSORNUM
+		WHERE 1=1
+		<if test="className != null and className != ''">
+			AND CLASSNAME LIKE '%' || upper(#{className}) || '%'
+		</if>
+		<if test="professorName != null and professorName != ''">
+			AND PROFESSORNAME LIKE '%' || upper(#{professorName}) || '%'
+		</if>
+		<if test="classTime != null and classTime !=''">
+			AND CLASSTIME LIKE '%' || upper(#{classTime}) || '%'
+		</if>
+		<if test="classNum != null and classNum !=''">
+			AND C.CLASSNUM = #{classNum}
+		</if>
+		
+	
+	</select>
+			
+	
+	
+</mapper>
