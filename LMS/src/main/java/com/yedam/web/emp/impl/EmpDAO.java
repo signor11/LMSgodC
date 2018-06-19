@@ -32,7 +32,10 @@ public class EmpDAO {
 		mybatis.delete("com.yedam.web.emp.EmpDAO.deleteEmp",id);
 	}
 	
-	
+	//다건삭제
+	   public void deleteDeptList(List<String> list) {
+	      mybatis.delete("com.yedam.web.emp.EmpDAO.deleteDeptList",list);
+	   }
 	
 	
 }

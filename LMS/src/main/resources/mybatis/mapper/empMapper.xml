@@ -2,48 +2,42 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.yedam.web.emp.EmpDAO">
+<mapper namespace="com.yedam.web.emp.impl.EmpDAO">
 	<!-- 단건 조회 매핑 규칙 정한 것 -->
 	<!-- resulttype으로 받으면 컬럼하고 필드명이 다르기 때문에 같은 이름으로 된것만 나온다. -->
-	<!-- <resultMap type="empVO" id="empResult">
-		<id property="employeeId" column="EMPLOYEE_ID"></id>
-		<result property="firstName" column="FIRST_NAME"/>
-		<result property="lastName" column="LAST_NAME"/>
-		<result property="salary" column="SALARY"/>
-	</resultMap> -->
+	<!-- <resultMap type="empVO" id="empResult"> <id property="employeeId" column="EMPLOYEE_ID"></id> 
+		<result property="firstName" column="FIRST_NAME"/> <result property="lastName" 
+		column="LAST_NAME"/> <result property="salary" column="SALARY"/> </resultMap> -->
 	<!-- resultMap으로 하는 것보다는 sql 구문에 알리아스를 지정해서 간편하게 쓰면 좋다 -->
-<!-- 	<resultMap type="map" id="empResult2">
-		<id property="employeeId" column="EMPLOYEE_ID"></id>
-		<result property="firstName" column="FIRST_NAME"/>
-		<result property="lastName" column="LAST_NAME"/>
-		<result property="급여" column="SALARY"/>
-		<result property="직종" column="JOB_ID"/>
-	</resultMap> -->
+	<!-- <resultMap type="map" id="empResult2"> <id property="employeeId" column="EMPLOYEE_ID"></id> 
+		<result property="firstName" column="FIRST_NAME"/> <result property="lastName" 
+		column="LAST_NAME"/> <result property="급여" column="SALARY"/> <result property="직종" 
+		column="JOB_ID"/> </resultMap> -->
 
 	<!-- 전체 조회 -->
 	<select id="getEmpList" resultType="map" parameterType="empVO">
-			SELECT		EMPLOYEE_ID as "empoloyeeId",
-						FIRST_NAME 	as "firstName",
-						LAST_NAME 	as "이름",
-						SALARY 		급여,
-						JOB_ID 		as "jobId",
-						(SELECT DEPARTMENT_NAME 
-						FROM HR.DEPARTMENTS DEPT 
-						WHERE DEPT.DEPARTMENT_ID = EMP.DEPARTMENT_ID) as "deptName"
-			FROM		HR.EMPLOYEES EMP
-			<where>
+		SELECT EMPLOYEE_ID as "empoloyeeId",
+		FIRST_NAME as "firstName",
+		LAST_NAME as "이름",
+		SALARY 급여,
+		JOB_ID as "jobId",
+		(SELECT DEPARTMENT_NAME
+		FROM HR.DEPARTMENTS DEPT
+		WHERE DEPT.DEPARTMENT_ID = EMP.DEPARTMENT_ID) as "deptName"
+		FROM HR.EMPLOYEES EMP
+		<where>
 			<if test="departmentId != null and departmentId !=''">
-						EMP.DEPARTMENT_ID = #{departmentId} 
-			</if>			
-			<if test="firstName != null and firstName != ''">			
-			<!-- 만약 firstname만 오더라도 자동으로 and 가 생략된다. -->
-			AND			FIRST_NAME LIKE '%' || upper(#{firstName}) || '%'
+				EMP.DEPARTMENT_ID = #{departmentId}
 			</if>
-			</where>
-			ORDER 		BY EMPLOYEE_ID		
-		
+			<if test="firstName != null and firstName != ''">
+				<!-- 만약 firstname만 오더라도 자동으로 and 가 생략된다. -->
+				AND FIRST_NAME LIKE '%' || upper(#{firstName}) || '%'
+			</if>
+		</where>
+		ORDER BY EMPLOYEE_ID
+
 	</select>
-	
+
 	<!-- 단건 조회 -->
 	<select id="getEmp" resultType="empVO" parameterType="string">
 		<![CDATA[
@@ -55,49 +49,61 @@
 		FROM	HR.EMPLOYEES
 		WHERE 	EMPLOYEE_ID = #{id}
 		]]>
-	
+
 	</select>
-	
+
 	<!-- 등록 -->
-	<insert	id="insertEmp" parameterType="empVO">
-		<selectKey keyProperty="employeeId" resultType="string" order="BEFORE">
+	<insert id="insertEmp" parameterType="empVO">
+		<selectKey keyProperty="employeeId" resultType="string"
+			order="BEFORE">
 			SELECT max(EMPLOYEE_ID)+1 FROM HR.EMPLOYEES
 		</selectKey>
 		INSERT INTO HR.EMPLOYEES (
-					EMPLOYEE_ID, 
-					FIRST_NAME,
-					LAST_NAME, 
-					EMAIL,
-					HIRE_DATE,
-					JOB_ID )
-			VALUES ( 
-					#{employeeId}	
-					#{firstName}	
-					#{lastName}	
-					#{email}	
-					#{hireDate}	
-					#{jobId}	
-						)
+		EMPLOYEE_ID,
+		FIRST_NAME,
+		LAST_NAME,
+		EMAIL,
+		HIRE_DATE,
+		JOB_ID )
+		VALUES (
+		#{employeeId}
+		#{firstName}
+		#{lastName}
+		#{email}
+		#{hireDate}
+		#{jobId}
+		)
 	</insert>
-	
+
 	<!-- 수정 -->
 	<update id="updateEmp" parameterType="empVO">
 		UPDATE HR.EMPLOYEES SET
-				FIRST_NAME = #{firstName}
-				LAST_NAME = #{lastName}
-				EMAIL = #{email}
-				JOB_ID = #{jobId}
+		FIRST_NAME = #{firstName}
+		LAST_NAME = #{lastName}
+		EMAIL = #{email}
+		JOB_ID = #{jobId}
 		WHERE EMPLOYEE_ID = #{employeeId}
 	</update>
-	
+
 	<!-- 삭제 -->
-	<!-- 단건이기 때문에 string으로 설정해도 된다.
-		
-		그리고 #{} 안에 들어가는 이름은 관계없다 -->
+	<!-- 단건이기 때문에 string으로 설정해도 된다. 그리고 #{} 안에 들어가는 이름은 관계없다 -->
 	<delete id="deleteEmp" parameterType="string">
-		DELETE HR.EMPLOYEES 
+		DELETE HR.EMPLOYEES
 		WHERE EMPLOYEE_ID = #{id}
 	</delete>
-	
-	
+
+
+	<!-- 부서 다건 삭제 180619 <mybatis> -->
+	<delete id="deleteDeptList">
+
+		DELETE FROM HR.DEPARTMENTS
+		WHERE DEPARTMENT_ID IN
+		<foreach collection="list" item="item" open="(" close=")"
+			separator=",">
+			#{item}
+
+
+		</foreach>
+	</delete>
+
 </mapper>
