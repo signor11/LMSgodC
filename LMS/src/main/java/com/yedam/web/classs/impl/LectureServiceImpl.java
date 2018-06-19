@@ -1,4 +1,4 @@
-package com.yedam.lms.lecture.impl;
+package com.yedam.web.classs.impl;
 
 import java.util.List;
 
