@@ -43,6 +43,12 @@ public class StudentVO {
 	public void setStudentDate(String studentDate) {
 		this.studentDate = studentDate;
 	}
+	@Override
+	public String toString() {
+		return "StudentVO [studentNum=" + studentNum + ", majorNum=" + majorNum + ", studentPw=" + studentPw
+				+ ", studentName=" + studentName + ", studentPhone=" + studentPhone + ", studentDate=" + studentDate
+				+ "]";
+	}
 	
 	
 }
