@@ -1,5 +1,6 @@
 package com.yedam.web;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,13 +13,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.yedam.web.emp.EmpVO;
 import com.yedam.web.emp.impl.EmpDAO;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations= {"classpath:config/applicationContext.xml","classpath:config/transactionContext.xml"})
-		
+@ContextConfiguration(locations = { "classpath:config/applicationContext.xml",
+		"classpath:config/transactionContext.xml" })
+
 public class EmpClientSpring {
-	
-	@Autowired EmpDAO empDAO;
+
+	@Autowired
+	EmpDAO empDAO;
+
 	@Test
 	public void getEmpTest() {
 		//단건조회
@@ -34,17 +37,27 @@ public class EmpClientSpring {
 		System.out.println("조회건수 : "+list.size());
 		System.out.println(list);
 		
-	}
-/*	@Test
-	public void insertEmpTest() {
-		EmpVO vo = new EmpVO();
-		vo.setFirstName("홍");
-		vo.setLastName("길동");
-		vo.setEmail("naver");
-		vo.setHireDate("sysdate");
-		vo.setJobId("ST_MAN");
-		empDAO.insertEmp(vo);
 		
-	}*/
+		
+		
+	}
+	/*
+	 * @Test public void insertEmpTest() { EmpVO vo = new EmpVO();
+	 * vo.setFirstName("홍"); vo.setLastName("길동"); vo.setEmail("naver");
+	 * vo.setHireDate("sysdate"); vo.setJobId("ST_MAN"); empDAO.insertEmp(vo);
+	 * 
+	 * }
+	 */
 	
+	//부서 다건 삭제용 테스트
+	   @Test
+	   public void deptDeleteTest()  {
+	         List<String> list = new ArrayList<String>();
+	         list.add("460");
+	         list.add("330");
+	         list.add("320");
+	         empDAO.deleteDeptList(list);
+	         
+	   }
+
 }
