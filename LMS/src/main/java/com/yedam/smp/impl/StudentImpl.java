@@ -22,19 +22,19 @@ public class StudentImpl implements StudentService{
 
 	@Override
 	public void insertStudent(StudentVO vo) {
-		// TODO Auto-generated method stub
+		dao.insertStudent(vo);
 		
 	}
 
 	@Override
 	public void updateStudent(StudentVO vo) {
-		// TODO Auto-generated method stub
+		dao.updateStudent(vo);
 		
 	}
 
 	@Override
 	public void deleteStudent(String studentNum) {
-		// TODO Auto-generated method stub
+		dao.deleteStudent(studentNum);
 		
 	}
 

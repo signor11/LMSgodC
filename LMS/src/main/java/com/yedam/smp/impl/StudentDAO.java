@@ -25,7 +25,18 @@ public class StudentDAO {
 		return mybatis.selectOne("com.yedam.smp.impl.getStudent",studentNum);
 	}
 	
-	//
+	//입력
+	public void insertStudent(StudentVO vo) {
+		mybatis.insert("com.yedam.smp.impl.insertStudent",vo);
+	}
 	
+	//수정
+	public void updateStudent(StudentVO vo) {
+		mybatis.update("com.yedam.smp.impl.updateStudent",vo);
+	}
 	
+	//삭제
+	public void deleteStudent(String studentNum) {
+		mybatis.delete("com.yedam.smp.impl.deleteStudent",studentNum);
+	}
 }
