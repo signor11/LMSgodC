@@ -51,18 +51,18 @@ public class LectureDAO {
 	// 학생 강의 체크
 
 	public boolean getClassapplyListcheck(LectureVO vo) {
-		return false;
+		return true;
 	}
 
-	/*// 교수 시간표 조회
+	// 교수 시간표 조회
 
 	public LectureVO getschedulePro(LectureVO vo) {
-		
+		return mybatis.selectOne("com.yedam.web.classs.impl.LectureDAO.getschedulePro", vo);
 	}
 
 	// 수강 신청 번호 조회
 
 	public LectureVO getcanum(LectureVO vo) {
-
-	}*/
+		return mybatis.selectOne("com.yedam.web.classs.impl.LectureDAO.getcanum", vo);
+	}
 }

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.web.hw.impl.HWDAO">
+
+	<!-- 등록 -->
+	<insert id="hwInsert" parameterType="hwVO">
+		<selectKey keyProperty="hwnum" resultType="string" order="BEFORE">
+			SELECT MAX(HWNUM)+1 FROM HW
+		</selectKey>
+		INSERT INTO HW(
+						HWNUM, 
+						APPLYDATE, 
+						HWNAME, 
+						HWINFO, 
+						CLASSNUM
+						)
+		VALUES			(
+						#{hwNum}
+						#{applyDate}
+						#{hwName}
+						#{hwInfo}
+						#{classNum}
+		)
+						
+	</insert>
+
+
+	<!-- 수정 -->
+	<update id="hwUpdate" parameterType="hwVO">
+			UPDATE HW SET 
+							CLASSNUM=	#{classNum},	
+							APPLYDATE =	#{applyDate},
+							HWNAME = 	#{hwName},	
+							HWINFO = 	#{hwInfo}
+							WHERE HWNUM = #{hwNum}
+	
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="hwDelete" parameterType="hwVO">
+		DELETE FROM HW		
+		WHERE HWNUM= #{hwNum}
+	</delete>
+	
+	
+	<!-- 단건조회 -->
+	<select id="getHW" resultType="hwVO" parameterType="string">
+		SELECT * FROM HW
+		WHERE HWNUM = #{hwNum}
+	</select>
+	
+	
+	<!-- 학생용 다건조회 -->
+	<select id="getHWList" resultType="map" parameterType="hwVO">
+		SELECT 		HWNUM, TO_CHAR(APPLYDATE, 'YYYY-MM-DD') APPLYDATE, 
+					HWNAME, HWINFO, CLASSNUM,
+					NVL(
+						(SELECT '제출' FROM SUBMIT_HW A WHERE A.HWNUM = HW.HWNU
+						AND STUDENTNUM = ? AND ROWNUM=1 
+						),
+						 '미제출') SUBMIT
+					FROM HW
+					WHERE 1=1 
+					<if test="classNum != null and classNum != ''">
+						AND CLASSNUM = #{classNum}
+					</if>
+					ORDER BY HWNUM
+		
+	</select>
+	
+	<!-- 교수용 다건조회 -->
+	<select id="getHWListPro" resultType="map" parameterType="hwVO">
+		SELECT 		H.HWNUM, H.HWNAME, H.APPLYDATE, 
+					H.CLASSNUM, H.HWINFO
+		FROM  HW H JOIN CLASS C
+		ON H.CLASSNUM = C.CLASSNUM
+		WHERE 1=1 
+		<if test="professorNum != null and professorNum != ''">
+			AND C.PROFESSORNUM = #{professorNum}
+		</if>
+		ORDER BY HWNUM
+	</select>
+
+</mapper>

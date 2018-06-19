@@ -1,4 +1,4 @@
-package com.yedam.lms.classs.view;
+package com.yedam.web.classs.view;
 
 public class LectureController {
 
