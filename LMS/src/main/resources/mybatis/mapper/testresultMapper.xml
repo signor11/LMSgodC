@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.lms.result.TestResultDAO">
+
+	<insert id=insertStudent" parameterType="com.yedam.lms.result.TestResultVO">
+	<selectKey keyProperty="testresultNum" resultType="string" order="BEFORE">
+		SELECT nvl(max(SEQ),0)+1 FROM TESTRESULT
+	</selectKey>
+		INSERT INTO TESTRESULT (TESTRESULTNUM,
+								TESTSCORE,
+								TESTNUM,
+								CLASSAPPLYNUM)
+					VALUES (#{testresultNum},
+							#{testScore},
+							#{testNum},
+							#{classapplyNum})
+	</insert>
+	<select id="getBoard" parameterType="string" resultType="com.yedam.web.board.BoardVO">
+		SELECT
+		seq,title,writer,content,regDate,cnt
+		FROM BOARD
+		WHERE seq = #{seq}
+	</select>
+	
+	
+	<select id="getBoardList" resultType="map">
+		SELECT seq,title,writer,content,regDate,cnt FROM BOARD
+	</select>
+	
+	
+
+</mapper>

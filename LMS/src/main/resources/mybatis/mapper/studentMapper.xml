@@ -26,6 +26,7 @@
 			   STUDENTPHONE,
 			   STARTDATE
 		FROM STUDENT
+		ORDER BY STUDENTNUM;
 	</select>
 	
 	<!-- 입력 -->
@@ -52,7 +53,9 @@
 		UPDATE STUDENT
 		SET	   MAJORNUM=#{majorNum},
 			   STUDENTPW=#{studentPw},
-			   STUDENTNAME=#{studentName}
+			   STUDNETPONE=#{studnentPhone},
+			   STUDENTNAME=#{studentName},
+			   STARTDATE=#{startDate}
 		WHERE  STUDENTNUM=#{studentNum}
 	</update>
 	

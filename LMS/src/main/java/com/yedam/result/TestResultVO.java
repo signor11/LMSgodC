@@ -1,10 +1,13 @@
-package com.yedam.lms.result;
+package com.yedam.result;
 
 public class TestResultVO {
 	private String testresultNum;
 	private String testNum;
 	private String testScore;
 	private String classapplyNum;
+	private String grade;
+	private String scoret;
+	
 	public String getTestresultNum() {
 		return testresultNum;
 	}
@@ -28,6 +31,19 @@ public class TestResultVO {
 	}
 	public void setClassapplyNum(String classapplyNum) {
 		this.classapplyNum = classapplyNum;
+	}
+	
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	public String getScoret() {
+		return scoret;
+	}
+	public void setScoret(String scoret) {
+		this.scoret = scoret;
 	}
 	@Override
 	public String toString() {

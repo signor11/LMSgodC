@@ -1,4 +1,4 @@
-package com.yedam.lms.result.impl;
+package com.yedam.result.impl;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;

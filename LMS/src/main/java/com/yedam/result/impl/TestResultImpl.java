@@ -1,4 +1,4 @@
-package com.yedam.lms.result.impl;
+package com.yedam.result.impl;
 
 public class TestResultImpl {
 
