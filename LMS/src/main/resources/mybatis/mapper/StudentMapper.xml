@@ -6,7 +6,7 @@
 
 	<!-- 단건조회 -->
 	<select id="getStudent" parameterType="string" resultType="com.yedam.smp.StudentDAO">
-		<![CDATA[
+		
 		SELECT STUDENTNUM,
 			   MAJORNUM,
 			   STUDENTPW,
@@ -15,7 +15,6 @@
 			   STARTDATE
 		FROM STUDENT
 		WHERE STUDENTNUM = #{studentNum}
-		]]>
 	</select>
 	
 	<!-- 전체조회 -->
@@ -29,6 +28,37 @@
 		FROM STUDENT
 	</select>
 	
+	<!-- 입력 -->
+	<insert id = "insertStudent" parameterType="com.yedam.smp.StudentDAO">
+		<selectKey keyProperty="studentNum" resultType="string" order="BEFORE">
+			SELECT nvl(max(SEQ),0)+1 FROM STUDENT
+		</selectKey>
+			INSERT INTO STUDENT(STUDENTNUM,
+								MAJORNUM,
+								STUDENTPW,
+								STUDENTNAME,
+								STUDENTPHONE,
+								STARTDATE)
+			VALUES (#{studentNum},
+					#{majorNum},
+					#{studentPw},
+					#{studentName},
+					#{studentPhone},
+					#{startDate})
+	</insert>
 	
-
+	<!-- 수정 -->
+	<update id="updateStudent"  parameterType="com.yedam.smp.StudentDAO">
+		UPDATE STUDENT
+		SET	   MAJORNUM=#{majorNum},
+			   STUDENTPW=#{studentPw},
+			   STUDENTNAME=#{studentName}
+		WHERE  STUDENTNUM=#{studentNum}
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id = "deleteStudent" parameterType="com.yedam.smp.StudentDAO">
+		DELETE FROM STUDENT
+		WHERE STUDENTNUM=#{studentNum}
+	</delete>
 </mapper>

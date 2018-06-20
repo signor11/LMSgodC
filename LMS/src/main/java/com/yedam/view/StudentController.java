@@ -29,5 +29,9 @@ public class StudentController {
 	String insertStudentForm() {
 		return "student/insertStudent";
 	}
-	
+	//수정폼
+	@RequestMapping(value="/updateStudent", method = RequestMethod.GET)
+	String updateStudentForm() {
+		return "student/updateBoard";
+	}
 }
