@@ -3,8 +3,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.yedam.lms.result.TestResultDAO">
-
-	<insert id=insertStudent" parameterType="com.yedam.lms.result.TestResultVO">
+	
+	<!-- 교수 성적 입력 -->
+	<insert id="testResultInsert" parameterType="com.yedam.result.TestResultVO">
 	<selectKey keyProperty="testresultNum" resultType="string" order="BEFORE">
 		SELECT nvl(max(SEQ),0)+1 FROM TESTRESULT
 	</selectKey>
@@ -17,18 +18,72 @@
 							#{testNum},
 							#{classapplyNum})
 	</insert>
-	<select id="getBoard" parameterType="string" resultType="com.yedam.web.board.BoardVO">
-		SELECT
-		seq,title,writer,content,regDate,cnt
-		FROM BOARD
-		WHERE seq = #{seq}
+	
+	<!-- 교수 성적 수정 -->
+	<update id = "testResultUpdate" parameterType="com.yedam.result.TestResultVO">
+		UPDATE TESTRESULT 
+		SET    TESTSCORE=#{testScore},
+			   TESTNUM=#{testNum},
+			   CLASSAPPLYNUM=#{classapplyNum},
+			   STUDENTNUM=#{studentNum},
+			   CLASSNUM=#{classNum}
+			   WHERE TESTRESULTNUM=#{testresultNum}
+	</update>
+	
+	<!-- 단건 조회 -->
+	<select id="gettestresult" parameterType="string" resultType="com.yedam.result.TestResultVO">
+		SELECT *
+		FROM TESTRESULT
+		WHERE  TESTRESULTNUM= #{testresultNum}
 	</select>
 	
+	<!-- 교수 성적 조회 -->
 	
 	<select id="getBoardList" resultType="map">
-		SELECT seq,title,writer,content,regDate,cnt FROM BOARD
+		SELECT C.CLASSNUM,
+			   C.CLASSAPPLYNUM,
+			   C.STUDENTNUM,
+			   C.SCORE,
+			   TR.TESTRESULTNUM,
+			   TR.TESTSCORE,
+			   TR.TESTNUM,
+			   S.STUDENTNAME,
+			   GRADE_TOTAL(C.SCORE) AS GRADE,
+			   SCORE_TOTAL(C.SCORE) AS SCORET
+	   FROM CLASSAPPLY C JOIN STUDENT S 
+			ON (S.STUDENTNUM = C.STUDENTNUM) 
+			LEFT OUTER JOIN TESTRESULT TR 
+			ON (C.CLASSAPPLYNUM = TR.CLASSAPPLYNUM)
+ 	  WHERE C.CLASSNUM = #{classNum}
+	  ORDER BY CLASSAPPLYNUM
 	</select>
 	
-	
+	<!-- 학생 성적 조회 -->
+	<select id="gettestresultListstu" resultType="map">
+		SELECT C.CLASSNUM,
+			   C.CLASSAPPLYNUM,
+			   C.STUDENTNUM,
+			   C.SCORE,
+			   CL.CREDIT,
+			   CL.CLASSNAME,
+			   TR.TESTRESULTNUM,
+			   TR.TESTSCORE,
+			   TR.TESTNUM,
+			   S.STUDENTNAME,
+			   P.PROFESSORNAME,
+			   GRADE_TOTAL(C.SCORE) AS GRADE,
+			   SCORE_TOTAL(C.SCORE) AS SCORET
+			   FROM CLASSAPPLY C JOIN TESTRESULT TR 
+					ON (C.CLASSAPPLYNUM = TR.CLASSAPPLYNUM) 
+					JOIN STUDENT S ON (S.STUDENTNUM = C.STUDENTNUM)
+				    JOIN CLASS CL ON (C.CLASSNUM = CL.CLASSNUM)
+				    JOIN PROFESSOR P ON (P.PROFESSORNUM = CL.PROFESSORNUM)
+			  WHERE S.STUDNETNUM = #{studentNum}
+			  		AND CL.CLASSNAME = #{className}
+			  		AND CL.CREDIT = #{creadit}
+			  		AND C.SCORE = #{score}
+			  		AND C.CLASSAPPLNUM = #{classapplyNum}
+			  ORDER BY CLASSAPPLYNUM
+	</select>
 
 </mapper>

@@ -11,11 +11,11 @@ public interface TestResultService {
 	public void testResultUpdate(TestResultVO vo);
 	
 	//단건조회
-	public TestResultVO gettestresult(TestResultVO vo);
+	public TestResultVO gettestresult(String testresultnum);
 	
 	//교수 성적 조회
 	public List<TestResultVO> gettestresultList(TestResultVO ts);
 	
 	//학생 성적 조회
-	public List<TestResultVO> gettestresultList1(TestResultVO vo);
+	public List<TestResultVO> gettestresultListstu(TestResultVO vo);
 }
