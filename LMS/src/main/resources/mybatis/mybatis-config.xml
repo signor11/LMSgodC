@@ -16,6 +16,7 @@
 		<typeAlias type="com.yedam.web.emp.EmpVO" alias="empVO"/>
 		<typeAlias type="com.yedam.web.classs.ClassVO" alias="classVO"/>
 		<typeAlias type="com.yedam.web.classs.ClasssearchVO" alias="classsearchVO"/>
+		<typeAlias type="com.yedam.web.hw.HWVO" alias="hwVO"/>
 	</typeAliases>
 	
 	
