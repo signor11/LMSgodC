@@ -17,10 +17,10 @@
 						CLASSNUM
 						)
 		VALUES			(
-						#{hwNum}
-						#{applyDate}
-						#{hwName}
-						#{hwInfo}
+						#{hwNum},
+						#{applyDate},
+						#{hwName},
+						#{hwInfo},
 						#{classNum}
 		)
 						
