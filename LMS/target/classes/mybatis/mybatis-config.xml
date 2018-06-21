@@ -13,9 +13,16 @@
 	
 	
 	<typeAliases>
+<<<<<<< HEAD
 		<typeAlias type="com.yedam.lms.classs.ClassVO" alias="classVO"/>
 		<typeAlias type="com.yedam.lms.classs.ClassSearchVO" alias="classsearchVO"/>
 		<typeAlias type="com.yedam.lms.smp.ProfessorVO" alias="professorVO"/>
+=======
+		<typeAlias type="com.yedam.web.emp.EmpVO" alias="empVO"/>
+		<typeAlias type="com.yedam.web.classs.ClassVO" alias="classVO"/>
+		<typeAlias type="com.yedam.web.classs.ClasssearchVO" alias="classsearchVO"/>
+		<typeAlias type="com.yedam.web.hw.HWVO" alias="hwVO"/>
+>>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 	</typeAliases>
 	
 	
