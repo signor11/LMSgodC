@@ -1,0 +1,7 @@
+*/target/*
+pom.properties
+.classpath
+*/.settings
+/target/
+/.springBeans
+/pom.xml
