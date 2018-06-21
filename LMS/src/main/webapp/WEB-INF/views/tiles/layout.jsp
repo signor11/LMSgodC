@@ -35,7 +35,7 @@ pageEncoding="UTF-8"%>
 <script src="./resources/web/js/owl.carousel.js"></script>
 		<script>
 			$(document).ready(function() {
-\
+
 				$("#owl-demo").owlCarousel({
 					items : 4,
 					lazyLoad : true,
@@ -60,12 +60,18 @@ pageEncoding="UTF-8"%>
 <div class="container">
 	<div class="row header">
 		<div class="logo navbar-left">
-			<h1><a href="index.jsp">City Gallery </a></h1>
+			<h1><a href="index.jsp">  <img src="./resources/web/images/yedam.png"width="300" height="70"> </a></h1>
 		</div>
 		<div class="h_search navbar-right">
 			<form>
-				<input type="text" class="text" value="Enter text here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter text here';}">
-				<input type="submit" value="search">
+				
+				
+				<c:if test="${empty in }">
+				
+				<a href="login.jsp"><input type=button style="width:60pt;height:20pt;" value="로그인"></a>
+
+
+			</c:if>
 			</form>
 		</div>
 		<div class="clearfix"></div>
@@ -108,17 +114,7 @@ pageEncoding="UTF-8"%>
 		</div>
 	</div>
 </div>
-<div class="container">
-<tiles:insertAttribute name="content" />
-</div>
-<div class="footer_bg"><!-- start footer -->
-	<div class="container">
-		<div class="row  footer">
-			<div class="copy text-center">
-				<p class="link"><span>&#169; All rights reserved | Design by&nbsp;<a href="http://w3layouts.com/"> W3Layouts</a></span></p>
-			</div>
-		</div>
-	</div>
-</div>
+ 
+ 
 </body>
 </html>

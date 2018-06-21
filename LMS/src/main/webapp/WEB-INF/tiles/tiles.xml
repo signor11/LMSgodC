@@ -5,15 +5,17 @@
 
 <tiles-definitions>
  <!-- 부모 기본 layout 설정-->
-<definition name=".test" template="resources/jsp/layouts/tiles/layout.jsp">
-    <put-attribute name="head" value="resources/jsp/layouts/tiles/header.jsp" />
-    <put-attribute name="body" value="resources/jsp/layouts/tiles/body.jsp" />
+<definition name="*/*" template="/WEB-INF/views/tiles/layout.jsp">
+
+    
+    <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />
+
 </definition>
 
 <!-- 위의 레이아웃을 상속 받은 액션 호출됐을 때 -->
-<definition name="/test" extends=".test">
-    <put-attribute name="head" value="resources/jsp/layouts/tiles/head.jsp" />
-    <put-attribute name="body" value="resources/jsp/layouts/tiles/{1}.jsp" />
+<definition name="*/*/*" extends="mainTemplate">
+  
+    <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
 </definition>
 
 
