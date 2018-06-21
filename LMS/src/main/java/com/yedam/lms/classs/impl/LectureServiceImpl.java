@@ -33,32 +33,32 @@ public class LectureServiceImpl implements LectureService {
 
 	@Override
 	public LectureVO getClassapply(String classapplynum) {
-		return null;
+		return dao.getClassapply(classapplynum);
 	}
 
 	@Override
 	public LectureVO cnClassapply(String classnum) {
-		return null;
+		return dao.cnClassapply(classnum);
 	}
 
 	@Override
 	public List<LectureVO> getClassapplyList(LectureVO vo) {
-		return null;
+		return dao.getClassapplyList(vo);
 	}
 
 	@Override
 	public boolean getClassapplyListcheck(LectureVO vo) {
-		return false;
+		return true;
 	}
 
 	@Override
 	public LectureVO getschedulePro(LectureVO vo) {
-		return null;
+		return dao.getschedulePro(vo);
 	}
 
 	@Override
 	public LectureVO getcanum(LectureVO vo) {
-		return null;
+		return dao.getcanum(vo);
 	}
 
 }
