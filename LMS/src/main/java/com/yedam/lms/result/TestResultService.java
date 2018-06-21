@@ -5,10 +5,10 @@ import java.util.List;
 public interface TestResultService {
 	
 	//교수 성적 입력
-	public void testResultInsert(String testscore, String testnum,String classapplynum);
+	public void insertTestResult(String testscore, String testnum,String classapplynum);
 	
 	//교수 성적 수정
-	public void testResultUpdate(TestResultVO vo);
+	public void updateTestResult(TestResultVO vo);
 	
 	//단건조회
 	public TestResultVO gettestresult(String testresultnum);

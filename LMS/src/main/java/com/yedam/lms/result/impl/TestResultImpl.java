@@ -15,13 +15,13 @@ public class TestResultImpl implements TestResultService{
 	TestResultDAO dao;
 
 	@Override
-	public void testResultInsert(String testscore, String testnum, String classapplynum) {
-		
+	public void insertTestResult(String testscore, String testnum, String classapplynum) {
+	
 	}
 
 	@Override
-	public void testResultUpdate(TestResultVO vo) {
-		
+	public void updateTestResult(TestResultVO vo) {
+	
 	}
 
 	@Override
@@ -38,5 +38,7 @@ public class TestResultImpl implements TestResultService{
 	public List<TestResultVO> gettestresultListstu(TestResultVO vo) {
 		return dao.gettestresultListstu(vo);
 	}
+
+	
 	
 }

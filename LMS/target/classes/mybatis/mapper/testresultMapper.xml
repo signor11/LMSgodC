@@ -5,7 +5,7 @@
 <mapper namespace="com.yedam.lms.result.TestResultDAO">
 	
 	<!-- 교수 성적 입력 -->
-	<insert id="testResultInsert" parameterType="com.yedam.result.TestResultVO">
+	<insert id="testResultInsert" parameterType="testResultVO">
 	<selectKey keyProperty="testresultNum" resultType="string" order="BEFORE">
 		SELECT nvl(max(SEQ),0)+1 FROM TESTRESULT
 	</selectKey>
@@ -20,7 +20,7 @@
 	</insert>
 	
 	<!-- 교수 성적 수정 -->
-	<update id = "testResultUpdate" parameterType="com.yedam.result.TestResultVO">
+	<update id = "testResultUpdate" parameterType="testResultVO">
 		UPDATE TESTRESULT 
 		SET    TESTSCORE=#{testScore},
 			   TESTNUM=#{testNum},
@@ -31,7 +31,7 @@
 	</update>
 	
 	<!-- 단건 조회 -->
-	<select id="gettestresult" parameterType="string" resultType="com.yedam.result.TestResultVO">
+	<select id="gettestresult" parameterType="string" resultType="testResultVO">
 		SELECT *
 		FROM TESTRESULT
 		WHERE  TESTRESULTNUM= #{testresultNum}
