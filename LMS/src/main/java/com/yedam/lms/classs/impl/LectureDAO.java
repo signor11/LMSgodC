@@ -32,19 +32,19 @@ public class LectureDAO {
 	// 단건 강의 조회
 
 	public LectureVO getClassapply(String classapplynum) {
-		return mybatis.selectOne("com.yedam.web.classs.impl.LectureDAO.getClassapply", classapplynum);
+		return mybatis.selectOne("com.yedam.lms.classs.impl.LectureDAO.getClassapply", classapplynum);
 	}
 
 	// (Classnum 기준) 학생 강의 조회
 
 	public LectureVO cnClassapply(String classnum) {
-		return mybatis.selectOne("com.yedam.web.classs.impl.LectureDAO.cnClassapply", classnum);
+		return mybatis.selectOne("com.yedam.lms.classs.impl.LectureDAO.cnClassapply", classnum);
 	}
 
 	// 전체 강의 조회
 
 	public List<LectureVO> getClassapplyList(LectureVO vo) {
-		return mybatis.selectList("com.yedam.web.classs.impl.LectureDAO.getClassapplyList", vo);
+		return mybatis.selectList("com.yedam.lms.classs.impl.LectureDAO.getClassapplyList", vo);
 		
 	}
 
@@ -57,12 +57,12 @@ public class LectureDAO {
 	// 교수 시간표 조회
 
 	public LectureVO getschedulePro(LectureVO vo) {
-		return mybatis.selectOne("com.yedam.web.classs.impl.LectureDAO.getschedulePro", vo);
+		return mybatis.selectOne("com.yedam.lms.classs.impl.LectureDAO.getschedulePro", vo);
 	}
 
 	// 수강 신청 번호 조회
 
 	public LectureVO getcanum(LectureVO vo) {
-		return mybatis.selectOne("com.yedam.web.classs.impl.LectureDAO.getcanum", vo);
+		return mybatis.selectOne("com.yedam.lms.classs.impl.LectureDAO.getcanum", vo);
 	}
 }
