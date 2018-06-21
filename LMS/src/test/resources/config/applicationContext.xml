@@ -15,7 +15,7 @@
 <mvc:annotation-driven/>
 <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
-<context:component-scan base-package="com.yedam.web"></context:component-scan>
+<context:component-scan base-package="com.yedam.lms"></context:component-scan>
 
 <context:property-placeholder location="classpath:database.properties"/>
 	<!-- datasource 설정 -->
