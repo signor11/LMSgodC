@@ -1,4 +1,4 @@
-package com.yedam.web.hw;
+package com.yedam.lms.hw;
 /*
  * 
  * VO(Value Object), DO(DATA Object), DTO

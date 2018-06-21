@@ -1,4 +1,4 @@
-package com.yedam.web.hw.impl;
+package com.yedam.lms.hw.impl;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.yedam.web.hw.HWVO;
+import com.yedam.lms.hw.HWVO;
 
 @Repository
 public class HWDAO {
