@@ -2,13 +2,29 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration
 2.1//EN"
 "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+
 <tiles-definitions>
-<definition name="mainTemplate" template="/WEB-INF/views/tiles/layout.jsp">
+ <!-- 부모 기본 layout 설정-->
+<definition name=".test" template="resources/jsp/layouts/tiles/layout.jsp">
+    <put-attribute name="head" value="resources/jsp/layouts/tiles/header.jsp" />
+    <put-attribute name="body" value="resources/jsp/layouts/tiles/body.jsp" />
 </definition>
+
+<!-- 위의 레이아웃을 상속 받은 액션 호출됐을 때 -->
+<definition name="/test" extends=".test">
+    <put-attribute name="head" value="resources/jsp/layouts/tiles/head.jsp" />
+    <put-attribute name="body" value="resources/jsp/layouts/tiles/{1}.jsp" />
+</definition>
+
+
+<!-- <definition name="mainTemplate" template="/WEB-INF/views/tiles/layout.jsp">
+</definition>
+
 <definition name="*/*" extends="mainTemplate">
 <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
 </definition>
+
 <definition name="*/*/*" extends="mainTemplate">
 <put-attribute name="content" value="/WEB-INF/views/{1}/{2}/{3}.jsp" />
-</definition>
+</definition> -->
 </tiles-definitions>
