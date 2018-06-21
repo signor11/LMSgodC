@@ -1,4 +1,4 @@
-package com.yedam.result;
+package com.yedam.lms.result;
 
 import java.util.List;
 
