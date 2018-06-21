@@ -1,12 +1,12 @@
-package com.yedam.result.impl;
+package com.yedam.lms.result.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yedam.result.TestResultService;
-import com.yedam.result.TestResultVO;
+import com.yedam.lms.result.TestResultService;
+import com.yedam.lms.result.TestResultVO;
 
 @Service("testresultService")
 public class TestResultImpl implements TestResultService{

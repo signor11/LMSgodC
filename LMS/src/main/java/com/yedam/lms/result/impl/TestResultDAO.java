@@ -1,4 +1,4 @@
-package com.yedam.result.impl;
+package com.yedam.lms.result.impl;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.yedam.result.TestResultVO;
+import com.yedam.lms.result.TestResultVO;
 
 @Repository
 public class TestResultDAO {

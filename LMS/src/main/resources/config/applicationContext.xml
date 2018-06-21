@@ -23,7 +23,6 @@
 		p:viewClass="org.springframework.web.servlet.view.tiles3.TilesView">
 	</bean>
 
-	<!--Don't add suffix or prefix like you do with .jsp files -->
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<property name="definitions">

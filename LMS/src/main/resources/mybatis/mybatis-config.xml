@@ -17,7 +17,7 @@
 		<typeAlias type="com.yedam.lms.classs.ClassSearchVO" alias="classsearchVO"/>
 		<typeAlias type="com.yedam.lms.smp.ProfessorVO" alias="professorVO"/>
 		<typeAlias type="com.yedam.lms.hw.HWVO" alias="hwVO"/>
-		
+		<typeAlias type="com.yedam.lms.result.TestResultVO" alias="testResultVO"/>
 	</typeAliases>
 	
 	
