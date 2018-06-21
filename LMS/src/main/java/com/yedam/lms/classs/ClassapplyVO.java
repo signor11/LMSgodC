@@ -1,6 +1,6 @@
 package com.yedam.lms.classs;
 
-public class LectureVO {
+public class ClassapplyVO {
 	public String classapplynum;
 	public String studentnum;
 	public String classnum;
