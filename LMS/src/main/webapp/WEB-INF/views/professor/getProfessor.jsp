@@ -14,7 +14,7 @@
 			};
 
 			$.ajax({
-						url : "../getProfesorList",
+						url : "./getProfesorList",
 						data : requestData,
 						dataType : 'json',
 						success : function(data) {

@@ -35,7 +35,7 @@ pageEncoding="UTF-8"%>
 <script src="./resources/web/js/owl.carousel.js"></script>
 		<script>
 			$(document).ready(function() {
-
+\
 				$("#owl-demo").owlCarousel({
 					items : 4,
 					lazyLoad : true,

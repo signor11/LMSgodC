@@ -21,11 +21,11 @@
 	<a href="insertProfessorForm">교수등록하기</a>
 	<c:forEach items="${professorList}" var="professor">
 		<div style="border: 1px solid blue;">
-			professornum:<a href="getProfessor/${professor.NUM}">${professor.NUM}</a><br>
-			professorname:${professor.NAME}<br> 
-			professorphone:${professor.PHONE}<br>
+			professornum:<a href="getProfessor/${professor.PROFESSORNUM}">${professor.PROFESSORNUM}</a><br>
+			professorname:${professor.PROFESSORNAME}<br> 
+			professorphone:${professor.PROFESSORPHONE}<br>
 			hiredate:${professor.HIREDATE}<br> 
-			major:${professor.MAJOR}<br>
+			major:${professor.MAJORNUM}<br>
 		</div>
 	</c:forEach>
 </body>
