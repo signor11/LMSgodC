@@ -3,6 +3,9 @@ pom.properties
 .classpath
 */.settings
 /target/
+<<<<<<< HEAD
 /.gitignore
 /.springBeans
 /pom.xml
+=======
+>>>>>>> branch 'master' of https://github.com/signor11/LMSgodC.git
