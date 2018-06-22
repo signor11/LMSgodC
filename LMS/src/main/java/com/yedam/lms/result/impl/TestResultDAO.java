@@ -15,17 +15,17 @@ public class TestResultDAO {
 	SqlSessionTemplate mybatis;
 	
 	//교수 성적 입력
-	public void testResultInsert(TestResultVO vo) {
+	public void insertTestResult(TestResultVO vo) {
 		mybatis.insert("testresult.testResultInsert",vo);
 	}
 	
 	//교수 성적 수정
-	public void testResultUpdate(TestResultVO vo) {
+	public void updateTestResult(TestResultVO vo) {
 		mybatis.update("testresult.testResultUpdate",vo);
 	}
 	//단건 조회
-	public TestResultVO gettestresult(String testresultnum) {
-		return mybatis.selectOne("testresult.gettestresult",testresultnum);
+	public TestResultVO gettestresult(TestResultVO vo) {
+		return mybatis.selectOne("testresult.gettestresult",vo);
 	}
 	
 	//교수 성적 조회

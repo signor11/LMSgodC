@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.lms.classs.impl.ClassapplyDAO">
+	<!-- 중복 확인 -->
+	<select id="checkclassapply" resultType="com.yedam.lms.classs.ClassapplyVO">
+		SELECT CLASSAPPLYNUM
+		FROM CLASSAPPLYNUM
+		<where>
+				 CLASSAPPLYNUM = #{classapplynum}
+		 AND	 STUDENTNUM = #{studentnum}
+		</where>
+	
+	</select>
+
+
+
+	<!-- 등록 -->
+	<insert id="insertClassapply" parameterType="com.yedam.lms.classs.ClassapplyVO">
+		<selectKey keyProperty="classapplynum" resultType="int"
+			order="BEFORE">
+			select classapply_seq.nextval from dual
+		</selectKey>
+		INSERT INTO CLASSAPPLY
+    			(CLASSAPPLYNUM
+			    ,STUDENTNUM
+			    ,CLASSNUM
+			    ,SCORE )
+			  
+			VALUES
+			    (#{classapplynum}
+			    ,#{studentnum}
+			    ,#{classnum}
+			    ,#{score}) 
+	</insert>
+
+	<!-- 수정 -->
+	<update id="updateClassapply" parameterType="com.yedam.lms.classs.ClassapplyVO">
+		UPDATE CLASSAPPLY SET
+					STUDENTNUM = #{studentnum},
+					CLASSNUM = #{classnum},
+					SCORE = #{score}
+		WHERE CLASSAPPLYNUM = #{classapplynum}
+	
+	</update>
+	
+	<!-- 삭제 -->
+	<delete id="deleteClassapply" parameterType="string">
+		DELETE FROM CLASSAPPLY
+		WHERE CLASSAPPLYNUM = #{classapplynum}
+	</delete>
+		
+	<!-- 단건 조회 -->
+	<select id="getClassapply" resultType="string">
+		SELECT 	CLASSAPPLYNUM,
+				STUDENTNUM,
+				CLASSNUM,
+				SCORE
+		FROM	CLASSAPPLY
+		WHERE	CLASSAPPLYNUM = #{classapplynum}
+	</select>
+	
+	<!-- (Classnum 기준)학생조회 -->
+	<select id="cnClassapply" resultType="string">
+		
+		SELECT 	C.STUDENTNUM,
+				(SELECT 	STUDENTNAME S 
+					FROM 	STUDENT S 
+					WHERE 	S.STUDENTNUM = C.STUDENTNUM) AS "STUDENTNAME"
+		FROM	CLASSAPPLY C
+		WHERE 	C.CLASSNUM = #{classnum}
+				
+	
+	</select>
+	
+	<!-- 전체 조회 -->
+	<select id="getClassapplyList" resultType="com.yedam.lms.classs.ClassapplyVO">
+		SELECT 	CA.CLASSAPPLYNUM,
+				CA.CLASSNUM,
+				CL.CLASSNAME,
+				CL.CLASSTIME,
+				P.PROFESSORNAME,
+				CL.CREDIT 
+		FROM 	CLASS CL
+		JOIN 	CLASSAPPLY CA 
+		ON 		CA.CLASSNUM=CL.CLASSNUM 
+		JOIN 	PROFESSOR P 
+		ON 		P.PROFESSORNUM=CL.PROFESSORNUM
+		WHERE 	CA.STUDENTNUM = #{studentnum}
+	</select>
+	
+	<!-- 학생 강의 체크 -->
+	<select id="getClassapplyListcheck" resultType="com.yedam.lms.classs.ClassapplyVO">
+		SELECT 	CA.CLASSAPPLYNUM, 
+				CA.CLASSNUM,
+				CL.CLASSNAME,
+				CL.CLASSTIME,
+				P.PROFESSORNAME,
+				CL.CREDIT 
+		FROM 	CLASS CL
+		JOIN 	CLASSAPPLY CA 
+		ON 		CA.CLASSNUM = CL.CLASSNUM 
+		JOIN 	PROFESSOR P 
+		ON 		P.PROFESSORNUM = CL.PROFESSORNUM
+		<where> 	
+		CA.STUDENTNUM = #{studentnum} 
+		AND CA.CLASSNUM = #{classnum} 
+		</where>
+	</select>
+	
+	<!--교수 시간표 조회 -->
+	<select id="getschedulePro" resultType="com.yedam.lms.classs.ClassapplyVO">
+		SELECT 	CLASSNAME, 
+				CLASSTIME 
+		FROM 	CLASS 
+		WHERE 	PROFESSORNUM = #{professornum}
+	</select>
+	
+	<!-- 수강 신청 번호 조회 -->
+	<select id="getcanum" resultType="com.yedam.lms.classs.ClassapplyVO">
+	
+	SELECT CLASSAPPLYNUM FROM CLASSAPPLY 
+	<where> CLASSNUM = #{classnum} AND STUDENTNUM=#{studentnum} 
+	</where>
+	
+	</select>
+	
+	
+	
+</mapper>

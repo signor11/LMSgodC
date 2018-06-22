@@ -21,12 +21,12 @@ public class TestResultImpl implements TestResultService{
 
 	@Override
 	public void updateTestResult(TestResultVO vo) {
-	
+	 
 	}
 
 	@Override
-	public TestResultVO gettestresult(String testresultnum) {
-		return dao.gettestresult(testresultnum);
+	public TestResultVO gettestresult(TestResultVO vo) {
+		return dao.gettestresult(vo);
 	}
 
 	@Override
@@ -38,6 +38,9 @@ public class TestResultImpl implements TestResultService{
 	public List<TestResultVO> gettestresultListstu(TestResultVO vo) {
 		return dao.gettestresultListstu(vo);
 	}
+
+	
+
 
 	
 	
