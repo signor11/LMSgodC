@@ -54,7 +54,9 @@ public class ClassapplyController {
 		return "";
 	}
 	@RequestMapping("/getClassapplyList")
-	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo) {
+	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
+		//String stid=(String)session.getAttribute("");
+		vo.setStudentnum("18000001");
 		request.setAttribute("classapplyList",classapplyService.getClassapplyList(vo));
 		return "classapply/searchlecture";
 	}

@@ -103,6 +103,7 @@ pageEncoding="UTF-8"%>
 		    </div><!-- /.navbar-collapse -->
 		    <!-- start soc_icons -->
 		</nav>
+		
 		<div class="soc_icons navbar-right">
 			<ul class="list-unstyled text-center">
 				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -114,7 +115,7 @@ pageEncoding="UTF-8"%>
 		</div>
 	</div>
 </div>
- 
+ <tiles:insertAttribute name="body" />
  
 </body>
 </html>

@@ -8,7 +8,7 @@
 </head>
 <body>
 <h3>강의신청조회</h3>
-<c:forEach items="classapplyList" var="classapply">
+<c:forEach items="${classapplyList}" var="classapply">
 	${classapply.classapplynum} ${classapply.classnum}
 	${classapply.classname} ${classapply.classtime}
 	${classapply.professorname} ${classapply.credit}
