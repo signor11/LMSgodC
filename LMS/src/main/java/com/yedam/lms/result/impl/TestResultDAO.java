@@ -1,6 +1,7 @@
 package com.yedam.lms.result.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ public class TestResultDAO {
 	}
 	
 	//학생 성적 조회
-	public List<TestResultVO> gettestresultListstu(TestResultVO vo){
+	public List<Map<String,Object>> gettestresultListstu(TestResultVO vo){
 		return mybatis.selectList("testresult.gettestresult",vo);
 	}
 }

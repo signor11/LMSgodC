@@ -1,6 +1,7 @@
 package com.yedam.lms.result;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TestResultService {
 	
@@ -17,7 +18,7 @@ public interface TestResultService {
 	public List<TestResultVO> gettestresultList(TestResultVO ts);
 	
 	//학생 성적 조회
-	public List<TestResultVO> gettestresultListstu(TestResultVO vo);
+	public List<Map<String,Object>> gettestresultListstu(TestResultVO vo);
 
 	
 

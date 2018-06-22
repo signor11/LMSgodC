@@ -1,6 +1,7 @@
 package com.yedam.lms.result.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,9 +36,13 @@ public class TestResultImpl implements TestResultService{
 	}
 
 	@Override
-	public List<TestResultVO> gettestresultListstu(TestResultVO vo) {
+	public List<Map<String, Object>> gettestresultListstu(TestResultVO vo) {
+		
 		return dao.gettestresultListstu(vo);
 	}
+
+	
+	
 
 	
 
