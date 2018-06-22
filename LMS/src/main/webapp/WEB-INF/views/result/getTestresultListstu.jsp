@@ -8,13 +8,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="../scripts/jquery-ui.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Lato">
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="../scripts/jquery-3.2.1.min.js"></script>
@@ -38,48 +34,6 @@
 		});
 	});
 </script>
-
-
-<style>
-body {
-	height: 100%;
-	width: 100%;
-}
-
-body {
-	font-family: "San francisco ", sans-serif;
-	background-size: cover;
-	background-repeat: repeat;
-}
-
-}
-.mySlides {
-	display: none
-}
-
-table.t1 td, th {
-	border: 1px solid black; padding 10px;
-	text-align: center;
-}
-
-table.t1 {
-	border-spacing: 0;
-	border-collapse: collapse;
-}
-
-.page {
-	background-color: gray;
-	color: white;
-}
-
-.active {
-	background-color: green;
-}
-
-.w3-top {
-	background-color: #04B4AE;
-}
-</style>
 </head>
 <!-- body -->
 <body>
