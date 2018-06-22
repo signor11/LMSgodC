@@ -2,6 +2,8 @@
 pom.properties
 .classpath
 */.settings
-/target/
+*/target
+target
 /.springBeans
 /pom.xml
+*.class
