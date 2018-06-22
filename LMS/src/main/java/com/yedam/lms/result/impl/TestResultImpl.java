@@ -16,7 +16,7 @@ public class TestResultImpl implements TestResultService{
 	TestResultDAO dao;
 
 	@Override
-	public void insertTestResult(String testscore, String testnum, String classapplynum) {
+	public void insertTestResult(TestResultVO vo) {
 	
 	}
 
@@ -36,16 +36,9 @@ public class TestResultImpl implements TestResultService{
 	}
 
 	@Override
-	public List<Map<String, Object>> gettestresultListstu(TestResultVO vo) {
-		
+	public List<TestResultVO> gettestresultListstu(TestResultVO vo) {
 		return dao.gettestresultListstu(vo);
 	}
-
-	
-	
-
-	
-
 
 	
 	

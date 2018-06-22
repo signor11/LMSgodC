@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.yedam.lms.result.TestResultDAO">
+<mapper namespace="testResultDAO">
 	
 	<!-- 교수 성적 입력 -->
-	<insert id="testResultInsert" parameterType="testResultVO">
+	<insert id="insertTestResult" parameterType="testResultVO">
 	<selectKey keyProperty="testresultNum" resultType="string" order="BEFORE">
 		SELECT nvl(max(SEQ),0)+1 FROM TESTRESULT
 	</selectKey>
@@ -20,7 +20,7 @@
 	</insert>
 	
 	<!-- 교수 성적 수정 -->
-	<update id = "testResultUpdate" parameterType="com.yedam.lms.result.testResultVO">
+	<update id = "testResultUpdate" parameterType="testResultVO">
 		UPDATE TESTRESULT 
 		SET    TESTSCORE=#{testScore},
 			   TESTNUM=#{testNum},
@@ -31,15 +31,15 @@
 	</update>
 	
 	<!-- 단건 조회 -->
-	<select id="gettestresult" parameterType="string" resultType="testResultVO">
+	<select id="gettestresult" resultType="testResultVO">
 		SELECT *
 		FROM TESTRESULT
-		WHERE  TESTRESULTNUM= #{testresultNum}
+		WHERE  TESTRESULTNUM= #{testresultnum}
 	</select>
 	
 	<!-- 교수 성적 조회 -->
 	
-	<select id="getBoardList" resultType="com.yedam.lms.result.testResultVO">
+	<select id="getBoardList" resultType="testResultVO">
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,
@@ -54,12 +54,16 @@
 			ON (S.STUDENTNUM = C.STUDENTNUM) 
 			LEFT OUTER JOIN TESTRESULT TR 
 			ON (C.CLASSAPPLYNUM = TR.CLASSAPPLYNUM)
- 	  WHERE C.CLASSNUM = #{classNum}
+	   WHERE 1=1 
+	   <if test="professorNum != null and professorNum != ''">
+			AND C.PROFESSORNUM = #{professornum}
+	   </if>
+ 	  WHERE C.CLASSNUM = #{classnum}
 	  ORDER BY CLASSAPPLYNUM
 	</select>
 	
 	<!-- 학생 성적 조회 -->
-	<select id="gettestresultListstu" resultType="com.yedam.lms.result.testResultVO">
+	<select id="gettestresultListstu" resultType="testResultVO">
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,
@@ -78,11 +82,22 @@
 					JOIN STUDENT S ON (S.STUDENTNUM = C.STUDENTNUM)
 				    JOIN CLASS CL ON (C.CLASSNUM = CL.CLASSNUM)
 				    JOIN PROFESSOR P ON (P.PROFESSORNUM = CL.PROFESSORNUM)
-			  WHERE S.STUDNETNUM = #{studentNum}
-			  		AND CL.CLASSNAME = #{className}
-			  		AND CL.CREDIT = #{creadit}
-			  		AND C.SCORE = #{score}
-			  		AND C.CLASSAPPLNUM = #{classapplyNum}
+			  WHERE 1=1 
+			   <if test="studentnum != null and studentnum != ''">
+					AND S.STUDENTNUM = #{studentnum}
+			   </if>
+			   <if test="classname != null and classname != ''">
+					AND CL.CLASSNAME = #{classname}
+			   </if>
+			   <if test="credit != null and credit != ''">
+			   		AND CL.CREDIT = #{credit}	
+			   </if>	
+			   <if test="score != null and score != ''">
+			   		AND C.SCORE = #{score}	
+			   </if>
+			   <if test="classapplynum != null and classapplynum != ''">
+			   		AND C.CLASSAPPLNUM = #{classapplynum}	
+			   </if>
 			  ORDER BY CLASSAPPLYNUM
 	</select>
 

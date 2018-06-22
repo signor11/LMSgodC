@@ -6,7 +6,7 @@ import java.util.Map;
 public interface TestResultService {
 	
 	//교수 성적 입력
-	public void insertTestResult(String testscore, String testnum, String classapplynum);
+	public void insertTestResult(TestResultVO vo);
 	
 	//교수 성적 수정
 	public void updateTestResult(TestResultVO vo);
@@ -18,7 +18,7 @@ public interface TestResultService {
 	public List<TestResultVO> gettestresultList(TestResultVO ts);
 	
 	//학생 성적 조회
-	public List<Map<String,Object>> gettestresultListstu(TestResultVO vo);
+	public List<TestResultVO> gettestresultListstu(TestResultVO vo);
 
 	
 

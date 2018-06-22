@@ -118,7 +118,6 @@ table.t1 {
 					</tr>
 				</c:forEach>
 			</table>
-
 			<br> <br>
 			<div align="center">
 				<a href="#" id="btnPrint" class = "btn btn-danger">출력</a>

@@ -21,16 +21,10 @@ public class TestResultController {
 	
 	@Autowired TestResultService testResultService;
 	
-	/*//등록폼
-	@RequestMapping(value = "/insertTestResult",method = RequestMethod.GET)
-	public String insertTestResultForm() {
-		return "result/insertTestResult";
-	}
-	
-	//등록처리
-	@RequestMapping(value = "/insertTestResult",method = RequestMethod.POST)
-	public String insertTestResult(@ModelAttribute("vo") TestResultVO vo) {
-		testResultService.insertTestResult(vo.getTestScore(), vo.getTestNum(), vo.getClassapplyNum());
+	//등록폼
+	@RequestMapping(value = "/insertTestResult")
+	public String insertTestResult(TestResultVO vo) {
+		testResultService.insertTestResult(vo);
 		return "result/insertTestResult";
 	}
 	
@@ -45,7 +39,7 @@ public class TestResultController {
 	public String updateTestResult(@ModelAttribute("vo") TestResultVO vo) {
 		testResultService.updateTestResult(vo);
 		return "result/updateTestResult";
-	}*/
+	}
 	//단건
 	@RequestMapping("/getTestResult")
 	
@@ -63,6 +57,7 @@ public class TestResultController {
 	@RequestMapping("/gettestresultListstu")
 		public String gettestresultListstu(TestResultVO vo,Model model){
 		 //model 정보저장
+		vo.setStudentnum("18000001");
 		model.addAttribute("serList",testResultService.gettestresultListstu(vo));
 		return "result/getTestresultListstu";//View 이름 리턴
 		

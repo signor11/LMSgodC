@@ -17,25 +17,25 @@ public class TestResultDAO {
 	
 	//교수 성적 입력
 	public void insertTestResult(TestResultVO vo) {
-		mybatis.insert("testresult.testResultInsert",vo);
+		mybatis.insert("testResultDAO.testResultInsert",vo);
 	}
 	
 	//교수 성적 수정
 	public void updateTestResult(TestResultVO vo) {
-		mybatis.update("testresult.testResultUpdate",vo);
+		mybatis.update("testResultDAO.testResultUpdate",vo);
 	}
 	//단건 조회
 	public TestResultVO gettestresult(TestResultVO vo) {
-		return mybatis.selectOne("testresult.gettestresult",vo);
+		return mybatis.selectOne("testResultDAO.gettestresult",vo);
 	}
 	
 	//교수 성적 조회
 	public List<TestResultVO> gettestresultList(TestResultVO ts){
-		return mybatis.selectList("testresult.gettestresultList",ts);
+		return mybatis.selectList("testResultDAO.gettestresultList",ts);
 	}
 	
 	//학생 성적 조회
-	public List<Map<String,Object>> gettestresultListstu(TestResultVO vo){
-		return mybatis.selectList("testresult.gettestresult",vo);
+	public List<TestResultVO> gettestresultListstu(TestResultVO vo){
+		return mybatis.selectList("testResultDAO.gettestresultListstu",vo);
 	}
 }

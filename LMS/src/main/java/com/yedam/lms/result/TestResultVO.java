@@ -1,83 +1,49 @@
 package com.yedam.lms.result;
 
 public class TestResultVO {
-	private String testresultNum;
-	private String testNum;
-	private String testScore;
-	private String classapplyNum;
-	private String classNum;
+	private String testresultnum;
+	private String testnum;
+	private String testscore;
+	private String classapplynum;
+	private String classnum;
 	private String credit;
 	private String classname;
-	private String studentName;
-	private String studentNum;
+	private String studentname;
+	private String studentnum;
 	private String score;
-	private String professorName;
+	private String professorname;
 	private String grade;	//등급 function
 	private String scoret;	//학점 function
-	
-	public String getTestresultNum() {
-		return testresultNum;
+	public String getTestresultnum() {
+		return testresultnum;
 	}
-	public void setTestresultNum(String testresultNum) {
-		this.testresultNum = testresultNum;
+	public void setTestresultnum(String testresultnum) {
+		this.testresultnum = testresultnum;
 	}
-	public String getTestNum() {
-		return testNum;
+	public String getTestnum() {
+		return testnum;
 	}
-	public void setTestNum(String testNum) {
-		this.testNum = testNum;
+	public void setTestnum(String testnum) {
+		this.testnum = testnum;
 	}
-	public String getTestScore() {
-		return testScore;
+	public String getTestscore() {
+		return testscore;
 	}
-	public void setTestScore(String testScore) {
-		this.testScore = testScore;
+	public void setTestscore(String testscore) {
+		this.testscore = testscore;
 	}
-	public String getClassapplyNum() {
-		return classapplyNum;
+	public String getClassapplynum() {
+		return classapplynum;
 	}
-	public void setClassapplyNum(String classapplyNum) {
-		this.classapplyNum = classapplyNum;
+	public void setClassapplynum(String classapplynum) {
+		this.classapplynum = classapplynum;
 	}
-	
-	public String getGrade() {
-		return grade;
+	public String getClassnum() {
+		return classnum;
 	}
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setClassnum(String classnum) {
+		this.classnum = classnum;
 	}
-	public String getScoret() {
-		return scoret;
-	}
-	public void setScoret(String scoret) {
-		this.scoret = scoret;
-	}
-	
-	public String getClassNum() {
-		return classNum;
-	}
-	public void setClassNum(String classNum) {
-		this.classNum = classNum;
-	}
-	public String getStudentName() {
-		return studentName;
-	}
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
-	}
-	public String getStudentNum() {
-		return studentNum;
-	}
-	public void setStudentNum(String studentNum) {
-		this.studentNum = studentNum;
-	}
-	public String getScore() {
-		return score;
-	}
-	public void setScore(String score) {
-		this.score = score;
-	}
-	
 	public String getCredit() {
 		return credit;
 	}
@@ -90,18 +56,48 @@ public class TestResultVO {
 	public void setClassname(String classname) {
 		this.classname = classname;
 	}
-	public String getProfessorName() {
-		return professorName;
+	public String getStudentname() {
+		return studentname;
 	}
-	public void setProfessorName(String professorName) {
-		this.professorName = professorName;
+	public void setStudentname(String studentname) {
+		this.studentname = studentname;
+	}
+	public String getStudentnum() {
+		return studentnum;
+	}
+	public void setStudentnum(String studentnum) {
+		this.studentnum = studentnum;
+	}
+	public String getScore() {
+		return score;
+	}
+	public void setScore(String score) {
+		this.score = score;
+	}
+	public String getProfessorname() {
+		return professorname;
+	}
+	public void setProfessorname(String professorname) {
+		this.professorname = professorname;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	public String getScoret() {
+		return scoret;
+	}
+	public void setScoret(String scoret) {
+		this.scoret = scoret;
 	}
 	@Override
 	public String toString() {
-		return "TestResultVO [testresultNum=" + testresultNum + ", testNum=" + testNum + ", testScore=" + testScore
-				+ ", classapplyNum=" + classapplyNum + ", classNum=" + classNum + ", credit=" + credit + ", classname="
-				+ classname + ", studentName=" + studentName + ", studentNum=" + studentNum + ", score=" + score
-				+ ", professorName=" + professorName + ", grade=" + grade + ", scoret=" + scoret + "]";
+		return "TestResultVO [testresultnum=" + testresultnum + ", testnum=" + testnum + ", testscore=" + testscore
+				+ ", classapplynum=" + classapplynum + ", classnum=" + classnum + ", credit=" + credit + ", classname="
+				+ classname + ", studentname=" + studentname + ", studentnum=" + studentnum + ", score=" + score
+				+ ", professorname=" + professorname + ", grade=" + grade + ", scoret=" + scoret + "]";
 	}
 	
 	
