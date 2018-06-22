@@ -31,7 +31,7 @@
 				$("#result").html("jquery: " + data);
 			}); */
 			$.ajax({
-				url : "inscore_control.jsp",
+				url : "getTestresultList.jsp",
 				method : "get",
 				data : param,
 				async : false

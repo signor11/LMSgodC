@@ -55,15 +55,16 @@ public class TestResultController {
 	//교수 성적 조회
 	@RequestMapping("/getTestResultList")
 	
-		public List<TestResultVO> gettestresultList(TestResultVO ts){
-		return testResultService.gettestresultList(ts);
+		public String gettestresultList(TestResultVO ts,Model model){
+		model.addAttribute("insList",testResultService.gettestresultList(ts));
+		return "getTestresultList.jsp";
 	}
 	//학생 성적 조회
 	@RequestMapping("/gettestresultListstu.do")
-	@ResponseBody
-		public List<Map<Object,String>> gettestresultListstu(TestResultVO vo){
-		
-		return testResultService.gettestresultListstu(vo);
+		public String gettestresultListstu(TestResultVO vo,Model model){
+		 //model 정보저장
+		model.addAttribute("serList",testResultService.gettestresultListstu(vo));
+		return "getTestresultListstu.jsp";//View 이름 리턴
 		
 	}
 }
