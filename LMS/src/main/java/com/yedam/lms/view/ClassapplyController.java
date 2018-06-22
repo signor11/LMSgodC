@@ -1,7 +1,9 @@
 package com.yedam.lms.view;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -28,7 +30,7 @@ public class ClassapplyController {
 	}
 	
 	@RequestMapping("/insertClassapply")
-	public String insertClassapply(ClassapplyVO vo, HttpSession session, HttpServletResponse response) {
+	public String insertClassapply(ClassapplyVO vo, HttpSession session, HttpServletResponse response) throws IOException {
 		String stid =(String)session.getAttribute("in");
 		PrintWriter out = response.getWriter();
 		vo.setStudentnum(stid);  
@@ -51,11 +53,10 @@ public class ClassapplyController {
 		}
 		return "";
 	}
-	@RequestMapping("/deleteClassapply")
-	@ResponseBody
-	public String deleteClassapply(String classapplynum) {
-		
-		return "";
+	@RequestMapping("/getClassapplyList")
+	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo) {
+		request.setAttribute("classapplyList",classapplyService.getClassapplyList(vo));
+		return "classapply/searchlecture";
 	}
 	
 	
