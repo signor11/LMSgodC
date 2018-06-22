@@ -19,6 +19,7 @@
 	</form>
 
 	<a href="insertProfessorForm">교수등록하기</a>
+	
 	<c:forEach items="${professorList}" var="professor">
 		<div style="border: 1px solid blue;">
 			professornum:<a href="getProfessor/${professor.PROFESSORNUM}">${professor.PROFESSORNUM}</a><br>
