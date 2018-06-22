@@ -11,6 +11,8 @@ public class ClassapplyVO {
 	public String credit;
 	public String studentname;
 	public String professornum;
+	
+	
 	public String getClassapplynum() {
 		return classapplynum;
 	}
