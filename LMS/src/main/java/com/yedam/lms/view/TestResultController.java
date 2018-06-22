@@ -60,11 +60,11 @@ public class TestResultController {
 		return "getTestresultList.jsp";
 	}
 	//학생 성적 조회
-	@RequestMapping("/gettestresultListstu.do")
+	@RequestMapping("/gettestresultListstu")
 		public String gettestresultListstu(TestResultVO vo,Model model){
 		 //model 정보저장
 		model.addAttribute("serList",testResultService.gettestresultListstu(vo));
-		return "getTestresultListstu.jsp";//View 이름 리턴
+		return "result/getTestresultListstu";//View 이름 리턴
 		
 	}
 }
