@@ -6,7 +6,7 @@ public interface ClassapplyService {
 	
 	//중복 확인
 	public ClassapplyVO checkclassapply(ClassapplyVO vo);
-	
+	 
 	//강의 신청
 	public boolean insertClassapply(ClassapplyVO vo);
 	

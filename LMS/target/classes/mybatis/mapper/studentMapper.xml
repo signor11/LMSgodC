@@ -5,7 +5,7 @@
 <mapper namespace="com.yedam.smp.impl.StudentDAO">
 
 	<!-- 단건조회 -->
-	<select id="getStudent" parameterType="string" resultType="com.yedam.smp.StudentVO">
+	<select id="getStudent" parameterType="string" resultType="com.yedam.lms.smp.StudentVO">
 		
 		SELECT STUDENTNUM,
 			   MAJORNUM,
@@ -30,7 +30,7 @@
 	</select>
 	
 	<!-- 입력 -->
-	<insert id = "insertStudent" parameterType="com.yedam.smp.StudentVO">
+	<insert id = "insertStudent" parameterType="com.yedam.lms.smp.StudentVO">
 		<selectKey keyProperty="studentNum" resultType="string" order="BEFORE">
 			SELECT nvl(max(SEQ),0)+1 FROM STUDENT
 		</selectKey>
@@ -49,7 +49,7 @@
 	</insert>
 	
 	<!-- 수정 -->
-	<update id="updateStudent"  parameterType="com.yedam.smp.StudentVO">
+	<update id="updateStudent"  parameterType="com.yedam.lms.smp.StudentVO">
 		UPDATE STUDENT
 		SET	   MAJORNUM=#{majorNum},
 			   STUDENTPW=#{studentPw},
@@ -60,7 +60,7 @@
 	</update>
 	
 	<!-- 삭제 -->
-	<delete id = "deleteStudent" parameterType="com.yedam.smp.StudentVO">
+	<delete id = "deleteStudent" parameterType="com.yedam.lms.smp.StudentVO">
 		DELETE FROM STUDENT
 		WHERE STUDENTNUM=#{studentNum}
 	</delete>
