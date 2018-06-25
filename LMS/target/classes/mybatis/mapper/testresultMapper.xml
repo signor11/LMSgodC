@@ -41,7 +41,7 @@
 	
 	<!-- 교수 성적 조회 -->
 
-	<select id="gettestResultList" resultType="testResultVO">
+	<select id="getTestresultList" resultType="testResultVO">
 
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,

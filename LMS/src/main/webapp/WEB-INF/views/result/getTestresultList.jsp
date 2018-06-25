@@ -14,24 +14,21 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script src="../scripts/jquery-3.2.1.min.js"></script>
 
 
 <script>
+
+	//성적(tab)키 update
 	$(function() {
 		$("[name=score]").change(function() {
 			var classapplynum;
 			var param = {
-
 				action : "update",
 				score : $(this).val(),
 				classapplynum : $(this).prev().text()
 			};
-			/* $.get("dupCheck.jsp", param, function(data) {
-				$("#result").html("jquery: " + data);
-			}); */
 			$.ajax({
-				url : "getTestresultList.jsp",
+				url : "updateTestResult",
 				method : "get",
 				data : param,
 				async : false
@@ -52,13 +49,12 @@
 	<div align=center>
 		<p style="font-size: 34px">성적 조회</p>
 		<div style="display: inline-block;">
-			<form method="post" action="inscore_control.jsp" name="insform">
+			<form method="post" action="updateTestResult" >
 				<input type="hidden" name="action" value="list"> 
 				<input type="text" value="과목명" disabled="disabled"
 					style="padding: 10px; display: inline-block; text-align: center;"
 					size="5">
-				<select name="classnum" style="padding: 10px; text-align: center;"
-					onchange="document.insform.submit()">
+				<select name="classnum" style="padding: 10px; text-align: center;">
 					<option value="DropDown" hidden="" selected="selected">선택</option>
 					<c:forEach items="${classname}" var="cl">
 						<option value="${cl.classnum}"

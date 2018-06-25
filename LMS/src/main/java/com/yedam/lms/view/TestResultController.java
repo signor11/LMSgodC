@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yedam.lms.classs.ClassapplyService;
+import com.yedam.lms.classs.ClassapplyVO;
 import com.yedam.lms.result.TestResultService;
 import com.yedam.lms.result.TestResultVO;
 import com.yedam.lms.result.impl.TestResultDAO;
@@ -20,6 +22,7 @@ import com.yedam.lms.smp.impl.StudentDAO;
 public class TestResultController {
 	
 	@Autowired TestResultService testResultService;
+	@Autowired ClassapplyService classapplyService;
 	
 	//등록 처리
 	@RequestMapping(value = "/insertTestResult")
@@ -30,23 +33,24 @@ public class TestResultController {
 	
 	//수정 처리
 	@RequestMapping(value = "/updateTestResult")
-	public String updateTestResultForm(TestResultVO vo) {
-		testResultService.updateTestResult(vo);
-		return "result/getTestresultList";//main 페이지 리턴
+	@ResponseBody
+	public ClassapplyVO updateTestResult(TestResultVO vo) {
+		testResultService.updateTestResult(vo);//->testResultDAO.classapplyUpdate(classapplyVO);
+		return classapplyService.getClassapply(vo.getClassapplynum());//spring 서비스 활용
 	}
 	
 	//단건
 	@RequestMapping("/gettestResult")	
 	public String gettestResult(TestResultVO vo,Model model) {
-			model.addAttribute("inList",testResultService.gettestresult(vo));
-			return "result/getTestresultList";
+		model.addAttribute("inList",testResultService.gettestresult(vo));
+		return "result/getTestresultList";
 	}
 
 	//교수 성적 조회
-	@RequestMapping("/gettestResultList")
+	@RequestMapping("/getTestresultList")
 	public String gettestresultList(TestResultVO vo,Model model){
-		vo.setClassapplynum("98000001");
-		model.addAttribute("insList",testResultService.gettestResultList(vo));
+		vo.setClassnum("48000001");
+		model.addAttribute("insList",testResultService.getTestresultList(vo));
 		return "result/getTestresultList";
 
 	}

@@ -17,12 +17,12 @@ public class TestResultImpl implements TestResultService{
 
 	@Override
 	public void insertTestResult(TestResultVO vo) {
-		dao.gettestresultList(vo);
+		dao.getTestresultList(vo);
 	}
 
 	@Override
 	public void updateTestResult(TestResultVO vo) {
-		dao.gettestresultList(vo);
+		dao.getTestresultList(vo);
 	}
 
 	@Override
@@ -31,8 +31,8 @@ public class TestResultImpl implements TestResultService{
 	}
 	//교수 성적 조회
 	@Override
-	public List<TestResultVO> gettestResultList(TestResultVO vo) {
-		return dao.gettestresultList(vo);
+	public List<TestResultVO> getTestresultList(TestResultVO vo) {
+		return dao.getTestresultList(vo);
 	}
 	//학생성적 조회
 	@Override
