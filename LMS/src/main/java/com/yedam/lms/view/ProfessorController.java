@@ -49,13 +49,4 @@ public class ProfessorController {
 		return "redirect:/getProfessorList";
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
