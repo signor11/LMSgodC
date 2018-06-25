@@ -56,7 +56,7 @@ pageEncoding="UTF-8"%>
 <!----font-Awesome----->
 </head>
 <body>
-<div class="header_bg">
+<div>
 <div class="container">
 	<div class="row header">
 		<div class="logo navbar-left">
