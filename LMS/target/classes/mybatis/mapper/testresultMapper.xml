@@ -4,11 +4,10 @@
 
 <mapper namespace="testResultDAO">
 	
+	<!-- 작성자 김혜민 -->
 	<!-- 교수 성적 입력 -->
 	<insert id="insertTestResult" parameterType="testResultVO">
-	<selectKey keyProperty="testresultNum" resultType="string" order="BEFORE">
-		SELECT nvl(max(SEQ),0)+1 FROM TESTRESULT
-	</selectKey>
+	
 		INSERT INTO TESTRESULT (TESTRESULTNUM,
 								TESTSCORE,
 								TESTNUM,
@@ -19,8 +18,8 @@
 							#{classapplynum})
 	</insert>
 	
-	<!-- 교수 성적 수정 -->
-	<update id = "testResultUpdate" parameterType="com.yedam.lms.result.TestResultVO">
+	<!-- 온라인 시험 성적 수정 -->
+	<update id = "updateTestResult" parameterType="testResultVO">
 		UPDATE TESTRESULT 
 		SET    TESTSCORE=#{testscore},
 			   TESTNUM=#{testnum},
@@ -29,6 +28,17 @@
 			   CLASSNUM=#{classnum}
 			   WHERE TESTRESULTNUM=#{testresultnum}
 	</update>
+	
+	<!-- 과목 성적 수정 -->
+	<update id="updateClassapply" parameterType="testResultVO">
+		UPDATE CLASSAPPLY 
+		SET    CLASSAPPLYNUM=#{classapplynum},
+			   STUDENTNUM = #{studentnum},
+			   CLASSNUM = #{classnum},
+			   SCORE = #{score}
+		WHERE  CLASSAPPLYNUM = #{classapplynum}
+	
+	</update> 
 	
 	<!-- 단건 조회 -->
 
@@ -65,7 +75,7 @@
 	</select>
 	
 	<!-- 학생 성적 조회 -->
-	<select id="gettestresultListstu" resultType="com.yedam.lms.result.TestResultVO">
+	<select id="gettestresultListstu" resultType="testResultVO">
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,
@@ -102,5 +112,4 @@
 			   </if>
 			  ORDER BY CLASSAPPLYNUM
 	</select>
-
 </mapper>

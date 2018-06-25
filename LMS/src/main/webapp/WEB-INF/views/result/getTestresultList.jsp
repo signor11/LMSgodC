@@ -23,12 +23,11 @@
 		$("[name=score]").change(function() {
 			var classapplynum;
 			var param = {
-				action : "update",
 				score : $(this).val(),
 				classapplynum : $(this).prev().text()
 			};
 			$.ajax({
-				url : "updateTestResult",
+				url : "updateClassapply",
 				method : "get",
 				data : param,
 				async : false
@@ -49,7 +48,7 @@
 	<div align=center>
 		<p style="font-size: 34px">성적 조회</p>
 		<div style="display: inline-block;">
-			<form method="post" action="updateTestResult" >
+			<form method="post" action="updateClassapply" >
 				<input type="hidden" name="action" value="list"> 
 				<input type="text" value="과목명" disabled="disabled"
 					style="padding: 10px; display: inline-block; text-align: center;"

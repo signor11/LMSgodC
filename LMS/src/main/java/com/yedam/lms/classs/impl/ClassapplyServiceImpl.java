@@ -10,6 +10,7 @@ import com.yedam.lms.classs.ClassSearchVO;
 import com.yedam.lms.classs.ClassVO;
 import com.yedam.lms.classs.ClassapplyService;
 import com.yedam.lms.classs.ClassapplyVO;
+import com.yedam.lms.result.TestResultVO;
 
 @Service("classapplyService")
 public class ClassapplyServiceImpl implements ClassapplyService  {
@@ -80,6 +81,12 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	public List<Map<String, Object>> getClassList(ClassSearchVO classsearchVO) {
 		// TODO Auto-generated method stub
 		return dao2.getClassList(classsearchVO);
+	}
+	//성적 수정(김혜민)
+	@Override
+	public void updateClassapply(TestResultVO vo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

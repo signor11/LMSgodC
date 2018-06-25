@@ -7,8 +7,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.yedam.lms.classs.ClassapplyVO;
 import com.yedam.lms.result.TestResultVO;
-
+//작성자 김혜민
 @Repository
 public class TestResultDAO {
 
@@ -20,9 +21,14 @@ public class TestResultDAO {
 		mybatis.insert("testResultDAO.testResultInsert",vo);
 	}
 	
-	//교수 성적 수정
+	//온라인 성적 수정
 	public void updateTestResult(TestResultVO vo) {
-		mybatis.update("testResultDAO.testResultUpdate",vo);
+		mybatis.update("testResultDAO.updateTestResult",vo);
+	}
+	
+	//과목 성적 수정
+	public void updateClassapply(ClassapplyVO vo) {
+		mybatis.update("classapplyDAO.updateClassapply",vo);
 	}
 	//단건 조회
 	public TestResultVO gettestresult(TestResultVO vo) {

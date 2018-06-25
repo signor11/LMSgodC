@@ -17,7 +17,7 @@ import com.yedam.lms.result.TestResultService;
 import com.yedam.lms.result.TestResultVO;
 import com.yedam.lms.result.impl.TestResultDAO;
 import com.yedam.lms.smp.impl.StudentDAO;
-
+//작성자 김혜민
 @Controller
 public class TestResultController {
 	
@@ -31,14 +31,13 @@ public class TestResultController {
 		return "result/getTestresultList";//main 페이지 리턴
 	}
 	
-	//수정 처리
-	@RequestMapping(value = "/updateTestResult")
+	//성적 처리
+	@RequestMapping(value = "/updateClassapply")
 	@ResponseBody
 	public ClassapplyVO updateTestResult(TestResultVO vo) {
-		testResultService.updateTestResult(vo);//->testResultDAO.classapplyUpdate(classapplyVO);
+		classapplyService.updateClassapply(vo);//->testResultDAO.classapplyUpdate(classapplyVO);
 		return classapplyService.getClassapply(vo.getClassapplynum());//spring 서비스 활용
 	}
-	
 	//단건
 	@RequestMapping("/gettestResult")	
 	public String gettestResult(TestResultVO vo,Model model) {

@@ -24,7 +24,7 @@
 			width : 1000,
 			modal : true,
 			open : function(event, ui) {
-				$(event.target).load("transcript_control.jsp?action=list")
+				$(event.target).load("transcript")
 			}
 		});
 

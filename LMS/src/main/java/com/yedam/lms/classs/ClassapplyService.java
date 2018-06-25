@@ -3,6 +3,8 @@
 import java.util.List;
 import java.util.Map;
 
+import com.yedam.lms.result.TestResultVO;
+
 public interface ClassapplyService {
 	
 	//중복 확인
@@ -12,7 +14,7 @@ public interface ClassapplyService {
 	public boolean insertClassapply(ClassapplyVO vo);
 	
 	//강의 수정
-	public void updateClassapply(ClassapplyVO vo);
+	public void updateClassapply(TestResultVO vo);
 	
 	//강의 삭제
 	
