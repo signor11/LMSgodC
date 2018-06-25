@@ -16,7 +16,7 @@
 			required="required">
 			<option value="" selected hidden="">선택</option>
 			<c:forEach items="${classname}" var="n">
-				<option value="${n.classnum}">${n.classname}</option>
+				<option value="${n.CLASSNUM}">${n.CLASSNAME}</option>
 			</c:forEach>
 		</select>
 		
