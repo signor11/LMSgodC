@@ -1,6 +1,7 @@
  package com.yedam.lms.classs;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ClassapplyService {
 	
@@ -40,4 +41,8 @@ public interface ClassapplyService {
 	//수강 신청 번호 조회
 	
 	public ClassapplyVO getcanum(ClassapplyVO vo);
+	
+	
+	//전체 과목 조회
+	public List<Map<String, Object>> getClassList(ClassSearchVO classsearchVO);
 }

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yedam.lms.classs.ClassSearchVO;
 import com.yedam.lms.classs.ClassapplyVO;
 import com.yedam.lms.classs.impl.ClassapplyServiceImpl;
 
@@ -54,12 +55,21 @@ public class ClassapplyController {
 		return "";
 	}
 	@RequestMapping("/getClassapplyList")
-	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
+	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session) {
 		//String stid=(String)session.getAttribute("");
 		vo.setStudentnum("18000001");
+		vo2.setStart(1);
+		vo2.setEnd(10);
+		//수강신청내역 조회
 		request.setAttribute("classapplyList",classapplyService.getClassapplyList(vo));
-		return "classapply/searchlecture";
+		//수강신청목록 조회
+		request.setAttribute("classlist", classapplyService.getClassList(vo2));
+		return "classapply/applylecture";
 	}
 	
-	
+	@RequestMapping("/deleteClassapply")
+	public String deleteClassapply(ClassapplyVO vo ) {
+		classapplyService.deleteClassapply();
+		return vo;
+	}
 }

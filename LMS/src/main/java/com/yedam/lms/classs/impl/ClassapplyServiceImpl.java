@@ -1,10 +1,13 @@
 package com.yedam.lms.classs.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yedam.lms.classs.ClassSearchVO;
+import com.yedam.lms.classs.ClassVO;
 import com.yedam.lms.classs.ClassapplyService;
 import com.yedam.lms.classs.ClassapplyVO;
 
@@ -13,6 +16,8 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 
 	@Autowired
 	ClassapplyDAO dao;
+	@Autowired
+	ClassDAO dao2;
 	
 	
 	@Override
@@ -71,4 +76,11 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 		return dao.checkclassapply(vo);
 	}
 
+	@Override
+	public List<Map<String, Object>> getClassList(ClassSearchVO classsearchVO) {
+		// TODO Auto-generated method stub
+		return dao2.getClassList(classsearchVO);
+	}
+
+	
 }
