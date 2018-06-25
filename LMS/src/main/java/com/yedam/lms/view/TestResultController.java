@@ -42,12 +42,18 @@ public class TestResultController {
 			return testResultService.gettestresult(vo);
 	}
 	
+<<<<<<< HEAD
 	//교수 성적 조회
 	@RequestMapping("/gettestResultList")
 	
 		public String gettestresultList(TestResultVO vo,Model model){
 		model.addAttribute("insList",testResultService.gettestresultList(vo));
 		return "result/getTestresultList";
+=======
+		public String gettestresultList(TestResultVO ts,Model model){
+		model.addAttribute("insList",testResultService.gettestresultList(ts));
+		return "getTestresultList.jsp";
+>>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 	}
 	
 	//학생 성적 조회

@@ -3,13 +3,13 @@ package com.yedam.lms.hw;
 import java.util.List;
 
 
-public interface SubmitHWservice {
+public interface SubmitHWService {
 
 	//과제등록
 	public void submitHwInsert(SubmitHWVO vo);
 	
 	//과제파일등록(제출)
-	public String addfileInsert(AddFileVO vo);
+	public void addfileInsert(AddFileVO vo);
 	
 	//과제수정
 	public void submitHwUpdate(SubmitHWVO vo);

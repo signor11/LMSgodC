@@ -20,7 +20,7 @@
 	</insert>
 	
 	<!-- 교수 성적 수정 -->
-	<update id = "testResultUpdate" parameterType="testResultVO">
+	<update id = "testResultUpdate" parameterType="com.yedam.lms.result.TestResultVO">
 		UPDATE TESTRESULT 
 		SET    TESTSCORE=#{testscore},
 			   TESTNUM=#{testnum},
@@ -31,7 +31,11 @@
 	</update>
 	
 	<!-- 단건 조회 -->
+<<<<<<< HEAD
 	<select id="gettestresult" resultType="testResultVO">
+=======
+	<select id="gettestresult" parameterType="string" resultType="com.yedam.lms.result.TestResultVO">
+>>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 		SELECT *
 		FROM TESTRESULT
 		WHERE  TESTRESULTNUM= #{testresultnum}
@@ -39,7 +43,11 @@
 	
 	<!-- 교수 성적 조회 -->
 	
+<<<<<<< HEAD
 	<select id="gettestresultList" resultType="testResultVO">
+=======
+	<select id="getBoardList" resultType="com.yedam.lms.result.TestResultVO">
+>>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,
@@ -63,7 +71,7 @@
 	</select>
 	
 	<!-- 학생 성적 조회 -->
-	<select id="gettestresultListstu" resultType="testResultVO">
+	<select id="gettestresultListstu" resultType="com.yedam.lms.result.TestResultVO">
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,

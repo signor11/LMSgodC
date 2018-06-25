@@ -1,10 +1,15 @@
 package com.yedam.lms.view;
 
 
-import java.util.List;
-import java.util.Map;
+
 
 import javax.servlet.http.HttpServletRequest;
+
+import javax.servlet.http.HttpSession;
+
+
+
+//github.com/signor11/LMSgodC
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,17 +27,25 @@ public class ProfessorController {
 
 	@Autowired
 	ProfessorService professorService;
+	private ProfessorVO vo;
 
 	@RequestMapping("/getProfessorList")
+
+	
+	public String getProfessorList(HttpServletRequest request, HttpSession session,ProfessorVO vo) {
+
+		request.setAttribute("professorList", professorService.getProfessorList(vo));
+		return "professor/getProfessorList";
+	}
 	@ResponseBody
-	public List<Map<String, Object>> getProfessorList(HttpServletRequest request) {
-		request.setAttribute("professorList", professorService.getProfessorList());
+	public String getProfessorList(HttpServletRequest request) {
+		request.setAttribute("professorList", professorService.getProfessorList(vo));
 		return "professor/getProfessorList";
 	}
 
 	// 등록폼
 	@RequestMapping(value = "/insertProfessor", method = RequestMethod.GET)
-	@ResponseBody
+
 	public String insertProfessorForm() {
 		return "professor/insertProfessor";
 	}
@@ -40,19 +53,10 @@ public class ProfessorController {
 	// 등록처리
 	// / localhost 밑 web 아래
 	@RequestMapping(value = "/insertProfessor", method = RequestMethod.POST)
-	@ResponseBody
+	
 	public String insertProfessor() {
 		// 서비스 이용하여 등록처리하고 목록페이지로 이동
 		return "redirect:/getProfessorList";
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
