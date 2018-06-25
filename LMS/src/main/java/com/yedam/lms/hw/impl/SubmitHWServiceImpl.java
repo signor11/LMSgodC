@@ -7,10 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.yedam.lms.hw.AddFileVO;
 import com.yedam.lms.hw.SubmitHWVO;
-import com.yedam.lms.hw.SubmitHWservice;
+import com.yedam.lms.hw.SubmitHWService;
 
 @Service("submitHWService")
-public class SubmitHWServiceImpl implements SubmitHWservice {
+public class SubmitHWServiceImpl implements SubmitHWService {
 	
 	@Autowired
 	SubmitHWDAO dao;

@@ -3,7 +3,7 @@ package com.yedam.lms.hw;
 import java.util.List;
 
 
-public interface SubmitHWservice {
+public interface SubmitHWService {
 
 	//과제등록
 	public void submitHwInsert(SubmitHWVO vo);
