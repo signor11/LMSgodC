@@ -30,8 +30,8 @@ public class TestResultDAO {
 	}
 	
 	//교수 성적 조회
-	public List<TestResultVO> gettestresultList(TestResultVO ts){
-		return mybatis.selectList("testResultDAO.gettestresultList",ts);
+	public List<TestResultVO> gettestresultList(TestResultVO vo){
+		return mybatis.selectList("testResultDAO.gettestresultList",vo);
 	}
 	
 	//학생 성적 조회

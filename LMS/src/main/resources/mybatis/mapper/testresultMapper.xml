@@ -39,7 +39,7 @@
 	
 	<!-- 교수 성적 조회 -->
 	
-	<select id="getTestResultList" resultType="testResultVO">
+	<select id="gettestresultList" resultType="testResultVO">
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,
@@ -55,7 +55,7 @@
 			LEFT OUTER JOIN TESTRESULT TR 
 			ON (C.CLASSAPPLYNUM = TR.CLASSAPPLYNUM)
 	   WHERE 1=1 
-	   <if test="professorNum != null and professorNum != ''">
+	   <if test="professornum != null and professornum != ''">
 			AND C.PROFESSORNUM = #{professornum}
 	   </if>
  	  WHERE C.CLASSNUM = #{classnum}

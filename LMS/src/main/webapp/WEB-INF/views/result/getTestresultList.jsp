@@ -45,47 +45,6 @@
 	});
 
 </script>
-<style>
-body {
-	height: 100%;
-	width: 100%;
-}
-
-body {
-	font-family: "San francisco ", sans-serif;
-	background-size: cover;
-	background-repeat: repeat;
-}
-
-}
-.mySlides {
-	display: none
-}
-
-table.t1 td, th {
-	border: 1px solid black; padding 10px;
-	text-align: center;
-	width:
-}
-
-table.t1 {
-	border-spacing: 0;
-	border-collapse: collapse;
-}
-
-.page {
-	background-color: gray;
-	color: white;
-}
-
-.active {
-	background-color: green;
-}
-
-.w3-top {
-	background-color: #04B4AE;
-}
-</style>
 </head>
 
 <body>
@@ -94,11 +53,11 @@ table.t1 {
 		<p style="font-size: 34px">성적 조회</p>
 		<div style="display: inline-block;">
 			<form method="post" action="inscore_control.jsp" name="insform">
-				<input type="hidden" name="action" value="list"> <input
-					type="text" value="과목명" disabled="disabled"
+				<input type="hidden" name="action" value="list"> 
+				<input type="text" value="과목명" disabled="disabled"
 					style="padding: 10px; display: inline-block; text-align: center;"
-					size="5"> <select name="classnum"
-					style="padding: 10px; text-align: center;"
+					size="5">
+				<select name="classnum" style="padding: 10px; text-align: center;"
 					onchange="document.insform.submit()">
 					<option value="DropDown" hidden="" selected="selected">선택</option>
 					<c:forEach items="${classname}" var="cl">
@@ -126,9 +85,8 @@ table.t1 {
 						<td>${ins.getStudentnum()}</td>
 						<td>${ins.getStudentname()}</td>
 						<td id="gr${ins.getClassapplynum()}">${ins.getGrade()}</td>
-						<td><span style="display: none">${ins.getClassapplynum()}</span><input
-							id="${ins.getClassapplynum()}" name="score"
-							value="${ins.getScore()}"></td>
+						<td><span style="display: none">${ins.getClassapplynum()}</span>
+						<input id="${ins.getClassapplynum()}" name="score" value="${ins.getScore()}"></td>
 						<td id="sc${ins.getClassapplynum()}">${ins.getScoret()}</td>
 					</tr>
 				</c:forEach>

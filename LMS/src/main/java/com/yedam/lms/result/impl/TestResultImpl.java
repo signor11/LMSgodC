@@ -17,24 +17,24 @@ public class TestResultImpl implements TestResultService{
 
 	@Override
 	public void insertTestResult(TestResultVO vo) {
-	
+		dao.gettestresultList(vo);
 	}
 
 	@Override
 	public void updateTestResult(TestResultVO vo) {
-	 
+		dao.gettestresultList(vo);
 	}
 
 	@Override
 	public TestResultVO gettestresult(TestResultVO vo) {
 		return dao.gettestresult(vo);
 	}
-
+	//교수 성적 조회
 	@Override
-	public List<TestResultVO> gettestresultList(TestResultVO ts) {
-		return dao.gettestresultList(ts);
+	public List<TestResultVO> gettestresultList(TestResultVO vo) {
+		return dao.gettestresultList(vo);
 	}
-
+	//학생성적 조회
 	@Override
 	public List<TestResultVO> gettestresultListstu(TestResultVO vo) {
 		return dao.gettestresultListstu(vo);

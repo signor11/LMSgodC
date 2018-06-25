@@ -21,38 +21,35 @@ public class TestResultController {
 	
 	@Autowired TestResultService testResultService;
 	
-	//등록폼
+	//등록 처리
 	@RequestMapping(value = "/insertTestResult")
 	public String insertTestResult(TestResultVO vo) {
 		testResultService.insertTestResult(vo);
-		return "result/insertTestResult";
+		return "result/getTestresultList";//main 페이지 리턴
 	}
 	
-	//수정폼
-	@RequestMapping(value = "/updateTestResult",method = RequestMethod.GET)
-	public String updateTestResultForm() {
-		return "result/insertTestResult";
-	}
-	
-	//수정처리
-	@RequestMapping(value = "/updateTestResult",method = RequestMethod.POST)
-	public String updateTestResult(@ModelAttribute("vo") TestResultVO vo) {
+	//수정 처리
+	@RequestMapping(value = "/updateTestResult")
+	public String updateTestResultForm(TestResultVO vo) {
 		testResultService.updateTestResult(vo);
-		return "result/updateTestResult";
+		return "result/getTestresultList";//main 페이지 리턴
 	}
+	
 	//단건
-	@RequestMapping("/getTestResult")
+	@RequestMapping("/gettestResult")
 	
 		public TestResultVO gettestResult(TestResultVO vo) {
 			return testResultService.gettestresult(vo);
 	}
-	//교수 성적 조회
-	@RequestMapping("/getTestResultList")
 	
-		public String gettestresultList(TestResultVO ts,Model model){
-		model.addAttribute("insList",testResultService.gettestresultList(ts));
+	//교수 성적 조회
+	@RequestMapping("/gettestResultList")
+	
+		public String gettestresultList(TestResultVO vo,Model model){
+		model.addAttribute("insList",testResultService.gettestresultList(vo));
 		return "result/getTestresultList";
 	}
+	
 	//학생 성적 조회
 	@RequestMapping("/gettestresultListstu")
 		public String gettestresultListstu(TestResultVO vo,Model model){
