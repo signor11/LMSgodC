@@ -4,6 +4,8 @@ package com.yedam.lms.view;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,9 +25,9 @@ public class ProfessorController {
 
 	@RequestMapping("/getProfessorList")
 	@ResponseBody
-	public List<Map<String, Object>> getProfessorList(ProfessorVO vo) {
-
-		return professorService.getProfessorList(vo);
+	public List<Map<String, Object>> getProfessorList(HttpServletRequest request) {
+		request.setAttribute("professorList", professorService.getProfessorList());
+		return "professor/getProfessorList";
 	}
 
 	// 등록폼
