@@ -52,7 +52,7 @@
 	</delete>
 		
 	<!-- 단건 조회 -->
-	<select id="getClassapply" resultType="string">
+	<select id="getClassapply" resultType="com.yedam.lms.classs.ClassapplyVO">
 		SELECT 	CLASSAPPLYNUM,
 				STUDENTNUM,
 				CLASSNUM,

@@ -68,7 +68,8 @@ public class ClassapplyController {
 	}
 	
 	@RequestMapping("/deleteClassapply")
-	public String deleteClassapply(HttpServletRequest request) {
-		return null;
+	public String deleteClassapply(ClassapplyVO vo ) {
+		classapplyService.deleteClassapply();
+		return vo;
 	}
 }

@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <%-- <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %> --%>
-=======
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodc
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,7 +36,7 @@
 	</script>
 </head>
 <body>
-<<<<<<< HEAD
+
 <div align = center>
  	<div>
 	<h1>
@@ -53,10 +51,7 @@
 		</span> 
 			<input type="submit" value="조회" class="btn btn-danger"
 				/>
-=======
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodc
 
-<<<<<<< HEAD
 		 <br> <br>
 	</div>
 	<div>● 수강신청</div>
@@ -138,7 +133,6 @@
 		</table>
 		</form>
 		</div>
-=======
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodc
+
 </body>
 </html>
