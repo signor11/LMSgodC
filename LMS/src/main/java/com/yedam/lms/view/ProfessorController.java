@@ -1,11 +1,15 @@
 package com.yedam.lms.view;
 
 
-import java.util.List;
-import java.util.Map;
+
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpSession;
+
+
+
+//github.com/signor11/LMSgodC
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.yedam.lms.classs.ClassapplyVO;
 import com.yedam.lms.smp.ProfessorService;
 import com.yedam.lms.smp.ProfessorVO;
 
@@ -24,12 +27,19 @@ public class ProfessorController {
 
 	@Autowired
 	ProfessorService professorService;
+	private ProfessorVO vo;
 
 	@RequestMapping("/getProfessorList")
+
 	
 	public String getProfessorList(HttpServletRequest request, HttpSession session,ProfessorVO vo) {
 
-		request.setAttribute("professorList", professorService.getProfessorList(vo));;
+		request.setAttribute("professorList", professorService.getProfessorList(vo));
+		return "professor/getProfessorList";
+	}
+	@ResponseBody
+	public String getProfessorList(HttpServletRequest request) {
+		request.setAttribute("professorList", professorService.getProfessorList(vo));
 		return "professor/getProfessorList";
 	}
 
