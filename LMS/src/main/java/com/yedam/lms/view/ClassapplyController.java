@@ -69,7 +69,7 @@ public class ClassapplyController {
 	
 	@RequestMapping("/deleteClassapply")
 	public String deleteClassapply(ClassapplyVO vo ) {
-		classapplyService.deleteClassapply();
+		classapplyService.deleteClassapply(classapplynum);
 		return vo;
 	}
 }
