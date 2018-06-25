@@ -36,31 +36,26 @@ public class TestResultController {
 	}
 	
 	//단건
-	@RequestMapping("/gettestResult")
-	
-		public TestResultVO gettestResult(TestResultVO vo) {
-			return testResultService.gettestresult(vo);
+	@RequestMapping("/gettestResult")	
+	public String gettestResult(TestResultVO vo,Model model) {
+			model.addAttribute("inList",testResultService.gettestresult(vo));
+			return "result/getTestresultList";
 	}
-	
-<<<<<<< HEAD
+
 	//교수 성적 조회
 	@RequestMapping("/gettestResultList")
-	
-		public String gettestresultList(TestResultVO vo,Model model){
-		model.addAttribute("insList",testResultService.gettestresultList(vo));
+	public String gettestresultList(TestResultVO vo,Model model){
+		vo.setClassapplynum("98000001");
+		model.addAttribute("insList",testResultService.gettestResultList(vo));
 		return "result/getTestresultList";
-=======
-		public String gettestresultList(TestResultVO ts,Model model){
-		model.addAttribute("insList",testResultService.gettestresultList(ts));
-		return "getTestresultList.jsp";
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
+
 	}
 	
 	//학생 성적 조회
 	@RequestMapping("/gettestresultListstu")
-		public String gettestresultListstu(TestResultVO vo,Model model){
+	public String gettestresultListstu(TestResultVO vo,Model model){
 		 //model 정보저장
-		vo.setStudentnum("18000001");
+		vo.setStudentnum("18000001");//학생 정보
 		model.addAttribute("serList",testResultService.gettestresultListstu(vo));
 		return "result/getTestresultListstu";//View 이름 리턴
 		

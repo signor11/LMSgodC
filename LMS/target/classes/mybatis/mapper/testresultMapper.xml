@@ -31,23 +31,18 @@
 	</update>
 	
 	<!-- 단건 조회 -->
-<<<<<<< HEAD
+
 	<select id="gettestresult" resultType="testResultVO">
-=======
-	<select id="gettestresult" parameterType="string" resultType="com.yedam.lms.result.TestResultVO">
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
+
 		SELECT *
 		FROM TESTRESULT
 		WHERE  TESTRESULTNUM= #{testresultnum}
 	</select>
 	
 	<!-- 교수 성적 조회 -->
-	
-<<<<<<< HEAD
-	<select id="gettestresultList" resultType="testResultVO">
-=======
-	<select id="getBoardList" resultType="com.yedam.lms.result.TestResultVO">
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
+
+	<select id="gettestResultList" resultType="testResultVO">
+
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,
@@ -63,10 +58,9 @@
 			LEFT OUTER JOIN TESTRESULT TR 
 			ON (C.CLASSAPPLYNUM = TR.CLASSAPPLYNUM)
 	   WHERE 1=1 
-	   <if test="professornum != null and professornum != ''">
-			AND C.PROFESSORNUM = #{professornum}
+	   <if test="classnum != null and classnum != ''">
+			AND  C.CLASSNUM = #{classnum}
 	   </if>
- 	  WHERE C.CLASSNUM = #{classnum}
 	  ORDER BY CLASSAPPLYNUM
 	</select>
 	

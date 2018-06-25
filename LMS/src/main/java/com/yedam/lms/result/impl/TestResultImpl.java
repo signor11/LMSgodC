@@ -31,7 +31,7 @@ public class TestResultImpl implements TestResultService{
 	}
 	//교수 성적 조회
 	@Override
-	public List<TestResultVO> gettestresultList(TestResultVO vo) {
+	public List<TestResultVO> gettestResultList(TestResultVO vo) {
 		return dao.gettestresultList(vo);
 	}
 	//학생성적 조회

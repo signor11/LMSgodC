@@ -12,6 +12,7 @@ public class TestResultVO {
 	private String studentnum;
 	private String score;
 	private String professorname;
+	private String professornum;
 	private String grade;	//등급 function
 	private String scoret;	//학점 function
 	public String getTestresultnum() {
@@ -91,6 +92,13 @@ public class TestResultVO {
 	}
 	public void setScoret(String scoret) {
 		this.scoret = scoret;
+	}
+	
+	public String getProfessornum() {
+		return professornum;
+	}
+	public void setProfessornum(String professornum) {
+		this.professornum = professornum;
 	}
 	@Override
 	public String toString() {
