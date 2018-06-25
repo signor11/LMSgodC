@@ -64,12 +64,12 @@ public class ClassapplyDAO {
 	// 교수 시간표 조회
 
 	public ClassapplyVO getschedulePro(ClassapplyVO vo) {
-		return mybatis.selectOne("com.yedam.lms.classs.impl.LectureDAO.getschedulePro", vo);
+		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.getschedulePro", vo);
 	}
 
 	// 수강 신청 번호 조회
 
 	public ClassapplyVO getcanum(ClassapplyVO vo) {
-		return mybatis.selectOne("com.yedam.lms.classs.impl.LectureDAO.getcanum", vo);
+		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.getcanum", vo);
 	}
 }

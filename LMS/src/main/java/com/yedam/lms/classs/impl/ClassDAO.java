@@ -17,23 +17,26 @@ public class ClassDAO {
 	SqlSessionTemplate mybatis;
 
 	public ClassVO getClass(String classnum) {
-		return mybatis.selectOne("classDAO.getClass", classnum);
+		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.getClass", classnum);
 	}
 
 	public List<Map<String, Object>> getClassList(ClassVO classVO) {
-		return mybatis.selectList("classDAO.getClassList", classVO);
+		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.getClassList", classVO);
 	}
 
 	public List<Map<String, Object>> stu_classnameList(String studentnum) {
-		return mybatis.selectList("classDAO.stu_classnameList", studentnum);
+		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.stu_classnameList", studentnum);
 	}
 
 	public List<Map<String, Object>> pro_classnameList(String professornum) {
-		return mybatis.selectList("classDAO.pro_classnameList", professornum);
+		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.pro_classnameList", professornum);
 	}
 
 	public int count(ClassSearchVO classSearchVO) {
-		return mybatis.selectOne("classDAO.getClass", classSearchVO);
+		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.getClass", classSearchVO);
+	}
+	public List<Map<String, Object>> getClassList(ClassSearchVO classSearchVO){
+		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.getClassList",classSearchVO);
 	}
 
 }

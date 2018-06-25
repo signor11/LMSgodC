@@ -50,7 +50,7 @@
 			
 			
 	 <!-- 전체조회 -->
-	 <select id="getClassList" resultType="map" parameterType="classVO">
+	 <select id="getClassList" resultType="map" parameterType="classsearchVO">
 			SELECT 			B.* FROM 
 							( SELECT A.*,ROWNUM RN FROM 
 								(SELECT C.CLASSNUM,
@@ -64,23 +64,23 @@
 								FROM CLASS C JOIN PROFESSOR P
 							 	ON C.PROFESSORNUM = P.PROFESSORNUM 
 							 	WHERE 1=1 
-							 	<if test="classNum != null and  classNum !=''">
-								AND C.CLASSNUM = #{classNum}
+							 	<if test="classnum != null and  classnum !=''">
+								AND C.CLASSNUM = #{classnum}
 								</if>
-								<if test="className != null and className !=''">
-								AND C.CLASSNAME LIKE '%' || upper(#{className}) || '%'
+								<if test="classname != null and classname !=''">
+								AND C.CLASSNAME LIKE '%' || upper(#{classname}) || '%'
 								</if>
-								<if test="professorName != null and professorName != ''">
-								AND P.PROFESSORNAME LIKE '%' || upper(#{professorName}) || '%'
+								<if test="professorname != null and professorname != ''">
+								AND P.PROFESSORNAME LIKE '%' || upper(#{professorname}) || '%'
 								</if> 
-								<if test="classTime !=null and classTime !=''">
-								AND C.CLASSTIME LIKE '%' || upper(#{classTime}) || '%'
+								<if test="classtime !=null and classtime !=''">
+								AND C.CLASSTIME LIKE '%' || upper(#{classtime}) || '%'
 								</if>
 								ORDER BY CLASSNUM
 							 	) A 
 							 )B
 							 
-							 WHERE RN BETWEEN ? AND ?";
+							 WHERE RN BETWEEN #{start} AND #{end}
 					 		
 	</select>			 
 			
