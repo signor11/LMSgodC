@@ -13,21 +13,21 @@
 								TESTSCORE,
 								TESTNUM,
 								CLASSAPPLYNUM)
-					VALUES (#{testresultNum},
-							#{testScore},
-							#{testNum},
-							#{classapplyNum})
+					VALUES (#{testresultnum},
+							#{testscore},
+							#{testnum},
+							#{classapplynum})
 	</insert>
 	
 	<!-- 교수 성적 수정 -->
 	<update id = "testResultUpdate" parameterType="testResultVO">
 		UPDATE TESTRESULT 
-		SET    TESTSCORE=#{testScore},
-			   TESTNUM=#{testNum},
-			   CLASSAPPLYNUM=#{classapplyNum},
-			   STUDENTNUM=#{studentNum},
-			   CLASSNUM=#{classNum}
-			   WHERE TESTRESULTNUM=#{testresultNum}
+		SET    TESTSCORE=#{testscore},
+			   TESTNUM=#{testnum},
+			   CLASSAPPLYNUM=#{classapplynum},
+			   STUDENTNUM=#{studentnum},
+			   CLASSNUM=#{classnum}
+			   WHERE TESTRESULTNUM=#{testresultnum}
 	</update>
 	
 	<!-- 단건 조회 -->
@@ -39,7 +39,7 @@
 	
 	<!-- 교수 성적 조회 -->
 	
-	<select id="getBoardList" resultType="testResultVO">
+	<select id="getTestResultList" resultType="testResultVO">
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,
