@@ -41,6 +41,7 @@ public class HWController {
 	// 교수용 다건조회
 	@RequestMapping("/getHWListPro")
 	public String getHWListPro(HttpServletRequest request, HWVO vo) {
+		vo.setProfessornum("28000001");
 		request.setAttribute("HWListPro", hwService.getHWListPro(vo));
 		return "hw/getHWListPro";
 	}
@@ -55,8 +56,10 @@ public class HWController {
 	// 과제 등록처리
 	@RequestMapping(value = "/hwInsert", method = RequestMethod.POST)
 	public String hwInsert(@ModelAttribute("vo") HWVO vo) {
-		hwService.hwInsert(vo); 
-		return "hw/getHWListPro";  
+		hwService.hwInsert(vo);
+		System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
+		System.out.println(vo);
+		return "redirect:/getHWListPro";  
 	}
 	
 	//수정폼
