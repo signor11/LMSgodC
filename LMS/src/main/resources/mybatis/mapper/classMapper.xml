@@ -115,11 +115,7 @@
 			SELECT 		CLASSNUM, 
 						CLASSNAME
 		 	FROM CLASS
-		 	<where>
-		 	<if test="professorNum != null and professorNum != ''">
-			PROFESSORNUM = #{professorNum} 
-			</if>
-			</where>
+			WHERE PROFESSORNUM = #{professornum} 
 			ORDER BY CLASSNUM
 			
 	</select>
