@@ -32,7 +32,7 @@ public interface ClassapplyService {
 	
 	//학생 강의 체크
 	
-	public boolean getClassapplyListcheck(ClassapplyVO vo);
+	public ClassapplyVO getClassapplyListcheck(ClassapplyVO vo);
 	
 	//교수 시간표 조회
 	

@@ -32,12 +32,13 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 
 	@Override
 	public void updateClassapply(ClassapplyVO vo) {
+		dao.updateClassapply(vo);
 		
 	}
 
 	@Override
 	public void deleteClassapply(String classapplynum) {
-		
+		dao.deleteClassapply(classapplynum);
 	}
 
 	@Override
@@ -57,7 +58,12 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 
 	@Override
 	public boolean getClassapplyListcheck(ClassapplyVO vo) {
-		return true;
+		int a = dao.getClassapplyListcheck(vo);
+		if (a==0) {
+		return false;
+		}
+		else 
+			return true;
 	}
 
 	@Override
