@@ -1,54 +1,55 @@
 package com.yedam.lms.smp;
 
 public class StudentVO {
-	private String studentNum;
-	private String majorNum;
-	private String studentPw;
-	private String studentName;
-	private String studentPhone;
-	private String studentDate;
-	
-	public String getStudentNum() {
-		return studentNum;
+	private String studentnum;
+	private String majornum;
+	private String studentpw;
+	private String studentname;
+	private String studentphone;
+	private String studentdate;
+	public String getStudentnum() {
+		return studentnum;
 	}
-	public void setStudentNum(String studentNum) {
-		this.studentNum = studentNum;
+	public void setStudentnum(String studentnum) {
+		this.studentnum = studentnum;
 	}
-	public String getMajorNum() {
-		return majorNum;
+	public String getMajornum() {
+		return majornum;
 	}
-	public void setMajorNum(String majorNum) {
-		this.majorNum = majorNum;
+	public void setMajornum(String majornum) {
+		this.majornum = majornum;
 	}
-	public String getStudentPw() {
-		return studentPw;
+	public String getStudentpw() {
+		return studentpw;
 	}
-	public void setStudentPw(String studentPw) {
-		this.studentPw = studentPw;
+	public void setStudentpw(String studentpw) {
+		this.studentpw = studentpw;
 	}
-	public String getStudentName() {
-		return studentName;
+	public String getStudentname() {
+		return studentname;
 	}
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
+	public void setStudentname(String studentname) {
+		this.studentname = studentname;
 	}
-	public String getStudentPhone() {
-		return studentPhone;
+	public String getStudentphone() {
+		return studentphone;
 	}
-	public void setStudentPhone(String studentPhone) {
-		this.studentPhone = studentPhone;
+	public void setStudentphone(String studentphone) {
+		this.studentphone = studentphone;
 	}
-	public String getStudentDate() {
-		return studentDate;
+	public String getStudentdate() {
+		return studentdate;
 	}
-	public void setStudentDate(String studentDate) {
-		this.studentDate = studentDate;
+	public void setStudentdate(String studentdate) {
+		this.studentdate = studentdate;
 	}
 	@Override
 	public String toString() {
-		return "StudentVO [studentNum=" + studentNum + ", majorNum=" + majorNum + ", studentPw=" + studentPw
-				+ ", studentName=" + studentName + ", studentPhone=" + studentPhone + ", studentDate=" + studentDate
+		return "StudentVO [studentnum=" + studentnum + ", majornum=" + majornum + ", studentpw=" + studentpw
+				+ ", studentname=" + studentname + ", studentphone=" + studentphone + ", studentdate=" + studentdate
 				+ "]";
 	}
+	
+	
 	
 }
