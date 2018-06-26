@@ -41,6 +41,7 @@ public class HWController {
 	// 교수용 다건조회
 	@RequestMapping("/getHWListPro")
 	public String getHWListPro(HttpServletRequest request, HWVO vo) {
+		vo.setProfessornum("28000001");
 		request.setAttribute("HWListPro", hwService.getHWListPro(vo));
 		return "hw/getHWListPro";
 	}
@@ -55,13 +56,15 @@ public class HWController {
 	// 과제 등록처리
 	@RequestMapping(value = "/hwInsert", method = RequestMethod.POST)
 	public String hwInsert(@ModelAttribute("vo") HWVO vo) {
-		hwService.hwInsert(vo); 
-		return "hw/getHWListPro";  
+		hwService.hwInsert(vo);
+		return "redirect:/getHWListPro";  
 	}
 	
 	//수정폼
 	@RequestMapping(value = "/hwUpdate", method = RequestMethod.GET)
-	public String hwUpdateForm() {
+	public String hwUpdateForm(HttpServletRequest request, @RequestParam String classnum, String hwnum) {
+		request.setAttribute("cn", classService.getClass(classnum));
+		request.setAttribute("hw", hwService.getHW(hwnum));
 		return "hw/hwUpdate";
 	}
 	
@@ -69,7 +72,7 @@ public class HWController {
 	@RequestMapping(value = "/hwUpdate", method = RequestMethod.POST)
 	public String hwUpdate(@ModelAttribute("vo") HWVO vo) {
 		hwService.hwUpdate(vo);
-		return "hw/getHWListPro";
+		return "redirect:/getHWListPro";
 	}
 	
 	//삭제
