@@ -1,5 +1,6 @@
 package com.yedam.lms.view;
 
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,16 @@ import com.yedam.lms.result.TestResultService;
 import com.yedam.lms.result.TestResultVO;
 import com.yedam.lms.result.impl.TestResultDAO;
 import com.yedam.lms.smp.impl.StudentDAO;
+
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRExporter;
+import net.sf.jasperreports.engine.JRExporterParameter;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.export.JRPdfExporter;
 
 //작성자 김혜민
 @Controller
@@ -78,7 +89,7 @@ public class TestResultController {
 		try {
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			JasperReport report = JasperCompileManager.compileReport(request.getSession().getServletContext().getRealPath("result/result.jrxml"));
-			JRDataSource JRdataSource = new JRBeanCollectionDataSource(mainService.selectBoard());
+			JRDataSource JRdataSource = new JRBeanCollectionDataSource(TestResultService.());
 			JasperPrint print = JasperFillManager.fillReport(report, map, JRdataSource);
 			JRExporter exporter = new JRPdfExporter();
 			OutputStream out;
