@@ -6,10 +6,10 @@ import java.util.Map;
 public interface ClassapplyService {
 	
 	//중복 확인
-	public ClassapplyVO checkclassapply(ClassapplyVO vo);
+	public boolean checkclassapply(ClassapplyVO vo);
 	 
 	//강의 신청
-	public boolean insertClassapply(ClassapplyVO vo);
+	public void insertClassapply(ClassapplyVO vo);
 	
 	//강의 수정
 	public void updateClassapply(ClassapplyVO vo);
@@ -32,7 +32,7 @@ public interface ClassapplyService {
 	
 	//학생 강의 체크
 	
-	public ClassapplyVO getClassapplyListcheck(ClassapplyVO vo);
+	public boolean getClassapplyListcheck(ClassapplyVO vo);
 	
 	//교수 시간표 조회
 	

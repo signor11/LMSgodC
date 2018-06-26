@@ -16,14 +16,14 @@ public class ClassapplyDAO {
 	
 	
 	//중복 확인
-	public ClassapplyVO checkclassapply(ClassapplyVO vo) {
+	public int checkclassapply(ClassapplyVO vo) {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.checkclassapply",vo);
 	}
 	
 
 	// 강의 신청
-	public int insertClassapply(ClassapplyVO vo) {
-		return mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.insertClassapply",vo);
+	public void insertClassapply(ClassapplyVO vo) {
+		mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.insertClassapply",vo);
 	}
 
 	// 강의 수정

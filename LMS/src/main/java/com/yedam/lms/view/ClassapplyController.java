@@ -34,10 +34,14 @@ public class ClassapplyController {
 	public String insertClassapply(ClassapplyVO vo, HttpSession session, HttpServletResponse response) throws IOException {
 		//String stid =(String)session.getAttribute("in");
 		PrintWriter out = response.getWriter();
-		vo.setStudentnum("18000002");  
+		vo.setStudentnum("18000003");  
 		if (classapplyService.getClassapplyListcheck(vo)) {
 
-			if (classapplyService.insertClassapply(vo)) {
+			if (classapplyService.checkclassapply(vo)) {
+				out.print("<script>");
+				out.print("alert('수강등록되었습니다.')");
+				out.print("</script>");
+				classapplyService.insertClassapply(vo);
 				return "redirect:getClassapplyList";
 				
 			} else {
@@ -57,7 +61,7 @@ public class ClassapplyController {
 	@RequestMapping("/getClassapplyList")
 	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session) {
 		//String stid=(String)session.getAttribute("");
-		vo.setStudentnum("18000002");
+		vo.setStudentnum("18000003");
 		vo2.setStart(1);
 		vo2.setEnd(10);
 		//수강신청내역 조회
