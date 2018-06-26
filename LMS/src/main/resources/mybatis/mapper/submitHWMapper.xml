@@ -69,7 +69,7 @@
 		</delete>
 		
 	<!--  단건조회 -->
-		<select id="getsubmitHw" resultType="map" parameterType="submitHWVO">
+		<select id="getsubmitHw" resultType="submitHWVO" parameterType="submitHWVO">
 			
 			SELECT 		S.SUBMITHWNUM SUBMITHWNUM,
 						S.SUBMITDATE, 

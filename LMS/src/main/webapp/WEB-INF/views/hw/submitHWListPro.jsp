@@ -23,7 +23,7 @@
 		style="width: 100%;" disabled="disabled" >${hw.hwinfo}</textarea>
 </div>
  <div style="max-width: 600px; margin-left: 60px">
- <button type = "button" onclick="delete_hw()">삭제</button>
+ <button type = "button"> <!-- onclick="delete_hw()"> -->삭제</button>
 </div>
 </form>
 <hr/>		
@@ -46,7 +46,7 @@
 
 </form>	
 </div>
-<script>
+<!-- <script>
 	function delete_hw(){
 		var check = confirm('삭제하시겠습니까?');
 		if(check==true){
@@ -60,7 +60,7 @@
 	 				};
 
 </script>
-
+ -->
 
 		<table>
 			<tr>
@@ -76,24 +76,24 @@
 
 	
 			<tr>
-				<td>${s.studentnum}</td>
-				<td>${s.studentname}</td>
+				<td>${s.STUDENTNUM}</td>
+				<td>${s.STUDENTNAME}</td>
 				<td>
-					<c:if test="${not empty s.submitinfo}">
-						<a href="#" onclick="popup('${s.submitname}\n\n${s.submitinfo}')">${s.submitname}</a>
+					<c:if test="${not empty s.SUBMITINFO}">
+						<a href="#" onclick="popup('${s.SUBMITNAME}\n\n${s.SUBMITINFO}')">${s.SUBMITNAME}</a>
 					</c:if>
-					<c:if test="${empty s.submitinfo}">
-						<div>${s.submitname}</div>
+					<c:if test="${empty s.SUBMITINFO}">
+						<div>${s.SUBMITNAME}</div>
 					</c:if>
 					
 				</td>
 				<td>
-					<c:if test="${not empty s.addfileid}">
-						<a href="../control/searchhw_control(pro).jsp?action=download&addfileid=${s.addfileid}">
-						${s.submit}</a>
+					<c:if test="${not empty s.ADDFILEID}">
+						<a href="../control/searchhw_control(pro).jsp?action=download&addfileid=${s.ADDFILEID}">
+						${s.SUBMIT}</a>
 					</c:if>	
-					<c:if test="${empty s.addfileid}">
-						<div>${s.submit}</div>
+					<c:if test="${empty s.ADDFILEID}">
+						<div>${s.SUBMIT}</div>
 					</c:if>
 				</td>
 			</tr>

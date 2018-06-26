@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yedam.lms.hw.AddFileService;
 import com.yedam.lms.hw.HWService;
@@ -33,16 +34,26 @@ public class SubmitHWController {
 	}
 	
 	//학생과제제출
-		@RequestMapping(value = "/submitHWUpdate", method= RequestMethod.POST)
-		public String submitHWUpdate() {
+		@RequestMapping(value = "/submitHW", method= RequestMethod.POST)
+		public String submitHWInsert() {
 			return "redirect:/getHWList";
 		}
 		
 	//학생과제수정
-		@RequestMapping(value = "/submitHW/", method= RequestMethod.POST)
-		public String submitHwInsert() {
+		@RequestMapping(value = "/submitHWUpdate", method= RequestMethod.POST)
+		public String submitHwUpdate() {
 			return "redirect:/getHWList";
 		}
+		
+	//교수의 학생 과제 확인
+		@RequestMapping(value = "/getsubmitHwList")
+		public String getsubmitHwList(HttpServletRequest request, SubmitHWVO vo) {
+			request.setAttribute("hw", hwService.getHW(vo.getHwnum()));
+			request.setAttribute("sh", submitHWService.getsubmitHwList(vo));
+			return "hw/submitHWListPro";
+			
+		}
+				
 	
 	
 }
