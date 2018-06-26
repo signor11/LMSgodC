@@ -31,33 +31,45 @@ public class ClassapplyController {
 	}
 	
 	@RequestMapping("/insertClassapply")
-	public String insertClassapply(ClassapplyVO vo, HttpSession session, HttpServletResponse response) throws IOException {
-		String stid =(String)session.getAttribute("in");
+	public String insertClassapply(ClassapplyVO vo, HttpSession session, HttpServletResponse response)
+			throws IOException {
+		//한글 인코딩
+		response.setContentType("text/html; charset=UTF-8");
+		// String stid =(String)session.getAttribute("in");
 		PrintWriter out = response.getWriter();
-		vo.setStudentnum(stid);  
-		if (classapplyService.getClassapplyListcheck(vo)) {
-
-			if (classapplyService.insertClassapply(vo)) {
-				//return "redirect":getClassapplyList;
-				return null;
-			} else {
-				out.print("<script>");
-				out.print("alert('학점초과');");
-				out.print("history.go(-1);");
-				out.print("</script>");
-			}
-		} else {
+		vo.setStudentnum("18000003");
+		int r = classapplyService.insertClassapply(vo);
+		if (r == -2) {
 			out.print("<script>");
 			out.print("alert('수강과목중복.');");
 			out.print("history.go(-1);");
 			out.print("</script>");
+			return null;
+		} else if (r == -1) {
+			out.print("<script>");
+			out.print("alert('학점초과');");
+			out.print("history.go(-1);");
+			out.print("</script>");
+			return null;
+		} else if (r==0) {
+			out.print("<script>");
+			out.print("alert('원인을 알수 없습니다.');");
+			out.print("history.go(-1);");
+			out.print("</script>");
+			return null;
+		} else {
+			out.print("<script>");
+			out.print("alert('신청 완료');");
+			out.print("location.href='getClassapplyList';");
+			out.print("</script>");
+			return null;
 		}
-		return "";
+		
 	}
 	@RequestMapping("/getClassapplyList")
 	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session) {
 		//String stid=(String)session.getAttribute("");
-		vo.setStudentnum("18000001");
+		vo.setStudentnum("18000003");
 		vo2.setStart(1);
 		vo2.setEnd(10);
 		//수강신청내역 조회
@@ -68,8 +80,10 @@ public class ClassapplyController {
 	}
 	
 	@RequestMapping("/deleteClassapply")
-	public String deleteClassapply(ClassapplyVO vo ) {
-		classapplyService.deleteClassapply();
-		return vo;
+	@ResponseBody
+	public String deleteClassapply(ClassapplyVO vo) {
+		classapplyService.deleteClassapply(vo.getClassapplynum());
+		//ajax json구조로 리턴해줌
+		return "{\"result\":true}";
 	}
 }

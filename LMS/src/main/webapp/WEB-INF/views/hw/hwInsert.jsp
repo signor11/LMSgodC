@@ -10,7 +10,7 @@
 
 
 	<h3>교수용 과제등록</h3>
-	<form action="/hwInsert" method="post" enctype="multipart/form-data">
+	<form action="./hwInsert" method="post">
 	
 		<select name="classnum" style="padding: 10px; text-align: center;"
 			required="required">

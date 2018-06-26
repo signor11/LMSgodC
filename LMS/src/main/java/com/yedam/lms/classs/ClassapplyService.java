@@ -8,10 +8,10 @@ import com.yedam.lms.result.TestResultVO;
 public interface ClassapplyService {
 	
 	//중복 확인
-	public ClassapplyVO checkclassapply(ClassapplyVO vo);
+	public boolean checkclassapply(ClassapplyVO vo);
 	 
 	//강의 신청
-	public boolean insertClassapply(ClassapplyVO vo);
+	public int insertClassapply(ClassapplyVO vo);
 	
 	//강의 수정
 	public void updateClassapply(TestResultVO vo);

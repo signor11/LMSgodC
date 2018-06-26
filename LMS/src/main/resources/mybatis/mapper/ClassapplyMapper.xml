@@ -18,7 +18,7 @@
 
 	<!-- 등록 -->
 	<insert id="insertClassapply" parameterType="com.yedam.lms.classs.ClassapplyVO">
-		<selectKey keyProperty="classapplynum" resultType="int"
+		<selectKey keyProperty="classapplynum" resultType="string"
 			order="BEFORE">
 			select classapply_seq.nextval from dual
 		</selectKey>
@@ -26,13 +26,13 @@
     			(CLASSAPPLYNUM
 			    ,STUDENTNUM
 			    ,CLASSNUM
-			    ,SCORE )
+			     )
 			  
 			VALUES
 			    (#{classapplynum}
 			    ,#{studentnum}
 			    ,#{classnum}
-			    ,#{score}) 
+			    ) 
 	</insert>
 
 	<!-- 수정 -->
@@ -125,6 +125,18 @@
 	</where>
 	
 	</select>
+	
+	<!-- 최대학점 20학점 프로시저 호출 -->
+	<insert id="maxCredit" statementType="CALLABLE" parameterType="com.yedam.lms.classs.ClassapplyVO">
+		{ call max_credit(
+		#{studentnum, mode=IN, jdbcType=VARCHAR, javaType=string},
+		#{classnum, mode=IN, jdbcType=NUMERIC, javaType=string},
+		#{pMessage, mode=OUT, jdbcType=VARCHAR, javaType=string}
+		)
+		}
+	</insert>
+	
+	
 	
 	
 	

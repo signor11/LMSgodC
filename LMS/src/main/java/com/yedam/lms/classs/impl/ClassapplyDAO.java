@@ -16,7 +16,7 @@ public class ClassapplyDAO {
 	
 	
 	//중복 확인
-	public ClassapplyVO checkclassapply(ClassapplyVO vo) {
+	public int checkclassapply(ClassapplyVO vo) {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.checkclassapply",vo);
 	}
 	
@@ -34,7 +34,7 @@ public class ClassapplyDAO {
 	// 강의 삭제
 
 	public void deleteClassapply(String classapplynum) {
-
+		mybatis.delete("com.yedam.lms.classs.impl.ClassapplyDAO.deleteClassapply",classapplynum);
 	}
 	// 단건 강의 조회
 
@@ -57,8 +57,8 @@ public class ClassapplyDAO {
 
 	// 학생 강의 체크
 
-	public boolean getClassapplyListcheck(ClassapplyVO vo) {
-		return true;
+	public ClassapplyVO getClassapplyListcheck(ClassapplyVO vo) {
+		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.getClassapplyListcheck",vo);
 	}
 
 	// 교수 시간표 조회
@@ -72,4 +72,11 @@ public class ClassapplyDAO {
 	public ClassapplyVO getcanum(ClassapplyVO vo) {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.getcanum", vo);
 	}
+	
+	//최대학점 조회 프로시저
+	public void maxCredit(ClassapplyVO vo) {
+		mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.maxCredit",vo);
+	}
+	
+	
 }

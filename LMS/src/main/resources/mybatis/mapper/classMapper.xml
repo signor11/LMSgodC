@@ -39,7 +39,7 @@
 						PROFESSORNUM,
 						CLASSTIME
 			FROM 		CLASS
-			WHERE 		CLASSNUM = #{classNum}
+			WHERE 		CLASSNUM = #{classnum}
 			]]>
 			
 	</select>		
@@ -88,20 +88,16 @@
 		
 			
 	<!-- 학생 강의 이름 조회 -->
-	<select id="stu_classnameList"  resultType="map" parameterType="String">
+	<select id="stu_classnameList"  resultType="map" parameterType="string">
 		
 		SELECT 		C.CLASSNUM, 
 					C.CLASSNAME 
 		FROM CLASS C JOIN CLASSAPPLY A
 		ON C.CLASSNUM = A.CLASSNUM
-		<where>
-		<if test="classNum != null and classNum !=''">
-		C.CLASSNUM = A.CLASSNUM
+		WHERE C.CLASSNUM = A.CLASSNUM
+		<if test="value !=null and value !=''">
+		AND A.STUDENTNUM = #{value}
 		</if>
-		<if test="studentNum !=null and studentNum !=''">
-		A.STUDENTNUM = #{studentNum}
-		</if>
-		</where>
 		ORDER BY CLASSNUM
 		
 		</select>
@@ -127,17 +123,17 @@
 		FROM CLASS C JOIN PROFESSOR P
 		ON C.PROFESSORNUM = P.PROFESSORNUM
 		WHERE 1=1
-		<if test="className != null and className != ''">
-			AND CLASSNAME LIKE '%' || upper(#{className}) || '%'
+		<if test="classname != null and classname != ''">
+			AND CLASSNAME LIKE '%' || upper(#{classname}) || '%'
 		</if>
-		<if test="professorName != null and professorName != ''">
-			AND PROFESSORNAME LIKE '%' || upper(#{professorName}) || '%'
+		<if test="professorname != null and professorname != ''">
+			AND PROFESSORNAME LIKE '%' || upper(#{professorname}) || '%'
 		</if>
-		<if test="classTime != null and classTime !=''">
-			AND CLASSTIME LIKE '%' || upper(#{classTime}) || '%'
+		<if test="classtime != null and classtime !=''">
+			AND CLASSTIME LIKE '%' || upper(#{classtime}) || '%'
 		</if>
-		<if test="classNum != null and classNum !=''">
-			AND C.CLASSNUM = #{classNum}
+		<if test="classnum != null and classnum !=''">
+			AND C.CLASSNUM = #{classnum}
 		</if>
 		
 	

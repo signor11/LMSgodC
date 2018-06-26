@@ -3,6 +3,8 @@ package com.yedam.lms.smp.impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,21 +36,34 @@ public class StudentImpl implements StudentService{
 	}
 
 	@Override
-	public void deleteStudent(String studentNum) {
-		dao.deleteStudent(studentNum);
+	public void deleteStudent(String studentnum) {
+		dao.deleteStudent(studentnum);
 		
 	}
 
 
 	@Override
-	public StudentVO getStudent(String studentNum) {
+	public StudentVO getStudent(String studentnum) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
+	@Override
+	public StudentVO getLogin(StudentVO vo) {
+		System.out.println(vo.getStudentname()+"aaaaa");
+		return dao.getLogin(vo);
+		
+	}
 
-}
+	@Override
+	public void logout(HttpSession session) {
+		// TODO Auto-generated method stub
+		session.invalidate();
+	}
+
+	
+	}
+
 
 
 	

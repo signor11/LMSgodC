@@ -40,8 +40,8 @@ public class SubmitHWServiceImpl implements SubmitHWService {
 	}
 
 	@Override
-	public SubmitHWVO getsubmitHw(String studentnum, String hwnum) {
-		return dao.getsubmitHw(studentnum, hwnum);
+	public SubmitHWVO getsubmitHw(SubmitHWVO vo) {
+		return dao.getsubmitHw(vo);
 	}
 
 	@Override

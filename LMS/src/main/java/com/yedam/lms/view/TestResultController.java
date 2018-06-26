@@ -74,6 +74,15 @@ public class TestResultController {
 	}
 
 	// 학생 성적 조회
+
+	//교수 성적 조회
+	@RequestMapping("/getTestResultList")
+	
+		public String gettestresultList(TestResultVO ts,Model model){
+		model.addAttribute("insList",testResultService.gettestresultList(ts));
+		return "result/getTestresultList.jsp";
+	}
+	//학생 성적 조회
 	@RequestMapping("/gettestresultListstu")
 	public String gettestresultListstu(TestResultVO vo, Model model) {
 		// model 정보저장
