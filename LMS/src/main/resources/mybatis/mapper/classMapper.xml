@@ -39,7 +39,7 @@
 						PROFESSORNUM,
 						CLASSTIME
 			FROM 		CLASS
-			WHERE 		CLASSNUM = #{classNum}
+			WHERE 		CLASSNUM = #{classnum}
 			]]>
 			
 	</select>		
@@ -99,7 +99,7 @@
 		C.CLASSNUM = A.CLASSNUM
 		</if>
 		<if test="studentNum !=null and studentNum !=''">
-		A.STUDENTNUM = #{studentNum}
+		A.STUDENTNUM = #{studentnum}
 		</if>
 		</where>
 		ORDER BY CLASSNUM
@@ -128,16 +128,16 @@
 		ON C.PROFESSORNUM = P.PROFESSORNUM
 		WHERE 1=1
 		<if test="className != null and className != ''">
-			AND CLASSNAME LIKE '%' || upper(#{className}) || '%'
+			AND CLASSNAME LIKE '%' || upper(#{classname}) || '%'
 		</if>
 		<if test="professorName != null and professorName != ''">
-			AND PROFESSORNAME LIKE '%' || upper(#{professorName}) || '%'
+			AND PROFESSORNAME LIKE '%' || upper(#{professorname}) || '%'
 		</if>
 		<if test="classTime != null and classTime !=''">
-			AND CLASSTIME LIKE '%' || upper(#{classTime}) || '%'
+			AND CLASSTIME LIKE '%' || upper(#{classtime}) || '%'
 		</if>
 		<if test="classNum != null and classNum !=''">
-			AND C.CLASSNUM = #{classNum}
+			AND C.CLASSNUM = #{classnum}
 		</if>
 		
 	

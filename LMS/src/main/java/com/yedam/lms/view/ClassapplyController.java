@@ -32,14 +32,14 @@ public class ClassapplyController {
 	
 	@RequestMapping("/insertClassapply")
 	public String insertClassapply(ClassapplyVO vo, HttpSession session, HttpServletResponse response) throws IOException {
-		String stid =(String)session.getAttribute("in");
+		//String stid =(String)session.getAttribute("in");
 		PrintWriter out = response.getWriter();
-		vo.setStudentnum(stid);  
+		vo.setStudentnum("18000002");  
 		if (classapplyService.getClassapplyListcheck(vo)) {
 
 			if (classapplyService.insertClassapply(vo)) {
-				//return "redirect":getClassapplyList;
-				return null;
+				return "redirect:getClassapplyList";
+				
 			} else {
 				out.print("<script>");
 				out.print("alert('학점초과');");
@@ -52,12 +52,12 @@ public class ClassapplyController {
 			out.print("history.go(-1);");
 			out.print("</script>");
 		}
-		return "";
+		return "classapply/appplylecture";
 	}
 	@RequestMapping("/getClassapplyList")
 	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session) {
 		//String stid=(String)session.getAttribute("");
-		vo.setStudentnum("18000001");
+		vo.setStudentnum("18000002");
 		vo2.setStart(1);
 		vo2.setEnd(10);
 		//수강신청내역 조회
@@ -68,8 +68,10 @@ public class ClassapplyController {
 	}
 	
 	@RequestMapping("/deleteClassapply")
-	public String deleteClassapply(ClassapplyVO vo ) {
-		classapplyService.deleteClassapply();
-		return vo;
+	@ResponseBody
+	public String deleteClassapply(ClassapplyVO vo) {
+		classapplyService.deleteClassapply(vo.getClassapplynum());
+		//ajax json구조로 리턴해줌
+		return "{\"result\":true}";
 	}
 }
