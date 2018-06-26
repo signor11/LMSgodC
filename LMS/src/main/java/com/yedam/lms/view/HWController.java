@@ -57,14 +57,14 @@ public class HWController {
 	@RequestMapping(value = "/hwInsert", method = RequestMethod.POST)
 	public String hwInsert(@ModelAttribute("vo") HWVO vo) {
 		hwService.hwInsert(vo);
-		System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ");
-		System.out.println(vo);
 		return "redirect:/getHWListPro";  
 	}
 	
 	//수정폼
 	@RequestMapping(value = "/hwUpdate", method = RequestMethod.GET)
-	public String hwUpdateForm() {
+	public String hwUpdateForm(HttpServletRequest request, @RequestParam String classnum, String hwnum) {
+		request.setAttribute("cn", classService.getClass(classnum));
+		request.setAttribute("hw", hwService.getHW(hwnum));
 		return "hw/hwUpdate";
 	}
 	
