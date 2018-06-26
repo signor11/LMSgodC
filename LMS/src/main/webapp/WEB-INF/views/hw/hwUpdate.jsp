@@ -12,12 +12,14 @@
 		<h2>교수 과제수정</h2>
 		<br>
 		<form action="./hwUpdate" method="post">
+			<input type="hidden" name="hwnum" value="${hw.hwnum}"/>
+			<input type="hidden" name="classnum" value="${hw.classnum}"/>
 			<input
 				type="text" value="과목명" disabled="disabled"
 				style="padding: 8px; display: inline-block; text-align: center;"
 				size="5"> 
 				<input type="text" name="classname" value="${cn.classname}">
-
+	
 			<h6>제목</h6>
 			<input type="text" name="hwname"
 				value="${hw.hwname}"><br>

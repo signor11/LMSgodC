@@ -72,7 +72,7 @@ public class HWController {
 	@RequestMapping(value = "/hwUpdate", method = RequestMethod.POST)
 	public String hwUpdate(@ModelAttribute("vo") HWVO vo) {
 		hwService.hwUpdate(vo);
-		return "hw/getHWListPro";
+		return "redirect:/getHWListPro";
 	}
 	
 	//삭제
