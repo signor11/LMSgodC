@@ -41,8 +41,8 @@ public class SubmitHWDAO {
 		}
 		
 		//과제확인
-		public SubmitHWVO getsubmitHw(String studentnum, String hwnum) {
-			return mybatis.selectOne("com.yedam.lms.hw.impl.SubmitHWDAO.getsubmitHw");
+		public SubmitHWVO getsubmitHw(SubmitHWVO vo) {
+			return mybatis.selectOne("com.yedam.lms.hw.impl.SubmitHWDAO.getsubmitHw", vo);
 		}
 		
 		public List<SubmitHWVO> getsubmitHwList(SubmitHWVO sv){

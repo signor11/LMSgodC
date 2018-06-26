@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yedam.lms.classs.ClassSearchVO;
+import com.yedam.lms.classs.ClassapplyService;
 import com.yedam.lms.classs.ClassapplyVO;
-import com.yedam.lms.classs.impl.ClassapplyServiceImpl;
 
 @Controller
 public class ClassapplyController {
 	
 	@Autowired
-	ClassapplyServiceImpl classapplyService;
+	ClassapplyService classapplyService;
 	
 	
 	@RequestMapping("/checkclassapply")
@@ -32,14 +32,18 @@ public class ClassapplyController {
 	
 	@RequestMapping("/insertClassapply")
 	public String insertClassapply(ClassapplyVO vo, HttpSession session, HttpServletResponse response) throws IOException {
-		String stid =(String)session.getAttribute("in");
+		//String stid =(String)session.getAttribute("in");
 		PrintWriter out = response.getWriter();
-		vo.setStudentnum(stid);  
+		vo.setStudentnum("18000003");  
 		if (classapplyService.getClassapplyListcheck(vo)) {
 
-			if (classapplyService.insertClassapply(vo)) {
-				//return "redirect":getClassapplyList;
-				return null;
+			if (classapplyService.checkclassapply(vo)) {
+				out.print("<script>");
+				out.print("alert('수강등록되었습니다.')");
+				out.print("</script>");
+				classapplyService.insertClassapply(vo);
+				return "redirect:getClassapplyList";
+				
 			} else {
 				out.print("<script>");
 				out.print("alert('학점초과');");
@@ -52,12 +56,12 @@ public class ClassapplyController {
 			out.print("history.go(-1);");
 			out.print("</script>");
 		}
-		return "";
+		return "classapply/appplylecture";
 	}
 	@RequestMapping("/getClassapplyList")
 	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session) {
 		//String stid=(String)session.getAttribute("");
-		vo.setStudentnum("18000001");
+		vo.setStudentnum("18000003");
 		vo2.setStart(1);
 		vo2.setEnd(10);
 		//수강신청내역 조회
@@ -68,7 +72,10 @@ public class ClassapplyController {
 	}
 	
 	@RequestMapping("/deleteClassapply")
-	public String deleteClassapply(HttpServletRequest request) {
-		return null;
+	@ResponseBody
+	public String deleteClassapply(ClassapplyVO vo) {
+		classapplyService.deleteClassapply(vo.getClassapplynum());
+		//ajax json구조로 리턴해줌
+		return "{\"result\":true}";
 	}
 }

@@ -21,23 +21,19 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	
 	
 	@Override
-	public boolean insertClassapply(ClassapplyVO vo) {
-		int a = dao.insertClassapply(vo);
-		if (a==0) {
-		return false;
-		}
-		else 
-			return true;
+	public void insertClassapply(ClassapplyVO vo) {
+		dao.insertClassapply(vo);
 	}
 
 	@Override
 	public void updateClassapply(ClassapplyVO vo) {
+		dao.updateClassapply(vo);
 		
 	}
 
 	@Override
 	public void deleteClassapply(String classapplynum) {
-		
+		dao.deleteClassapply(classapplynum);
 	}
 
 	@Override
@@ -57,7 +53,12 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 
 	@Override
 	public boolean getClassapplyListcheck(ClassapplyVO vo) {
-		return true;
+		ClassapplyVO a = dao.getClassapplyListcheck(vo);
+		if (a== null) {
+		return false;
+		}
+		else 
+			return true;
 	}
 
 	@Override
@@ -71,9 +72,14 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	}
 
 	@Override
-	public ClassapplyVO checkclassapply(ClassapplyVO vo) {
-		// TODO Auto-generated method stub
-		return dao.checkclassapply(vo);
+	public boolean checkclassapply(ClassapplyVO vo) {
+		int a = dao.checkclassapply(vo);
+		if (a==0) {
+		return false;
+		}
+		else 
+			return true;
+		
 	}
 
 	@Override

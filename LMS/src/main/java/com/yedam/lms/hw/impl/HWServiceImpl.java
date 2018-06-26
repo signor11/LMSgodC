@@ -16,17 +16,17 @@ public class HWServiceImpl implements HWService {
 
 	@Override
 	public void hwInsert(HWVO vo) {
-		
+		dao.hwInsert(vo);
 	}
 
 	@Override
 	public void hwUpdate(HWVO vo) {
-		
+		dao.hwUpdate(vo);
 	}
 
 	@Override
 	public void hwDelete(HWVO vo) {
-		
+		dao.hwDelete(vo);
 	}
 
 	@Override

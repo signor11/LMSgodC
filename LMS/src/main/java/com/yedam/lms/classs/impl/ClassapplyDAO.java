@@ -16,14 +16,14 @@ public class ClassapplyDAO {
 	
 	
 	//중복 확인
-	public ClassapplyVO checkclassapply(ClassapplyVO vo) {
+	public int checkclassapply(ClassapplyVO vo) {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.checkclassapply",vo);
 	}
 	
 
 	// 강의 신청
-	public int insertClassapply(ClassapplyVO vo) {
-		return mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.insertClassapply",vo);
+	public void insertClassapply(ClassapplyVO vo) {
+		mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.insertClassapply",vo);
 	}
 
 	// 강의 수정
@@ -34,7 +34,7 @@ public class ClassapplyDAO {
 	// 강의 삭제
 
 	public void deleteClassapply(String classapplynum) {
-
+		mybatis.delete("com.yedam.lms.classs.impl.ClassapplyDAO.deleteClassapply",classapplynum);
 	}
 	// 단건 강의 조회
 
@@ -57,8 +57,8 @@ public class ClassapplyDAO {
 
 	// 학생 강의 체크
 
-	public boolean getClassapplyListcheck(ClassapplyVO vo) {
-		return true;
+	public ClassapplyVO getClassapplyListcheck(ClassapplyVO vo) {
+		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.getClassapplyListcheck",vo);
 	}
 
 	// 교수 시간표 조회
