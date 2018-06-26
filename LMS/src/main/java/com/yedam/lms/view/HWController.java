@@ -1,7 +1,5 @@
 package com.yedam.lms.view;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -33,8 +31,9 @@ public class HWController {
 
 	// 학생용 다건조회
 	@RequestMapping("/getHWList")
-	public String getHWList(HttpServletRequest request, HWVO vo) {
+	public String getHWList(HttpServletRequest request, HWVO vo, @RequestParam String studentnum) {
 		request.setAttribute("HWList", hwService.getHWList(vo));
+		request.setAttribute("classname", classService.stu_classnameList(studentnum));
 		return "hw/getHWList";
 	}
 

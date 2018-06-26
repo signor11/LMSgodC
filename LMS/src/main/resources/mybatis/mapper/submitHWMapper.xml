@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.yedam.lms.hw.impl.SubmitHWDAO">
+
+	<!-- 과제 등록 -->
+		<insert id="submitHwInsert" parameterType="submitHWVO">
+			INSERT INTO SUBMIT_HW(
+									SUBMITHWNUM,
+									SUBMITDATE,
+									HWNUM,
+									STUDENTNUM,
+									ADDFILEID,
+									SUBMITNAME,
+									SUBMITINFO
+									)
+							VALUES(
+									SEQ_SUBMITNUM.NEXTVAL,
+									SYSDATE,
+									#{hwnum},
+									#{studentnum},
+									#{addfileid},
+									#{submitname},
+									#{submitinfo}
+									)
+		</insert>
+		
+	<!-- 파일 등록 -->
+		<insert id="addfileInsert" parameterType="addfileVO">
+			
+			INSERT INTO ADDFILE(	ADDFILEID,
+									ADDFILENAME
+								)
+						VALUES(
+									ADDFILEID_SEQ.NEXTVAL,
+									#{addfilename}
+								)
+		</insert>	
+		
+	<!-- 과제 수정 -->
+		<update id="submitHwUpdate" parameterType="submitHWVO">
+			
+			UPDATE SUBMIT_HW SET 
+									SUBMITDATE=		SYSDATE,
+									HWNUM=			#{hwnum},
+									STUDENTNUM=		#{studentnum},
+									ADDFILEID=		#{addfileid},
+									SUBMITNAME=		#{submitname}, 
+									SUBMITINFO=		#{submitinfo}
+									
+							WHERE 	SUBMITHWNUM=	#{submithwnum}	
+		</update>	
+		
+	<!-- 파일 수정 -->	
+		<update id="addfileUpdate" parameterType="addfileVO">
+			
+			UPDATE ADDFILE 	SET ADDFILENAME=	#{addfilename}
+
+							WHERE ADDFILEID=	#{addfileid}
+		
+		</update>
+
+	<!-- 과제 삭제 -->
+		<delete id="submitHwDelete" parameterType="submitHWVO">
+			
+			DELETE FROM SUBMIT_HW 
+			WHERE SUBMITHWNUM= #{submithwnum}
+		</delete>
+		
+	<!--  단건조회 -->
+		<select id="getsubmitHw" resultType="submitHWVO" parameterType="string">
+			
+			SELECT 		S.SUBMITHWNUM SUBMITHWNUM,
+						S.SUBMITDATE, 
+						S.HWNUM, 
+						S.STUDENTNUM, 
+						S.SUBMITNAME, 
+						S.SUBMITINFO,
+						(	SELECT ADDFILENAME 
+							FROM ADDFILE A WHERE A.ADDFILEID=S.ADDFILEID) ADDFILEID 
+					FROM SUBMIT_HW S
+			WHERE STUDENTNUM= #{studentnum} 
+			AND HWNUM= #{hwnum}
+		</select>
+		
+	
+	<!-- 다건 조회 -->	
+		<select id="getsubmitHwList" resultType="map" parameterType="submitHWVO">
+			
+			SELECT 	A.*, 
+					B.SUBMITHWNUM SUBMITHWNUM, 
+					B.SUBMITNAME SUBMITNAME,
+					B.SUBMITINFO SUBMITINFO, 
+					B.ADDFILEID ADDFILEID,
+						CASE WHEN B.HWNUM IS NULL 
+						THEN '미제출' ELSE '제출' END 		SUBMIT
+			
+			FROM (		SELECT S.STUDENTNUM, S.STUDENTNAME, C.CLASSNUM, H.HWNUM
+						FROM STUDENT S JOIN CLASSAPPLY C
+						ON S.STUDENTNUM = C.STUDENTNUM
+						JOIN HW H
+						ON H.CLASSNUM = C.CLASSNUM
+						WHERE 1=1
+						<if test="hwnum != null and hwnum != ''">
+							AND H.HWNUM LIKE '%' || #{hwnum} || '%'
+						</if>
+						ORDER BY HWNUM) A
+						
+			LEFT OUTER JOIN SUBMIT_HW B
+			ON (A.STUDENTNUM = B.STUDENTNUM
+			AND A.HWNUM = B.HWNUM)
+			
+		</select>
+
+</mapper>
