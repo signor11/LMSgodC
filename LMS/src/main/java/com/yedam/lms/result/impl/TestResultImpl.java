@@ -50,7 +50,7 @@ public class TestResultImpl implements TestResultService{
 	public List<TestResultVO> gettestresultListstu(TestResultVO vo) {
 		return dao.gettestresultListstu(vo);
 	}
-
+	
 	
 	
 }

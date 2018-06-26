@@ -44,4 +44,5 @@ public class TestResultDAO {
 	public List<TestResultVO> gettestresultListstu(TestResultVO vo){
 		return mybatis.selectList("testResultDAO.gettestresultListstu",vo);
 	}
+	
 }

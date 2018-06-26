@@ -20,11 +20,11 @@
 			width : 1000,
 			modal : true,
 			open : function(event, ui) {
-				$(event.target).load("transcript.jsp")
+				$(event.target).load("transcript")
 			}		 
 		});
 
-		//로그인 버튼 클릭 이벤트(로그인 모달 폼이 보이도록)
+		// 버튼 클릭 이벤트(모달 폼이 보이도록)
 		$("#btnPrint").click(function() {
 			$("#print").dialog("open");
 		});

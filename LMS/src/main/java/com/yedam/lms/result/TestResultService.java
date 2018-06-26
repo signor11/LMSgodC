@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.yedam.lms.classs.ClassapplyVO;
+
 //작성자 김혜민
 public interface TestResultService {
 	
@@ -24,6 +25,7 @@ public interface TestResultService {
 	
 	//학생 성적 조회
 	public List<TestResultVO> gettestresultListstu(TestResultVO vo);
+	
 
 	
 
