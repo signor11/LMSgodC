@@ -21,7 +21,7 @@ public interface SubmitHWService {
 	public void submitHwDelete(String submithwnum);
 	
 	//과제확인
-	public SubmitHWVO getsubmitHw(String studentnum, String hwnum);
+	public SubmitHWVO getsubmitHw(SubmitHWVO vo);
 	
 	public List<SubmitHWVO> getsubmitHwList(SubmitHWVO sv);
 }
