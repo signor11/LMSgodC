@@ -12,9 +12,9 @@
 	<select name="classnum" style="padding: 10px; text-align: center;">
 		<option value="" selected hidden="">선택</option>
 		<c:forEach items="${classname}" var="n">
-			<option value="${n.classnum}"
-				<c:if test="${n.classnum==param.classnum}">selected</c:if>>
-				${n.classname}</option>
+			<option value="${n.CLASSNUM}" <c:if test="${n.classnum==param.classnum}">
+			selected</c:if>>${n.CLASSNAME}
+			</option>
 		</c:forEach>
 	</select>
 	

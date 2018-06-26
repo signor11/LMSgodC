@@ -88,20 +88,16 @@
 		
 			
 	<!-- 학생 강의 이름 조회 -->
-	<select id="stu_classnameList"  resultType="map" parameterType="String">
+	<select id="stu_classnameList"  resultType="map" parameterType="string">
 		
 		SELECT 		C.CLASSNUM, 
 					C.CLASSNAME 
 		FROM CLASS C JOIN CLASSAPPLY A
 		ON C.CLASSNUM = A.CLASSNUM
-		<where>
-		<if test="classnum != null and classnum !=''">
-		C.CLASSNUM = A.CLASSNUM
+		WHERE C.CLASSNUM = A.CLASSNUM
+		<if test="value !=null and value !=''">
+		AND A.STUDENTNUM = #{value}
 		</if>
-		<if test="studentnum !=null and studentnum !=''">
-		A.STUDENTNUM = #{studentnum}
-		</if>
-		</where>
 		ORDER BY CLASSNUM
 		
 		</select>
