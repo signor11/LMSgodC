@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yedam.lms.classs.ClassSearchVO;
+import com.yedam.lms.classs.ClassapplyService;
 import com.yedam.lms.classs.ClassapplyVO;
-import com.yedam.lms.classs.impl.ClassapplyServiceImpl;
 
 @Controller
 public class ClassapplyController {
 	
 	@Autowired
-	ClassapplyServiceImpl classapplyService;
+	ClassapplyService classapplyService;
 	
 	
 	@RequestMapping("/checkclassapply")
