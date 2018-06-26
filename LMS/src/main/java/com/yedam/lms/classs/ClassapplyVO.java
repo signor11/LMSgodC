@@ -11,8 +11,17 @@ public class ClassapplyVO {
 	public String credit;
 	public String studentname;
 	public String professornum;
+	public String pMessage;
 	
 	
+	
+	
+	public String getpMessage() {
+		return pMessage;
+	}
+	public void setpMessage(String pMessage) {
+		this.pMessage = pMessage;
+	}
 	public String getClassapplynum() {
 		return classapplynum;
 	}
@@ -75,10 +84,10 @@ public class ClassapplyVO {
 	}
 	@Override
 	public String toString() {
-		return "LectureVO [classapplynum=" + classapplynum + ", studentnum=" + studentnum + ", classnum=" + classnum
+		return "ClassapplyVO [classapplynum=" + classapplynum + ", studentnum=" + studentnum + ", classnum=" + classnum
 				+ ", score=" + score + ", classname=" + classname + ", classtime=" + classtime + ", professorname="
 				+ professorname + ", credit=" + credit + ", studentname=" + studentname + ", professornum="
-				+ professornum + "]";
+				+ professornum + ", pMessage=" + pMessage + "]";
 	}
 	
 	

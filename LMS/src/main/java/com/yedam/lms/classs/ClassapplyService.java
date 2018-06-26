@@ -9,7 +9,7 @@ public interface ClassapplyService {
 	public boolean checkclassapply(ClassapplyVO vo);
 	 
 	//강의 신청
-	public void insertClassapply(ClassapplyVO vo);
+	public int insertClassapply(ClassapplyVO vo);
 	
 	//강의 수정
 	public void updateClassapply(ClassapplyVO vo);

@@ -22,8 +22,8 @@ public class ClassapplyDAO {
 	
 
 	// 강의 신청
-	public void insertClassapply(ClassapplyVO vo) {
-		mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.insertClassapply",vo);
+	public int insertClassapply(ClassapplyVO vo) {
+		return mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.insertClassapply",vo);
 	}
 
 	// 강의 수정
@@ -72,4 +72,11 @@ public class ClassapplyDAO {
 	public ClassapplyVO getcanum(ClassapplyVO vo) {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.getcanum", vo);
 	}
+	
+	//최대학점 조회 프로시저
+	public void maxCredit(ClassapplyVO vo) {
+		mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.maxCredit",vo);
+	}
+	
+	
 }

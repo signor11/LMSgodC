@@ -21,8 +21,22 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	
 	
 	@Override
-	public void insertClassapply(ClassapplyVO vo) {
-		dao.insertClassapply(vo);
+	public int insertClassapply(ClassapplyVO vo) {
+		
+		//중복 과목 체크
+		ClassapplyVO a = dao.getClassapplyListcheck(vo);
+		if(a!=null) {
+			return -2;
+			//-2이면 중복이 아니다.
+		} 
+		// 최대학점 체크 (20학점)
+		dao.maxCredit(vo);
+		if (vo.getpMessage().equals("학점초과"))
+			return -1;
+		//수강등록
+		return dao.insertClassapply(vo);
+			
+
 	}
 
 	@Override
@@ -53,12 +67,7 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 
 	@Override
 	public boolean getClassapplyListcheck(ClassapplyVO vo) {
-		ClassapplyVO a = dao.getClassapplyListcheck(vo);
-		if (a== null) {
 		return false;
-		}
-		else 
-			return true;
 	}
 
 	@Override
