@@ -7,14 +7,10 @@
 <title>예담대학교(학생용)</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="../scripts/jquery-ui.css">
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="../scripts/jquery-3.2.1.min.js"></script>
-<script src="../scripts/jquery-ui.min.js"></script>
+
 <script>
 	$(document).ready(function() {
 
@@ -24,8 +20,8 @@
 			width : 1000,
 			modal : true,
 			open : function(event, ui) {
-				$(event.target).load("transcript")
-			}
+				$(event.target).load("transcript.jsp")
+			}		 
 		});
 
 		//로그인 버튼 클릭 이벤트(로그인 모달 폼이 보이도록)
