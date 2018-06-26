@@ -14,8 +14,19 @@
 			   STUDENTPHONE,
 			   STARTDATE
 		FROM STUDENT
-		WHERE STUDENTNUM = #{studentNum}
+		WHERE STUDENTNUM = #{studentnum}
 	</select>
+	
+	<select id="getLogin" parameterType="com.yedam.lms.smp.StudentVO" resultType="com.yedam.lms.smp.StudentVO">
+		
+	  SELECT STUDENTNUM as "studentnum",
+	   		 STUDENTPW as "studentpw",
+	   		 STUDENTNAME as "studentname"
+	  FROM VLOG 
+	  WHERE STUDENTNUM= #{studentnum} and STUDENTPW= #{studentpw}
+	</select>
+	
+	
 	
 	<!-- 전체조회 -->
 	<select id="getStudentList" resultType="map">

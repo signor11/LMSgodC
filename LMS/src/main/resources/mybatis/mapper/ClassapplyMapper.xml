@@ -126,6 +126,18 @@
 	
 	</select>
 	
+	<!-- 최대학점 20학점 프로시저 호출 -->
+	<insert id="maxCredit" statementType="CALLABLE" parameterType="com.yedam.lms.classs.ClassapplyVO">
+		{ call max_credit(
+		#{studentnum, mode=IN, jdbcType=VARCHAR, javaType=string},
+		#{classnum, mode=IN, jdbcType=NUMERIC, javaType=string},
+		#{pMessage, mode=OUT, jdbcType=VARCHAR, javaType=string}
+		)
+		}
+	</insert>
+	
+	
+	
 	
 	
 </mapper>
