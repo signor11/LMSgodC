@@ -57,11 +57,12 @@ public class SubmitHWController {
 			if (!file.isEmpty() && file.getSize() > 0) {
 				String filename = file.getOriginalFilename();
 				file.transferTo(new File("d:/upload", filename));
-				vo.setAddfilename(filename);
-				addfileService.AddFileInsert(filename);
-				
-			}
 			
+				AddFileVO addvo = new AddFileVO();
+				addvo.setAddfilename(filename);
+				addfileService.addfileInsert(addvo);
+				vo.setAddfileid(addvo.getAddfileid());
+			}
 			
 			vo.setStudentnum((String)session.getAttribute("stn"));
 			submitHWService.submitHwInsert(vo);

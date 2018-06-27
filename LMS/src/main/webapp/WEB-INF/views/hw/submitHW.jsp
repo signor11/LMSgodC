@@ -51,6 +51,7 @@
 			<c:set value="./submitHWUpdate&submithwnum=${up_hw.submithwnum}" var="u" />
 		</c:if>
 		<form method="post" action="${u}" encType="multipart/form-data">
+		<input type="hidden" value="${id.addfileid}"name = "addfileid" />
 			<input type="text" name="hwnum" hidden="" value="${sb.hwnum}" /> <input
 				type="text" name="classnum" hidden="" value="${sb.classnum}" />
 
@@ -58,8 +59,7 @@
 			<input name="submitname" type="text"
 				value="${up_hw.submitname}" required="required" class="w3-input w3-border"><br>
 			<h6>첨부파일</h6>
-			<input type="file" class="w3-button w3-dark-grey"/>
-			<input type="hidden" value="${id.addfileid}"name = "addfileid" />
+			<input type="file" name="tempuploadfile" class="w3-button w3-dark-grey"/>
 			<%-- <input type="text" name="addfilename"
 				placeholder="파일 첨부해주세요." style="width: 80%; height: 40px"
 				value="${up_hw.addfileid}" required="required" readonly="readonly" /> --%>

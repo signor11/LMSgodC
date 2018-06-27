@@ -15,18 +15,18 @@ public class AddFileServiceImpl implements AddFileService {
 	AddFileDAO dao;
 
 	@Override
-	public void AddFileInsert(String addfilename) {
-		
+	public void addfileInsert(AddFileVO vo) {
+		dao.addfileInsert(vo);
 	}
 
 	@Override
 	public void addfileUpdate(AddFileVO vo) {
-		
+		dao.addfileUpdate(vo);
 	}
 
 	@Override
 	public void addfileDelete(String addfileid) {
-		
+		dao.addfileDelete(addfileid);
 	}
 
 	@Override

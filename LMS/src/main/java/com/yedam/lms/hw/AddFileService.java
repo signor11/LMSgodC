@@ -6,7 +6,7 @@ import java.util.List;
 public interface AddFileService {
 
 	// 등록
-	public void AddFileInsert(String addfilename);
+	public void addfileInsert(AddFileVO vo);
 
 	// 수정
 	public void addfileUpdate(AddFileVO vo);
