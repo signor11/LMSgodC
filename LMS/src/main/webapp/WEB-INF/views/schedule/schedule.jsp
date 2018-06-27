@@ -6,6 +6,7 @@
 <head>
 <title>예담대학교</title>
 <script>
+	//성적표 출력
 	function content_print() {
 
 		var initBody = document.body.innerHTML;
@@ -13,6 +14,14 @@
 			document.body.innerHTML = document.getElementById('printarea').innerHTML;
 		}
 		window.print();
+	}
+	
+	//새창 열기
+	function openprint() {
+		window
+				.open("getSchedulepopup", "네이버새창",
+						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+
 	}
 </script>
 </head>
@@ -45,8 +54,16 @@
 </c:forEach>
 </table>
 <br>
-<button type="button" class="btn btn-danger" onclick="javascript:content_print();">출력</button>
+<c:if test="${document.write(location.pathname).equals('/LMS/getSchedule')}">
+<button id=printbtn type="button" class="btn btn-danger" onclick="javascript:openprint();">시간표 출력</button>
+</c:if>
+<c:if test="${document.write(location.pathname)=='/LMS/getSchedulepopup'}">
+<button id=openbtn type="button" class="btn btn-danger" onclick="javascript:content_print();">출력하기</button>
+</c:if>
 
+<script>
+document.write(location.pathname);
+</script>
 
 <br><br>
 </form>

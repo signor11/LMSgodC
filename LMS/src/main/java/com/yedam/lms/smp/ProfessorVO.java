@@ -40,5 +40,11 @@ public class ProfessorVO {
 		this.majornum = majornum;
 	}
 	
+	@Override
+	public String toString() {
+		return "ProfessorVO [professornum=" + professornum + ", professorname=" + professorname + ", professorphone="
+				+ professorphone + ", hiredate=" + hiredate + ", majornum=" + majornum + "]";
+	}
+	
 	
 }
