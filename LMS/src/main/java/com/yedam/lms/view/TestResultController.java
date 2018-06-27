@@ -83,12 +83,13 @@ public class TestResultController {
 	}
 
 	// 성적표 출력
-	@RequestMapping("result.do")
-	public void report(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping("result")
+	public void getresult(HttpServletRequest request, HttpServletResponse response,TestResultVO vo) throws Exception {
 		try {
+			vo.setStudentnum("18000001");
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			JasperReport report = JasperCompileManager.compileReport(request.getSession().getServletContext().getRealPath("result/result.jrxml"));
-			JRDataSource JRdataSource = new JRBeanCollectionDataSource(testResultService.gettransList(null));
+			JRDataSource JRdataSource = new JRBeanCollectionDataSource(testResultService.getresult(vo));
 			JasperPrint print = JasperFillManager.fillReport(report, map, JRdataSource);
 			JRExporter exporter = new JRPdfExporter();
 			OutputStream out;

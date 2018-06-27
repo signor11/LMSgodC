@@ -50,11 +50,11 @@ public class TestResultImpl implements TestResultService{
 	public List<TestResultVO> gettestresultListstu(TestResultVO vo) {
 		return dao.gettestresultListstu(vo);
 	}
-	/*//성적표 출력
+	//성적표 출력
 	@Override
-	public List<TestResultVO> gettransList(TestResultVO vo) {
-		return dao.gettransList(vo);
-	}*/
+	public List<TestResultVO> getresult(TestResultVO vo) {
+		return dao.getresult(vo);
+	}
 	
 	
 	

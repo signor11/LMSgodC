@@ -113,10 +113,10 @@
 			   </if>
 			  ORDER BY CLASSAPPLYNUM
 	</select>
-	<!-- 성적표 출력
-	<select id="transcript" resultType="testResultVO">
+	<!-- 성적표 출력-->
+	<select id="getresult" resultType="map">
 		SELECT S.STUDENTNUM,
-				MAJORNAME,
+				M.MAJORNAME,
 				C.CLASSNUM,
 				CLASSNAME, 
 				GRADE_TOTAL(C.SCORE) AS GRADE,
@@ -128,21 +128,7 @@
 		JOIN MAJOR M ON (S.MAJORNUM = M.MAJORNUM)
 		JOIN CLASS CL ON (C.CLASSNUM = CL.CLASSNUM)  
 		JOIN TESTRESULT TR ON (C.CLASSAPPLYNUM=TR.CLASSAPPLYNUM)
-		WHERE 1=1
-		<if test="studentnum != null and studentnum != ''">
-			AND S.STUDENTNUM = #{studentnum}
-	   </if>
-	   <if test="classnum != null and classnum != ''">
-	   		AND CL.CLASSNUM = #{classnum}	
-	   </if>	
-	   <if test="classname != null and classname != ''">
-			AND CL.CLASSNAME = #{classname}
-	   </if>
-	   <if test="majorname != null and majorname != ''">
-	   		AND M.MAJORANME = #{majorname}	
-	   </if>
-	   <if test="classapplynum != null and classapplynum != ''">
-	   		AND C.CLASSAPPLNUM = #{classapplynum}	
-	   </if>
-	</select> -->
+		WHERE S.STUDENTNUM = #{studentnum}
+	   
+	</select> 
 </mapper>

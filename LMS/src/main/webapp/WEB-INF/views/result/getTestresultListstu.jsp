@@ -20,7 +20,7 @@
 			width : 1000,
 			modal : true,
 			open : function(event, ui) {
-				$(event.target).load("transcript")
+				$(event.target).load("")
 			}		 
 		});
 
@@ -70,7 +70,7 @@
 			</table>
 			<br> <br>
 			<div align="center">
-				<a href="#" id="btnPrint" class = "btn btn-danger">출력</a>
+				<a href="./result" id="btnPrint" class = "btn btn-danger">출력</a>
 				<div id="print" title="출력"></div>
 			</div>
 			<br><br>
