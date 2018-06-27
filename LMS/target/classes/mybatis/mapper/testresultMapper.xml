@@ -17,14 +17,9 @@
 							#{testnum},
 							#{classapplynum})
 	</insert>
-	
-<<<<<<< HEAD
+
 	<!-- 온라인 시험 성적 수정 -->
 	<update id = "updateTestResult" parameterType="testResultVO">
-=======
-	<!-- 교수 성적 수정 -->
-	<update id = "testResultUpdate" parameterType="testResultVO">
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 		UPDATE TESTRESULT 
 		SET    TESTSCORE=#{testscore},
 			   TESTNUM=#{testnum},
@@ -46,27 +41,19 @@
 	</update> 
 	
 	<!-- 단건 조회 -->
-<<<<<<< HEAD
+
 
 	<select id="gettestresult" resultType="testResultVO">
 
-=======
-	<select id="gettestresult" parameterType="string" resultType="testResultVO">
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 		SELECT *
 		FROM TESTRESULT
 		WHERE  TESTRESULTNUM= #{testresultnum}
 	</select>
 	
 	<!-- 교수 성적 조회 -->
-<<<<<<< HEAD
 
 	<select id="getTestresultList" resultType="testResultVO">
 
-=======
-	
-	<select id="getBoardList" resultType="testResultVO">
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,

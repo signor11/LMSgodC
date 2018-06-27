@@ -26,7 +26,8 @@ public interface TestResultService {
 	//학생 성적 조회
 	public List<TestResultVO> gettestresultListstu(TestResultVO vo);
 	
-
+	//성적표 출력
+	public List<TestResultVO> gettransList(TestResultVO vo);
 	
 
 	

@@ -72,16 +72,6 @@ public class TestResultController {
 		return "result/getTestresultList";
 
 	}
-
-	// 학생 성적 조회
-
-	//교수 성적 조회
-	@RequestMapping("/getTestResultList")
-	
-		public String gettestresultList(TestResultVO ts,Model model){
-		model.addAttribute("insList",testResultService.gettestresultList(ts));
-		return "result/getTestresultList.jsp";
-	}
 	//학생 성적 조회
 	@RequestMapping("/gettestresultListstu")
 	public String gettestresultListstu(TestResultVO vo, Model model) {
@@ -93,12 +83,12 @@ public class TestResultController {
 	}
 
 	// 성적표 출력
-	@RequestMapping("report.do")
+	@RequestMapping("result.do")
 	public void report(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		try {
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			JasperReport report = JasperCompileManager.compileReport(request.getSession().getServletContext().getRealPath("result/result.jrxml"));
-			JRDataSource JRdataSource = new JRBeanCollectionDataSource(TestResultService.());
+			JRDataSource JRdataSource = new JRBeanCollectionDataSource(testResultService.gettransList(null));
 			JasperPrint print = JasperFillManager.fillReport(report, map, JRdataSource);
 			JRExporter exporter = new JRPdfExporter();
 			OutputStream out;
