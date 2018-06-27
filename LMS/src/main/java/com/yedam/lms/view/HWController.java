@@ -2,6 +2,7 @@ package com.yedam.lms.view;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,9 +32,11 @@ public class HWController {
 
 	// 학생용 다건조회
 	@RequestMapping("/getHWList")
-	public String getHWList(HttpServletRequest request, HWVO vo, @RequestParam String studentnum) {
+	public String getHWList(HttpServletRequest request, HWVO vo, HttpSession session) {
+		//vo.setStudentnum((String)session.getAttribute("loginvo"));
+		vo.setStudentnum("18000001");
 		request.setAttribute("HWList", hwService.getHWList(vo));
-		request.setAttribute("classname", classService.stu_classnameList(studentnum));
+		request.setAttribute("classname", classService.stu_classnameList(vo.getStudentnum()));
 		return "hw/getHWList";
 	}
 
