@@ -35,15 +35,6 @@
 			    ) 
 	</insert>
 
-	<!-- 수정 -->
-	<update id="updateClassapply" parameterType="com.yedam.lms.classs.ClassapplyVO">
-		UPDATE CLASSAPPLY SET
-					STUDENTNUM = #{studentnum},
-					CLASSNUM = #{classnum},
-					SCORE = #{score}
-		WHERE CLASSAPPLYNUM = #{classapplynum}
-	
-	</update>
 	
 	<!-- 삭제 -->
 	<delete id="deleteClassapply" parameterType="string">
