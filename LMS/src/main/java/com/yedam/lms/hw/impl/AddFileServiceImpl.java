@@ -15,7 +15,7 @@ public class AddFileServiceImpl implements AddFileService {
 	AddFileDAO dao;
 
 	@Override
-	public void AddFileInsert(AddFileVO vo) {
+	public void AddFileInsert(String addfilename) {
 		
 	}
 

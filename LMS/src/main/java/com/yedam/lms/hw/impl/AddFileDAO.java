@@ -15,7 +15,7 @@ public class AddFileDAO {
 	SqlSessionTemplate mybatis;
 	
 	// 등록
-		public void AddFileInsert(AddFileVO vo) {
+		public void AddFileInsert(String addfilename) {
 			
 		}
 

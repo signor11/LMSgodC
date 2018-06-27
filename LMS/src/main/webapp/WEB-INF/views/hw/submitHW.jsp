@@ -48,9 +48,9 @@
 		<h2>과제 제출</h2>
 		<c:set value="./submitHW" var="u" />
 		<c:if test="${not empty up_hw}">
-			<c:set value="./submitHWUpdate" var="u" />
+			<c:set value="./submitHWUpdate&submithwnum=${up_hw.submithwnum}" var="u" />
 		</c:if>
-		<form method="post" action="${u}">
+		<form method="post" action="${u}" encType="multipart/form-data">
 			<input type="text" name="hwnum" hidden="" value="${sb.hwnum}" /> <input
 				type="text" name="classnum" hidden="" value="${sb.classnum}" />
 
@@ -58,12 +58,12 @@
 			<input name="submitname" type="text"
 				value="${up_hw.submitname}" required="required" class="w3-input w3-border"><br>
 			<h6>첨부파일</h6>
-			<input type="text" name="addfilename"
+			<input type="file" class="w3-button w3-dark-grey"/>
+			<input type="hidden" value="${id.addfileid}"name = "addfileid" />
+			<%-- <input type="text" name="addfilename"
 				placeholder="파일 첨부해주세요." style="width: 80%; height: 40px"
-				value="${up_hw.addfileid}" required="required" readonly="readonly" />
-			<button type="button" value="파일업로드" class="w3-button w3-dark-grey">
-				<!-- onclick="window.open('../homework/uploadform.jsp','file','width=500,height=500')" -->
-				+</button>
+				value="${up_hw.addfileid}" required="required" readonly="readonly" /> --%>
+				
 			<br>
 			<h6>내용</h6>
 			<textarea name="submitinfo" cols="85" rows="13"
@@ -71,7 +71,8 @@
 			<div>
 				<input type="submit" value="등록" class="fa-btn btn-1 btn-1e"/><br>
 			</div>
-
+		${u}
+		${up_hw.addfileid}
 		</form>
 	</div>
 	</div>

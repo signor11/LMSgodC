@@ -22,23 +22,36 @@ public class HWController {
 	@Autowired	ClassService classService;
 	
 	
-	/*//단건조회
-	@RequestMapping("/getHW")
-	public String getHW(@RequestParam String hwnum) {
-		hwService.getHW(hwnum);
-		return "hw/getHW";
-		
-	}*/
+	// 학생용 다건조회
+		@RequestMapping("/getHWList")
+		public String getHWList(HttpServletRequest request, HWVO vo, HttpSession session) {
+			//vo.setStudentnum((String)session.getAttribute("loginvo"));
+			
+			vo.setStudentnum("18000001");
+			session.setAttribute("stn", vo.getStudentnum());
+			request.setAttribute("HWList", hwService.getHWList(vo));
+			request.setAttribute("classname", classService.stu_classnameList(vo.getStudentnum()));
+			return "hw/getHWList";
+		}
+	
+	/*// 학생용 다건조회화면
+		@RequestMapping(value="/getHWList", method = RequestMethod.GET)
+		public String getHWListform(HttpServletRequest request, HWVO vo, HttpSession session) {
+			//vo.setStudentnum((String)session.getAttribute("loginvo"));
+			vo.setStudentnum("18000001");
+			request.setAttribute("classname", classService.stu_classnameList(vo.getStudentnum()));
+			return "hw/getHWList";
+		}
 
 	// 학생용 다건조회
-	@RequestMapping("/getHWList")
+	@RequestMapping(value="/getHWList", method = RequestMethod.POST)
 	public String getHWList(HttpServletRequest request, HWVO vo, HttpSession session) {
 		//vo.setStudentnum((String)session.getAttribute("loginvo"));
 		vo.setStudentnum("18000001");
 		request.setAttribute("HWList", hwService.getHWList(vo));
 		request.setAttribute("classname", classService.stu_classnameList(vo.getStudentnum()));
-		return "hw/getHWList";
-	}
+		return "redirect:/getHWList";
+	}*/
 
 	// 교수용 다건조회
 	@RequestMapping("/getHWListPro")
@@ -48,7 +61,7 @@ public class HWController {
 		return "hw/getHWListPro";
 	}
 
-	// 과제 등록폼
+	// 교수 과제 등록폼
 	@RequestMapping(value = "/hwInsert", method = RequestMethod.GET)
 	public String hwInsertForm(HttpServletRequest request, HWVO vo) {
 		vo.setProfessornum("28000001");
@@ -56,14 +69,14 @@ public class HWController {
 		return "hw/hwInsert";
 	}
 
-	// 과제 등록처리
+	// 교수 과제 등록처리
 	@RequestMapping(value = "/hwInsert", method = RequestMethod.POST)
 	public String hwInsert(@ModelAttribute("vo") HWVO vo) {
 		hwService.hwInsert(vo);
 		return "redirect:/getHWListPro";  
 	}
 	
-	//수정폼
+	//교수 과제수정폼
 	@RequestMapping(value = "/hwUpdate", method = RequestMethod.GET)
 	public String hwUpdateForm(HttpServletRequest request, HWVO vo) {
 		vo.setClassnum("48000001");
@@ -73,14 +86,14 @@ public class HWController {
 		return "hw/hwUpdate";
 	}
 	
-	//수정 처리
+	//교수 과제 수정 처리
 	@RequestMapping(value = "/hwUpdate", method = RequestMethod.POST)
 	public String hwUpdate(@ModelAttribute("vo") HWVO vo) {
 		hwService.hwUpdate(vo);
 		return "redirect:/getHWListPro";
 	}
 	
-	//삭제
+	//교수 과제 삭제
 	@RequestMapping("/hwDelete")
 	public String hwDelete(@ModelAttribute("vo") HWVO vo) {
 		hwService.hwDelete(vo);

@@ -34,19 +34,22 @@
 	<br><br><br>
 
 	<div style="display: inline-block;">
+		<form action="./getHWList" name="hwform">
 		<input type="text" value="과목명" disabled="disabled"
 			style="padding: 10px; display: inline-block; text-align: center;"
 			size="5" class="fa-btn btn-1 btn-1e">
-			<select name="classnum" style="padding: 10px; text-align: center;">
+			<select name="classnum" style="padding: 10px; text-align: center;" onchange="document.hwform.submit()">
 			<option value="" selected hidden="">선택</option>
 			<c:forEach items="${classname}" var="n">
 				<option value="${n.CLASSNUM}"
-					<c:if test="${n.classnum==param.classnum}">
+					<c:if test="${n.CLASSNUM==param.classnum}">
 			selected</c:if>>${n.CLASSNAME}
 				</option>
 			</c:forEach>
 		</select>
+		</form>
 		</div>
+		
 
 		<div align=center>
 			<table class="table table-hover">
@@ -60,7 +63,9 @@
 				<c:forEach items="${HWList}" var="h">
 					<tr>
 						<td>${h.HWNUM}</td>
-						<td class="go">${h.HWNAME}</td>
+						<td class="go">
+						<a href="./submitHW?&hwnum=${h.HWNUM}">${h.HWNAME}</a>
+						</td>
 						<td>${h.APPLYDATE}</td>
 						<td>${h.SUBMIT}</td>
 					</tr>

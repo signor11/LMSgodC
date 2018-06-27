@@ -27,7 +27,7 @@
 		</insert>
 		
 	<!-- 파일 등록 -->
-		<insert id="addfileInsert" parameterType="addfileVO">
+		<insert id="addfileInsert" parameterType="string">
 			
 			INSERT INTO ADDFILE(	ADDFILEID,
 									ADDFILENAME

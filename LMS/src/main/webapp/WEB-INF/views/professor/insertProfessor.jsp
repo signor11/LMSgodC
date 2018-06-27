@@ -1,20 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html><html><head><title>insertBoard.jsp</title></head>
+
+<!DOCTYPE html><html><head><title>insertProfessor.jsp</title></head>
 <body>
 
 <form:form action="./insertProfessor" method="post">           
     <div class="control-group">
-        <label class="control-label" for="studentnum">교수번호</label>
+        <label class="control-label" for="professornum">교수번호</label>
         <div class="controls">
-            <form:input path="studentNum" />                                                
+            <form:input path="professornum" />                                                
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label" for="studentpw">교수비밀번호</label>
+        <label class="control-label" for="professorpw">교수비밀번호</label>
         <div class="controls">
-            <form:password path="studentPw" />                                        
+            <form:password path="professorpw" />                                        
         </div>
     </div>
     <div class="control-group">
@@ -40,10 +41,7 @@
         <div class="controls">
             <form:input path="majornum" />                                                    
         </div>
-   </div>
-   
-   
-  
+   </div> 
     <div class="control-group">
         <div class="controls">
             <button type="submit" class="btn btn-primary">교수등록</button>

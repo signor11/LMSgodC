@@ -17,26 +17,27 @@ public class SubmitHWServiceImpl implements SubmitHWService {
 
 	@Override
 	public void submitHwInsert(SubmitHWVO vo) {
-		
+		dao.submitHwInsert(vo);
 	}
 
 	@Override
 	public void addfileInsert(AddFileVO vo) {
+		dao.addfileInsert(vo);
 	}
 
 	@Override
 	public void submitHwUpdate(SubmitHWVO vo) {
-		
+		dao.submitHwUpdate(vo);
 	}
 
 	@Override
 	public void addfileUpdate(AddFileVO vo) {
-		
+		dao.addfileUpdate(vo);
 	}
 
 	@Override
 	public void submitHwDelete(String submithwnum) {
-		
+		dao.submitHwDelete(submithwnum);
 	}
 
 	@Override

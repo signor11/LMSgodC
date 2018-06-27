@@ -7,14 +7,14 @@
 	<select id="getProfessor" parameterType="string"
 		resultType="com.yedam.lms.smp.ProfessorVO">
 		SELECT
-		professornum,
-		professorname,
-		professorphone,
-		hiredate,
-		majornum
+		PROFESSORNUM,
+		PROFESSORNAME,
+		PROFESSORPHONE,
+		HIREDATE,
+		MAJORNUM
 		FROM professor
-		WHERE professornum =
-		#{professornum}
+		WHERE PROFESSORNUM =
+		#{PROFESSORNUM}
 	</select>
 
 	<!-- <resultMap type="#modelname" id="YourResultSet">
@@ -29,32 +29,32 @@
 	<insert id="insertProfessor">
 	<selectKey keyProperty="professornum" resultType="string"
 		order="BEFORE">
-		select max(professornum))+1 from professor
+		select max(PROFESSORNUM))+1 from professor
 	</selectKey>
 		insert into
-		professor(professornum, professorname,
-		professorphone,
-		hiredate, majornum)
+		professor(PROFESSORNUM, PROFESSORNAME,
+		PROFESSORPHONE,
+		HIREDATE, MAJORNUM)
 		values
-		(#{professornum},
-		 #{professorname}, 
-		 #{professorphone},
-	 	#{hiredate}, 
-		#{majornum}
+		(#{PROFESSORNUM},
+		 #{PROFESSORNAME}, 
+		 #{PROFESSORPHONE},
+	 	#{HIREDATE}, 
+		#{MAJORNUM}
 		trunc(sysdate), 0 )
 	</insert>
 
 	  <update id="updateProfessor" parameterType="com.yedam.lms.smp.ProfessorVO">
-      UPDATE COMMENTS SET PROFESSORNUM = #{professornum},
-                     PROFESSORNAME = #{professorname},
-                     PROFESSORPHONE = #{professorphone},
-                     HIREDATE = #{hiredate},
-                     MAJORNUM = #{majornum} 
-                  WHERE PROFESSORNUM = #{professornum}
+      UPDATE COMMENTS SET PROFESSORNUM = #{PROFESSORNUM},
+                     PROFESSORNAME = #{PROFESSORNAME},
+                     PROFESSORPHONE = #{PROFESSORPHONE},
+                     HIREDATE = #{HIREDATE},
+                     MAJORNUM = #{MAJORNUM} 
+                  WHERE PROFESSORNUM = #{PROFESSORNUM}
    </update>
    
    <delete id="deleteComments" parameterType="com.yedam.lms.smp.ProfessorVO">
-      DELETE PROFESSOR WHERE PROFESSORNUM = #{professornum}
+      DELETE PROFESSOR WHERE PROFESSORNUM = #{PROFESSORNUM}
    </delete>
 
 </mapper>
