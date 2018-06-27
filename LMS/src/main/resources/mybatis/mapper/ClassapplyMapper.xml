@@ -35,7 +35,7 @@
 			    ) 
 	</insert>
 
-	
+		
 	<!-- 삭제 -->
 	<delete id="deleteClassapply" parameterType="string">
 		DELETE FROM CLASSAPPLY
