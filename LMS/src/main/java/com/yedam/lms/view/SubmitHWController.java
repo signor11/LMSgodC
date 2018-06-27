@@ -28,8 +28,9 @@ public class SubmitHWController {
 	//학생과제제출폼
 	@RequestMapping(value = "/submitHW", method= RequestMethod.GET)
 	public String submitHwInsertform(HttpServletRequest request, SubmitHWVO vo) {
+		vo.setHwnum("68000073");
 		request.setAttribute("sb", hwService.getHW(vo.getHwnum()));
-		request.setAttribute("up_hw", submitHWService.getsubmitHw(vo));
+		//request.setAttribute("up_hw", submitHWService.getsubmitHw(vo));
 		return "hw/submitHW";
 	}
 	
@@ -48,6 +49,7 @@ public class SubmitHWController {
 	//교수의 학생 과제 확인
 		@RequestMapping(value = "/getsubmitHwList")
 		public String getsubmitHwList(HttpServletRequest request, SubmitHWVO vo) {
+			vo.setHwnum("68000073");
 			request.setAttribute("hw", hwService.getHW(vo.getHwnum()));
 			request.setAttribute("sh", submitHWService.getsubmitHwList(vo));
 			return "hw/submitHWListPro";

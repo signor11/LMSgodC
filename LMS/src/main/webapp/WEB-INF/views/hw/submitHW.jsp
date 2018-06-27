@@ -5,18 +5,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>submitHW.jsp</title>
+<title>학생용 과제 제출</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Bootstrap -->
+<link href="./resources/web/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="./resources/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+	
+<script src="./resources/web/js/jquery.min.js"></script>
 </head>
 <body>
-	<div>
-		<h3>과제설명</h3>
+<div class="w3-container w3-padding-30 w3-row-padding "style = " padding : 100px; max-width: 1500px">
+<h3 class="w3-wide">과제설명</h3>
 
 		<div>
 			<h6>과제명</h6>
 			<input name="submitname" type="text"
-				disabled="disabled" value="${sb.hwname}"><br> <br>
+				readonly="readonly" value="${sb.hwname}" class="w3-input w3-border"><br> <br>
 			<textarea name="submitinfo" cols="85" rows="13"
-				style="width: 100%;" disabled="disabled">${sb.hwinfo}</textarea>
+				style="width: 100%;" readonly="readonly" class="scroll_form">${sb.hwinfo}</textarea>
 		</div>
 		<hr />
 
@@ -27,6 +43,7 @@
 
 	</div>
 	<!--과제등록-->
+	<div class="w3-container w3-padding-30 w3-row-padding "style = "padding : 50px">
 	<div style="padding: 50px">
 		<h2>과제 제출</h2>
 		<c:set value="./submitHW" var="u" />
@@ -39,23 +56,24 @@
 
 			<h6>제목</h6>
 			<input name="submitname" type="text"
-				value="${up_hw.submitname}" required="required"><br>
+				value="${up_hw.submitname}" required="required" class="w3-input w3-border"><br>
 			<h6>첨부파일</h6>
 			<input type="text" name="addfilename"
 				placeholder="파일 첨부해주세요." style="width: 80%; height: 40px"
 				value="${up_hw.addfileid}" required="required" readonly="readonly" />
-			<button type="button" value="파일업로드">
+			<button type="button" value="파일업로드" class="w3-button w3-dark-grey">
 				<!-- onclick="window.open('../homework/uploadform.jsp','file','width=500,height=500')" -->
 				+</button>
 			<br>
 			<h6>내용</h6>
 			<textarea name="submitinfo" cols="85" rows="13"
-				style="width: 100%;">${up_hw.submitinfo}</textarea>
+				style="width: 100%;" class="scroll_form"  >${up_hw.submitinfo}</textarea>
 			<div>
-				<input type="submit" value="등록" /><br>
+				<input type="submit" value="등록" class="fa-btn btn-1 btn-1e"/><br>
 			</div>
 
 		</form>
+	</div>
 	</div>
 	<br>
 	<br>

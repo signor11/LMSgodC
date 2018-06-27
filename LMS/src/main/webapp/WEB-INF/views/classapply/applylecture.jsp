@@ -43,7 +43,7 @@
 			수강신청<br> <br>
 		</h1>
 	</div>
-	
+	<div  style="display: inline-block;">
 	<form name =searchFrm method="post" action="">
 	<div>
 		<span> 과목번호 </span> <span> 
@@ -123,7 +123,7 @@
 				<td>${classapply.professorname}</td>
 				<td>${classapply.credit}</td>
 				<td style="text-align: center;">
-					<button type="button" onclick ="delcheck(${classapply.classapplynum});"
+					<button type="button" onclick="delcheck(${classapply.classapplynum});"
 						class="btn btn-danger">삭제</button>
 				</td>
 
@@ -131,6 +131,7 @@
 		</c:forEach>	
 		</table>
 		</form>
+		</div>
 		</div>
 
 </body>

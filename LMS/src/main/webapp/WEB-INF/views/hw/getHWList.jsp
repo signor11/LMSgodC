@@ -4,66 +4,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>getHWList.jsp</title>
+<title>학생용 과제확인</title>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="application/x-javascript">
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
-</script>
-<!--[if lt IE 9]>
-     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<!-- start plugins -->
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<link href="./resources/web/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="./resources/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
 <!-- start slider -->
-<link href="css/slider.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="js/modernizr.custom.28468.js"></script>
-<!-- Owl Carousel Assets -->
-<link href="css/owl.carousel.css" rel="stylesheet">
-<!-- //Owl Carousel Assets -->
-<!----font-Awesome----->
-<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
-<!----font-Awesome----->
+<link href="./resources/web/css/slider.css" rel="stylesheet"
+	type="text/css" media="all" />
+<script type="text/javascript"
+	src="./resources/web/js/modernizr.custom.28468.js"></script>
+
+<script src="./resources/web/js/jquery.min.js"></script>
 </head>
-<body>
-	<h3>학생용 과제 조회</h3>
+<body>	
+	<br><br>
+	<h3 align="center">학생용 과제 조회</h3>
+	<br><br><br>
 
-	<select name="classnum" style="padding: 10px; text-align: center;">
-		<option value="" selected hidden="">선택</option>
-		<c:forEach items="${classname}" var="n">
-			<option value="${n.CLASSNUM}"
-				<c:if test="${n.classnum==param.classnum}">
+	<div style="display: inline-block;">
+		<input type="text" value="과목명" disabled="disabled"
+			style="padding: 10px; display: inline-block; text-align: center;"
+			size="5" class="fa-btn btn-1 btn-1e">
+			<select name="classnum" style="padding: 10px; text-align: center;">
+			<option value="" selected hidden="">선택</option>
+			<c:forEach items="${classname}" var="n">
+				<option value="${n.CLASSNUM}"
+					<c:if test="${n.classnum==param.classnum}">
 			selected</c:if>>${n.CLASSNAME}
-			</option>
-		</c:forEach>
-	</select>
+				</option>
+			</c:forEach>
+		</select>
+		</div>
 
+		<div align=center>
+			<table class="table table-hover">
+				<tr>
+					<td width="100">과제번호</td>
+					<td width="500">과제제목</td>
+					<td width="200">제출기간</td>
+					<td width="100">제출여부</td>
 
-	<table border="1">
-		<tr>
-			<td width="100">과제번호</td>
-			<td width="500">과제제목</td>
-			<td width="200">제출기간</td>
-			<td width="100">제출여부</td>
+				</tr>
+				<c:forEach items="${HWList}" var="h">
+					<tr>
+						<td>${h.HWNUM}</td>
+						<td class="go">${h.HWNAME}</td>
+						<td>${h.APPLYDATE}</td>
+						<td>${h.SUBMIT}</td>
+					</tr>
+				</c:forEach>
 
-		</tr>
-		<c:forEach items="${HWList}" var="h">
-			<tr>
-				<td>${h.HWNUM}</td>
-				<td class="go">${h.HWNAME}</td>
-				<td>${h.APPLYDATE}</td>
-				<td>${h.SUBMIT}</td>
-			</tr>
-		</c:forEach>
-
-	</table>
-
+			</table>
+		</div>
+	
 	<script>
 		$(function() {
 

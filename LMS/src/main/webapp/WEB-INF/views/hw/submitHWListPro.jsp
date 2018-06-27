@@ -4,26 +4,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>submitHWListPro.jsp</title>
+<title>교수용 제출된 학생과제 확인</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Bootstrap -->
+<link href="./resources/web/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="./resources/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+	
+<script src="./resources/web/js/jquery.min.js"></script>
 </head>
 <body>
 <!-- -----------------화면----------------- -->	
 <br><br>	
 <hr/>
 <form>
-<div style="margin-left: 60px"><h3>과제설명</h3></div>
+<div class="w3-container w3-padding-30 w3-row-padding "style = " padding : 100px; max-width: 1500px">
+<h3 class="w3-wide">과제설명</h3>
 
- <div style="max-width: 600px; margin-left: 60px">
  	<h6>과제명</h6>
-		<input name="submitname" type="text" disabled="disabled"
-		value="${hw.hwname}">
+		<input name="submitname" type="text" readonly="readonly"
+		value="${hw.hwname}" class="w3-input w3-border">
 		<input type="hidden" name="classnum" value="${hw.classnum}"/> 
 	<h6>설명</h6>	
 		<textarea name="submitinfo" cols="85" rows="5" 
-		style="width: 100%;" disabled="disabled" >${hw.hwinfo}</textarea>
-</div>
- <div style="max-width: 600px; margin-left: 60px">
- <button type = "button"> <!-- onclick="delete_hw()"> -->삭제</button>
+		style="width: 100%;" readonly="readonly" class="scroll_form">${hw.hwinfo}</textarea>
+	<br>
+ 	<button type = "button" class="fa-btn btn-1 btn-1e"> <!-- onclick="delete_hw()"> -->삭제</button>
 </div>
 </form>
 <hr/>		
@@ -62,7 +77,7 @@
 </script>
  -->
 
-		<table>
+		<table class="table table-hover">
 			<tr>
 				<td width="100">학생번호</td>
 				<td width="150">학생명</td>

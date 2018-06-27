@@ -138,7 +138,15 @@
 		
 	
 	</select>
+	<!--  교수 시간 표 조회 --> 		
+	<select id ="getSchedulepro" resultType="com.yedam.lms.classs.ClassapplyVO" parameterType="com.yedam.lms.classs.ClassapplyVO">
+			<![CDATA[
+			SELECT		CLASSNAME,
+						CLASSTIME
+			FROM 		CLASS
+			WHERE 		PROFESSORNUM = #{studentnum}
+			]]>
 			
-	
+	</select>	
 	
 </mapper>

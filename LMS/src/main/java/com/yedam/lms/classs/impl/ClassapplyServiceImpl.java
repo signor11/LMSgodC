@@ -68,8 +68,8 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	}
 
 	@Override
-	public ClassapplyVO getschedulePro(ClassapplyVO vo) {
-		return dao.getschedulePro(vo);
+	public ClassapplyVO getSchedulepro(ClassapplyVO vo) {
+		return dao2.getSchedulepro(vo);
 	}
 
 	@Override
