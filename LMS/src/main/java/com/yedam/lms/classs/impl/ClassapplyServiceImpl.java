@@ -100,5 +100,12 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 		
 	}
 
+
+
+	@Override
+	public List<ClassapplyVO> getSchedule(ClassapplyVO vo) {
+		return dao.getClassapplyList(vo);
+	}
+
 	
 }
