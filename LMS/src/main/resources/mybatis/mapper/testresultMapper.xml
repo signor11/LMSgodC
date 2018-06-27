@@ -29,16 +29,7 @@
 			   WHERE TESTRESULTNUM=#{testresultnum}
 	</update>
 	
-	<!-- 과목 성적 수정 -->
-	<update id="updateClassapply" parameterType="testResultVO">
-		UPDATE CLASSAPPLY 
-		SET    CLASSAPPLYNUM=#{classapplynum},
-			   STUDENTNUM = #{studentnum},
-			   CLASSNUM = #{classnum},
-			   SCORE = #{score}
-		WHERE  CLASSAPPLYNUM = #{classapplynum}
-	
-	</update> 
+
 	
 	<!-- 단건 조회 -->
 
@@ -72,7 +63,7 @@
 	   <if test="classnum != null and classnum != ''">
 			AND  C.CLASSNUM = #{classnum}
 	   </if>
-	  ORDER BY CLASSAPPLYNUM
+	  ORDER BY C.CLASSAPPLYNUM
 	</select>
 	
 	<!-- 학생 성적 조회 -->
@@ -109,9 +100,9 @@
 			   		AND C.SCORE = #{score}	
 			   </if>
 			   <if test="classapplynum != null and classapplynum != ''">
-			   		AND C.CLASSAPPLNUM = #{classapplynum}	
+			   		AND C.CLASSAPPLYNUM = #{classapplynum}	
 			   </if>
-			  ORDER BY CLASSAPPLYNUM
+			  ORDER BY C.CLASSAPPLYNUM
 	</select>
 	<!-- 성적표 출력-->
 	<select id="getresult" resultType="map">

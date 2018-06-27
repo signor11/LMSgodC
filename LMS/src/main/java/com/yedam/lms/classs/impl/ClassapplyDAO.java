@@ -28,7 +28,7 @@ public class ClassapplyDAO {
 
 	// 강의 수정
 	public void updateClassapply(ClassapplyVO vo) {
-
+		mybatis.update("com.yedam.lms.classs.impl.ClassapplyDAO.updateClassapply",vo);
 	}
 
 	// 강의 삭제

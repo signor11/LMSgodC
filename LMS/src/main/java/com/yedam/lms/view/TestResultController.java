@@ -49,13 +49,6 @@ public class TestResultController {
 		return "result/getTestresultList";// main 페이지 리턴
 	}
 
-	// 성적 처리
-	@RequestMapping(value = "/updateClassapply")
-	@ResponseBody
-	public ClassapplyVO updateTestResult(TestResultVO vo) {
-		classapplyService.updateClassapply(vo);// ->testResultDAO.classapplyUpdate(classapplyVO);
-		return classapplyService.getClassapply(vo.getClassapplynum());// spring 서비스 활용
-	}
 
 	// 단건
 	@RequestMapping("/gettestResult")
@@ -63,47 +56,8 @@ public class TestResultController {
 		model.addAttribute("inList", testResultService.gettestresult(vo));
 		return "result/getTestresultList";
 	}
+       
 
-	// 교수 성적 조회
-	@RequestMapping("/getTestresultList")
-	public String gettestresultList(TestResultVO vo, Model model) {
-		vo.setClassnum("48000001");
-		model.addAttribute("insList", testResultService.getTestresultList(vo));
-		return "result/getTestresultList";
 
-	}
-	//학생 성적 조회
-	@RequestMapping("/getTestresultListstu")
-	public String getTestresultListstu(TestResultVO vo, Model model) {
-		// model 정보저장
-		vo.setStudentnum("18000001");// 학생 정보
-		model.addAttribute("serList", testResultService.getTestresultListstu(vo));
-		return "result/getTestresultListstu";// View 이름 리턴
-
-	}
-
-	// 성적표 출력
-	@RequestMapping("result")
-	public void getresult(HttpServletRequest request, HttpServletResponse response,TestResultVO vo) throws Exception {
-		try {
-			vo.setStudentnum("18000001");
-			HashMap<String, Object> map = new HashMap<String, Object>();
-			JasperReport report = JasperCompileManager.compileReport(request.getSession().getServletContext().getRealPath("result/result.jrxml"));
-			JRDataSource JRdataSource = new JRBeanCollectionDataSource(testResultService.getresult(vo));
-			JasperPrint print = JasperFillManager.fillReport(report, map, JRdataSource);
-			JRExporter exporter = new JRPdfExporter();
-			OutputStream out;
-			response.reset();
-			out = response.getOutputStream();
-			exporter.setParameter(JRExporterParameter.OUTPUT_FILE_NAME, "report3.pdf");
-			exporter.setParameter(JRExporterParameter.JASPER_PRINT, print);
-			exporter.setParameter(JRExporterParameter.OUTPUT_STREAM, out);
-			exporter.exportReport();
-			out.flush();
-			out.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 }

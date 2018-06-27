@@ -27,8 +27,8 @@ public class TestResultDAO {
 	}
 	
 	//과목 성적 수정
-	public void updateClassapply(ClassapplyVO vo) {
-		mybatis.update("classapplyDAO.updateClassapply",vo);
+	public void updateClassapply(TestResultVO vo) {
+		mybatis.update("testResultDAO.updateClassapply",vo);
 	}
 	//단건 조회
 	public TestResultVO gettestresult(TestResultVO vo) {

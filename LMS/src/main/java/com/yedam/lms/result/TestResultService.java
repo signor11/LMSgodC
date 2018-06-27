@@ -15,7 +15,7 @@ public interface TestResultService {
 	public void updateTestResult(TestResultVO vo);
 	
 	//과목 성적 수정
-	public void updateClassapply(ClassapplyVO vo);
+	public void updateClassapply(TestResultVO vo);
 	
 	//단건조회
 	public TestResultVO gettestresult(TestResultVO vo);
