@@ -30,12 +30,11 @@
 				url : "updateClassapply",
 				method : "get",
 				data : param,
-				async : false
+				dataType :"json"
 			}).done(function(data) {
-				var list = JSON.parse(data);
-				$("#sc" + param.classapplynum).text(list.scoret);
-				$("#gr" + param.classapplynum).text(list.grade);
-				console.log(list.scoret);
+				$("#sc" + param.classapplynum).text(data.scoret);
+				$("#gr" + param.classapplynum).text(data.grade);
+				console.log(data.scoret);
 			});
 		});
 	});

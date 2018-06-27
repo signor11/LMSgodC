@@ -14,7 +14,7 @@ public interface ClassapplyService {
 	public int insertClassapply(ClassapplyVO vo);
 	
 	//강의 수정
-	public void updateClassapply(TestResultVO vo);
+	public void updateClassapply(ClassapplyVO vo);
 	
 	//강의 삭제
 	
