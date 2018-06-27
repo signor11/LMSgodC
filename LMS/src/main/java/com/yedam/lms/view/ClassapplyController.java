@@ -88,9 +88,20 @@ public class ClassapplyController {
 		request.setAttribute("classlist", classapplyService.getClassList(vo2));
 		return "classs/searchlecture";
 	}
+	@RequestMapping("/getSchedulepro")
+	public String getSchedulepro(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
+		//String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum("28000001");
+		
+		//교수 시간표 조회
+		request.setAttribute("schedulelistpro", classapplyService.getSchedulepro(vo));
+		return "schedule/schedule(pro)";
+	}
 	
 	@RequestMapping("/deleteClassapply")
 	@ResponseBody
+	
+	
 	public String deleteClassapply(ClassapplyVO vo) {
 		classapplyService.deleteClassapply(vo.getClassapplynum());
 		//ajax json구조로 리턴해줌

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.yedam.lms.classs.ClassSearchVO;
 import com.yedam.lms.classs.ClassVO;
+import com.yedam.lms.classs.ClassapplyVO;
 
 @Repository
 public class ClassDAO {
@@ -37,6 +38,9 @@ public class ClassDAO {
 	}
 	public List<Map<String, Object>> getClassList(ClassSearchVO classSearchVO){
 		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.getClassList",classSearchVO);
+	}
+	public ClassapplyVO getSchedulepro(ClassapplyVO vo) {
+		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.getSchedulepro",vo);
 	}
 
 }

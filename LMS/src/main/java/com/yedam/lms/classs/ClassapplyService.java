@@ -38,7 +38,7 @@ public interface ClassapplyService {
 	
 	//교수 시간표 조회
 	
-	public ClassapplyVO getschedulePro(ClassapplyVO vo);
+	public ClassapplyVO getSchedulepro(ClassapplyVO vo);
 	
 	//수강 신청 번호 조회
 	
@@ -47,4 +47,6 @@ public interface ClassapplyService {
 	
 	//전체 과목 조회
 	public List<Map<String, Object>> getClassList(ClassSearchVO classsearchVO);
+	
+	
 }
