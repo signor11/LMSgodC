@@ -35,7 +35,7 @@ public class ClassapplyController {
 			throws IOException {
 		//한글 인코딩
 		response.setContentType("text/html; charset=UTF-8");
-		// String stid =(String)session.getAttribute("in");
+		// String stid =(String)session.getAttribute("loginvo");
 		PrintWriter out = response.getWriter();
 		vo.setStudentnum("18000003");
 		int r = classapplyService.insertClassapply(vo);
@@ -68,7 +68,7 @@ public class ClassapplyController {
 	}
 	@RequestMapping("/getClassapplyList")
 	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session) {
-		//String stid=(String)session.getAttribute("");
+		//String stid=(String)session.getAttribute("loginvo");
 		vo.setStudentnum("18000003");
 		vo2.setStart(1);
 		vo2.setEnd(10);
@@ -77,6 +77,16 @@ public class ClassapplyController {
 		//수강신청목록 조회
 		request.setAttribute("classlist", classapplyService.getClassList(vo2));
 		return "classapply/applylecture";
+	}
+	@RequestMapping("/getClassList")
+	public String getClassList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session) {
+		//String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum("18000003");
+		vo2.setStart(1);
+		vo2.setEnd(10);
+		//수강신청목록 조회
+		request.setAttribute("classlist", classapplyService.getClassList(vo2));
+		return "classs/searchlecture";
 	}
 	
 	@RequestMapping("/deleteClassapply")
