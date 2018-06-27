@@ -47,8 +47,8 @@ public class TestResultImpl implements TestResultService{
 	}
 	//학생성적 조회
 	@Override
-	public List<TestResultVO> gettestresultListstu(TestResultVO vo) {
-		return dao.gettestresultListstu(vo);
+	public List<TestResultVO> getTestresultListstu(TestResultVO vo) {
+		return dao.getTestresultListstu(vo);
 	}
 	//성적표 출력
 	@Override

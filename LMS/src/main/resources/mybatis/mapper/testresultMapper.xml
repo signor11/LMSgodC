@@ -76,7 +76,7 @@
 	</select>
 	
 	<!-- 학생 성적 조회 -->
-	<select id="gettestresultListstu" resultType="testResultVO">
+	<select id="getTestresultListstu" resultType="testResultVO">
 		SELECT C.CLASSNUM,
 			   C.CLASSAPPLYNUM,
 			   C.STUDENTNUM,

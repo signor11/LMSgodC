@@ -73,11 +73,11 @@ public class TestResultController {
 
 	}
 	//학생 성적 조회
-	@RequestMapping("/gettestresultListstu")
-	public String gettestresultListstu(TestResultVO vo, Model model) {
+	@RequestMapping("/getTestresultListstu")
+	public String getTestresultListstu(TestResultVO vo, Model model) {
 		// model 정보저장
 		vo.setStudentnum("18000001");// 학생 정보
-		model.addAttribute("serList", testResultService.gettestresultListstu(vo));
+		model.addAttribute("serList", testResultService.getTestresultListstu(vo));
 		return "result/getTestresultListstu";// View 이름 리턴
 
 	}

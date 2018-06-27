@@ -24,7 +24,7 @@ public interface TestResultService {
 	public List<TestResultVO> getTestresultList(TestResultVO vo);
 	
 	//학생 성적 조회
-	public List<TestResultVO> gettestresultListstu(TestResultVO vo);
+	public List<TestResultVO> getTestresultListstu(TestResultVO vo);
 	
 	//성적표 출력
 	public List<TestResultVO> getresult(TestResultVO vo);
