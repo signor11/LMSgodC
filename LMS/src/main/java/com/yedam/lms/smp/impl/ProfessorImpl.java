@@ -42,9 +42,10 @@ public class ProfessorImpl implements ProfessorService {
 	}
 
 	@Override
-	public void deleteProfessor(ProfessorVO vo) {
-		dao.deleteProfessor(vo);
+	public void deleteProfessor(String professornum) {
+		dao.deleteProfessor(professornum);
 		
 	}
+
 
 }
