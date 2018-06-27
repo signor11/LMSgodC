@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="result" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="71e714a3-e890-4226-a53c-2b542b712d3b">
 	<property name="ireport.zoom" value="1.948717100000002"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="230"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
@@ -20,7 +20,7 @@ join testresult tr on (c.classapplynum=tr.classapplynum)]]>
 	<field name="CLASSNUM" class="java.math.BigDecimal"/>
 	<field name="CLASSNAME" class="java.lang.String"/>
 	<field name="GRADE" class="java.lang.String"/>
-	<field name="SCORET" class="java.math.BigDecimal"/>
+	<field name="SCORET" class="java.lang.String"/>
 	<field name="SCORE" class="java.math.BigDecimal"/>
 	<field name="CLASSAPPLYNUM" class="java.math.BigDecimal"/>
 	<field name="CREDIT" class="java.math.BigDecimal"/>
@@ -33,7 +33,7 @@ join testresult tr on (c.classapplynum=tr.classapplynum)]]>
 		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
 	</variable>
 	<variable name="SUM" class="java.math.BigDecimal" resetType="Group" resetGroup="studentnum" calculation="Sum">
-		<variableExpression><![CDATA[$V{SUM}.add($F{SCORET})]]></variableExpression>
+		<variableExpression><![CDATA[$V{SUM}.add(Float.parseFloat($F{SCORET}))]]></variableExpression>
 		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
 	</variable>
 	<group name="studentnum">
