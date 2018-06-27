@@ -1,6 +1,8 @@
 package com.yedam.lms.view;
 
+import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.yedam.lms.classs.ClassapplyService;
 import com.yedam.lms.classs.ClassapplyVO;
+import com.yedam.lms.classs.impl.ClassapplyDAO;
 import com.yedam.lms.result.TestResultService;
 import com.yedam.lms.result.TestResultVO;
 
@@ -30,6 +33,7 @@ import net.sf.jasperreports.engine.export.JRPdfExporter;
 @Controller
 public class ClassScoreController {
 	
+	//작성자:김혜민
 	@Autowired
 	ClassapplyService classapplyService;
 	@Autowired
@@ -38,10 +42,22 @@ public class ClassScoreController {
 	// 성적 처리
 	@RequestMapping(value = "/updateClassapply")
 	@ResponseBody
-	public TestResultVO updateTestResult(ClassapplyVO vo,TestResultVO vo1) {
-		classapplyService.updateClassapply(vo);// ->testResultDAO.classapplyUpdate(classapplyVO);
+	public TestResultVO updateTestResult(TestResultVO vo,TestResultVO vo1,HttpServletResponse response,ClassapplyVO voc)throws IOException {
+		vo.setClassnum("48000001");
+		classapplyService.updateClassapply(voc);// ->testResultDAO.classapplyUpdate(classapplyVO);
+		return testResultService.getTestresultListstu(vo).get(0);// 1건 가져옴
+		/*//한글 인코딩
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
 		
-		return testResultService.getTestresultListstu(vo1).get(0);// 1건 가져옴
+		int sc = classapplyService.updateClassapply(voc);
+		if(sc >= 100) {
+			out.print("<script>");
+			out.print("alert('취득점수 초과')");
+			out.print("history.go(-1)");
+			out.print("</script>");
+			return null;
+		}*/
 		
 	}
 	
@@ -81,8 +97,7 @@ public class ClassScoreController {
 
 	// 교수 성적 조회
 	@RequestMapping("/getClassScoreList")
-	public String gettestresultList(TestResultVO vo, Model model) {
-		vo.setClassnum("48000001");
+	public String gettestresultList(TestResultVO vo, Model model)  {
 		model.addAttribute("insList", testResultService.getTestresultList(vo));
 		return "result/getClassScoreList";
 

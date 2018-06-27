@@ -39,7 +39,11 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 			
 
 	}
-
+	//성적 수정(김혜민)
+	@Override
+	public int updateClassapply(ClassapplyVO vo) {
+		return dao.updateClassapply(vo);
+	}
 
 
 	@Override
@@ -93,12 +97,7 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 		// TODO Auto-generated method stub
 		return dao2.getClassList(classsearchVO);
 	}
-	//성적 수정(김혜민)
-	@Override
-	public void updateClassapply(ClassapplyVO vo) {
-		dao.updateClassapply(vo);
-		
-	}
+	
 
 	
 }
