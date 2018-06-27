@@ -40,11 +40,7 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 
 	}
 
-	@Override
-	public void updateClassapply(ClassapplyVO vo) {
-		dao.updateClassapply(vo);
-		
-	}
+
 
 	@Override
 	public void deleteClassapply(String classapplynum) {
