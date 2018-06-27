@@ -95,9 +95,16 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	}
 	//성적 수정(김혜민)
 	@Override
-	public void updateClassapply(TestResultVO vo) {
-		// TODO Auto-generated method stub
+	public void updateClassapply(ClassapplyVO vo) {
+		dao.updateClassapply(vo);
 		
+	}
+
+
+
+	@Override
+	public List<ClassapplyVO> getSchedule(ClassapplyVO vo) {
+		return dao.getClassapplyList(vo);
 	}
 
 	

@@ -27,8 +27,8 @@ public class TestResultDAO {
 	}
 	
 	//과목 성적 수정
-	public void updateClassapply(ClassapplyVO vo) {
-		mybatis.update("classapplyDAO.updateClassapply",vo);
+	public void updateClassapply(TestResultVO vo) {
+		mybatis.update("testResultDAO.updateClassapply",vo);
 	}
 	//단건 조회
 	public TestResultVO gettestresult(TestResultVO vo) {
@@ -41,12 +41,12 @@ public class TestResultDAO {
 	}
 	
 	//학생 성적 조회
-	public List<TestResultVO> gettestresultListstu(TestResultVO vo){
-		return mybatis.selectList("testResultDAO.gettestresultListstu",vo);
+	public List<TestResultVO> getTestresultListstu(TestResultVO vo){
+		return mybatis.selectList("testResultDAO.getTestresultListstu",vo);
 	}
-	/*//성적표 출력
-	public List<TestResultVO> gettransList(TestResultVO vo){
-		return mybatis.selectList("testResultDAO.gettransList",vo);
-	}*/
+	//성적표 출력
+	public List<TestResultVO> getresult(TestResultVO vo){
+		return mybatis.selectList("testResultDAO.getresult",vo);
+	}
 	
 }
