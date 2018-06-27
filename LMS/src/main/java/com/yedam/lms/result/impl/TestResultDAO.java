@@ -44,9 +44,9 @@ public class TestResultDAO {
 	public List<TestResultVO> gettestresultListstu(TestResultVO vo){
 		return mybatis.selectList("testResultDAO.gettestresultListstu",vo);
 	}
-	//성적표 출력
+	/*//성적표 출력
 	public List<TestResultVO> gettransList(TestResultVO vo){
 		return mybatis.selectList("testResultDAO.gettransList",vo);
-	}
+	}*/
 	
 }
