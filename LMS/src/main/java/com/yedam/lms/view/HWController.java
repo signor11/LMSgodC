@@ -50,8 +50,9 @@ public class HWController {
 
 	// 과제 등록폼
 	@RequestMapping(value = "/hwInsert", method = RequestMethod.GET)
-	public String hwInsertForm(HttpServletRequest request, @RequestParam String professornum) {
-		request.setAttribute("classname", classService.pro_classnameList(professornum));
+	public String hwInsertForm(HttpServletRequest request, HWVO vo) {
+		vo.setProfessornum("28000001");
+		request.setAttribute("classname", classService.pro_classnameList(vo.getProfessornum()));
 		return "hw/hwInsert";
 	}
 
@@ -64,9 +65,11 @@ public class HWController {
 	
 	//수정폼
 	@RequestMapping(value = "/hwUpdate", method = RequestMethod.GET)
-	public String hwUpdateForm(HttpServletRequest request, @RequestParam String classnum, String hwnum) {
-		request.setAttribute("cn", classService.getClass(classnum));
-		request.setAttribute("hw", hwService.getHW(hwnum));
+	public String hwUpdateForm(HttpServletRequest request, HWVO vo) {
+		vo.setClassnum("48000001");
+		vo.setHwnum("68000073");
+		request.setAttribute("cn", classService.getClass(vo.getClassnum()));
+		request.setAttribute("hw", hwService.getHW(vo.getHwnum()));
 		return "hw/hwUpdate";
 	}
 	
