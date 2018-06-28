@@ -6,22 +6,7 @@
 <html>
 <head>
 <title>학생용 과제 제출</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- Bootstrap -->
-<link href="./resources/web/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="./resources/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous">
-	
-<script src="./resources/web/js/jquery.min.js"></script>
 </head>
 <body>
 <div class="w3-container w3-padding-30 w3-row-padding "style = " padding : 100px; max-width: 1500px">
