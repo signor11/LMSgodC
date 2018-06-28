@@ -43,7 +43,7 @@ public class ClassScoreController {
 	@RequestMapping(value = "/updateClassapply")
 	@ResponseBody
 	public TestResultVO updateTestResult(TestResultVO vo,HttpServletResponse response,ClassapplyVO voc) {
-		vo.setClassnum("48000001");
+		
 		classapplyService.updateClassapply(voc);// ->testResultDAO.classapplyUpdate(classapplyVO);
 		return testResultService.getTestresultListstu(vo).get(0);// 1건 가져옴
 		
@@ -86,6 +86,7 @@ public class ClassScoreController {
 	// 교수 성적 조회
 	@RequestMapping("/getClassScoreList")
 	public String gettestresultList(TestResultVO vo, Model model)  {
+		vo.setClassnum("48000001");
 		model.addAttribute("insList", testResultService.getTestresultList(vo));
 		return "result/getClassScoreList";
 
