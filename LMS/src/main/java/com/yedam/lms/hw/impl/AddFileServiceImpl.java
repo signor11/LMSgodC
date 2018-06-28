@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.yedam.lms.hw.AddFileService;
 import com.yedam.lms.hw.AddFileVO;
 
-@Service("addFileService")
+@Service("addfileService")
 public class AddFileServiceImpl implements AddFileService {
 	
 	@Autowired

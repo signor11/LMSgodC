@@ -39,8 +39,6 @@
 				<td width="200">과제번호</td>
 				<td width="500">과제제목</td>
 				<td width="200">제출기간</td>
-				<td width="100">수정</td>
-				
 				
 			</tr>
 			<c:forEach items="${HWListPro}" var="h">
@@ -50,9 +48,6 @@
 				<a href="./getsubmitHwList?hwnum=${h.HWNUM}&classnum=${h.CLASSNUM}">${h.HWNAME}</a>
 				</td>
 				<td>${h.APPLYDATE}</td>
-				<td>
-				<a href="./hwUpdate?hwnum=${h.HWNUM}">수정</a>
-				</td>
 			</tr>
 			</c:forEach>
 		</table>

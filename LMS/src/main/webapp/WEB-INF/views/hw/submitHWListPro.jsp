@@ -24,20 +24,22 @@
 <script src="./resources/web/js/jquery.min.js"></script>
 <script>
 	function update_hw(){
-		var check = confirm('수정하시겠습니까?');
+		var check = confirm('과제를 수정하시겠습니까?');
 		if(check==true){
 			document.hwUpdate.submit();
 		}
 	};
 	
 	function delete_hw(){
-		var check = confirm('삭제하시겠습니까?');
+		var check = confirm('이미 제출된 과제까지 모두 삭제됩니다. 삭제하시겠습니까?');
 		if(check==true){
 			window.location.href= "./hwDelete?hwnum=${hw.hwnum}"
 		}
 		
 	};
-	
+	function popup(a){
+		alert(a);    
+ 				};
 
 </script>
 
@@ -117,7 +119,7 @@
 				</td>
 				<td>
 					<c:if test="${not empty s.ADDFILEID}">
-						<a href="../control/searchhw_control(pro).jsp?action=download&addfileid=${s.ADDFILEID}">
+						<a href="./getAddFile?addfileid=${s.ADDFILEID}">
 						${s.SUBMIT}</a>
 					</c:if>	
 					<c:if test="${empty s.ADDFILEID}">
