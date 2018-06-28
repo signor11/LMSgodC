@@ -53,7 +53,7 @@
 		<div style="display: inline-block;">
 			<form method="post" action="updateClassapply" >
 				<input type="hidden" name="action" value="list"> 
-				<input class="btn btn-default" type="text" value="과목명" disabled="disabled" 
+				<input class="btn btn-danger" type="text" value="과목명" disabled="disabled" 
 				       style="padding: 10px; display: inline-block; text-align: center;"size="5">
 				<select name="classnum" style="padding: 10px; text-align: center;">
 					<option value="DropDown" hidden="" selected="selected">선택</option>
