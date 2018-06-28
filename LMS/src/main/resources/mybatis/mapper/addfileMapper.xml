@@ -7,12 +7,14 @@
 
 	<!-- 파일 등록 -->
 	<insert id="addfileInsert" parameterType="addfileVO">
-
+		<selectKey keyProperty="addfileid" resultType="string" order="BEFORE">
+		 SELECT ADDFILEID_SEQ.NEXTVAL FROM dual
+		</selectKey>
 		INSERT INTO ADDFILE( 	ADDFILEID,
 								ADDFILENAME
 							)
 					VALUES(
-								ADDFILEID_SEQ.NEXTVAL,
+								#{addfileid},
 								#{addfilename}
 							)
 	</insert>

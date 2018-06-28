@@ -51,7 +51,7 @@
 			<c:set value="./submitHWUpdate&submithwnum=${up_hw.submithwnum}" var="u" />
 		</c:if>
 		<form method="post" action="${u}" encType="multipart/form-data">
-		<input type="hidden" value="${id.addfileid}"name = "addfileid" />
+		<input type="hidden" value="${id.addfileid}" name = "addfileid" />
 			<input type="text" name="hwnum" hidden="" value="${sb.hwnum}" /> <input
 				type="text" name="classnum" hidden="" value="${sb.classnum}" />
 

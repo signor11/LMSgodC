@@ -62,9 +62,14 @@ public class SubmitHWController {
 				addvo.setAddfilename(filename);
 				addfileService.addfileInsert(addvo);
 				vo.setAddfileid(addvo.getAddfileid());
+				System.out.println("**********************************************************************");
+				System.out.println(vo.getAddfileid());
+				
 			}
 			
+			
 			vo.setStudentnum((String)session.getAttribute("stn"));
+			
 			submitHWService.submitHwInsert(vo);
 			request.setAttribute("id", vo.getAddfileid());
 			return "redirect:/getHWList";
