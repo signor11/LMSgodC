@@ -62,8 +62,7 @@ public class SubmitHWController {
 				addvo.setAddfilename(filename);
 				addfileService.addfileInsert(addvo);
 				vo.setAddfileid(addvo.getAddfileid());
-				System.out.println("**********************************************************************");
-				System.out.println(vo.getAddfileid());
+				
 				
 			}
 			

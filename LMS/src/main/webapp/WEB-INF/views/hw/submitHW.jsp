@@ -59,6 +59,9 @@
 			<input name="submitname" type="text"
 				value="${up_hw.submitname}" required="required" class="w3-input w3-border"><br>
 			<h6>첨부파일</h6>
+			<c:if test="${not empty up_hw}">
+			&nbsp;&nbsp;&nbsp;<i>제출된 파일명 - ${up_hw.addfileid}</i><br><br>
+			</c:if>
 			<input type="file" name="tempuploadfile" class="w3-button w3-dark-grey"/>
 			<%-- <input type="text" name="addfilename"
 				placeholder="파일 첨부해주세요." style="width: 80%; height: 40px"
@@ -71,8 +74,7 @@
 			<div>
 				<input type="submit" value="등록" class="fa-btn btn-1 btn-1e"/><br>
 			</div>
-		${u}
-		${up_hw.addfileid}
+		
 		</form>
 	</div>
 	</div>
