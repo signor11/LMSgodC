@@ -73,11 +73,8 @@
 								AND C.CLASSNAME LIKE '%' || upper(#{classname}) || '%'
 								</if>
 								<if test="professorname != null and professorname != ''">
-								AND P.PROFESSORNAME LIKE '%' || upper(#{professorname}) || '%'
+								AND PROFESSORNAME LIKE '%' || #{professorname} || '%'
 								</if> 
-								<if test="classtime !=null and classtime !=''">
-								AND C.CLASSTIME LIKE '%' || upper(#{classtime}) || '%'
-								</if>
 								ORDER BY CLASSNUM
 							 	) A 
 							 )B
