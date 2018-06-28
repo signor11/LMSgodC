@@ -6,19 +6,19 @@
 <tiles-definitions>
 <definition name="popup/*/*" template="/WEB-INF/views/tiles/blank_layout.jsp">
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"/>
-	</definition>
+</definition>
+<!-- admin tiles 설정 -->
+<definition name="admin/*/*" template="/WEB-INF/views/adminTiles/admin_layout.jsp">
+	<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+</definition>
  <!-- 부모 기본 layout 설정-->
 <definition name="*/*" template="/WEB-INF/views/tiles/layout.jsp">
-
-    
-    <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
-
+	<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"/>
 </definition>
 
 <!-- 위의 레이아웃을 상속 받은 액션 호출됐을 때 -->
 <definition name="*/*/*" extends="mainTemplate">
-  
-    <put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+  	<put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
 </definition>
 
 
