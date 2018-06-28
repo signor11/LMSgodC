@@ -19,7 +19,7 @@
 	</insert>
 
 	<!-- 온라인 시험 성적 수정 -->
-	<update id = "updateTestResult" parameterType="testResultVO">
+	<update id = "updateTestResult" parameterType="com.yedam.lms.classs.impl.ClassapplyDAO">
 		UPDATE TESTRESULT 
 		SET    TESTSCORE=#{testscore},
 			   TESTNUM=#{testnum},
