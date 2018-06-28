@@ -11,7 +11,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<script>
+<!-- <script>
 	$(document).ready(function() {
 
 		$("#print").dialog({
@@ -29,7 +29,7 @@
 			$("#print").dialog("open");
 		});
 	});
-</script>
+</script> -->
 </head>
 <!-- body -->
 <body>
@@ -46,14 +46,14 @@
 
 			<table class="table table-hover" style="text-align: center;">
 				<tr>
-					<td>학생번호</td>
-					<td width="400">과목명</td>
-					<td>이수학점</td>
-					<td>학점</td>
-					<td>취득점수</td>
-					<td>취득등급</td>
-					<td>담당교수</td>
-					<td width="100">성적상태</td>
+					<td class="danger" >학생번호</td>
+					<td class="danger" width="400">과목명</td>
+					<td class="danger">이수학점</td>
+					<td class="danger">학점</td>
+					<td class="danger">취득점수</td>
+					<td class="danger">취득등급</td>
+					<td class="danger">담당교수</td>
+					<td class="danger" width="100">성적상태</td>
 				</tr>
 				<c:forEach items="${serList}" var="ser">
 					<tr>
