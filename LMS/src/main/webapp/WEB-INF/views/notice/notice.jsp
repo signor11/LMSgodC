@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action ="./notice"></form>
- 공지사항입니다.
+<form action="./notice" method="post" name="noticeForm"  enctype  ="multipart/form-data" onsubmit="return submitCheck()"></form>
+ 공지사항입니다.   
 </body>
 </html>
