@@ -160,7 +160,6 @@
 					<li><a href="getBoardList">과제</a></li>
 					<li><a href="login.jsp">시험</a></li>
 					<li><a href="getUserList">성적</a></li>
-
 				</ul>
 			</div>
 			<!-- /.navbar-collapse --> <!-- start soc_icons --> </nav>			
