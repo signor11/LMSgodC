@@ -4,6 +4,7 @@
 
 <mapper namespace="com.yedam.lms.hw.impl.SubmitHWDAO">
 
+
 	<!-- 과제 등록 -->
 		<insert id="submitHwInsert" parameterType="submitHWVO">
 			INSERT INTO SUBMIT_HW(
@@ -26,17 +27,7 @@
 									)
 		</insert>
 		
-	<!-- 파일 등록 -->
-		<insert id="addfileInsert" parameterType="addfileVO">
-			
-			INSERT INTO ADDFILE(	ADDFILEID,
-									ADDFILENAME
-								)
-						VALUES(
-									ADDFILEID_SEQ.NEXTVAL,
-									#{addfilename}
-								)
-		</insert>	
+
 		
 	<!-- 과제 수정 -->
 		<update id="submitHwUpdate" parameterType="submitHWVO">
@@ -52,14 +43,7 @@
 							WHERE 	SUBMITHWNUM=	#{submithwnum}	
 		</update>	
 		
-	<!-- 파일 수정 -->	
-		<update id="addfileUpdate" parameterType="addfileVO">
-			
-			UPDATE ADDFILE 	SET ADDFILENAME=	#{addfilename}
 
-							WHERE ADDFILEID=	#{addfileid}
-		
-		</update>
 
 	<!-- 과제 삭제 -->
 		<delete id="submitHwDelete" parameterType="submitHWVO">

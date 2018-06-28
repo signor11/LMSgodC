@@ -97,7 +97,24 @@ public class ClassapplyController {
 		request.setAttribute("schedulelistpro", classapplyService.getSchedulepro(vo));
 		return "schedule/schedule(pro)";
 	}
-	
+	@RequestMapping("/getSchedule")
+	public String getSchedule(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
+		//String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum("18000003");
+		
+		//학생 시간표 조회
+		request.setAttribute("classapplylist2", classapplyService.getSchedule(vo));
+		return "schedule/schedule";
+	}
+	@RequestMapping("/getSchedulepopup")
+	public String getSchedulepopup(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
+		//String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum("18000003");
+		
+		//학생 시간표 조회
+		request.setAttribute("classapplylist2", classapplyService.getSchedule(vo));
+		return "popup/schedule/schedule";
+	}
 	@RequestMapping("/deleteClassapply")
 	@ResponseBody
 	

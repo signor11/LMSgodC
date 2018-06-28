@@ -5,17 +5,8 @@
 <html>
 <head>
 <title>예담대학교</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous">
-<script src="../scripts/jquery-3.2.1.min.js"></script>
 <script>
+	//성적표 출력
 	function content_print() {
 
 		var initBody = document.body.innerHTML;
@@ -24,12 +15,20 @@
 		}
 		window.print();
 	}
+	
+	//새창 열기
+	function openprint() {
+		window
+				.open("getSchedulepopup", "네이버새창",
+						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+
+	}
 </script>
 </head>
 <body>
 <div align="center" id="printarea">
 <h3>학기 시간표</h3>
-<form name=scheduleFrm method="post" action="schedule.jsp?action=schedule">
+<form name=scheduleFrm method="post" action="">
 <table border="1" class="table table-hover" id="table1">
 <tr>
 <td>&nbsp;</td><td>월</td><td>화</td>
@@ -46,17 +45,25 @@
 	</c:forEach>	
 	</tr>
 </c:forEach>
-<c:forEach items="${classapplylist}" var="vo">
+<c:forEach items="${classapplylist2}" var="vo">
 	<script>
-	<c:forTokens items="${vo.getClasstime()}" delims="," var="time">
-	 document.getElementById("${time}").innerHTML="${vo.getClassname()}";
+	<c:forTokens items="${vo.classtime}" delims="," var="time">
+	 document.getElementById("${time}").innerHTML="${vo.classname}";
 	</c:forTokens>
 	</script>
 </c:forEach>
 </table>
 <br>
-<button type="button" class="btn btn-danger" onclick="javascript:content_print();">출력</button>
+<c:if test="${document.write(location.pathname).equals('/LMS/getSchedule')}">
+<button id=printbtn type="button" class="btn btn-danger" onclick="javascript:openprint();">시간표 출력</button>
+</c:if>
+<c:if test="${document.write(location.pathname)=='/LMS/getSchedulepopup'}">
+<button id=openbtn type="button" class="btn btn-danger" onclick="javascript:content_print();">출력하기</button>
+</c:if>
 
+<script>
+document.write(location.pathname);
+</script>
 
 <br><br>
 </form>

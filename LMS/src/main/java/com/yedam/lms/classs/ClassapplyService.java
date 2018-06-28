@@ -48,5 +48,7 @@ public interface ClassapplyService {
 	//전체 과목 조회
 	public List<Map<String, Object>> getClassList(ClassSearchVO classsearchVO);
 	
+	//학생 시간표 조회
+	public List<ClassapplyVO> getSchedule(ClassapplyVO vo);
 	
 }

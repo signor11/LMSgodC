@@ -16,6 +16,6 @@ import java.util.Map;
 		
 		public void updateProfessor(ProfessorVO vo);
 		
-		public void deleteProfessor(ProfessorVO vo);
+		public void deleteProfessor(String professornum);
 }
 

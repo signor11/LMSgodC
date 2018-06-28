@@ -15,18 +15,18 @@ public class AddFileDAO {
 	SqlSessionTemplate mybatis;
 	
 	// 등록
-		public void AddFileInsert(AddFileVO vo) {
-			
+		public void addfileInsert(AddFileVO vo) {
+			mybatis.insert("com.yedam.lms.hw.impl.AddFileDAO.addfileInsert",vo);
 		}
 
 		// 수정
 		public void addfileUpdate(AddFileVO vo) {
-			
+			mybatis.insert("com.yedam.lms.hw.impl.AddFileDAO.addfileUpdate",vo);
 		}
 
 		// 삭제
 		public void addfileDelete(String addfileid) {
-			
+			mybatis.insert("com.yedam.lms.hw.impl.AddFileDAO.addfileDelete",addfileid);
 		}
 
 		// 단건조회

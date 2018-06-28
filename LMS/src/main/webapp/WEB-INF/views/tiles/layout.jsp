@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<html>
+
 <head>
 <title>Learner a education bootstrap Website Template | Home ::
 	w3layouts</title>
@@ -16,7 +16,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript">
 	
-	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+	 function hideURLbar(){ window.scrollTo(0,1); } 
 
 </script>
 <link href="./resources/web/css/style.css" rel="stylesheet"
@@ -87,47 +88,49 @@
 					
 						<form action="login.do" method="post">
 							<table border="1" cellpadding="0" cellspacing="0">
-								<tr>
+						
 				
 									<form name=form1 method=post action="./login.do">
 				<c:if test="${empty sessionScope.stdname }">
 										<input type = "hidden" name="action" value="login"/>
 								
-									<td bgcolor="orange" width="40">아이디</td>
+									<td style="font-size: 15px;" bgcolor="orange" width="70" >아이디</td>
 									<td><input class="w3-input w3-border" type="text"
 										placeholder="id" name="studentnum" maxlength="8" />
-									<td bgcolor="orange" width="45">비밀번호</td>
+									<td style="font-size: 15px; "bgcolor="orange" width="70">비밀번호</td>
 									<td><input class="w3-input w3-border" type="password"
 										placeholder="password" name="studentpw" maxlength="8" />
-									<td colspan="1" align="center"><input type="submit"
+									<td colspan="1" align="center"><input style="font-size: 15px;"type="submit"
 										 value="로그인" /></td>
 					</c:if>		
-						
-									<td align="right"><c:if
-											test="${sessionScope.mode =='pro' }">
+						</form>
+									<td>
+									<c:if test="${sessionScope.mode =='pro' }">
 											<a
-												href='../control/applylecture_control.jsp?action=schedule(pro)'>
+											href='../control/applylecture_control.jsp?action=schedule(pro)'>
 												<button type="button" class="btn btn-outline-primary">시간표</button>
 											</a>
 
-										</c:if> <c:if test="${sessionScope.mode =='std' }">
+									</c:if> 
+									<c:if test="${sessionScope.mode =='std' }">
 											<a href="../control/applylecture_control.jsp?action=schedule">
 												<button type="button" class="btn btn-outline-primary">시간표</button>
 											</a>
 
-										</c:if></td>
+									</c:if>
+									</td>
 							
 							<c:if test="${!empty sessionScope.stdname}">
 									<h3 align="left">${sessionScope.stdname}님
 										환영합니다.<a href="logout.do" >로그아웃</a>
 									</h3>
-						</c:if>
+							</c:if>
 
-								</tr>
+								
 							
 							</table>
 						</form>
-					
+				
 						<hr>
 				</center>
 
@@ -152,7 +155,7 @@
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="login.jsp">홈</a></li>
+					<li class="active"><a href="home.jsp">홈</a></li>
 					<li><a href="getUserList">강의</a></li>
 					<li><a href="getBoardList">과제</a></li>
 					<li><a href="login.jsp">시험</a></li>
@@ -160,16 +163,7 @@
 
 				</ul>
 			</div>
-			<!-- /.navbar-collapse --> <!-- start soc_icons --> </nav>
-
-			<div class="soc_icons navbar-right">
-				<ul class="list-unstyled text-center">
-					<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-					<li><a href="#"><i class="fa fa-youtube"></i></a></li>
-					<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-				</ul>
+			<!-- /.navbar-collapse --> <!-- start soc_icons --> </nav>			
 			</div>
 		</div>
 	</div>
