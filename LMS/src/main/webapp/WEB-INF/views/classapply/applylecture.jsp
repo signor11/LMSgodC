@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
-<%-- <%@ taglib tagdir="/WEB-INF/tags" prefix="my" %> --%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="my" %>
 
 <!DOCTYPE html>
 <html>
@@ -27,12 +27,6 @@
 		}
 
 	}
-
-		function doList(p){
-			document.searchFrm.p.value = p;
-			document.searchFrm.submit();
-			
-		}
 	</script>
 </head>
 <body>
@@ -86,9 +80,14 @@
 		</table>
 			</form>
 		<br> <br>
-		
-		<%-- <my:paging jsfunc="doList" paging ="${paging}"/> --%>
-		
+		<!-- 페이징 -->
+		<my:paging paging ="${paging}"/>
+			<script>
+				function doList(page){
+					location.href="./getClassapplyList?page="+page
+					
+				}
+			</script>
 
 	<!-- **************************
 	               두번째 부분입니다.

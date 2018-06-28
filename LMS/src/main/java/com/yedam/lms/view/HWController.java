@@ -76,7 +76,7 @@ public class HWController {
 		return "redirect:/getHWListPro";  
 	}
 	
-	//교수 과제수정폼
+	/*//교수 과제수정폼
 	@RequestMapping(value = "/hwUpdate", method = RequestMethod.GET)
 	public String hwUpdateForm(HttpServletRequest request, HWVO vo) {
 		vo.setClassnum("48000001");
@@ -84,7 +84,7 @@ public class HWController {
 		request.setAttribute("cn", classService.getClass(vo.getClassnum()));
 		request.setAttribute("hw", hwService.getHW(vo.getHwnum()));
 		return "hw/hwUpdate";
-	}
+	}*/
 	
 	//교수 과제 수정 처리
 	@RequestMapping(value = "/hwUpdate", method = RequestMethod.POST)
@@ -97,7 +97,7 @@ public class HWController {
 	@RequestMapping("/hwDelete")
 	public String hwDelete(@ModelAttribute("vo") HWVO vo) {
 		hwService.hwDelete(vo);
-		return "hw/getHWListPro";
+		return "redirect:/getHWListPro";
 	}
 	
 	

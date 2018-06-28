@@ -51,4 +51,9 @@ public interface ClassapplyService {
 	//학생 시간표 조회
 	public List<ClassapplyVO> getSchedule(ClassapplyVO vo);
 	
+	//과목 전체 건수 조회
+	
+	public int getCountclass(ClassSearchVO classSearchVO);
+	
+	
 }

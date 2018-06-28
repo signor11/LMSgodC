@@ -15,7 +15,6 @@ public class ClassapplyVO {
 	
 	
 	
-	
 	public String getpMessage() {
 		return pMessage;
 	}
