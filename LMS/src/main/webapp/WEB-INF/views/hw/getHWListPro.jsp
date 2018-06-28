@@ -47,10 +47,12 @@
 			<tr>
 				<td>${h.HWNUM}</td>
 				<td>
-				<a href="./getHWList?hwnum=${h.HWNUM}">${h.HWNAME}</a>
+				<a href="./getsubmitHwList?hwnum=${h.HWNUM}&classnum=${h.CLASSNUM}">${h.HWNAME}</a>
 				</td>
 				<td>${h.APPLYDATE}</td>
-				<td>수정</td>
+				<td>
+				<a href="./hwUpdate?hwnum=${h.HWNUM}">수정</a>
+				</td>
 			</tr>
 			</c:forEach>
 		</table>

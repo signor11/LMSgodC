@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,37 +22,65 @@
 	crossorigin="anonymous">
 	
 <script src="./resources/web/js/jquery.min.js"></script>
+<script>
+	function update_hw(){
+		var check = confirm('수정하시겠습니까?');
+		if(check==true){
+			document.hwUpdate.submit();
+		}
+	};
+	
+	function delete_hw(){
+		var check = confirm('삭제하시겠습니까?');
+		if(check==true){
+			window.location.href= "./hwDelete?hwnum=${hw.hwnum}"
+		}
+		
+	};
+	
+
+</script>
+
+
 </head>
 <body>
 <!-- -----------------화면----------------- -->	
 <br><br>	
 <hr/>
-<form>
-<div class="w3-container w3-padding-30 w3-row-padding "style = " padding : 100px; max-width: 1500px">
-<h3 class="w3-wide">과제설명</h3>
 
- 	<h6>과제명</h6>
-		<input name="submitname" type="text" readonly="readonly"
-		value="${hw.hwname}" class="w3-input w3-border">
-		<input type="hidden" name="classnum" value="${hw.classnum}"/> 
-	<h6>설명</h6>	
-		<textarea name="submitinfo" cols="85" rows="5" 
-		style="width: 100%;" readonly="readonly" class="scroll_form">${hw.hwinfo}</textarea>
-	<br>
- 	<button type = "button" class="fa-btn btn-1 btn-1e"> <!-- onclick="delete_hw()"> -->삭제</button>
-</div>
-</form>
+<div class="w3-container w3-padding-30 w3-row-padding "style = " padding : 10px;">
+<h3 class="w3-wide">과제설명</h3>
+		<form action="./hwUpdate" name="hwUpdate" method="post">
+			<input type="hidden" name="hwnum" value="${hw.hwnum}"/>
+			<input type="hidden" name="classnum" value="${hw.classnum}"/>
+			<input
+				type="text" value="과목명" disabled="disabled"
+				style="padding: 8px; display: inline-block; text-align: center;"
+				size="5" class="fa-btn btn-1 btn-1e"> 
+				<input type="text" name="classname" value="${cn.classname}">
+			<h6>제목</h6>
+			<input type="text" name="hwname" value="${hw.hwname}" class="w3-input w3-border"><br>
+			<h6>제출기한</h6>
+			<input type="date" name="applydate"
+				value="${fn:substring(hw.applydate,0,10)}"> <br>
+			<h6>내용</h6>
+			<textarea name="hwinfo" cols="85" rows="13" class="scroll_form"
+				style="width: 100%;">${hw.hwinfo}</textarea>
+			<div align="left">
+			<input type="button" value="수정" class="fa-btn btn-1 btn-1e" onclick="update_hw()"/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" value="삭제" class="fa-btn btn-1 btn-1e" onclick="delete_hw()"/><br>
+			</div>
+		</form>
+	</div>
+<br><br>	
 <hr/>		
-		
-		
-		
-		
-		
-		
+<br><br>		
 		
 	<!-- -----------------과제설명-------------------- -->
 	
-	
+
+
 <div align = center>
 <p style="font-size: 34px">과제확인</p> <div  style=" display: inline-block;">
 <form method="post" action="../control/searchhw_control(pro).jsp" name="hwform">
@@ -61,22 +90,6 @@
 
 </form>	
 </div>
-<!-- <script>
-	function delete_hw(){
-		var check = confirm('삭제하시겠습니까?');
-		if(check==true){
-			window.location.href= "../control/searchhw_control(pro).jsp?action=delete&hwnum=${hw.hwnum}"
-		}
-		
-	};
-	
-	function popup(a){
-			alert(a);    
-	 				};
-
-</script>
- -->
-
 		<table class="table table-hover">
 			<tr>
 				<td width="100">학생번호</td>
