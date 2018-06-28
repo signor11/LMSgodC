@@ -36,7 +36,7 @@
 	
 <table class="table table-hover">
 			<tr>
-				<td>과제번호</td>
+				<td width="200">과제번호</td>
 				<td width="500">과제제목</td>
 				<td width="200">제출기간</td>
 				<td width="100">수정</td>
@@ -46,7 +46,9 @@
 			<c:forEach items="${HWListPro}" var="h">
 			<tr>
 				<td>${h.HWNUM}</td>
-				<td>${h.HWNAME}</td>
+				<td>
+				<a href="./getHWList?hwnum=${h.HWNUM}">${h.HWNAME}</a>
+				</td>
 				<td>${h.APPLYDATE}</td>
 				<td>수정</td>
 			</tr>
