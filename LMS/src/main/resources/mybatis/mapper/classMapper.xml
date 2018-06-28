@@ -44,9 +44,11 @@
 			
 	</select>		
 			
-			
-			
-			
+	<!-- 건수 조회 -->	
+	<select id="getCountclass" resultType="integer">
+		select count(*) FROM CLASS C JOIN PROFESSOR P
+							 	ON C.PROFESSORNUM = P.PROFESSORNUM 
+	</select>		
 			
 			
 	 <!-- 전체조회 -->

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="my" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,9 +58,13 @@
 					
 				</table>
 			</form>
-			<%-- <div>
-				<my:paging jsfunc="doList" paging="${paging}" />
-			</div> --%>
+			<!-- 페이징 -->
+			<my:paging paging="${paging}" />
+			<script>
+				function doList(page) {
+					location.href = "./getClassList?page=" + page
+				}
+			</script>
 		</div>
 	</div>
 

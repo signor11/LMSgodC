@@ -11,10 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.lms.classs.ClassSearchVO;
+import com.yedam.lms.classs.ClassVO;
 import com.yedam.lms.classs.ClassapplyService;
 import com.yedam.lms.classs.ClassapplyVO;
+import com.yedam.lms.web.Paging;
 
 @Controller
 public class ClassapplyController {
@@ -67,26 +70,66 @@ public class ClassapplyController {
 		
 	}
 	@RequestMapping("/getClassapplyList")
-	public String getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session) {
+	public ModelAndView getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session, Paging paging,ClassVO vo3	) {
+
+		ModelAndView mv = new ModelAndView();
+		
+		//페이지 번호 파라미터
+		if(paging.getPage() == null)
+			paging.setPage(1);
+		
 		//String stid=(String)session.getAttribute("loginvo");
 		vo.setStudentnum("18000003");
-		vo2.setStart(1);
-		vo2.setEnd(10);
+		//페이징 하기 위한 start,end 조건 검색
+		//page1 ==> 1~5 2 ==> 6~10
+		vo2.setStart(paging.getStart());
+		vo2.setEnd(paging.getEnd());
+		//전체 건수
+		paging.setTotalRecord(classapplyService.getCountclass(vo2));
+		
+		
+		//////결과를 모델에 저장
+		
+		mv.addObject("paging",paging);
 		//수강신청내역 조회
-		request.setAttribute("classapplyList",classapplyService.getClassapplyList(vo));
+		mv.addObject("classapplyList",classapplyService.getClassapplyList(vo));
 		//수강신청목록 조회
-		request.setAttribute("classlist", classapplyService.getClassList(vo2));
-		return "classapply/applylecture";
+		mv.addObject("classlist", classapplyService.getClassList(vo2));
+		
+		//뷰페이지 지정
+		mv.setViewName("classapply/applylecture");
+		return mv;
 	}
 	@RequestMapping("/getClassList")
-	public String getClassList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session) {
+	public ModelAndView getClassList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session, Paging paging) {
+		
+ModelAndView mv = new ModelAndView();
+		
+		//페이지 번호 파라미터
+		if(paging.getPage() == null)
+			paging.setPage(1);
+		
 		//String stid=(String)session.getAttribute("loginvo");
 		vo.setStudentnum("18000003");
-		vo2.setStart(1);
-		vo2.setEnd(10);
+		//페이징 하기 위한 start,end 조건 검색
+		//page1 ==> 1~5 2 ==> 6~10
+		vo2.setStart(paging.getStart());
+		vo2.setEnd(paging.getEnd());
+		//전체 건수
+		paging.setTotalRecord(classapplyService.getCountclass(vo2));
+		
+		
+		//////결과를 모델에 저장
+		
+		mv.addObject("paging",paging);
+		
 		//수강신청목록 조회
-		request.setAttribute("classlist", classapplyService.getClassList(vo2));
-		return "classs/searchlecture";
+		mv.addObject("classlist", classapplyService.getClassList(vo2));
+		
+		//뷰페이지 지정
+		mv.setViewName("classs/searchlecture");
+		return mv;
+		
 	}
 	@RequestMapping("/getSchedulepro")
 	public String getSchedulepro(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
@@ -96,6 +139,15 @@ public class ClassapplyController {
 		//교수 시간표 조회
 		request.setAttribute("schedulelistpro", classapplyService.getSchedulepro(vo));
 		return "schedule/schedule(pro)";
+	}
+	@RequestMapping("/getSchedulepropopup")
+	public String getSchedulepropopup(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
+		//String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum("28000001");
+		
+		//교수 시간표 조회
+		request.setAttribute("schedulelistpro", classapplyService.getSchedulepro(vo));
+		return "popup/schedule/schedule(pro)";
 	}
 	@RequestMapping("/getSchedule")
 	public String getSchedule(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {

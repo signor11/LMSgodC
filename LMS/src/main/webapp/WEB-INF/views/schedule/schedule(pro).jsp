@@ -6,6 +6,7 @@
 <head>
 <title>예담대학교</title>
 <script>
+	//성적표 출력
 	function content_print() {
 
 		var initBody = document.body.innerHTML;
@@ -13,6 +14,14 @@
 			document.body.innerHTML = document.getElementById('printarea').innerHTML;
 		}
 		window.print();
+	}
+	
+	//새창 열기
+	function openprint() {
+		window
+				.open("getSchedulepropopup", "출력",
+						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+
 	}
 </script>
 </head>
@@ -49,11 +58,23 @@
 <%-- </c:forEach> --%>
 </table>
 <br>
-<button type="button" class="btn btn-danger" onclick="javascript:content_print();">출력</button>
+<button id="printbtn" type="button" class="btn btn-danger" onclick="javascript:openprint();">시간표 출력</button>
+<button id="openbtn" type="button" class="btn btn-danger" onclick="javascript:content_print();">출력하기</button>
+
+
+<script>
+	if (document.location.pathname == '${pageContext.request.contextPath}/getSchedulepro') {
+		 $("#openbtn").hide()
+		
+	}else {
+		$("#printbtn").hide()
+	}
+</script>
 
 <br><br>
 </form>
 </div>
+
 
 </body>
 </html>
