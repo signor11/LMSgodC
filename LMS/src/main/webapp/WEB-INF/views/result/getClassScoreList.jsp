@@ -32,9 +32,13 @@
 				data : param,
 				dataType :"json"
 			}).done(function(data) {
+				
 				$("#sc" + param.classapplynum).text(data.scoret);
 				$("#gr" + param.classapplynum).text(data.grade);
 				console.log(data.scoret);
+				alert ("수정 완료");
+			}).fail(function(){
+				alert("수정 실패")
 			});
 		});
 	});
@@ -49,9 +53,8 @@
 		<div style="display: inline-block;">
 			<form method="post" action="updateClassapply" >
 				<input type="hidden" name="action" value="list"> 
-				<input type="text" value="과목명" disabled="disabled"
-					style="padding: 10px; display: inline-block; text-align: center;"
-					size="5">
+				<input class="btn btn-default" type="text" value="과목명" disabled="disabled" 
+				       style="padding: 10px; display: inline-block; text-align: center;"size="5">
 				<select name="classnum" style="padding: 10px; text-align: center;">
 					<option value="DropDown" hidden="" selected="selected">선택</option>
 					<c:forEach items="${classname}" var="cl">
@@ -66,12 +69,12 @@
 				style="border-top:; border-bottom:; border-color: black; text-align: center;">
 
 				<tr>
-					<td>번호</td>
-					<td>학생번호</td>
-					<td width="400">학생명</td>
-					<td>학점</td>
-					<td>취득 점수</td>
-					<td>취득등급</td>
+					<td class="danger" >번호</td>
+					<td class="danger" >학생번호</td>
+					<td class="danger" width="400">학생명</td>
+					<td class="danger">학점</td>
+					<td class="danger">취득 점수</td>
+					<td class="danger">취득등급</td>
 				</tr>
 				<c:forEach items="${insList}" var="ins" varStatus="status">
 					<tr>

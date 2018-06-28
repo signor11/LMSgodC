@@ -13,10 +13,16 @@
 		</where>
 	
 	</select>
+	
+	<!-- 과목 성적 수정 -->
+	<update id="updateClassapply" parameterType="testResultVO">
+		UPDATE CLASSAPPLY 
+		SET    SCORE = #{score}
+		WHERE  CLASSAPPLYNUM = #{classapplynum}
+	</update>
+	
 
-
-
-	<!-- 등록 -->
+	<!-- 등록 -->   
 	<insert id="insertClassapply" parameterType="com.yedam.lms.classs.ClassapplyVO">
 		<selectKey keyProperty="classapplynum" resultType="string"
 			order="BEFORE">
@@ -34,12 +40,7 @@
 			    ,#{classnum}
 			    ) 
 	</insert>
-	<!-- 과목 성적 수정 -->
-	<update id="updateClassapply" parameterType="testResultVO">
-		UPDATE CLASSAPPLY 
-		SET    SCORE = #{score}
-		WHERE  CLASSAPPLYNUM = #{classapplynum}
-	</update>
+
 		
 	<!-- 삭제 -->
 	<delete id="deleteClassapply" parameterType="string">

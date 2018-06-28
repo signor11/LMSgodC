@@ -26,7 +26,7 @@ public class ClassapplyDAO {
 		return mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.insertClassapply",vo);
 	}
 
-	// 강의 수정
+	// 강의 수정(작성자:김혜민)
 	public void updateClassapply(ClassapplyVO vo) {
 		mybatis.update("com.yedam.lms.classs.impl.ClassapplyDAO.updateClassapply",vo);
 	}
