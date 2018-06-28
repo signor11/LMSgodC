@@ -53,27 +53,32 @@
 <hr/>
 
 <div class="w3-container w3-padding-30 w3-row-padding "style = " padding : 10px;">
-<h3 class="w3-wide">과제설명</h3>
+<h3 class="w3-wide">과제설명</h3><br>
 		<form action="./hwUpdate" name="hwUpdate" method="post">
 			<input type="hidden" name="hwnum" value="${hw.hwnum}"/>
 			<input type="hidden" name="classnum" value="${hw.classnum}"/>
 			<input
-				type="text" value="과목명" disabled="disabled"
-				style="padding: 8px; display: inline-block; text-align: center;"
-				size="5" class="fa-btn btn-1 btn-1e"> 
+				type="text" value="과목명" readonly="readonly"
+				size="5" class="btn btn-danger"> 
 				<input type="text" name="classname" value="${cn.classname}">
-			<h6>제목</h6>
-			<input type="text" name="hwname" value="${hw.hwname}" class="w3-input w3-border"><br>
-			<h6>제출기한</h6>
+			<input
+				type="text" value="제목" readonly="readonly"
+				size="5" class="btn btn-danger"> 
+			<input type="text" name="hwname" value="${hw.hwname}">
+			<input
+				type="text" value="제출기한" readonly="readonly"
+				size="6" class="btn btn-danger"> 
 			<input type="date" name="applydate"
-				value="${fn:substring(hw.applydate,0,10)}"> <br>
-			<h6>내용</h6>
-			<textarea name="hwinfo" cols="85" rows="13" class="scroll_form"
-				style="width: 100%;">${hw.hwinfo}</textarea>
+				value="${fn:substring(hw.applydate,0,10)}"> <br><br>
+			<input
+				type="text" value="내용" readonly="readonly"
+				size="5" class="btn btn-danger"><br><br>
+			<textarea name="hwinfo" cols="85" rows="13"
+				style="width: 100%;">${hw.hwinfo}</textarea><br><br>
 			<div align="left">
-			<input type="button" value="수정" class="fa-btn btn-1 btn-1e" onclick="update_hw()"/>
+			<input type="button" value="수정" class="btn btn-danger" onclick="update_hw()"/>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" value="삭제" class="fa-btn btn-1 btn-1e" onclick="delete_hw()"/><br>
+			<input type="button" value="삭제" class="btn btn-danger" onclick="delete_hw()"/><br>
 			</div>
 		</form>
 	</div>
