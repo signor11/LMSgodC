@@ -72,7 +72,7 @@
 	
 	<!-- 교수용 다건조회 -->
 	<select id="getHWListPro" resultType="map" parameterType="hwVO">
-		SELECT 		H.HWNUM, H.HWNAME, H.APPLYDATE, 
+		SELECT 		H.HWNUM, H.HWNAME, TO_CHAR(H.APPLYDATE , 'YYYY-MM-DD') APPLYDATE, 
 					H.CLASSNUM, H.HWINFO
 		FROM  HW H JOIN CLASS C                          
 		ON H.CLASSNUM = C.CLASSNUM

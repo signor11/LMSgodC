@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.yedam.lms.classs.ClassService;
 import com.yedam.lms.hw.AddFileService;
 import com.yedam.lms.hw.AddFileVO;
 import com.yedam.lms.hw.HWService;
@@ -36,6 +37,8 @@ public class SubmitHWController {
 	AddFileService addfileService;
 	@Autowired
 	HWService hwService;
+	@Autowired
+	ClassService classService;
 	
 	
 	//학생과제제출폼
@@ -84,10 +87,11 @@ public class SubmitHWController {
 		
 	//교수의 학생 과제 확인
 		@RequestMapping(value = "/getsubmitHwList")
-		public String getsubmitHwList(HttpServletRequest request, SubmitHWVO vo) {
-			vo.setHwnum("68000073");
+		public String getsubmitHwList(HttpServletRequest request, SubmitHWVO vo, @RequestParam String hwnum) {
+			vo.setHwnum(hwnum);
 			request.setAttribute("hw", hwService.getHW(vo.getHwnum()));
 			request.setAttribute("sh", submitHWService.getsubmitHwList(vo));
+			request.setAttribute("cn", classService.getClass(vo.getClassnum()));
 			return "hw/submitHWListPro";
 			
 		}
@@ -196,5 +200,7 @@ public class SubmitHWController {
 				response.setContentType("application/octet-stream;charset=UTF-8");
 			}
 		}
+		
+		
 	
 }
