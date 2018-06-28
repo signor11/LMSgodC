@@ -42,22 +42,10 @@ public class ClassScoreController {
 	// 성적 처리
 	@RequestMapping(value = "/updateClassapply")
 	@ResponseBody
-	public TestResultVO updateTestResult(TestResultVO vo,TestResultVO vo1,HttpServletResponse response,ClassapplyVO voc)throws IOException {
+	public TestResultVO updateTestResult(TestResultVO vo,HttpServletResponse response,ClassapplyVO voc) {
 		vo.setClassnum("48000001");
 		classapplyService.updateClassapply(voc);// ->testResultDAO.classapplyUpdate(classapplyVO);
 		return testResultService.getTestresultListstu(vo).get(0);// 1건 가져옴
-		/*//한글 인코딩
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		
-		int sc = classapplyService.updateClassapply(voc);
-		if(sc >= 100) {
-			out.print("<script>");
-			out.print("alert('취득점수 초과')");
-			out.print("history.go(-1)");
-			out.print("</script>");
-			return null;
-		}*/
 		
 	}
 	

@@ -32,9 +32,13 @@
 				data : param,
 				dataType :"json"
 			}).done(function(data) {
+				
 				$("#sc" + param.classapplynum).text(data.scoret);
 				$("#gr" + param.classapplynum).text(data.grade);
 				console.log(data.scoret);
+				alert ("수정 완료");
+			}).fail(function(){
+				alert("수정 실패")
 			});
 		});
 	});

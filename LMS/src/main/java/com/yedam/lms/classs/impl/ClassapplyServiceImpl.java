@@ -41,8 +41,8 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	}
 	//성적 수정(김혜민)
 	@Override
-	public int updateClassapply(ClassapplyVO vo) {
-		return dao.updateClassapply(vo);
+	public void updateClassapply(ClassapplyVO vo) {
+		dao.updateClassapply(vo);
 	}
 
 
