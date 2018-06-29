@@ -5,12 +5,26 @@
 <html>
 <head>
 <title>교수용 과제확인</title>
+<style>
+	p{
+	    margin-right: 1cm;
+	}
+</style>
+<script>
+	function hwInsert(){
+		location.href="./hwInsert"
+	}
+</script>
 </head>
 <body>
 
 	<br><br>
 	<h3 align="center">교수용 과제 조회</h3>
-	<br><br><br>
+	<br>
+	<br>
+	<p align=right><button type="button" class="btn btn-danger" onclick="hwInsert()">등록</button></p>
+	<br>
+	<br>
 	
 <table class="table table-hover">
 			<tr>
@@ -29,5 +43,10 @@
 			</tr>
 			</c:forEach>
 		</table>
+		<br>
+		<br>
+		<br>
+		<br>
+	
 </body>
 </html>

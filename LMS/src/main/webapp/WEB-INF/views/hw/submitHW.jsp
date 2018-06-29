@@ -45,13 +45,14 @@
 				value="${up_hw.submitname}" required="required" class="w3-input w3-border"><br>
 			<h6>첨부파일</h6>
 			<c:if test="${not empty up_hw}">
-			&nbsp;&nbsp;&nbsp;<i>제출된 파일명 - ${up_hw.addfileid}</i><br><br>
+			&nbsp;&nbsp;&nbsp;
+			<i><a href="./getAddFile?addfileid=${up_hw.addfileid}">
+			제출된 파일명 - ${up_hw.addfilename}
+			</a></i>
+		
+			<br><br>
 			</c:if>
 			<input type="file" name="tempuploadfile" class="w3-button w3-dark-grey"/>
-			<%-- <input type="text" name="addfilename"
-				placeholder="파일 첨부해주세요." style="width: 80%; height: 40px"
-				value="${up_hw.addfileid}" required="required" readonly="readonly" /> --%>
-				
 			<br>
 			<h6>내용</h6>
 			<textarea name="submitinfo" cols="85" rows="13"

@@ -44,7 +44,7 @@ public class SubmitHWController {
 	//학생과제제출폼
 	@RequestMapping(value = "/submitHW", method= RequestMethod.GET)
 	public String submitHwInsertform(HttpServletRequest request, SubmitHWVO vo, HttpSession session) {
-		vo.setStudentnum((String)session.getAttribute("stn"));
+		vo.setStudentnum((String)session.getAttribute("loginvo"));
 		request.setAttribute("sb", hwService.getHW(vo.getHwnum()));
 		request.setAttribute("up_hw", submitHWService.getsubmitHw(vo));
 		return "hw/submitHW";
@@ -70,7 +70,7 @@ public class SubmitHWController {
 			}
 			
 			
-			vo.setStudentnum((String)session.getAttribute("stn"));
+			vo.setStudentnum((String)session.getAttribute("loginvo"));
 			
 			submitHWService.submitHwInsert(vo);
 			request.setAttribute("id", vo.getAddfileid());
@@ -80,7 +80,7 @@ public class SubmitHWController {
 	//학생과제수정
 		@RequestMapping(value = "/submitHWUpdate", method= RequestMethod.POST)
 		public String submitHwUpdate(SubmitHWVO vo, HttpSession session) {
-			vo.setStudentnum((String)session.getAttribute("stn"));
+			vo.setStudentnum((String)session.getAttribute("loginvo"));
 			submitHWService.submitHwUpdate(vo);
 			return "redirect:/getHWList";
 		}

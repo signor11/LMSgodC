@@ -28,6 +28,23 @@
 	function popup(a) {
 		alert(a);
 	};
+	function checkDay(){
+		
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1;
+		var yyyy = today.getFullYear();
+		 if(dd<10){
+		        dd='0'+dd
+		    } 
+		    if(mm<10){
+		        mm='0'+mm
+		    } 
+
+		today = yyyy+'-'+mm+'-'+dd;
+		document.getElementById("dateField").setAttribute("min", today);
+		}
+	
 </script>
 
 
@@ -45,7 +62,7 @@
 			<input
 				type="text" value="과목명" readonly="readonly"
 				size="5" class="btn btn-danger"> 
-				<input type="text" name="classname" value="${cn.classname}">
+				<input type="text" name="classname" value="${cn.classname}" readonly="readonly">
 			<input
 				type="text" value="제목" readonly="readonly"
 				size="5" class="btn btn-danger"> 
@@ -54,7 +71,7 @@
 				type="text" value="제출기한" readonly="readonly"
 				size="6" class="btn btn-danger"> 
 			<input type="date" name="applydate"
-				value="${fn:substring(hw.applydate,0,10)}"> <br><br>
+				value="${fn:substring(hw.applydate,0,10)}" id="dateField" min="" onclick=" checkDay()"> <br><br>
 			<input
 				type="text" value="내용" readonly="readonly"
 				size="5" class="btn btn-danger"><br><br>

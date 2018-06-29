@@ -27,7 +27,7 @@ public class HWController {
 		public String getHWList(HttpServletRequest request, HWVO vo, HttpSession session) {
 			//vo.setStudentnum((String)session.getAttribute("loginvo"));
 			
-			vo.setStudentnum("18000001");
+			vo.setStudentnum((String)session.getAttribute("loginvo"));
 			session.setAttribute("stn", vo.getStudentnum());
 			request.setAttribute("HWList", hwService.getHWList(vo));
 			request.setAttribute("classname", classService.stu_classnameList(vo.getStudentnum()));
@@ -55,16 +55,16 @@ public class HWController {
 
 	// 교수용 다건조회
 	@RequestMapping("/getHWListPro")
-	public String getHWListPro(HttpServletRequest request, HWVO vo) {
-		vo.setProfessornum("28000001");
+	public String getHWListPro(HttpServletRequest request, HWVO vo, HttpSession session) {
+		vo.setProfessornum((String)session.getAttribute("loginvo"));
 		request.setAttribute("HWListPro", hwService.getHWListPro(vo));
 		return "hw/getHWListPro";
 	}
 
 	// 교수 과제 등록폼
 	@RequestMapping(value = "/hwInsert", method = RequestMethod.GET)
-	public String hwInsertForm(HttpServletRequest request, HWVO vo) {
-		vo.setProfessornum("28000001");
+	public String hwInsertForm(HttpServletRequest request, HWVO vo, HttpSession session) {
+		vo.setProfessornum((String)session.getAttribute("loginvo"));
 		request.setAttribute("classname", classService.pro_classnameList(vo.getProfessornum()));
 		return "hw/hwInsert";
 	}
