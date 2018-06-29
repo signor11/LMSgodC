@@ -41,4 +41,19 @@ public class ClassServiceImpl implements ClassService{
 		return dao.count(classSearchVO);
 	}
 
+	@Override
+	public void insertClass(ClassVO classVO) {
+		dao.insertClass(classVO);
+	}
+
+	@Override
+	public void updateClass(ClassVO classVO) {
+		dao.updateClass(classVO);
+	}
+	
+	@Override
+	public void deleteClass(ClassVO classVO) {
+		dao.deleteClass(classVO);
+	}
+
 }

@@ -7,6 +7,16 @@ public class StudentVO {
 	private String studentname;
 	private String studentphone;
 	private String studentdate;
+	private String usertype;
+	
+	
+	
+	public String getUsertype() {
+		return usertype;
+	}
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
+	}
 	public String getStudentnum() {
 		return studentnum;
 	}
@@ -47,8 +57,9 @@ public class StudentVO {
 	public String toString() {
 		return "StudentVO [studentnum=" + studentnum + ", majornum=" + majornum + ", studentpw=" + studentpw
 				+ ", studentname=" + studentname + ", studentphone=" + studentphone + ", studentdate=" + studentdate
-				+ "]";
+				+ ", usertype=" + usertype + "]";
 	}
+	
 	
 	
 	

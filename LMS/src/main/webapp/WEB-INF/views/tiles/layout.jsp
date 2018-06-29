@@ -176,7 +176,7 @@ table.t1 {
 				<a href="gohome"><button 
 						class="w3-padding-large w3-button" title="More">홈</button></a>
 			</div>
-			<c:if test="${sessionScope.mode =='std' }">
+			<c:if test="${sessionScope.mode == 'std'}">
 
 				<div class="w3-dropdown-hover w3-hide-small">
 
@@ -266,6 +266,61 @@ table.t1 {
 					</div>
 				</div>
 			</c:if>
+			<c:if test="${sessionScope.mode == 'admin'}">
+				<div class="w3-dropdown-hover w3-hide-small">
+
+					<button class="w3-padding-large w3-button" title="More">
+
+						강의</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="getClassapplyList"
+							class="w3-bar-item w3-button">강의조회</a>
+							<a
+							href="getClassapplyList"
+							class="w3-bar- w3-button">수강신청</a>
+
+
+					</div>
+				</div>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-padding-large w3-button" title="More">
+						과제</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="getHWList"
+							class="w3-bar-item w3-button">과제조회</a>
+						<a href="getHWListPro"
+							class="w3-bar-item w3-button">과제조회(교수)</a> <a
+							href="hwInsert"
+							class="w3-bar-item w3-button">과제등록(교수)</a>
+					</div>
+				</div>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-padding-large w3-button" title="More">
+						시험</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href=""
+							class="w3-bar-item w3-button">시험조회</a>
+						
+						<a href=""
+							class="w3-bar-item w3-button">시험조회(교수)</a> <a
+							href=""
+							class="w3-bar-item w3-button">시험출제(교수)</a>
+					</div>
+				</div>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-padding-large w3-button" title="More">
+						성적</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="getClassScoreListstu"
+							class="w3-bar-item w3-button">성적조회</a>
+						<a href="getClassScoreList"
+							class="w3-bar-item w3-button">성적입력(교수)</a>
+					</div>
+				</div>
+			
+			
+			
+			</c:if>
 			<br>
 							
 								
@@ -290,6 +345,17 @@ table.t1 {
 											</a>
 
 									</c:if>
+									
+									<c:if test="${sessionScope.mode =='admin' }">
+											<a href="admin">
+												<button type="button" class="btn btn-outline-primary">관리자모드</button>
+											</a>
+
+									</c:if>
+									
+									
+									
+									
 									</div>
 	<tiles:insertAttribute name="body" />
 </body>
