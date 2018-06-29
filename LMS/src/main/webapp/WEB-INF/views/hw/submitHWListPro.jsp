@@ -7,8 +7,12 @@
 <head>
 <title>교수용 제출된 학생과제 확인</title>
 
-<script src="js/responsiveslides.min.js"></script>
+<script src="./resources/web/js/ckeditor_4/ckeditor.js"></script>
 <script>
+
+	window.onload = function() {
+		CKEDITOR.replace("hwinfo");
+		}
 
 
 	function update_hw() {

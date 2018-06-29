@@ -4,11 +4,18 @@ public class ProfessorVO {
 
 	private String professornum;
 	private String professorname;
+	private String professorpw;
 	private String professorphone;
 	private String hiredate;
 	private String majornum;
 	
 	
+	public String getProfessorpw() {
+		return professorpw;
+	}
+	public void setProfessorpw(String professorpw) {
+		this.professorpw = professorpw;
+	}
 	public String getProfessornum() {
 		return professornum;
 	}
