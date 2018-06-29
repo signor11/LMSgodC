@@ -5,11 +5,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.yedam.lms.classs.ClassVO;
 import com.yedam.lms.smp.StudentService;
 import com.yedam.lms.smp.StudentVO;
 
@@ -29,22 +29,17 @@ public class LoginController {
 
 		
 		if (studentService.getLogin(vo1) != null) { // 로그인 완료
-
+			
+			
 			session.setAttribute("stdname", vo1.getStudentname());
 
 			session.setAttribute("loginvo", vo1.getStudentnum());
-
-			if (vo1.getStudentnum().compareTo("20000000") >= 0) {
-				session.setAttribute("mode", "pro");
-
-				return "home/home";
-			} else {
-				session.setAttribute("mode", "std");
-
-				return "home/home";
-			}
-
-		} else
+			
+			session.setAttribute("mode", vo1.getUsertype());
+				
+			return "home/home2";
+		}
+		else
 			return "home/home";
 	}
 
@@ -52,7 +47,19 @@ public class LoginController {
 	public ModelAndView logout(HttpSession session) {
 		studentService.logout(session);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("./home");
+		mav.setViewName("home/home");
 		return mav;
 	}
+	@RequestMapping("login")
+	public String loginHome() {
+		return "login/login";
+	
+	}
+	@RequestMapping("gohome")
+	public String goHome() {
+		return "home/home2";
+	
+	}
+	
+	
 }

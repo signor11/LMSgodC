@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.yedam.lms.classs.ClassVO;
+
 
 public interface StudentService {
 	//전체조회
@@ -26,5 +28,8 @@ public interface StudentService {
 		
 		//로그아웃
 		public void logout(HttpSession session); 
+		
+		
+		
 		
 }

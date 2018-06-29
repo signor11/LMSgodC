@@ -20,7 +20,12 @@ public class ClassDAO {
 	public ClassVO getClass(String classnum) {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.getClass", classnum);
 	}
-
+	//전체 레코드 건수 조회
+	public int getCountclass(ClassSearchVO classSearchVO) {
+		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.getCountclass", classSearchVO);
+	}
+		
+	
 	public List<Map<String, Object>> getClassList(ClassVO classVO) {
 		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.getClassList", classVO);
 	}
@@ -42,5 +47,14 @@ public class ClassDAO {
 	public ClassapplyVO getSchedulepro(ClassapplyVO vo) {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.getSchedulepro",vo);
 	}
-
+	public void insertClass(ClassVO vo) {
+		 mybatis.insert("com.yedam.lms.classs.impl.classDAO.insertClass",vo);
+	}
+	public void updateClass(ClassVO vo) {
+		mybatis.update("com.yedam.lms.classs.impl.classDAO.insertClass",vo);
+	}
+	public void deleteClass(ClassVO vo) {
+		mybatis.delete("com.yedam.lms.classs.impl.classDAO.insertClass",vo);
+	}
+	
 }

@@ -27,5 +27,12 @@
 		WHERE ADDFILEID= #{addfileid}
 
 	</update>
+	
+	<select id="getAddFile" resultType="addFileVO" parameterType="string">
+
+		SELECT * FROM ADDFILE
+		WHERE ADDFILEID = #{addfileid}
+		
+	</select>
 
 </mapper>

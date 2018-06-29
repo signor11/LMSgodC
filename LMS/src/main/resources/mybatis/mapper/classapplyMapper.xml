@@ -73,6 +73,7 @@
 	
 	<!-- 전체 조회 -->
 	<select id="getClassapplyList" resultType="com.yedam.lms.classs.ClassapplyVO">
+	
 		SELECT 	CA.CLASSAPPLYNUM,
 				CA.CLASSNUM,
 				CL.CLASSNAME,
@@ -85,6 +86,7 @@
 		JOIN 	PROFESSOR P 
 		ON 		P.PROFESSORNUM=CL.PROFESSORNUM
 		WHERE 	CA.STUDENTNUM = #{studentnum}
+	
 	</select>
 	
 	<!-- 학생 강의 체크 -->

@@ -14,7 +14,6 @@ public class ClassVO {
 	private String score;
 	private String applycnt;
 
-	
 
 
 	public String getApplycnt() {

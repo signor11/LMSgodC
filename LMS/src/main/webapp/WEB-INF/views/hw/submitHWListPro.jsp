@@ -6,39 +6,49 @@
 <html>
 <head>
 <title>교수용 제출된 학생과제 확인</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- Bootstrap -->
-<link href="./resources/web/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="./resources/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous">
-	
-<script src="./resources/web/js/jquery.min.js"></script>
+<script src="./resources/web/js/ckeditor_4/ckeditor.js"></script>
 <script>
-	function update_hw(){
-		var check = confirm('수정하시겠습니까?');
-		if(check==true){
+
+	window.onload = function() {
+		CKEDITOR.replace("hwinfo");
+		}
+
+
+	function update_hw() {
+		var check = confirm('과제를 수정하시겠습니까?');
+		if (check == true) {
 			document.hwUpdate.submit();
 		}
 	};
-	
-	function delete_hw(){
-		var check = confirm('삭제하시겠습니까?');
-		if(check==true){
-			window.location.href= "./hwDelete?hwnum=${hw.hwnum}"
-		}
-		
-	};
-	
 
+	function delete_hw() {
+		var check = confirm('이미 제출된 과제까지 모두 삭제됩니다. 삭제하시겠습니까?');
+		if (check == true) {
+			window.location.href = "./hwDelete?hwnum=${hw.hwnum}"
+		}
+
+	};
+	function popup(a) {
+		alert(a);
+	};
+	function checkDay(){
+		
+		var today = new Date();
+		var dd = today.getDate();
+		var mm = today.getMonth()+1;
+		var yyyy = today.getFullYear();
+		 if(dd<10){
+		        dd='0'+dd
+		    } 
+		    if(mm<10){
+		        mm='0'+mm
+		    } 
+
+		today = yyyy+'-'+mm+'-'+dd;
+		document.getElementById("dateField").setAttribute("min", today);
+		}
+	
 </script>
 
 
@@ -49,27 +59,32 @@
 <hr/>
 
 <div class="w3-container w3-padding-30 w3-row-padding "style = " padding : 10px;">
-<h3 class="w3-wide">과제설명</h3>
+<h3 class="w3-wide">과제설명</h3><br>
 		<form action="./hwUpdate" name="hwUpdate" method="post">
 			<input type="hidden" name="hwnum" value="${hw.hwnum}"/>
 			<input type="hidden" name="classnum" value="${hw.classnum}"/>
 			<input
-				type="text" value="과목명" disabled="disabled"
-				style="padding: 8px; display: inline-block; text-align: center;"
-				size="5" class="fa-btn btn-1 btn-1e"> 
-				<input type="text" name="classname" value="${cn.classname}">
-			<h6>제목</h6>
-			<input type="text" name="hwname" value="${hw.hwname}" class="w3-input w3-border"><br>
-			<h6>제출기한</h6>
+				type="text" value="과목명" readonly="readonly"
+				size="5" class="btn btn-danger"> 
+				<input type="text" name="classname" value="${cn.classname}" readonly="readonly">
+			<input
+				type="text" value="제목" readonly="readonly"
+				size="5" class="btn btn-danger"> 
+			<input type="text" name="hwname" value="${hw.hwname}">
+			<input
+				type="text" value="제출기한" readonly="readonly"
+				size="6" class="btn btn-danger"> 
 			<input type="date" name="applydate"
-				value="${fn:substring(hw.applydate,0,10)}"> <br>
-			<h6>내용</h6>
-			<textarea name="hwinfo" cols="85" rows="13" class="scroll_form"
-				style="width: 100%;">${hw.hwinfo}</textarea>
+				value="${fn:substring(hw.applydate,0,10)}" id="dateField" min="" onclick=" checkDay()"> <br><br>
+			<input
+				type="text" value="내용" readonly="readonly"
+				size="5" class="btn btn-danger"><br><br>
+			<textarea name="hwinfo" cols="85" rows="13"
+				style="width: 100%;">${hw.hwinfo}</textarea><br><br>
 			<div align="left">
-			<input type="button" value="수정" class="fa-btn btn-1 btn-1e" onclick="update_hw()"/>
+			<input type="button" value="수정" class="btn btn-danger" onclick="update_hw()"/>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<input type="button" value="삭제" class="fa-btn btn-1 btn-1e" onclick="delete_hw()"/><br>
+			<input type="button" value="삭제" class="btn btn-danger" onclick="delete_hw()"/><br>
 			</div>
 		</form>
 	</div>
@@ -117,7 +132,7 @@
 				</td>
 				<td>
 					<c:if test="${not empty s.ADDFILEID}">
-						<a href="../control/searchhw_control(pro).jsp?action=download&addfileid=${s.ADDFILEID}">
+						<a href="./getAddFile?addfileid=${s.ADDFILEID}">
 						${s.SUBMIT}</a>
 					</c:if>	
 					<c:if test="${empty s.ADDFILEID}">

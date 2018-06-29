@@ -105,6 +105,10 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	public List<ClassapplyVO> getSchedule(ClassapplyVO vo) {
 		return dao.getClassapplyList(vo);
 	}
+	@Override
+	public int getCountclass(ClassSearchVO classSearchVO) {
+		return dao2.getCountclass(classSearchVO);
+	}
 
 	
 }

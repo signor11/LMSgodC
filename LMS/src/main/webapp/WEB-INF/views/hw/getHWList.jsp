@@ -5,28 +5,7 @@
 <html>
 <head>
 <title>학생용 과제확인</title>
-<meta charset="UTF-8">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- Bootstrap -->
-<link href="./resources/web/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
-<link href="./resources/web/css/bootstrap.css" rel='stylesheet' type='text/css' />
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous">
-<!-- start slider -->
-<link href="./resources/web/css/slider.css" rel="stylesheet"
-	type="text/css" media="all" />
-<script type="text/javascript"
-	src="./resources/web/js/modernizr.custom.28468.js"></script>
-
-<script src="./resources/web/js/jquery.min.js"></script>
 </head>
 <body>	
 	<br><br>
@@ -35,9 +14,9 @@
 
 	<div style="display: inline-block;">
 		<form action="./getHWList" name="hwform">
-		<input type="text" value="과목명" disabled="disabled"
+		<input type="text" value="과목명" readonly="readonly"
 			style="padding: 10px; display: inline-block; text-align: center;"
-			size="5" class="fa-btn btn-1 btn-1e">
+			size="5" class="btn btn-danger">
 			<select name="classnum" style="padding: 10px; text-align: center;" onchange="document.hwform.submit()">
 			<option value="" selected hidden="">선택</option>
 			<c:forEach items="${classname}" var="n">
