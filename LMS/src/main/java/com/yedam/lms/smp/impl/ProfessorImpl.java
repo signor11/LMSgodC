@@ -10,7 +10,7 @@ import com.yedam.lms.smp.ProfessorService;
 import com.yedam.lms.smp.ProfessorVO;
 
 
-@Service("ProfessorService")
+@Service("professorService")
 public class ProfessorImpl implements ProfessorService {
 
 	@Autowired

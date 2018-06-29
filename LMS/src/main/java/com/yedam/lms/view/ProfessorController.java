@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import com.yedam.lms.hw.HWVO;
 import com.yedam.lms.smp.ProfessorService;
 import com.yedam.lms.smp.ProfessorVO;
 
@@ -42,30 +44,32 @@ public class ProfessorController {
 	// 등록폼
 	@RequestMapping(value = "/insertProfessor", method = RequestMethod.GET)
 	public String insertProfessorForm() {
+		
 		return "professor/insertProfessor";
+	
 	}
 
 	// 등록처리
 	// / localhost 밑 web 아래
-	
 	@RequestMapping(value = "/insertProfessor", method = RequestMethod.POST)	
 	public String insertProfessor(@ModelAttribute("vo") ProfessorVO vo, HttpServletRequest request)
 
 			throws IllegalStateException, IOException {
 		System.out.println(vo);		
-	
-		return "professor/insertProfessor";
+		professorService.insertProfessor(vo);
+		return "redirect:/getProfessorList";
 	}
+	
+	
 		@RequestMapping(value = "/updateProfessor", method = RequestMethod.GET)
 		public String updateProfessorForm() {
 			return "professor/updateProfessor";
 	
 		}
 		@RequestMapping(value = "/updateProfessor", method = RequestMethod.POST)
-		public String updateProfessor(@ModelAttribute("professor") ProfessorVO vo) {
-			System.out.println(vo);
-			// boardService.updateBoard(vo);
-			return "professor/getProfessor";
+		public String updateProfessor(@ModelAttribute("vo") ProfessorVO vo) {
+			professorService.updateProfessor(vo);
+			return "redirect:/getProfessorList";
 		}
 		
 		@RequestMapping("/deleteProfessor")
