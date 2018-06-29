@@ -57,6 +57,9 @@
         </ul>
         <!--  search form end -->
       </div>
+      <div align="right">
+      <a href="home">메인화면</a>
+      </div>
     </header>
     <!--header end-->
 

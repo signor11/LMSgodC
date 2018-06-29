@@ -15,23 +15,23 @@ public class ProfessorDAO {
 	SqlSessionTemplate mybatis; // 쓰레드 처리,커넥션관리 기능 추가
 
 	public List<Map<String, Object>> getProfessorList(ProfessorVO professorVO) {
-		return mybatis.selectList("com.yedam.lms.smp.ProfessorVO.getProfessorList", professorVO);
+		return mybatis.selectList("com.yedam.lms.impl.ProfessorDAO.getProfessorList", professorVO);
 	}
 
 	public ProfessorVO getProfessor(ProfessorVO professorVO) {
-		return (ProfessorVO) mybatis.selectOne("com.yedam.lms.smp.ProfessorVO.getProfessor", professorVO);
+		return (ProfessorVO) mybatis.selectOne("com.yedam.lms.impl.ProfessorDAO.getProfessor", professorVO);
 	}
 
 	public void insertProfessor(ProfessorVO professorVO) {
-		mybatis.insert("com.yedam.lms.smp.ProfessorVO.insertProfessor", professorVO);
+		mybatis.insert("com.yedam.lms.impl.ProfessorDAO.insertProfessor", professorVO);
 	}
 
 	public void updateProfessor(ProfessorVO professorVO) {
-		mybatis.update("com.yedam.lms.smp.ProfessorVO.updateProfessor", professorVO);
+		mybatis.update("com.yedam.lms.impl.ProfessorDAO.updateProfessor", professorVO);
 	}
 
 	public void deleteProfessor(String professornum) {
-		mybatis.delete("com.yedam.lms.smp.ProfessorVO.deleteProfessor", professornum);
+		mybatis.delete("com.yedam.lms.impl.ProfessorDAO.deleteProfessor", professornum);
 	}
 
 }

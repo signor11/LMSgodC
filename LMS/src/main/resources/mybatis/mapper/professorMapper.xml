@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.yedam.lms.smp.ProfessorVO">
+<mapper namespace="com.yedam.lms.impl.ProfessorDAO">
 
 	<select id="getProfessor" parameterType="string"
 		resultType="com.yedam.lms.smp.ProfessorVO">
@@ -14,7 +14,7 @@
 		MAJORNUM
 		FROM professor
 		WHERE PROFESSORNUM =
-		#{PROFESSORNUM}
+		#{professornum}
 	</select>
 
 	<!-- <resultMap type="#modelname" id="YourResultSet">
@@ -26,35 +26,35 @@
 	<select id="getProfessorList" resultType="map">
 		SELECT * FROM professor
 	</select>
-	<insert id="insertProfessor">
+	<insert id="insertProfessor" parameterType="com.yedam.lms.smp.ProfessorVO">
 	<selectKey keyProperty="professornum" resultType="string"
 		order="BEFORE">
-		select max(PROFESSORNUM))+1 from professor
+		select max(PROFESSORNUM)+1 from professor
 	</selectKey>
 		insert into
-		professor(PROFESSORNUM, PROFESSORNAME,
+		professor(PROFESSORNUM,MAJORNUM, PROFESSORPW, PROFESSORNAME,
 		PROFESSORPHONE,
-		HIREDATE, MAJORNUM)
+		HIREDATE)
 		values
-		(#{PROFESSORNUM},
-		 #{PROFESSORNAME}, 
-		 #{PROFESSORPHONE},
-	 	#{HIREDATE}, 
-		#{MAJORNUM}
-		trunc(sysdate), 0 )
+		(#{professornum},
+		 #{majornum},
+		 #{professorpw},
+		 #{professorname}, 
+		 #{professorphone},
+	 	#{hiredate})
 	</insert>
 
 	  <update id="updateProfessor" parameterType="com.yedam.lms.smp.ProfessorVO">
-      UPDATE COMMENTS SET PROFESSORNUM = #{PROFESSORNUM},
-                     PROFESSORNAME = #{PROFESSORNAME},
-                     PROFESSORPHONE = #{PROFESSORPHONE},
-                     HIREDATE = #{HIREDATE},
-                     MAJORNUM = #{MAJORNUM} 
-                  WHERE PROFESSORNUM = #{PROFESSORNUM}
+      UPDATE COMMENTS SET PROFESSORNUM = #{professornum},
+                     PROFESSORNAME = #{professorname},
+                     PROFESSORPHONE = #{professorphone},
+                     HIREDATE = #{hiredate},
+                     MAJORNUM = #{majornum} 
+             	     WHERE PROFESSORNUM = #{professornum}
    </update>
    
    <delete id="deleteComments" parameterType="com.yedam.lms.smp.ProfessorVO">
-      DELETE PROFESSOR WHERE PROFESSORNUM = #{PROFESSORNUM}
+      DELETE PROFESSOR WHERE PROFESSORNUM = #{professornum}
    </delete>
 
 </mapper>
