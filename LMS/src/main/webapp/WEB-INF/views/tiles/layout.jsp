@@ -67,6 +67,14 @@
 		});
 
 	});
+	
+	//새창 열기
+	function openprint() {
+		window
+				.open("admin", "관리자모드",
+						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+
+	}
 </script>
 <style>
 body {
@@ -343,9 +351,9 @@ table.t1 {
 									</c:if>
 									
 									<c:if test="${sessionScope.mode =='admin' }">
-											<a href="admin">
-												<button type="button" class="btn btn-outline-primary">관리자모드</button>
-											</a>
+											
+												<button type="button" class="btn btn-outline-primary" onclick="javascript:openprint()">관리자모드</button>
+											
 
 									</c:if>
 									
