@@ -126,7 +126,7 @@ table.t1 {
 	<div>
 		<div class="row header">
 								
-						<a href="gohome"><img src="./resources/web/images/yedamlogo4.PNG" width="300" height="70"></a>
+						<a href="home"><img src="./resources/web/images/yedamlogo4.PNG" width="300" height="70"></a>
 	
 
 			
@@ -134,6 +134,7 @@ table.t1 {
 								
 
 								
+							
 							
 				
 					
@@ -173,7 +174,7 @@ table.t1 {
 <div class="w3-bar w3-wide w3-padding w3-card">
 		<div class="w3-right">
 			<div class="w3-dropdown-hover" >
-				<a href="gohome"><button 
+				<a href="home"><button 
 						class="w3-padding-large w3-button" title="More">홈</button></a>
 			</div>
 			<c:if test="${sessionScope.mode == 'std'}">
@@ -240,9 +241,7 @@ table.t1 {
 					<div class="w3-dropdown-content w3-bar-block w3-card-4">
 
 						<a href="getHWListPro"
-							class="w3-bar-item w3-button">과제조회(교수)</a> <a
-							href="hwInsert"
-							class="w3-bar-item w3-button">과제등록(교수)</a>
+							class="w3-bar-item w3-button">과제조회(교수)</a> 
 					</div>
 				</div>
 				<div class="w3-dropdown-hover w3-hide-small">
@@ -289,9 +288,7 @@ table.t1 {
 						<a href="getHWList"
 							class="w3-bar-item w3-button">과제조회</a>
 						<a href="getHWListPro"
-							class="w3-bar-item w3-button">과제조회(교수)</a> <a
-							href="hwInsert"
-							class="w3-bar-item w3-button">과제등록(교수)</a>
+							class="w3-bar-item w3-button">과제조회(교수)</a> 
 					</div>
 				</div>
 				<div class="w3-dropdown-hover w3-hide-small">

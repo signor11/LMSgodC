@@ -7,7 +7,7 @@
 <title>예담대학교(학생용)</title>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<body>
+<body><br>
 <%-- <c:if test="${!empty sessionScope.loginvo}"> --%>
 <div align="right"><a href="login"><button type="button">로그인</button></a></div>
 <%-- </c:if>  --%>
