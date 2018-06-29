@@ -9,10 +9,15 @@
 <title>Learner a education bootstrap Website Template | Home ::
 	w3layouts</title>
 <!-- Bootstrap -->
-<link href="./resources/web/css/bootstrap.min.css" rel='stylesheet'
-	type='text/css' />
+<!-- <link href="./resources/web/css/bootstrap.min.css" rel='stylesheet'
+	type='text/css' /> -->
 <link href="./resources/web/css/bootstrap.css" rel='stylesheet'
 	type='text/css' />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="application/x-javascript">
 	
@@ -63,6 +68,54 @@
 
 	});
 </script>
+<style>
+body {
+	height: 100%;
+	width: 100%;
+	
+}
+
+body {
+	font-family: "San francisco ", sans-serif;
+	background-size: cover;
+	background-repeat: repeat;
+
+}
+
+}
+.mySlides {
+	display: none
+	
+}
+
+table.t1 td, th {
+	border: 1px solid black; padding 10px;
+	text-align: center;
+
+}
+
+table.t1 {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.page {
+	background-color: gray;
+	color: white;
+}
+
+.active {
+	background-color: green;
+}
+
+.w3-top {
+	background-color: #04B4AE;
+}
+
+.pagination1{
+	text-align : center;
+	}
+</style>
 <!-- //Owl Carousel Assets -->
 <!----font-Awesome----->
 <link rel="stylesheet"
@@ -71,78 +124,29 @@
 </head>
 <body>
 	<div>
-		<div class="container">
-			<div class="row header">
-				<div class="logo navbar-left">
-					<h1>
-						<a href="index.jsp"> <img
-							src="./resources/web/images/yedam.png" width="300" height="70">
-						</a>
-					</h1>
-				</div>
-
-
-				<center>
-					<hr>
-					
-					
-						<form action="login.do" method="post">
-							<table border="1" cellpadding="0" cellspacing="0">
-						
-				
-									<form name=form1 method=post action="./login.do">
-				<c:if test="${empty sessionScope.stdname }">
-										<input type = "hidden" name="action" value="login"/>
+		<div class="row header">
 								
-									<td style="font-size: 15px;" bgcolor="orange" width="70" >아이디</td>
-									<td><input class="w3-input w3-border" type="text"
-										placeholder="id" name="studentnum" maxlength="8" />
-									<td style="font-size: 15px; "bgcolor="orange" width="70">비밀번호</td>
-									<td><input class="w3-input w3-border" type="password"
-										placeholder="password" name="studentpw" maxlength="8" />
-									<td colspan="1" align="center"><input style="font-size: 15px;"type="submit"
-										 value="로그인" /></td>
-					</c:if>		
-						</form>
-									<td>
-									<c:if test="${sessionScope.mode =='pro' }">
-											<a
-											href='../control/applylecture_control.jsp?action=schedule(pro)'>
-												<button type="button" class="btn btn-outline-primary">시간표</button>
-											</a>
+						<a href="gohome"><img src="./resources/web/images/yedamlogo4.PNG" width="300" height="70"></a>
+	
 
-									</c:if> 
-									<c:if test="${sessionScope.mode =='std' }">
-											<a href="../control/applylecture_control.jsp?action=schedule">
-												<button type="button" class="btn btn-outline-primary">시간표</button>
-											</a>
-
-									</c:if>
-									</td>
-							
-							<c:if test="${!empty sessionScope.stdname}">
-									<h3 align="left">${sessionScope.stdname}님
-										환영합니다.<a href="logout.do" >로그아웃</a>
-									</h3>
-							</c:if>
+			
+				
+								
 
 								
 							
-							</table>
-						</form>
 				
-						<hr>
-				</center>
+					
+			
 
 
 				<div class="clearfix"></div>
 			</div>
-		</div>
 	</div>
-	<div class="container">
+<!-- 	<div class="container">
 		<div class="row h_menu">
 			<nav class="navbar navbar-default navbar-left" role="navigation">
-			<!-- Brand and toggle get grouped for better mobile display -->
+			Brand and toggle get grouped for better mobile display
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
 					data-target="#bs-example-navbar-collapse-1">
@@ -151,7 +155,7 @@
 						class="icon-bar"></span>
 				</button>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
+			Collect the nav links, forms, and other content for toggling
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
@@ -163,11 +167,130 @@
 
 				</ul>
 			</div>
-			<!-- /.navbar-collapse --> <!-- start soc_icons --> </nav>			
+			/.navbar-collapse start soc_icons </nav>			
 			</div>
+		</div> -->
+<div class="w3-bar w3-wide w3-padding w3-card">
+		<div class="w3-right">
+			<div class="w3-dropdown-hover" >
+				<a href="gohome"><button 
+						class="w3-padding-large w3-button" title="More">홈</button></a>
+			</div>
+			<c:if test="${sessionScope.mode =='std' }">
+
+				<div class="w3-dropdown-hover w3-hide-small">
+
+					<button class="w3-padding-large w3-button" title="More">
+
+						강의</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="getClassList"
+							class="w3-bar-item w3-button">강의조회</a> <a
+							href="getClassapplyList"
+							class="w3-bar- w3-button">수강신청</a>
+					</div>
+				</div>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-padding-large w3-button" title="More">
+						과제</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="getHWList"
+							class="w3-bar-item w3-button">과제조회</a>
+
+					</div>
+				</div>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-padding-large w3-button" title="More">
+						시험</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href=""
+							class="w3-bar-item w3-button">시험조회</a>
+
+
+					</div>
+				</div>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-padding-large w3-button" title="More">
+						성적</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="getClassScoreListstu"
+							class="w3-bar-item w3-button">성적조회</a>
+
+
+					</div>
+				</div>
+			</c:if>
+
+			<c:if test="${sessionScope.mode =='pro' }">
+				<div class="w3-dropdown-hover w3-hide-small">
+
+					<button class="w3-padding-large w3-button" title="More">
+
+						강의</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="getClassapplyList"
+							class="w3-bar-item w3-button">강의조회</a>
+
+
+					</div>
+				</div>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-padding-large w3-button" title="More">
+						과제</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+						<a href="getHWListPro"
+							class="w3-bar-item w3-button">과제조회(교수)</a> <a
+							href="hwInsert"
+							class="w3-bar-item w3-button">과제등록(교수)</a>
+					</div>
+				</div>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-padding-large w3-button" title="More">
+						시험</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+						<a href=""
+							class="w3-bar-item w3-button">시험조회(교수)</a> <a
+							href=""
+							class="w3-bar-item w3-button">시험출제(교수)</a>
+					</div>
+				</div>
+				<div class="w3-dropdown-hover w3-hide-small">
+					<button class="w3-padding-large w3-button" title="More">
+						성적</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+
+						<a href="getClassScoreList"
+							class="w3-bar-item w3-button">성적입력(교수)</a>
+					</div>
+				</div>
+			</c:if>
+			<br>
+							
+								
 		</div>
 	</div>
+		<c:if test="${!empty sessionScope.stdname}">
+											<h2 align="right">${sessionScope.stdname}님
+												환영합니다.</h2><div align="right"><a href="logout.do" ><button type="button">로그아웃</button></a></div><br>
+											
+									</c:if>
+									<div align = "right">
+									<c:if test="${sessionScope.mode =='pro' }">
+											<a
+											href='getSchedulepro'>
+												<button type="button" class="btn btn-outline-primary">시간표</button>
+											</a>
 
+									</c:if> 
+									<c:if test="${sessionScope.mode =='std' }">
+											<a href="getSchedule">
+												<button type="button" class="btn btn-outline-primary">시간표</button>
+											</a>
+
+									</c:if>
+									</div>
 	<tiles:insertAttribute name="body" />
 </body>
 

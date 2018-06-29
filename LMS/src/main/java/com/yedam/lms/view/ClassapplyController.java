@@ -38,9 +38,9 @@ public class ClassapplyController {
 			throws IOException {
 		//한글 인코딩
 		response.setContentType("text/html; charset=UTF-8");
-		// String stid =(String)session.getAttribute("loginvo");
+		String stid =(String)session.getAttribute("loginvo");
 		PrintWriter out = response.getWriter();
-		vo.setStudentnum("18000003");
+		vo.setStudentnum(stid);
 		int r = classapplyService.insertClassapply(vo);
 		if (r == -2) {
 			out.print("<script>");
@@ -78,8 +78,8 @@ public class ClassapplyController {
 		if(paging.getPage() == null)
 			paging.setPage(1);
 		
-		//String stid=(String)session.getAttribute("loginvo");
-		vo.setStudentnum("18000003");
+		String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum(stid);
 		//페이징 하기 위한 start,end 조건 검색
 		//page1 ==> 1~5 2 ==> 6~10
 		vo2.setStart(paging.getStart());
@@ -109,8 +109,8 @@ ModelAndView mv = new ModelAndView();
 		if(paging.getPage() == null)
 			paging.setPage(1);
 		
-		//String stid=(String)session.getAttribute("loginvo");
-		vo.setStudentnum("18000003");
+		String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum(stid);
 		//페이징 하기 위한 start,end 조건 검색
 		//page1 ==> 1~5 2 ==> 6~10
 		vo2.setStart(paging.getStart());
@@ -133,8 +133,8 @@ ModelAndView mv = new ModelAndView();
 	}
 	@RequestMapping("/getSchedulepro")
 	public String getSchedulepro(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
-		//String stid=(String)session.getAttribute("loginvo");
-		vo.setStudentnum("28000001");
+		String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum(stid);
 		
 		//교수 시간표 조회
 		request.setAttribute("schedulelistpro", classapplyService.getSchedulepro(vo));
@@ -142,8 +142,8 @@ ModelAndView mv = new ModelAndView();
 	}
 	@RequestMapping("/getSchedulepropopup")
 	public String getSchedulepropopup(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
-		//String stid=(String)session.getAttribute("loginvo");
-		vo.setStudentnum("28000001");
+		String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum(stid);
 		
 		//교수 시간표 조회
 		request.setAttribute("schedulelistpro", classapplyService.getSchedulepro(vo));
@@ -151,8 +151,8 @@ ModelAndView mv = new ModelAndView();
 	}
 	@RequestMapping("/getSchedule")
 	public String getSchedule(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
-		//String stid=(String)session.getAttribute("loginvo");
-		vo.setStudentnum("18000003");
+		String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum(stid);
 		
 		//학생 시간표 조회
 		request.setAttribute("classapplylist2", classapplyService.getSchedule(vo));
@@ -160,8 +160,8 @@ ModelAndView mv = new ModelAndView();
 	}
 	@RequestMapping("/getSchedulepopup")
 	public String getSchedulepopup(HttpServletRequest request,ClassapplyVO vo, HttpSession session) {
-		//String stid=(String)session.getAttribute("loginvo");
-		vo.setStudentnum("18000003");
+		String stid=(String)session.getAttribute("loginvo");
+		vo.setStudentnum(stid);
 		
 		//학생 시간표 조회
 		request.setAttribute("classapplylist2", classapplyService.getSchedule(vo));

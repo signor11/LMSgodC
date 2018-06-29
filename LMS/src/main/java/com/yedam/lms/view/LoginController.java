@@ -37,11 +37,11 @@ public class LoginController {
 			if (vo1.getStudentnum().compareTo("20000000") >= 0) {
 				session.setAttribute("mode", "pro");
 
-				return "home/home";
+				return "home/home2";
 			} else {
 				session.setAttribute("mode", "std");
 
-				return "home/home";
+				return "home/home2";
 			}
 
 		} else
@@ -52,7 +52,19 @@ public class LoginController {
 	public ModelAndView logout(HttpSession session) {
 		studentService.logout(session);
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("./home");
+		mav.setViewName("home/home");
 		return mav;
 	}
+	@RequestMapping("login")
+	public String loginHome() {
+		return "login/login";
+	
+	}
+	@RequestMapping("gohome")
+	public String goHome() {
+		return "home/home2";
+	
+	}
+	
+	
 }

@@ -8,9 +8,6 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <body>
-<%-- <c:if test="${!empty sessionScope.loginvo}"> --%>
-<div align="right"><a href="login"><button type="button">로그인</button></a></div>
-<%-- </c:if>  --%>
 <hr>
 		<br>
 			<img class="w3-image" src="./resources/web/images/project1.jpg" alt="Architecture"
