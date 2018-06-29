@@ -14,5 +14,10 @@ public interface ClassService {
 	public List<Map<String, Object>> pro_classnameList(String professornum);
 	
 	public int count(ClassSearchVO classSearchVO);
-
+	
+	public void insertClass(ClassVO classVO);
+	
+	public void updateClass(ClassVO classVO);
+	
+	public void deleteClass(ClassVO classVO);
 }

@@ -47,5 +47,14 @@ public class ClassDAO {
 	public ClassapplyVO getSchedulepro(ClassapplyVO vo) {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.getSchedulepro",vo);
 	}
-
+	public void insertClass(ClassVO vo) {
+		 mybatis.insert("com.yedam.lms.classs.impl.classDAO.insertClass",vo);
+	}
+	public void updateClass(ClassVO vo) {
+		mybatis.update("com.yedam.lms.classs.impl.classDAO.insertClass",vo);
+	}
+	public void deleteClass(ClassVO vo) {
+		mybatis.delete("com.yedam.lms.classs.impl.classDAO.insertClass",vo);
+	}
+	
 }

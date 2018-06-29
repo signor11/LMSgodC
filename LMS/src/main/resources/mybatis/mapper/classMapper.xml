@@ -6,8 +6,8 @@
 
 
 	<!-- 등록 -->
-	<!-- <insert id= "classInsert" parameterType="classVO">
-		<selectKey keyProperty="classNum" resultType="string" order="BEFORE">
+	<insert id= "insertClass" parameterType="classVO">
+		<selectKey keyProperty="classnum" resultType="string" order="BEFORE">
 			SELECT max(CLASSNUM)+1 FROM CLASS
 		</selectKey>
 		INSERT INTO CLASS(  CLASSNUM,
@@ -17,16 +17,32 @@
 							PROFESSORNUM,
 							CLASSTIME)
 		VALUES(
-				#{classNum}
-				#{className}
+				#{classnum}
+				#{classname}
 				#{credit}
-				#{maxStudent}
-				#{professorNum}
-				#{classTime}
+				#{maxstudent}
+				#{professornum}
+				#{classtime}
 					)
-	</insert> -->
+	</insert>
 					
+	<!-- 수정 -->
+	<update id="updateClass" parameterType="classVO">
+		UPDATE CLASS
+		SET CLASSNAME 	= #{classname},
+			CLASSTIME 	= #{classtime},
+			CREDIT		= #{credit},
+			MAXSTUDENT	= #{maxstudent}
+		WHERE CLASSNUM 	= #{classnum}
 	
+	</update>	
+	
+	
+	<!--  삭제 -->
+	<delete id="deleteClass" parameterType="classVO">
+		DELETE FROM CLASS
+		WHERE		CLASSNUM = #{classnum}
+	</delete>
 	
 	<!-- 단건조회 -->
 	

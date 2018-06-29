@@ -48,9 +48,12 @@
 							<label> password</label> <input
 								class="w3-input w3-border" type="password" placeholder="password" 
 								name="studentpw"  maxlength="20" required>
+							<%-- 	<c:if test="">
+								<a>아이디 또는 비밀번호가 맞지 않습니다.</a>
+								</c:if> --%>
 					</div>
 					<br>
-					<button class="w3-button w3-dark-grey" type="submit">Login</button>
+					<button class="w3-button w3-dark-grey" type="submit" onclick="javascript:logincheck()">Login</button>
 				</form>
 			</div>
 		</div>
