@@ -63,22 +63,14 @@
 		<form action="./hwUpdate" name="hwUpdate" method="post">
 			<input type="hidden" name="hwnum" value="${hw.hwnum}"/>
 			<input type="hidden" name="classnum" value="${hw.classnum}"/>
-			<input
-				type="text" value="과목명" readonly="readonly"
-				size="5" class="btn btn-danger"> 
+			<span class="btn btn-danger">과목명</span>
 				<input type="text" name="classname" value="${cn.classname}" readonly="readonly">
-			<input
-				type="text" value="제목" readonly="readonly"
-				size="5" class="btn btn-danger"> 
+			<span class="btn btn-danger">제목</span>
 			<input type="text" name="hwname" value="${hw.hwname}">
-			<input
-				type="text" value="제출기한" readonly="readonly"
-				size="6" class="btn btn-danger"> 
+			<span class="btn btn-danger">제출기한</span>
 			<input type="date" name="applydate"
 				value="${fn:substring(hw.applydate,0,10)}" id="dateField" min="" onclick=" checkDay()"> <br><br>
-			<input
-				type="text" value="내용" readonly="readonly"
-				size="5" class="btn btn-danger"><br><br>
+			<span class="btn btn-danger">내용</span><br><br>
 			<textarea name="hwinfo" cols="85" rows="13"
 				style="width: 100%;">${hw.hwinfo}</textarea><br><br>
 			<div align="left">
