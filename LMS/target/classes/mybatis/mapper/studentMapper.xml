@@ -7,14 +7,18 @@
 	<!-- 단건조회 -->
 	<select id="getStudent" parameterType="string" resultType="com.yedam.lms.smp.StudentVO">
 		
-		SELECT STUDENTNUM,
-			   MAJORNUM,
-			   STUDENTPW,
-			   STUDENTNAME,
-			   STUDENTPHONE,
-			   STARTDATE
-		FROM STUDENT
+		SELECT s.STUDENTNUM,
+			   s.MAJORNUM,
+			   m.MAJORNAME,
+			   s.STUDENTPW,
+			   s.STUDENTNAME,
+			   s.STUDENTPHONE,
+			   s.STARTDATE
+			   
+		FROM STUDENT s JOIN MAJOR m
+    	ON s.MAJORNUM = m.MAJORNUM
 		WHERE STUDENTNUM = #{studentnum}
+    	ORDER BY STUDENTNUM;
 	</select>
 	<!-- 로그인 -->
 	<select id="getLogin" resultType="com.yedam.lms.smp.StudentVO">
@@ -30,14 +34,16 @@
 	
 	<!-- 전체조회 -->
 	<select id="getStudentList" resultType="map">
-		SELECT STUDENTNUM,
-			   MAJORNUM,
-			   STUDENTPW,
-			   STUDENTNAME,
-			   STUDENTPHONE,
-			   STARTDATE
-		FROM STUDENT
-		ORDER BY STUDENTNUM;
+		SELECT s.STUDENTNUM,
+			   s.MAJORNUM,
+			   m.MAJORNAME,
+			   s.STUDENTPW,
+			   s.STUDENTNAME,
+			   s.STUDENTPHONE,
+			   s.STARTDATE
+		FROM STUDENT s JOIN MAJOR m
+    	ON s.MAJORNUM = m.MAJORNUM
+    	ORDER BY STUDENTNUM;
 	</select>
 	
 	<!-- 입력 -->
