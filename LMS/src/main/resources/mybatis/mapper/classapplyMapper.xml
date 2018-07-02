@@ -6,7 +6,7 @@
 	<!-- 중복 확인 -->
 	<select id="checkclassapply" resultType="com.yedam.lms.classs.ClassapplyVO">
 		SELECT CLASSAPPLYNUM
-		FROM CLASSAPPLYNUM
+		FROM CLASSAPPLY
 		<where>
 				 CLASSAPPLYNUM = #{classapplynum}
 		 AND	 STUDENTNUM = #{studentnum}
