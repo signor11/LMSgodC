@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yedam.lms.classs.ClassVO;
+import com.yedam.lms.smp.StudentSearchVO;
 import com.yedam.lms.smp.StudentService;
 import com.yedam.lms.smp.StudentVO;
 
@@ -20,8 +20,8 @@ public class StudentImpl implements StudentService{
 	StudentDAO dao;
 
 	@Override
-	public List<Map<String, Object>> getStudentList() {
-		return dao.getStudentList(null);
+	public List<Map<String, Object>> getStudentList(StudentSearchVO vo) {
+		return dao.getStudentList(vo);
 	}
 
 	@Override
@@ -37,16 +37,15 @@ public class StudentImpl implements StudentService{
 	}
 
 	@Override
-	public void deleteStudent(String studentnum) {
-		dao.deleteStudent(studentnum);
+	public void deleteStudent(StudentVO vo) {
+		dao.deleteStudent(vo);
 		
 	}
 
 
 	@Override
 	public StudentVO getStudent(String studentnum) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.getStudent(studentnum);
 	}
 
 	@Override
@@ -58,8 +57,12 @@ public class StudentImpl implements StudentService{
 
 	@Override
 	public void logout(HttpSession session) {
-		// TODO Auto-generated method stub
 		session.invalidate();
+	}
+
+	@Override
+	public int studentCount(StudentSearchVO vo) {
+		return dao.studentCount(vo);
 	}
 
 	
