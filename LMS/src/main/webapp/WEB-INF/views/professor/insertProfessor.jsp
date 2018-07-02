@@ -9,7 +9,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>회원등록</title>
+<title>교수등록</title>
 
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
@@ -104,16 +104,16 @@
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">연락처</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-10" >
                       <input type="text" name="professorphone" id="tel1" size="18"
 						maxlength="11" />
 						 <span class="help-block">숫자만 11자리</span>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">담당 과목</label>
+                    <label class="col-sm-2 control-label">학과명</label>
                     <div class="col-sm-10">
-                    		<select id="major" name="majornum">
+                    		<select id="major" name="majornum" style="position:relative; top:8px;">
 							<option value="" selected hidden="">선택</option>
 							<option value="38000001">컴공</option>
 							<option value="38000002">국문</option>

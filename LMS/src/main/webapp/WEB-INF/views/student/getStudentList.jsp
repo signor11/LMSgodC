@@ -30,7 +30,7 @@
 	<br>
 	<br>
 	<p align=right>
-		<button type="button" class="btn btn-danger" onclick="">등록</button>
+		<a href="./insertStudent"><button type="button" class="btn btn-danger" >등록</button></a>
 	</p>
 	<br>
 	<br>
