@@ -37,8 +37,8 @@ public class StudentImpl implements StudentService{
 	}
 
 	@Override
-	public void deleteStudent(String studentnum) {
-		dao.deleteStudent(studentnum);
+	public void deleteStudent(StudentVO vo) {
+		dao.deleteStudent(vo);
 		
 	}
 

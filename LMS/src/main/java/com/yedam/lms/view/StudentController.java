@@ -76,8 +76,9 @@ public class StudentController {
 	
 	//수정폼
 	@RequestMapping(value="/updateStudent", method = RequestMethod.GET)
-	String updateStudentForm() {
-		return "student/updateBoard";
+	String updateStudentForm(HttpServletRequest request, @RequestParam String studentnum) {
+		request.setAttribute("get_stu", studentService.getStudent(studentnum));
+		return "student/updateStudent";
 	}
 	
 	//수정처리
@@ -89,8 +90,8 @@ public class StudentController {
 	
 	//삭제
 		@RequestMapping("/deleteStudent")
-		String deleteStudent(@RequestParam String studentnum) {
-			studentService.deleteStudent(studentnum);
+		String deleteStudent(@ModelAttribute("vo") StudentVO vo) {
+			studentService.deleteStudent(vo);
 			return "redirect:/getStudentList";
 		}
 		

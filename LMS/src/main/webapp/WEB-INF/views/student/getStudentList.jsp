@@ -8,18 +8,18 @@
 <title>getStudentList.jsp</title>
 <script>
 
-	function update_stu() {
+	function update_stu(a) {
 		var check = confirm('학생 정보를 수정하시겠습니까?');
 		if (check == true) {
-			window.location.href = 
+			window.location.href = "./updateStudent?studentnum="+a
 		}
-	}
+	} 
 
 	
-	function delete_stu() {
+	function delete_stu(a) {
 		var check = confirm('학생 정보를 삭제하시겠습니까?');
 		if (check == true) {
-			window.location.href = "./deleteStudent?studentnum="
+			window.location.href = "./deleteStudent?studentnum="+a
 		}
 	}
 	
@@ -65,8 +65,8 @@
 				<td>${h.MAJORNAME}</td>
 				<td>${h.STUDENTPHONE}</td>
 				<td>${h.STARTDATE}</td>
-				<td><button type="button" class="btn btn-danger" onclick="update_stu">수정</button></td>
-				<td><button type="button" class="btn btn-danger" onclick="delete_stu">삭제</button></td>
+				<td><button type="button" class="btn btn-danger" onclick="update_stu('${h.STUDENTNUM}')">수정</button></td>
+				<td><button type="button" class="btn btn-danger" onclick="delete_stu('${h.STUDENTNUM}')">삭제</button></td>
 				
 			</tr>
 		</c:forEach>
