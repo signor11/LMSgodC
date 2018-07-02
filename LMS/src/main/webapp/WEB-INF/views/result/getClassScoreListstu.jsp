@@ -11,8 +11,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<!-- <script>
-	$(document).ready(function() {
+<script>
+<!-- 	$(document).ready(function() {
 
 		$("#print").dialog({
 			autoOpen : false,
@@ -28,8 +28,15 @@
 		$("#btnPrint").click(function() {
 			$("#print").dialog("open");
 		});
-	});
-</script> -->
+-->
+	//새창 열기
+	function openprint() {
+		window.open("./result", "출력",
+						"width=1200, height=1200, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+
+	}
+</script>
+
 </head>
 <!-- body -->
 <body>
@@ -70,7 +77,7 @@
 			</table>
 			<br> <br>
 			<div align="center">
-				<a href="./result" id="btnPrint" class = "btn btn-danger">출력</a>
+				<button id="printbtn" type="button" class="btn btn-danger" onclick="javascript:openprint();">출력</a>
 				<div id="print" title="출력"></div>
 			</div>
 			<br><br>
