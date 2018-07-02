@@ -116,18 +116,10 @@
                     <label class="col-sm-2 control-label">학과 번호</label>
                     <div class="col-sm-10">
                     		<select id="major" name="majornum" style="position:relative; top:8px;">
-<<<<<<< HEAD
 								<option value="" selected hidden="">선택</option>
 									<c:forEach items="${major}" var="m">
 								<option value="${m.MAJORNUM}">${m.MAJORNAME}</option>				
 									</c:forEach>
-=======
-							<option value="" selected hidden="">선택</option>
-							<option value="38000001">38000001(컴공)</option>
-							<option value="38000002">38000002(국문)</option>
-							<option value="38000003">38000003(기계)</option>
-							<option value="38000004">38000004(예절)</option>						
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC.git
 							</select>
                     </div>
                   </div>
