@@ -5,7 +5,7 @@
 <mapper namespace="com.yedam.lms.smp.impl.MajorDAO">
 
 <!-- 단건 조회 -->
-	<select id="getMajor" resultType="majorVO">
+	<select id="getMajor" parameterType="string" resultType="majorVO">
 		SELECT *
 		FROM MAJOR
 		WHERE MAJORNUM = #{majornum}

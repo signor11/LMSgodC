@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
@@ -105,11 +106,18 @@
                     <label class="col-sm-2 control-label">학과명</label>
                     <div class="col-sm-10">
                     		<select id="major" name="majornum" style="position:relative; top:8px;">
-							<option value="" selected hidden="">선택</option>
+                    		<c:forEach items="${m_list}" var="m">
+                    		<option value="${m.MAJORNUM}" 
+                    			<c:if test="${m.MAJORNUM==param.majornum}">selected</c:if>> 
+                    		${m.MAJORNAME}</option>
+							</c:forEach>
+							
+							<%-- <option value="${major.majornum}" selected>${major.majorname}</option> --%>
+							<!-- <option value="" selected hidden="">선택</option>
 							<option value="38000001">컴공</option>
 							<option value="38000002">국문</option>
 							<option value="38000003">기계</option>
-							<option value="38000004">예절</option>
+							<option value="38000004">예절</option> -->
 							
 							</select>
            

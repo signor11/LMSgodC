@@ -16,8 +16,8 @@ public class MajorImpl implements MajorService {
 	MajorDAO dao;
 	
 	@Override
-	public MajorVO getMajor(MajorVO vo) {
-		return dao.getMajor(vo);
+	public MajorVO getMajor(String majornum) {
+		return dao.getMajor(majornum);
 	}
 
 	@Override
