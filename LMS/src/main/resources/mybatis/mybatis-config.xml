@@ -22,7 +22,9 @@
 		<typeAlias type="com.yedam.lms.hw.AddFileVO" alias="addfileVO"/>
 		<typeAlias type="com.yedam.lms.test.ExamContentsVO" alias="examVO"/>
 		<typeAlias type="com.yedam.lms.test.TestVO" alias="testVO"/>
-		
+		<typeAlias type="com.yedam.admin.web.etc.NoticeVO" alias="noticeVO"/>
+		<typeAlias type="com.yedam.lms.smp.MajorVO" alias="majorVO"/>
+
 		
 	</typeAliases>
 	

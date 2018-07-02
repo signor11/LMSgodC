@@ -13,12 +13,11 @@
 			   s.STUDENTPW,
 			   s.STUDENTNAME,
 			   s.STUDENTPHONE,
-			   s.STARTDATE
+			  TO_CHAR(s.STARTDATE, 'YYYY-MM-DD') STARTDATE
 			   
 		FROM STUDENT s JOIN MAJOR m
     	ON s.MAJORNUM = m.MAJORNUM
 		WHERE STUDENTNUM = #{studentnum}
-    	ORDER BY STUDENTNUM
 	</select>
 	<!-- 로그인 -->
 	<select id="getLogin" resultType="com.yedam.lms.smp.StudentVO">
@@ -34,51 +33,74 @@
 	
 	<!-- 전체조회 -->
 	<select id="getStudentList" resultType="map">
-		SELECT s.STUDENTNUM,
+		
+		SELECT a.* FROM(SELECT ROWNUM rn, b.* FROM (
+			SELECT s.STUDENTNUM,
 			   s.MAJORNUM,
 			   m.MAJORNAME,
 			   s.STUDENTPW,
 			   s.STUDENTNAME,
 			   s.STUDENTPHONE,
-			   s.STARTDATE
-		FROM STUDENT s JOIN MAJOR m
-    	ON s.MAJORNUM = m.MAJORNUM
-    	ORDER BY STUDENTNUM
+			   TO_CHAR(s.STARTDATE, 'YYYY-MM-DD') STARTDATE
+		 	FROM STUDENT s JOIN MAJOR m
+     		ON s.MAJORNUM = m.MAJORNUM
+     		<if test="majornum != null and majornum != ''">
+		 	AND s.MAJORNUM = #{majornum}
+		 	</if>
+     		ORDER BY STUDENTNUM
+		 ) b ) a
+		 WHERE rn BETWEEN #{start} AND #{end}
+		 
+		 
+		 <!-- <if test="startdate != null and startdate != ''">
+		 	AND STARTDATE = #{startdate}
+		 </if> -->
+  
+  
 	</select>
 	
 	<!-- 입력 -->
 	<insert id = "insertStudent" parameterType="com.yedam.lms.smp.StudentVO">
-		<selectKey keyProperty="studentNum" resultType="string" order="BEFORE">
-			SELECT nvl(max(SEQ),0)+1 FROM STUDENT
+		<selectKey keyProperty="studentnum" resultType="string" order="BEFORE">
+			select max(STUDENTNUM)+1 FROM STUDENT
 		</selectKey>
 			INSERT INTO STUDENT(STUDENTNUM,
-								MAJORNUM,
+								MAJORNUM,	
 								STUDENTPW,
 								STUDENTNAME,
 								STUDENTPHONE,
 								STARTDATE)
-			VALUES (#{studentNum},
-					#{majorNum},
-					#{studentPw},
-					#{studentName},
-					#{studentPhone},
-					#{startDate})
+			VALUES (#{studentnum},
+					#{majornum},
+					#{studentpw},
+					#{studentname},
+					#{studentphone},
+					#{startdate})
 	</insert>
 	
 	<!-- 수정 -->
 	<update id="updateStudent"  parameterType="com.yedam.lms.smp.StudentVO">
 		UPDATE STUDENT
-		SET	   MAJORNUM=#{majorNum},
-			   STUDENTPW=#{studentPw},
-			   STUDNETPONE=#{studnentPhone},
-			   STUDENTNAME=#{studentName},
-			   STARTDATE=#{startDate}
-		WHERE  STUDENTNUM=#{studentNum}
+		SET	   MAJORNUM=#{majornum},
+			   STUDENTPW=#{studentpw},
+			   STUDENTPHONE=#{studentphone},
+			   STUDENTNAME=#{studentname},
+			   STARTDATE=#{startdate}
+		WHERE  STUDENTNUM=#{studentnum}
 	</update>
 	
 	<!-- 삭제 -->
 	<delete id = "deleteStudent" parameterType="com.yedam.lms.smp.StudentVO">
 		DELETE FROM STUDENT
-		WHERE STUDENTNUM=#{studentNum}
+		WHERE STUDENTNUM=#{studentnum}
 	</delete>
+	
+	<!-- 건수 조회 -->
+	<select id="studentCount" resultType="integer">
+		SELECT COUNT(*) FROM STUDENT S JOIN MAJOR M
+						ON S.MAJORNUM = M.MAJORNUM
+	<if test="majornum != null and majornum != ''">
+		 	WHERE S.MAJORNUM = #{majornum}
+	</if>				
+	</select>
 </mapper>

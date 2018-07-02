@@ -1,23 +1,15 @@
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-"http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>교수등록</title>
-
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 <script type="text/javascript"
 	src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <script type="text/javascript"></script>
 
-
+<head>
              
                
  <script>
@@ -50,13 +42,13 @@
 								$("#tel1").focus();
 
 							}  
-							 else if ($("#major").val() == "") {
-								alert("담당과목을  꼭 선택하세요!");
-								$("#major").focus();
+							  else if ($("#majornum").val() == "") {
+									alert("학과번호을  꼭 선택하세요!");
+									$("#majornum").focus();
 
-							} else if ($("#hiredate").val() == "") {
+								}else if ($("#startdate").val() == "") {
 								alert("등록일을  꼭 입력하세요!");
-								$("#hiredate").focus();
+								$("#startdate").focus();
 
 							} else {
 								alert("등록 완료");
@@ -65,8 +57,10 @@
 		
 					$("#hiredate").datepicker({
 						dateFormat : 'yy-mm-dd'
-					});						
-	});
+					});
+						
+		});
+
 	//$("#birth").datepicker();
 	//$.datepicker.setDefaults( $.datepicker.regional[ "" ] );
 	//$("#birth").datepicker($.datepicker.regional["ko"]);
@@ -75,19 +69,21 @@
    </head>           
     <body>      
               <div class="panel-body">
-                <form class="form-horizontal " method="post">
-                  <div class="form-group">
+                <form action="./insertStudent" class="form-horizontal" method="post">
+                  <input type="hidden" name="studentnum" />
+                  <!-- <div class="form-group">
                     <label class="col-sm-2 control-label" >아이디</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="professornum" id="id" size="18"
+                      <input type="text" class="form-control" name="studentnum" id="id" size="18"
 						maxlength="12">
                     <span class="help-block">8자리</span>
                     </div>
-                  </div>
+                  </div> -->
+                 
                   <div class="form-group">
                     <label class="col-sm-2 control-label">비밀번호</label>
                     <div class="col-sm-10">
-                      <input type="password" name="professorpw" id="pwd" size="18"
+                      <input type="password" name="studentpw" size="18"
 						maxlength="12" class="form-control"/>
                      
                     </div>
@@ -96,41 +92,46 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">이 름</label>
                     <div class="col-sm-10">
-                     <input type="text" name="professorname" id="name" size="18"
+                     <input type="text" name="studentname" id="name" size="18"
 						maxlength="12" class="form-control"/>
                     </div>
+            
                   </div>
+                 
                   <div class="form-group">
                     <label class="col-sm-2 control-label">연락처</label>
                     <div class="col-sm-10" >
-                      <input type="text" name="professorphone" id="tel1" size="18"
+                      <input type="text" name="studentphone" id="tel1" size="18"
 						maxlength="11" />
 						 <span class="help-block">숫자만 11자리</span>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">학과명</label>
+                   
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label">학과 번호</label>
                     <div class="col-sm-10">
                     		<select id="major" name="majornum" style="position:relative; top:8px;">
-							<option value="" selected hidden="">선택</option>
-							<option value="38000001">컴공</option>
-							<option value="38000002">국문</option>
-							<option value="38000003">기계</option>
-							<option value="38000004">예절</option>
-							
+								<option value="" selected hidden="">선택</option>
+									<c:forEach items="${major}" var="m">
+								<option value="${m.MAJORNUM}">${m.MAJORNAME}</option>				
+									</c:forEach>
 							</select>
-           
                     </div>
-                 <div class="form-group" style="position:relative; top:20px;right:298px;">
-                    <label class="col-sm-2 control-label">등록일</label>
-                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:15px;"/>         
+                  </div>
+                
+                 <div class="form-group" >
+                    <label class="col-sm-2 control-label">입학일</label>
+                    <input type="text" name="startdate" id="hiredate" size="18" maxlength="10" style="position:relative; left:15px;"/>         
                 </div>
+      			
       			<div align="center">
       			  <input type="submit" id="btn_insert"value="등록">
 					<input type="reset" id="btn_cancel" value="취소">
                 </div>
-                </div>
                 </form>
-              </div>
+                </div>
+             
+                
+           
 </body>
 </html>
