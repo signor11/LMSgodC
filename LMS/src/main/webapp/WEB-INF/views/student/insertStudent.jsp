@@ -69,13 +69,7 @@
    </head>           
     <body>      
               <div class="panel-body">
-<<<<<<< HEAD
                 <form action="./insertStudent" class="form-horizontal" method="post">
-=======
-               
-                <form class="form-horizontal " method="post">
-                 
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC.git
                   <div class="form-group">
                     <label class="col-sm-2 control-label" >아이디</label>
                     <div class="col-sm-10">
