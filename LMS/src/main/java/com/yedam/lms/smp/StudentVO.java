@@ -8,6 +8,7 @@ public class StudentVO {
 	private String studentname;
 	private String studentphone;
 	private String studentdate;
+	private String startdate;
 	private String usertype;
 	
 	
@@ -62,12 +63,22 @@ public class StudentVO {
 	public void setMajorname(String majorname) {
 		this.majorname = majorname;
 	}
+	
+	
+	public String getStartdate() {
+		return startdate;
+	}
+	public void setStartdate(String startdate) {
+		this.startdate = startdate;
+	}
 	@Override
 	public String toString() {
 		return "StudentVO [studentnum=" + studentnum + ", majornum=" + majornum + ", majorname=" + majorname
 				+ ", studentpw=" + studentpw + ", studentname=" + studentname + ", studentphone=" + studentphone
-				+ ", studentdate=" + studentdate + ", usertype=" + usertype + "]";
+				+ ", studentdate=" + studentdate + ", startdate=" + startdate + ", usertype=" + usertype + "]";
 	}
+	
+	
 	
 	
 	

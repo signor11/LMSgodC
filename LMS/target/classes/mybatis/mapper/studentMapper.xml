@@ -18,7 +18,7 @@
 		FROM STUDENT s JOIN MAJOR m
     	ON s.MAJORNUM = m.MAJORNUM
 		WHERE STUDENTNUM = #{studentnum}
-    	ORDER BY STUDENTNUM;
+    	ORDER BY STUDENTNUM
 	</select>
 	<!-- 로그인 -->
 	<select id="getLogin" resultType="com.yedam.lms.smp.StudentVO">
@@ -43,7 +43,7 @@
 			   s.STARTDATE
 		FROM STUDENT s JOIN MAJOR m
     	ON s.MAJORNUM = m.MAJORNUM
-    	ORDER BY STUDENTNUM;
+    	ORDER BY STUDENTNUM
 	</select>
 	
 	<!-- 입력 -->
