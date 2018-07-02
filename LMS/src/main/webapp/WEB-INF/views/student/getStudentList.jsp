@@ -44,7 +44,7 @@
 			style="padding: 10px; display: inline-block; text-align: center;"
 			size="5" class="btn btn-danger">
 			<select name="majornum" style="padding: 10px; text-align: center;" onchange="document.majorform.submit()">
-			<option value="" selected hidden="">선택</option>
+			<option value="">선택</option>
 			<c:forEach items="${major}" var="m">
 				<option value="${m.MAJORNUM}"
 					<c:if test="${m.MAJORNUM==param.majornum}">selected</c:if>>
