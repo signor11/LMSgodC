@@ -70,7 +70,7 @@ public class StudentController {
 				
 				mv.addObject("List",studentService.getStudentList(vo2));
 				//뷰페이지 지정
-				mv.setViewName("student/getStudentList");
+				mv.setViewName("admin/student/getStudentList");
 				return mv;
 	
 	}
@@ -78,7 +78,7 @@ public class StudentController {
 	@RequestMapping(value="/insertStudent",method=RequestMethod.GET)
 	String insertStudentForm(HttpServletRequest request, MajorVO vo) {
 		request.setAttribute("major", majorService.getMajorList(vo));
-		return "student/insertStudent";
+		return "admin/student/insertStudent";
 	}
 	
 	//등록처리
@@ -97,7 +97,7 @@ public class StudentController {
 		request.setAttribute("get_stu", studentService.getStudent(vo.getStudentnum()));
 		request.setAttribute("m_list", majorService.getMajorList(vo2));
 		
-		return "student/updateStudent";
+		return "admin/student/updateStudent";
 	}
 	
 	//수정처리
