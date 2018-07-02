@@ -1,16 +1,7 @@
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-"http://www.w3.org/TR/html4/loose.dtd">
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>교수등록</title>
-
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 <script type="text/javascript"
@@ -81,7 +72,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label" >아이디</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="professornum" id="id" size="18"
+                      <input type="text" class="form-control" name="studentnum" id="id" size="18"
 						maxlength="12">
                     <span class="help-block">8자리</span>
                     </div>
@@ -89,7 +80,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">비밀번호</label>
                     <div class="col-sm-10">
-                      <input type="password" name="professorpw" id="pwd" size="18"
+                      <input type="password" name="studentpw" id="pwd" size="18"
 						maxlength="12" class="form-control"/>
                      
                     </div>
@@ -98,14 +89,14 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">이 름</label>
                     <div class="col-sm-10">
-                     <input type="text" name="professorname" id="name" size="18"
+                     <input type="text" name="studentname" id="name" size="18"
 						maxlength="12" class="form-control"/>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">연락처</label>
                     <div class="col-sm-10" >
-                      <input type="text" name="professorphone" id="tel1" size="18"
+                      <input type="text" name="studentphone" id="tel1" size="18"
 						maxlength="11" />
 						 <span class="help-block">숫자만 11자리</span>
                     </div>
@@ -124,7 +115,7 @@
            
                     </div>
                  <div class="form-group" style="position:relative; top:20px;right:298px;">
-                    <label class="col-sm-2 control-label">등록일</label>
+                    <label class="col-sm-2 control-label">입학일</label>
                     <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:15px;"/>         
                 </div>
       			<div align="center">
