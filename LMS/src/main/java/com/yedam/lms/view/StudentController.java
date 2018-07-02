@@ -64,7 +64,6 @@ public class StudentController {
 	//등록폼
 	@RequestMapping(value="/insertStudent",method=RequestMethod.GET)
 	String insertStudentForm() {
-		
 		return "student/insertStudent";
 	}
 	
@@ -72,7 +71,7 @@ public class StudentController {
 	@RequestMapping(value="/insertStudent",method=RequestMethod.POST)
 	String insertStudent(@ModelAttribute("vo") StudentVO vo) {
 		studentService.insertStudent(vo);
-		return "student/getStudentList";
+		return "redirect:/getStudentList";
 	}
 	
 	//수정폼
@@ -85,14 +84,14 @@ public class StudentController {
 		@RequestMapping(value="/updateStudent", method = RequestMethod.POST)
 		String updateStudent(@ModelAttribute("vo") StudentVO vo) {
 			studentService.updateStudent(vo);
-			return "student/getStudentList";
+			return "redirect:/getStudentList";
 		}
 	
 	//삭제
 		@RequestMapping("/deleteStudent")
 		String deleteStudent(@RequestParam String studentnum) {
 			studentService.deleteStudent(studentnum);
-			return "student/getStudentList";
+			return "redirect:/getStudentList";
 		}
 		
 	
