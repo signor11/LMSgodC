@@ -11,27 +11,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원등록</title>
 
-<style>
-#jointable tr {
-	width: 200px;
-	font-size: 20px;
-}
-
-#jointable th {
-	text-align: right;
-	background-color: orange;
-}
-
-#jointable td input {
-	border: 1px solid seagreen;
-}
-</style>
-
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 <script type="text/javascript"
 	src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <script type="text/javascript"></script>
+
+<head>
+             
+               
  <script>
 	$(document).ready(function() {
 
@@ -47,18 +35,7 @@
 								alert("비밀번호를 꼭 입력하세요!");
 								$("#pwd").focus();
 
-							} else if ($("#pwd2").val() == "") {
-								alert("비밀번호확인 을 꼭 입력하세요!");
-								$("#pwd2").focus();
-
-							} else if ($("#pwd").val() != $(
-									"#pwd2").val()) {
-								alert("비밀번호와 비밀번호 확인이 일치하지않습니다.");
-								$("#pwd").val("");
-								$("#pwd2").val("");
-								$("#pwd1").focus();
-
-							} else if ($("#name").val() == "") {
+							}  else if ($("#name").val() == "") {
 								alert("이름을 꼭 입력하세요!");
 								$("#name").focus();
 
@@ -97,66 +74,65 @@
 	//$("#birth").datepicker($.datepicker.regional["ko"]);
 	 
 </script>
-</head>
-<body>
-	<h1 align="center">교수등록</h1>
-
-
-	<div class="w3-container w3-padding-30 w3-row-padding "
-		style="padding: 50px">
-		<form action="./insertProfessor" method="post">
-	<table id="jointable" align="center">
-				<tr>
-					<th>아이디</th>
-					<td><input type="text" name="professornum" id="id" size="18"
-						maxlength="12" class="form-control"/></td>
-				</tr>
-				<tr>
-					<th>비밀번호</th>
-					<td><input type="password" name="professorpw" id="pwd" size="18"
-						maxlength="12" class="form-control"/></td>
-				</tr>
-				<tr>
-					<th>비밀번호확인</th>
-					<td><input type="password" name="pwd2" id="pwd2" size="18"
-						maxlength="12" class="form-control"/></td>
-				</tr>
-
-				<tr>
-					<th>이름</th>
-					<td><input type="text" name="professorname" id="name" size="18"
-						maxlength="12" class="form-control"/></td>
-				</tr>
-				<tr>
-					<th>휴대폰</th>
-					<td><input type="text" name="professorphone" id="tel1" size="18"
-						maxlength="11" /></td>
-				</tr>
-				<tr>
-					<th>담당과목</th>
-					<td><select id="major" name="majornum">
+   </head>           
+    <body>      
+              <div class="panel-body">
+                <form class="form-horizontal " method="get">
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" >아이디</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="professornum" id="id" size="18"
+						maxlength="12">
+                    <span class="help-block">8자리</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">비밀번호</label>
+                    <div class="col-sm-10">
+                      <input type="password" name="professorpw" id="pwd" size="18"
+						maxlength="12" class="form-control"/>
+                     
+                    </div>
+                  </div>
+                 
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">이 름</label>
+                    <div class="col-sm-10">
+                     <input type="text" name="professorname" id="name" size="18"
+						maxlength="12" class="form-control"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">연락처</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="professorphone" id="tel1" size="18"
+						maxlength="11" />
+						 <span class="help-block">숫자만 11자리</span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">담당 과목</label>
+                    <div class="col-sm-10">
+                    		<select id="major" name="majornum">
 							<option value="" selected hidden="">선택</option>
 							<option value="38000001">컴공</option>
 							<option value="38000002">국문</option>
 							<option value="38000003">기계</option>
 							<option value="38000004">예절</option>
 							
-					</select></td>
-				</tr>
-				<tr>
-					<th>등록일</th>
-					<td><input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" />
-					</td>
-				</tr>
-
-				<tr align="right">
-					<td colspan="2">
-					<input type="submit" id="btn_insert"value="등록">
+							</select>
+           
+                    </div>
+                 <div class="form-group" style="position:relative; top:20px;right:298px;">
+                    <label class="col-sm-2 control-label">등록일</label>
+                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:15px;"/>         
+                </div>
+      			<div align="center">
+      			  <input type="submit" id="btn_insert"value="등록">
 					<input type="reset" id="btn_cancel" value="취소">
-					</td>
-				</tr>
-			</table>
-		</form>
-	</div>
+                </div>
+                </div>
+                </form>
+              </div>
 </body>
 </html>
