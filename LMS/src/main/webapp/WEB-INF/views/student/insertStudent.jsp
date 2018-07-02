@@ -83,7 +83,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">비밀번호</label>
                     <div class="col-sm-10">
-                      <input type="password" name="studentpw" id="pwd" size="18"
+                      <input type="password" name="studentpw" size="18"
 						maxlength="12" class="form-control"/>
                      
                     </div>
