@@ -10,13 +10,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.admin.web.Paging;
-import com.yedam.lms.hw.HWVO;
-import com.yedam.lms.smp.ProfessorVO;
+
+
+import com.yedam.lms.smp.MajorService;
+import com.yedam.lms.smp.MajorVO;
+
 import com.yedam.lms.smp.StudentSearchVO;
 import com.yedam.lms.smp.StudentService;
 import com.yedam.lms.smp.StudentVO;
@@ -29,6 +32,9 @@ public class StudentController {
 
 	@Autowired
 	StudentService studentService;
+	@Autowired
+	MajorService majorService;
+	
 	
 	/*관리자 모드*/
 	
@@ -82,8 +88,11 @@ public class StudentController {
 	
 	//수정폼
 	@RequestMapping(value="/updateStudent", method = RequestMethod.GET)
-	String updateStudentForm(HttpServletRequest request, @RequestParam String studentnum) {
-		request.setAttribute("get_stu", studentService.getStudent(studentnum));
+	String updateStudentForm(HttpServletRequest request, StudentVO vo,MajorVO vo2) {
+		vo2.setMajornum(vo.getMajornum());
+		request.setAttribute("get_stu", studentService.getStudent(vo.getStudentnum()));
+		request.setAttribute("m_list", majorService.getMajorList(vo2));
+		
 		return "student/updateStudent";
 	}
 	

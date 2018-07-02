@@ -18,7 +18,6 @@
 		FROM STUDENT s JOIN MAJOR m
     	ON s.MAJORNUM = m.MAJORNUM
 		WHERE STUDENTNUM = #{studentnum}
-    	ORDER BY STUDENTNUM
 	</select>
 	<!-- 로그인 -->
 	<select id="getLogin" resultType="com.yedam.lms.smp.StudentVO">
@@ -44,7 +43,7 @@
 			   s.STUDENTPHONE,
 			   TO_CHAR(s.STARTDATE, 'YYYY-MM-DD') STARTDATE
 		 	FROM STUDENT s JOIN MAJOR m
-     		ON s.MAJORNUM = m.mAJORNUM
+     		ON s.MAJORNUM = m.MAJORNUM
      		ORDER BY STUDENTNUM
 		 ) b ) a
 		 WHERE rn between #{start} and  #{end}

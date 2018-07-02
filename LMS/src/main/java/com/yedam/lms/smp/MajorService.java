@@ -7,7 +7,7 @@ public interface MajorService {
 
 	
 	//학과 단건 조회
-	public MajorVO getMajor(MajorVO vo); 
+	public MajorVO getMajor(String majornum); 
 	//학과 전체 조회
 	public List<Map<String,Object>> getMajorList(MajorVO vo);
 	//학과 수정
