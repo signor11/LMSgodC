@@ -34,16 +34,21 @@
 	
 	<!-- 전체조회 -->
 	<select id="getStudentList" resultType="map">
-		SELECT s.STUDENTNUM,
+		
+		SELECT a.* FROM(SELECT ROWNUM rn, b.* FROM (
+			SELECT s.STUDENTNUM,
 			   s.MAJORNUM,
 			   m.MAJORNAME,
 			   s.STUDENTPW,
 			   s.STUDENTNAME,
 			   s.STUDENTPHONE,
 			   s.STARTDATE
-		FROM STUDENT s JOIN MAJOR m
-    	ON s.MAJORNUM = m.MAJORNUM
-    	ORDER BY STUDENTNUM
+		 	FROM STUDENT s JOIN MAJOR m
+     		ON s.MAJORNUM = m.mAJORNUM
+     		ORDER BY STUDENTNUM
+		 ) b ) a
+		 WHERE rn between #{start} and  #{end}
+  
 	</select>
 	
 	<!-- 입력 -->
@@ -57,28 +62,34 @@
 								STUDENTNAME,
 								STUDENTPHONE,
 								STARTDATE)
-			VALUES (#{studentNum},
-					#{majorNum},
-					#{studentPw},
-					#{studentName},
-					#{studentPhone},
-					#{startDate})
+			VALUES (#{studentnum},
+					#{majornum},
+					#{studentpw},
+					#{studentname},
+					#{studentphone},
+					#{startdate})
 	</insert>
 	
 	<!-- 수정 -->
 	<update id="updateStudent"  parameterType="com.yedam.lms.smp.StudentVO">
 		UPDATE STUDENT
-		SET	   MAJORNUM=#{majorNum},
-			   STUDENTPW=#{studentPw},
-			   STUDNETPONE=#{studnentPhone},
-			   STUDENTNAME=#{studentName},
-			   STARTDATE=#{startDate}
-		WHERE  STUDENTNUM=#{studentNum}
+		SET	   MAJORNUM=#{majornum},
+			   STUDENTPW=#{studentpw},
+			   STUDNETPONE=#{studnentphone},
+			   STUDENTNAME=#{studentname},
+			   STARTDATE=#{startdate}
+		WHERE  STUDENTNUM=#{studentnum}
 	</update>
 	
 	<!-- 삭제 -->
 	<delete id = "deleteStudent" parameterType="com.yedam.lms.smp.StudentVO">
 		DELETE FROM STUDENT
-		WHERE STUDENTNUM=#{studentNum}
+		WHERE STUDENTNUM=#{studentnum}
 	</delete>
+	
+	<!-- 건수 조회 -->
+	<select id="studentCount" resultType="integer">
+		SELECT COUNT(*) FROM STUDENT S JOIN MAJOR M
+						ON S.MAJORNUM = M.MAJORNUM
+	</select>
 </mapper>

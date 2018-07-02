@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="my" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +13,7 @@
 		if (check == true) {
 			window.location.href = 
 		}
+	}
 
 	
 	function delete_stu() {
@@ -19,6 +21,7 @@
 		if (check == true) {
 			window.location.href = "./hwDelete?hwnum=${hw.hwnum}"
 		}
+	}
 	
 </script>
 </head>
@@ -52,10 +55,9 @@
 
 
 		</tr>
-		<c:forEach items="${serList}" var="h">
-		<c:forEach var="a" begin="1" end="10">
+		<c:forEach items="${List}" var="h" varStatus="a">
 			<tr>
-				<td>${a}</td>			
+				<td>${(paging.page-1)*10+1+a.index}</td>			
 				<td>${h.STUDENTNUM}</td>
 				<td>${h.STUDENTPW}</td>
 				<td>${h.STUDENTNAME}</td>
@@ -68,10 +70,19 @@
 				
 			</tr>
 		</c:forEach>
-		</c:forEach>
 	</table>
 	<br>
 	<br>
+	<div align="center" >
+	<!-- 페이징 -->
+	<my:admin_paging admin_paging="${paging}"/>
+			
+		<script>
+				function doList2(page) {
+					location.href = "./getStudentList?page=" + page
+				}
+		</script>
+	</div>		
 	<br>
 	<br>
 
