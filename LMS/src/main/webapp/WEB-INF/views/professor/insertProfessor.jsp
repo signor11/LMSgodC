@@ -17,7 +17,7 @@
 	src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <script type="text/javascript"></script>
 
-<head>
+
              
                
  <script>
@@ -65,10 +65,8 @@
 		
 					$("#hiredate").datepicker({
 						dateFormat : 'yy-mm-dd'
-					});
-						
-		});
-
+					});						
+	});
 	//$("#birth").datepicker();
 	//$.datepicker.setDefaults( $.datepicker.regional[ "" ] );
 	//$("#birth").datepicker($.datepicker.regional["ko"]);
@@ -77,7 +75,7 @@
    </head>           
     <body>      
               <div class="panel-body">
-                <form class="form-horizontal " method="get">
+                <form class="form-horizontal " method="post">
                   <div class="form-group">
                     <label class="col-sm-2 control-label" >아이디</label>
                     <div class="col-sm-10">

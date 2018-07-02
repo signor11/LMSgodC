@@ -41,13 +41,13 @@
 								$("#tel1").focus();
 
 							}  
-							 else if ($("#major").val() == "") {
-								alert("담당과목을  꼭 선택하세요!");
-								$("#major").focus();
+							  else if ($("#majornum").val() == "") {
+									alert("학과번호을  꼭 선택하세요!");
+									$("#majornum").focus();
 
-							} else if ($("#hiredate").val() == "") {
+								}else if ($("#startdate").val() == "") {
 								alert("등록일을  꼭 입력하세요!");
-								$("#hiredate").focus();
+								$("#startdate").focus();
 
 							} else {
 								alert("등록 완료");
@@ -68,7 +68,9 @@
    </head>           
     <body>      
               <div class="panel-body">
-                <form class="form-horizontal " method="get">
+               
+                <form class="form-horizontal " method="post">
+                 
                   <div class="form-group">
                     <label class="col-sm-2 control-label" >아이디</label>
                     <div class="col-sm-10">
@@ -77,6 +79,7 @@
                     <span class="help-block">8자리</span>
                     </div>
                   </div>
+                 
                   <div class="form-group">
                     <label class="col-sm-2 control-label">비밀번호</label>
                     <div class="col-sm-10">
@@ -92,7 +95,9 @@
                      <input type="text" name="studentname" id="name" size="18"
 						maxlength="12" class="form-control"/>
                     </div>
+            
                   </div>
+                 
                   <div class="form-group">
                     <label class="col-sm-2 control-label">연락처</label>
                     <div class="col-sm-10" >
@@ -101,29 +106,33 @@
 						 <span class="help-block">숫자만 11자리</span>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">학과명</label>
+                   
+                    <div class="form-group">
+                    <label class="col-sm-2 control-label">학과 번호</label>
                     <div class="col-sm-10">
                     		<select id="major" name="majornum" style="position:relative; top:8px;">
 							<option value="" selected hidden="">선택</option>
-							<option value="38000001">컴공</option>
-							<option value="38000002">국문</option>
-							<option value="38000003">기계</option>
-							<option value="38000004">예절</option>
-							
+							<option value="38000001">38000001(컴공)</option>
+							<option value="38000002">38000002(국문)</option>
+							<option value="38000003">38000003(기계)</option>
+							<option value="38000004">38000004(예절)</option>						
 							</select>
-           
                     </div>
-                 <div class="form-group" style="position:relative; top:20px;right:298px;">
+                  </div>
+                
+                 <div class="form-group" >
                     <label class="col-sm-2 control-label">입학일</label>
-                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:15px;"/>         
+                    <input type="text" name="startdate" id="hiredate" size="18" maxlength="10" style="position:relative; left:15px;"/>         
                 </div>
+      			
       			<div align="center">
       			  <input type="submit" id="btn_insert"value="등록">
 					<input type="reset" id="btn_cancel" value="취소">
                 </div>
-                </div>
                 </form>
-              </div>
+                </div>
+             
+                
+           
 </body>
 </html>

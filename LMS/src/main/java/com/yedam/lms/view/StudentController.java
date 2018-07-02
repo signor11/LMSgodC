@@ -1,5 +1,7 @@
 package com.yedam.lms.view;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.admin.web.Paging;
 import com.yedam.lms.hw.HWVO;
+import com.yedam.lms.smp.ProfessorVO;
 import com.yedam.lms.smp.StudentSearchVO;
 import com.yedam.lms.smp.StudentService;
 import com.yedam.lms.smp.StudentVO;
@@ -37,8 +40,8 @@ public class StudentController {
 		
 		//페이지 번호 파라미터
 				if(paging.getPage() == null)
-					paging.setPage(1);
-				
+					
+				paging.setPageSize(12);
 				
 				String stid=(String)session.getAttribute("loginvo");
 				vo.setStudentnum(stid);
@@ -46,6 +49,7 @@ public class StudentController {
 				//page1 ==> 1~10 2 ==> 11~20
 				vo2.setStart(paging.getStart());
 				vo2.setEnd(paging.getEnd());
+				
 				//전체 건수
 				paging.setTotalRecord(studentService.studentCount(vo2));
 		
@@ -68,8 +72,10 @@ public class StudentController {
 	}
 	
 	//등록처리
-	@RequestMapping(value="/insertStudent",method=RequestMethod.POST)
-	String insertStudent(@ModelAttribute("vo") StudentVO vo) {
+	
+	@RequestMapping(value = "/insertStudent", method = RequestMethod.POST)	
+	public String insertStudent(@ModelAttribute("vo") StudentVO vo)
+			throws IllegalStateException, IOException {
 		studentService.insertStudent(vo);
 		return "redirect:/getStudentList";
 	}

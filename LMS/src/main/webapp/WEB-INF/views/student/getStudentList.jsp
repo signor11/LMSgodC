@@ -62,7 +62,6 @@
 				<td>${h.STUDENTPW}</td>
 				<td>${h.STUDENTNAME}</td>
 				<td>${h.MAJORNUM}</td>
-				<td>${h.MAJORNAME}</td>
 				<td>${h.STUDENTPHONE}</td>
 				<td>${h.STARTDATE}</td>
 				<td><button type="button" class="btn btn-danger" onclick="update_stu">수정</button></td>

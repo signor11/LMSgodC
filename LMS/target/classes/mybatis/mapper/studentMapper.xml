@@ -53,11 +53,11 @@
 	
 	<!-- 입력 -->
 	<insert id = "insertStudent" parameterType="com.yedam.lms.smp.StudentVO">
-		<selectKey keyProperty="studentNum" resultType="string" order="BEFORE">
-			SELECT nvl(max(SEQ),0)+1 FROM STUDENT
+		<selectKey keyProperty="studentnum" resultType="string" order="BEFORE">
+			select max(STUDENTNUM)+1 FROM STUDENT
 		</selectKey>
 			INSERT INTO STUDENT(STUDENTNUM,
-								MAJORNUM,
+								MAJORNUM,	
 								STUDENTPW,
 								STUDENTNAME,
 								STUDENTPHONE,
