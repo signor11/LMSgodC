@@ -10,6 +10,8 @@ public class StudentVO {
 	private String studentdate;
 	private String startdate;
 	private String usertype;
+	private String cnt;
+	
 	
 	
 	
@@ -71,12 +73,22 @@ public class StudentVO {
 	public void setStartdate(String startdate) {
 		this.startdate = startdate;
 	}
+	
+	public String getCnt() {
+		return cnt;
+	}
+	public void setCnt(String cnt) {
+		this.cnt = cnt;
+	}
 	@Override
 	public String toString() {
 		return "StudentVO [studentnum=" + studentnum + ", majornum=" + majornum + ", majorname=" + majorname
 				+ ", studentpw=" + studentpw + ", studentname=" + studentname + ", studentphone=" + studentphone
-				+ ", studentdate=" + studentdate + ", startdate=" + startdate + ", usertype=" + usertype + "]";
+				+ ", studentdate=" + studentdate + ", startdate=" + startdate + ", usertype=" + usertype + ", cnt="
+				+ cnt + "]";
 	}
+	
+	
 	
 	
 	

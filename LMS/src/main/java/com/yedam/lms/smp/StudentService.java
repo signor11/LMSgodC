@@ -5,12 +5,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import com.yedam.lms.classs.ClassVO;
-
 
 public interface StudentService {
 	//전체조회
-		public List<Map<String,Object>> getStudentList();
+		public List<Map<String,Object>> getStudentList(StudentSearchVO vo);
 		
 		//단건조회
 		public StudentVO getStudent(String studentnum);
@@ -28,6 +26,9 @@ public interface StudentService {
 		
 		//로그아웃
 		public void logout(HttpSession session); 
+		
+		//건수조회
+		public int studentCount(StudentSearchVO vo);
 		
 		
 		
