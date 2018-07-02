@@ -20,7 +20,7 @@
 		<typeAlias type="com.yedam.lms.result.TestResultVO" alias="testResultVO"/>
 		<typeAlias type="com.yedam.lms.hw.SubmitHWVO" alias="submitHWVO"/>
 		<typeAlias type="com.yedam.lms.hw.AddFileVO" alias="addfileVO"/>
-		
+		<typeAlias type="com.yedam.admin.web.etc.NoticeVO" alias="noticeVO"/>
 		
 	</typeAliases>
 	

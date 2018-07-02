@@ -77,7 +77,7 @@
 			</table>
 			<br> <br>
 			<div align="center">
-				<button id="printbtn" type="button" class="btn btn-danger" onclick="javascript:openprint();">출력</a>
+				<button id="printbtn" type="button" class="btn btn-danger" onclick="javascript:openprint();">출력</button>
 				<div id="print" title="출력"></div>
 			</div>
 			<br><br>

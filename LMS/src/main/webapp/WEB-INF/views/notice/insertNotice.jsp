@@ -1,13 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <!DOCTYPE html>
-<script src="./resources/web/js/ckeditor_4/ckeditor.js"></script>
 <html>
 <head>
 <title>Insert title here</title>
+<script src="./resources/web/js/ckeditor_4/ckeditor.js">
+</script>
 </head>
 	<body>
-		<form action="./insertNotice" method="post" name="noticeForm"  enctype  ="multipart/form-data" onsubmit="return submitCheck()"></form>
+		<form action="./insertNotice"  name="noticeForm"  enctype  ="multipart/form-data" onsubmit="return submitCheck()">
 			제목<input type="text" name="title" >
 			작성자<input type="text" name="writer"><br>
 			내용<textarea name = "content" id = "content"></textarea><br>
@@ -20,20 +21,20 @@
 			});
 			
 			function submitCheck(){
-				if(document.boardForm.writer.value == ""){
+				if(document.noticeForm.writer.value == ""){
 					alert("작성자 등록");
-					document.boardForm.writer.focus();
+					document.noticeForm.writer.focus();
 					return false;
 				}
-				if(document.boardForm.title.value == ""){
+				if(document.noticeForm.title.value == ""){
 					alert("제목등록");
-					document.boardForm.title.focus();
+					document.noticeForm.title.focus();
 					return false;
 				}
 				var editor_data = CKEDITOR.instances.content.getData();
-				if(document.boardForm.content.value == ""){
+				if(document.noticeForm.content.value == ""){
 					alert("내용 등록");
-					document.boardForm.content.focus();
+					document.noticeForm.content.focus();
 					return false;
 				}
 				return true;
