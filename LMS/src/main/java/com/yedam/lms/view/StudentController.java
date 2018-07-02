@@ -40,7 +40,7 @@ public class StudentController {
 	
 	//학생조회
 	@RequestMapping("/getStudentList")
-	public ModelAndView getStudentList(HttpServletRequest request, StudentVO vo, StudentSearchVO vo2, HttpSession session, Paging paging) {
+	public ModelAndView getStudentList(HttpServletRequest request, StudentVO vo, MajorVO vo1, StudentSearchVO vo2, HttpSession session, Paging paging) {
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -58,14 +58,17 @@ public class StudentController {
 				
 				//전체 건수
 				paging.setTotalRecord(studentService.studentCount(vo2));
+				
 		
 		//////결과를 모델에 저장
 				
 				mv.addObject("paging",paging);
-				//학생 조회
-				mv.addObject("List",studentService.getStudentList(vo2));
-
 				
+				//학과 조회
+				mv.addObject("major", majorService.getMajorList(vo1));
+				//학생 조회
+				
+				mv.addObject("List",studentService.getStudentList(vo2));
 				//뷰페이지 지정
 				mv.setViewName("student/getStudentList");
 				return mv;

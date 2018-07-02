@@ -44,9 +44,18 @@
 			   TO_CHAR(s.STARTDATE, 'YYYY-MM-DD') STARTDATE
 		 	FROM STUDENT s JOIN MAJOR m
      		ON s.MAJORNUM = m.MAJORNUM
+     		<if test="majornum != null and majornum != ''">
+		 	AND s.MAJORNUM = #{majornum}
+		 	</if>
      		ORDER BY STUDENTNUM
 		 ) b ) a
-		 WHERE rn between #{start} and  #{end}
+		 WHERE rn BETWEEN #{start} AND #{end}
+		 
+		 
+		 <!-- <if test="startdate != null and startdate != ''">
+		 	AND STARTDATE = #{startdate}
+		 </if> -->
+  
   
 	</select>
 	
@@ -90,5 +99,8 @@
 	<select id="studentCount" resultType="integer">
 		SELECT COUNT(*) FROM STUDENT S JOIN MAJOR M
 						ON S.MAJORNUM = M.MAJORNUM
+	<if test="majornum != null and majornum != ''">
+		 	WHERE S.MAJORNUM = #{majornum}
+	</if>				
 	</select>
 </mapper>

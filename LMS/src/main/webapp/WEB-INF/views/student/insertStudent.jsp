@@ -70,14 +70,15 @@
     <body>      
               <div class="panel-body">
                 <form action="./insertStudent" class="form-horizontal" method="post">
-                  <div class="form-group">
+                  <input type="hidden" name="studentnum" />
+                  <!-- <div class="form-group">
                     <label class="col-sm-2 control-label" >아이디</label>
                     <div class="col-sm-10">
                       <input type="text" class="form-control" name="studentnum" id="id" size="18"
 						maxlength="12">
                     <span class="help-block">8자리</span>
                     </div>
-                  </div>
+                  </div> -->
                  
                   <div class="form-group">
                     <label class="col-sm-2 control-label">비밀번호</label>
