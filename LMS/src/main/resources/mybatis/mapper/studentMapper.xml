@@ -74,7 +74,7 @@
 		UPDATE STUDENT
 		SET	   MAJORNUM=#{majornum},
 			   STUDENTPW=#{studentpw},
-			   STUDNETPONE=#{studnentphone},
+			   STUDENTPHONE=#{studentphone},
 			   STUDENTNAME=#{studentname},
 			   STARTDATE=#{startdate}
 		WHERE  STUDENTNUM=#{studentnum}

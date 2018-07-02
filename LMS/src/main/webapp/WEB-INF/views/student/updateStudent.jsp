@@ -67,9 +67,9 @@
 	 
 </script>
    </head>           
-    <body>      
+    <body>     
               <div class="panel-body">
-                <form class="form-horizontal " method="get">
+                <form action="./updateStudent" method="post" name="stu_Form" class="form-horizontal " method="post">
                   <div class="form-group">
                     <label class="col-sm-2 control-label" >아이디</label>
                     <div class="col-sm-10">
@@ -127,7 +127,7 @@
                     <input type="text" name="startdate" id="startdate" size="18" maxlength="10" style="position:relative; left:15px;"  value="${get_stu.startdate}"/>         
                 </div>
       			<div align="center">
-      			  <input type="submit" id="btn_insert"value="등록">
+      			  <input type="submit" id="btn_insert" value="등록">
 					<input type="reset" id="btn_cancel" value="취소">
                 </div>
                 </div>
