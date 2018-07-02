@@ -53,11 +53,7 @@
 	<!-- 입력 -->
 	<insert id = "insertStudent" parameterType="com.yedam.lms.smp.StudentVO">
 		<selectKey keyProperty="studentnum" resultType="string" order="BEFORE">
-<<<<<<< HEAD
-			SELECT nvl(max(STUDENTNUM),0)+1 FROM STUDENT
-=======
 			select max(STUDENTNUM)+1 FROM STUDENT
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC.git
 		</selectKey>
 			INSERT INTO STUDENT(STUDENTNUM,
 								MAJORNUM,	
