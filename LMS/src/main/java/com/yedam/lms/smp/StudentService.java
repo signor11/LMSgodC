@@ -20,7 +20,7 @@ public interface StudentService {
 		public void updateStudent(StudentVO vo);
 		
 		//삭제
-		public void deleteStudent(String studentnum);
+		public void deleteStudent(StudentVO vo);
 		//로그인 체크
 		public StudentVO getLogin(StudentVO vo);
 		

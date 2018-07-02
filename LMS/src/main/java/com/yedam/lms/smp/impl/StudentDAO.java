@@ -38,8 +38,8 @@ public class StudentDAO {
 	}
 	
 	//삭제
-	public void deleteStudent(String studentnum) {
-		mybatis.delete("com.yedam.lms.smp.impl.StudentDAO.deleteStudent",studentnum);
+	public void deleteStudent(StudentVO vo) {
+		mybatis.delete("com.yedam.lms.smp.impl.StudentDAO.deleteStudent",vo);
 	}
 	//사용자로그인
 	public StudentVO getLogin(StudentVO vo) {
