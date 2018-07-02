@@ -67,7 +67,8 @@ public class StudentController {
 	}
 	//등록폼
 	@RequestMapping(value="/insertStudent",method=RequestMethod.GET)
-	String insertStudentForm() {
+	String insertStudentForm(HttpServletRequest request, MajorVO vo) {
+		request.setAttribute("major", majorService.getMajorList(vo));
 		return "student/insertStudent";
 	}
 	

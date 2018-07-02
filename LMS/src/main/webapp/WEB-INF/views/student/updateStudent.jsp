@@ -124,7 +124,7 @@
                     </div>
                  <div class="form-group" style="position:relative; top:20px;right:298px;">
                     <label class="col-sm-2 control-label">입학일</label>
-                    <input type="text" name="startdate" id="startdate" size="18" maxlength="10" style="position:relative; left:15px;"  value="${get_stu.startdate}"/>         
+                    <input type="text" name="startdate" id="hiredate" size="18" maxlength="10" style="position:relative; left:15px;"  value="${get_stu.startdate}"/>         
                 </div>
       			<div align="center">
       			  <input type="submit" id="btn_insert" value="등록">
