@@ -5,12 +5,15 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.admin.web.Paging;
+import com.yedam.lms.hw.HWVO;
 import com.yedam.lms.smp.StudentSearchVO;
 import com.yedam.lms.smp.StudentService;
 import com.yedam.lms.smp.StudentVO;
@@ -61,12 +64,14 @@ public class StudentController {
 	//등록폼
 	@RequestMapping(value="/insertStudent",method=RequestMethod.GET)
 	String insertStudentForm() {
+		
 		return "student/insertStudent";
 	}
 	
 	//등록처리
 	@RequestMapping(value="/insertStudent",method=RequestMethod.POST)
-	String insertStudent() {
+	String insertStudent(@ModelAttribute("vo") StudentVO vo) {
+		studentService.insertStudent(vo);
 		return "student/getStudentList";
 	}
 	
@@ -78,13 +83,15 @@ public class StudentController {
 	
 	//수정처리
 		@RequestMapping(value="/updateStudent", method = RequestMethod.POST)
-		String updateStudent() {
+		String updateStudent(@ModelAttribute("vo") StudentVO vo) {
+			studentService.updateStudent(vo);
 			return "student/getStudentList";
 		}
 	
 	//삭제
 		@RequestMapping("/deleteStudent")
-		String deleteStudent() {
+		String deleteStudent(@RequestParam String studentnum) {
+			studentService.deleteStudent(studentnum);
 			return "student/getStudentList";
 		}
 		
