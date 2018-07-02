@@ -17,22 +17,27 @@ public class MajorImpl implements MajorService {
 	
 	@Override
 	public MajorVO getMajor(MajorVO vo) {
-		return null;
+		return dao.getMajor(vo);
 	}
 
 	@Override
 	public List<Map<String, Object>> getMajorList(MajorVO vo) {
-		return null;
+		return dao.getMajorList(vo);
 	}
 
 	@Override
 	public void updateMajor(MajorVO vo) {
-		
+		dao.updateMajor(vo);
 	}
 
 	@Override
 	public void deleteMajor(MajorVO vo) {
-		
+		dao.deleteMajor(vo);
+	}
+
+	@Override
+	public void insertMajor(MajorVO vo) {
+		dao.insertMajor(vo);
 	}
 
 }

@@ -14,5 +14,7 @@ public interface MajorService {
 	public void updateMajor(MajorVO vo);
 	//학과 삭제
 	public void deleteMajor(MajorVO vo);
+	//학과 등록
+	public void insertMajor(MajorVO vo);
 	
 }

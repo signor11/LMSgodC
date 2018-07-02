@@ -31,4 +31,8 @@ public class MajorDAO {
 		public void deleteMajor(MajorVO vo) {
 			mybatis.delete("com.yedam.lms.smp.impl.getMajorList", vo);
 		}
+		//학과 등록
+		public void insertMajor(MajorVO vo) {
+			mybatis.insert("com.yedam.lms.smp.impl.insertMajor", vo);
+		}
 }
