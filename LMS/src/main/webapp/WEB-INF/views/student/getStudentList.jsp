@@ -19,7 +19,7 @@
 	function delete_stu() {
 		var check = confirm('학생 정보를 삭제하시겠습니까?');
 		if (check == true) {
-			window.location.href = "./deleteStudent?hwnum=${hw.hwnum}"
+			window.location.href = "./deleteStudent?studentnum="
 		}
 	}
 	
