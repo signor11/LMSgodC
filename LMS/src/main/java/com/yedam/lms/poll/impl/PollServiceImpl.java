@@ -1,10 +1,8 @@
 package com.yedam.lms.poll.impl;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,11 +18,10 @@ public class PollServiceImpl implements PollService {
 
 	@Override
 	public void insertPoll(Map<String,String> param,String stdnum) {
-		
 		PollVO vo = new PollVO();
 		
 		Set<String> keys = param.keySet();
-		
+	
 		for(String key : keys) {
 			System.out.println(key + " : " + param.get(key));
 			vo.setQuestionnum(key.substring(6));
@@ -33,10 +30,6 @@ public class PollServiceImpl implements PollService {
 			System.out.println(vo);
 			dao.insertPoll(vo);
 		}
-		
-		
-		
-		
 	}
 
 	@Override
@@ -47,6 +40,16 @@ public class PollServiceImpl implements PollService {
 	@Override
 	public PollVO getPoll(String pollid) {
 		return dao.getPoll(pollid);
+	}
+
+	@Override
+	public PollVO checkPoll(PollVO vo) {
+		return dao.checkPoll(vo);
+	}
+
+	@Override
+	public List<PollVO> countPoll(PollVO vo) {
+		return dao.countPoll(vo);
 	}
 	
 	

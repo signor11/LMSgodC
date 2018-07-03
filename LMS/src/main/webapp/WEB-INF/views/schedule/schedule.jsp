@@ -26,6 +26,7 @@
 </script>
 </head>
 <body>
+<br>
 <div align="center" id="printarea">
 <h3>학기 시간표</h3>
 <form name=scheduleFrm method="post" action="">

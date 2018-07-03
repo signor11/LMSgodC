@@ -52,6 +52,14 @@
 	
 	</select>
 	
+	<!-- 차트 건수 조회 -->
+	<select id="countPoll" resultType="com.yedam.lms.poll.PollVO">
+			SELECT ANSWER,COUNT(ANSWER) as answercnt FROM POLL
+			WHERE QUESTIONNUM= #{questionnum}
+			GROUP BY ANSWER
+	
+	</select>
+	
 	
 	
 
