@@ -113,6 +113,7 @@ public class StudentController {
 			studentService.deleteStudent(vo);
 			return "redirect:/getStudentList";
 		}
+
 		
 	
 }
