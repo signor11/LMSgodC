@@ -243,7 +243,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	<!-- banner -->
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
@@ -260,8 +260,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 
 		</div>
-		<!-- The Modal -->
-	</div>
+	</div> -->
 	<!--//banner -->
 	<!--//banner -->
 
