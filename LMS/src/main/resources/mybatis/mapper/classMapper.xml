@@ -17,11 +17,11 @@
 							PROFESSORNUM,
 							CLASSTIME)
 		VALUES(
-				#{classnum}
-				#{classname}
-				#{credit}
-				#{maxstudent}
-				#{professornum}
+				#{classnum},
+				#{classname},
+				#{credit},
+				#{maxstudent},
+				#{professornum},
 				#{classtime}
 					)
 	</insert>

@@ -10,7 +10,7 @@
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>교수등록</title>
+<title>과목등록</title>
 
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
@@ -18,9 +18,7 @@
 	src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <script type="text/javascript"></script>
 
-
              
-               
  <script>
 	$(document).ready(function() {
 
@@ -76,46 +74,52 @@
                 <form class="form-horizontal " method="post">
                
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">비밀번호</label>
+                    <label class="col-sm-2 control-label">과목번호</label>
                     <div class="col-sm-10">
-                      <input type="password" name="professorpw" id="pwd" size="18"
+                      <input type="text" name="classnum" id="classnum" size="18"
 						maxlength="12" class="form-control"/>
                      
                     </div>
                   </div>
                  
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">이 름</label>
-                    <div class="col-sm-10">
-                     <input type="text" name="professorname" id="name" size="18"
-						maxlength="12" class="form-control"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label">연락처</label>
-                    <div class="col-sm-10" >
-                      <input type="text" name="professorphone" id="tel1" size="18"
-						maxlength="11" />
-						 <span class="help-block">숫자만 11자리</span>
-                    </div>
-                  </div>
-                 
-                  <div class="form-group">
+                 <div class="form-group">
                     <label class="col-sm-2 control-label">과목명</label>
                     <div class="col-sm-10">
-                    		<select id="major" name="majornum" style="position:relative; top:8px;">
+                    		<select id="class" name="classnum" style="position:relative; top:8px;">
 								<option value="" selected hidden="">선택</option>
-									<c:forEach items="${major}" var="m">
-								<option value="${m.MAJORNUM}">${m.MAJORNAME}</option>				
+									<c:forEach items="${class}" var="m">
+								<option value="${c.CLASSNUM}">${c.CLASSNAME}</option>				
 									</c:forEach>
 							</select>
                     </div>
                   </div>
-                
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label">학점</label>
+                    <div class="col-sm-10" >
+                      <input type="text" name="score" id="score" size="18"
+						maxlength="11" />
+					
+                    </div>
+                  </div>
+                  
                  <div class="form-group" style="top:20px;right:298px;">
-                    <label class="col-sm-2 control-label">등록일</label>
-                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" />         
+                    <label class="col-sm-2 control-label">수강인원</label>
+                    <input type="text" name="maxstudent" id="maxstudent" size="18" maxlength="10" />         
                 </div>
+                 <div class="form-group" style="top:20px;right:298px;">
+                    <label class="col-sm-2 control-label">담당교수</label>
+                    <input type="text" name="professorname" id="professorname" size="18" maxlength="10" />         
+                </div>
+                 <div class="form-group" style="top:20px;right:298px;">
+                    <label class="col-sm-2 control-label">강의시간</label>
+                    <input type="text" name="classtime" id="classtime" size="18" maxlength="10" />         
+                </div>
+                
+                
+                
+                
+                
+                
       			<div align="center">
       			  <input type="submit" id="btn_insert"value="등록">
 					<input type="reset" id="btn_cancel" value="취소"> 

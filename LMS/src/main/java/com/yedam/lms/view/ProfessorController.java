@@ -12,12 +12,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.yedam.lms.hw.HWVO;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.yedam.admin.web.Paging;
+import com.yedam.lms.smp.MajorService;
+import com.yedam.lms.smp.MajorVO;
 import com.yedam.lms.smp.ProfessorService;
 import com.yedam.lms.smp.ProfessorVO;
+import com.yedam.lms.smp.ProfessorsearchVO;
+
+
 
 
 
@@ -27,9 +33,10 @@ public class ProfessorController {
 
 	@Autowired
 	ProfessorService professorService;
-	private ProfessorVO vo;	
+	@Autowired
+	MajorService majorService;
 	
-	@RequestMapping("/getProfessorList")
+	/*@RequestMapping("/getProfessorList")
 	public String getProfessorList(HttpServletRequest request, HttpSession session,ProfessorVO vo) {
 
 		request.setAttribute("professorList", professorService.getProfessorList(vo));
@@ -39,16 +46,23 @@ public class ProfessorController {
 	public String getProfessorList(HttpServletRequest request) {
 		request.setAttribute("professorList", professorService.getProfessorList(vo));
 		return "professor/getProfessorList";
-	}
+	}*/
 
-	// 등록폼
-	@RequestMapping(value = "/insertProfessor", method = RequestMethod.GET)
-	public String insertProfessorForm() {
+	@RequestMapping("/getProfessorList")
+	public ModelAndView getProfessorList(HttpServletRequest request, ProfessorVO vo, ProfessorsearchVO vo2, HttpSession session, Paging paging) {
 		
-		return "professor/insertProfessor";
+		ModelAndView mv = new ModelAndView();
+				mv.addObject("List",professorService.getProfessorList(vo));
+				mv.setViewName("admin/professor/getProfessorList");
+				return mv;}
 	
-	}
-
+	// 등록폼
+		@RequestMapping(value = "/insertProfessor", method = RequestMethod.GET)
+		String insertProfessorForm(HttpServletRequest request, MajorVO vo) {
+			request.setAttribute("major", majorService.getMajorList(vo));
+			return "admin/professor/insertProfessor";
+		
+		}
 	// 등록처리
 	// / localhost 밑 web 아래
 	@RequestMapping(value = "/insertProfessor", method = RequestMethod.POST)	
@@ -60,27 +74,32 @@ public class ProfessorController {
 		return "redirect:/getProfessorList";
 	}
 	
-	
+		//수정폼
 		@RequestMapping(value = "/updateProfessor", method = RequestMethod.GET)
-		public String updateProfessorForm() {
-			return "professor/updateProfessor";
+		String updateProfessorForm(HttpServletRequest request, ProfessorVO vo,MajorVO vo2) {
+			vo2.setMajornum(vo.getMajornum());
+			request.setAttribute("get_pro", professorService.getProfessor(vo.getProfessornum()));
+			request.setAttribute("m_list", majorService.getMajorList(vo2));
+			
+			return "admin/professor/updateProfessor";
 	
 		}
+		//수정 처리
 		@RequestMapping(value = "/updateProfessor", method = RequestMethod.POST)
-		public String updateProfessor(@ModelAttribute("vo") ProfessorVO vo) {
+		String updateProfessor(@ModelAttribute("vo") ProfessorVO vo) {
 			professorService.updateProfessor(vo);
 			return "redirect:/getProfessorList";
 		}
 		
 		@RequestMapping("/deleteProfessor")
-		@ResponseBody
-		public String deleteProfessor(ProfessorVO vo) {
-			professorService.deleteProfessor(vo.getProfessornum());
-			//ajax json구조로 리턴해줌
-			return "{\"result\":true}";
-		}
-		 
 		
+		//삭제
+		 String deleteProfessor(@ModelAttribute("vo") ProfessorVO vo) {
+			professorService.deleteProfessor(vo);
+			//ajax json구조로 리턴해줌
+			return "redirect:/getProfessorList";
+		}
+	
 	}
 	
 

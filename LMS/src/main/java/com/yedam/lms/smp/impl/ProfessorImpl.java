@@ -6,8 +6,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.yedam.lms.smp.ProfessorService;
 import com.yedam.lms.smp.ProfessorVO;
+import com.yedam.lms.smp.ProfessorsearchVO;
+
 
 
 @Service("professorService")
@@ -23,11 +26,6 @@ public class ProfessorImpl implements ProfessorService {
 		return dao.getProfessorList(vo);
 	}
 
-	@Override
-	public ProfessorVO getProfessor(ProfessorVO vo) {
-		
-		return dao.getProfessor(vo);
-	}
 
 	@Override
 	public void insertProfessor(ProfessorVO vo) {
@@ -42,10 +40,23 @@ public class ProfessorImpl implements ProfessorService {
 	}
 
 	@Override
-	public void deleteProfessor(String professornum) {
-		dao.deleteProfessor(professornum);
+	public int professorCount(ProfessorsearchVO vo) {
+		return dao.professorCount(vo);
+	
+	}
+
+	@Override
+	public void deleteProfessor(ProfessorVO vo) {
+		dao.deleteProfessor(vo);
 		
 	}
 
+	
+
+	@Override
+	public ProfessorVO getProfessor(String Professornum) {
+		// TODO Auto-generated method stub
+		return dao.getProfessor(Professornum);
+	}
 
 }
