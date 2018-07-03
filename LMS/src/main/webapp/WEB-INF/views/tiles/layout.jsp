@@ -67,7 +67,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="header_left">
 						<ul>
 
-							<c:if test="${!empty sessionScope.stdname}">
+				 			<c:if test="${!empty sessionScope.stdname}">
 								<span style="font-size: 13px">${sessionScope.stdname}님환영합니다.&emsp;&nbsp;</span>
 								<a class="shop" style="color: white; font-size: 13px"
 									href="logout.do">로그아웃</a>
