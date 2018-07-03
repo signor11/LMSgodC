@@ -8,6 +8,7 @@ public class ProfessorVO {
 	private String professorphone;
 	private String hiredate;
 	private String majornum;
+	private String cnt;
 	
 	
 	public String getProfessorpw() {
@@ -47,6 +48,12 @@ public class ProfessorVO {
 		this.majornum = majornum;
 	}
 	
+	public String getCnt() {
+		return cnt;
+	}
+	public void setCnt(String cnt) {
+		this.cnt = cnt;
+	}
 	@Override
 	public String toString() {
 		return "ProfessorVO [professornum=" + professornum + ", professorname=" + professorname + ", professorphone="

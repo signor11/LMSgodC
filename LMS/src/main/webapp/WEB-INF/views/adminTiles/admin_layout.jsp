@@ -68,25 +68,37 @@
           <li class="active">
             <a href="./getNoticeList">
                           <i class="icon_house_alt"></i>
-                          <span>Notice</span>
+                          <span>공 지 사 항</span>
                       </a>
           </li>
-          <li class="sub-menu">
-            <a href="" class="">
-                          <i class="icon_document_alt"></i>
-                          <span>Attendance</span>
-                          <span class="menu-arrow arrow_carrot-right"></span>
-                      </a>
-            
-          </li>
+         
           <li class="sub-menu">
             <a href="" class="">
                           <i class="icon_desktop"></i>
-                          <span>Survey</span>
+                          <span>설 문 조 사</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             
           </li>
+          <li class="active">
+            <a href="./getProfessorList">
+                          <i class="icon_house_alt"></i>
+                          <span>교 수</span>
+                      </a>
+          </li>
+          <li class="active">
+            <a href="./getStudentList">
+                          <i class="icon_house_alt"></i>
+                          <span>학 생</span>
+                      </a>
+          </li>
+           <li class="active">
+            <a href="./getClassList">
+                          <i class="icon_house_alt"></i>
+                          <span>과 목</span>
+                      </a>
+          </li>
+          
         </ul>
         <!-- sidebar menu end-->
       </div>

@@ -10,12 +10,18 @@ import java.util.Map;
 		//목록조회
 		public List<Map<String,Object>> getProfessorList(ProfessorVO vo);
 		
-		public ProfessorVO getProfessor(ProfessorVO vo);
+		public ProfessorVO getProfessor(String Professornum);
 		
 		public void insertProfessor(ProfessorVO vo);
 		
 		public void updateProfessor(ProfessorVO vo);
 		
-		public void deleteProfessor(String professornum);
+		public void deleteProfessor(ProfessorVO vo);
+		
+		public int professorCount(ProfessorsearchVO vo);
+
+		
+
+	
 }
 
