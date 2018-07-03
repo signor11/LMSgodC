@@ -1,8 +1,5 @@
 package com.yedam.lms.view;
 
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +18,12 @@ public class TestController {
 		model.addAttribute("list", testService.gettestListPro(classnum));
 		return "test/gettestListPro";
 	}
+	
+	@RequestMapping("/showTestListPro")
+	public String showTestListPro(){
+		return "test/showTestListPro";
+	}
+
 
 
 }

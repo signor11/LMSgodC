@@ -58,17 +58,22 @@
 				<select name="classnum" style="padding: 10px; text-align: center;">
 					<option value="DropDown" hidden="" selected="selected">선택</option>
 					<c:forEach items="${classname}" var="cl">
-						<option value="${cl.classnum}"
-							<c:if test="${cl.classnum==param.classnum}">selected</c:if>>
+						<option value="${cl.classnum}">
+							<c:if test="${cl.classnum==param.classnum}">>selected</c:if>
 							${cl.classname}</option>
-					</c:forEach>
+					</c:forEach>		
+			<!-- 봄바람 휘날리며~~ 흩 날리는 벗꽃잎이~~ 울려펴진 이 거리를  둘이 걸어요 -->
 				</select>
+				<!--  난 알아요 이 밤이 흐르고 흐르면 나를 떠나 버려야 한다는 그 사실을 ..  -->
 			</form>
+			<!-- 뽀얀 담배연기 화려한 조명 속에 거울로 비쳐주네~~~ 우~~~` -->
 			<br> <br>
+			<!-- 그대가 돌아서면 두 눈이 마주칠까 심장이 바운스바운스 두근 돼 -->
 			<table class="table table-hover"
 				style="border-top:; border-bottom:; border-color: black; text-align: center;">
-
+			<!-- in my haert heart brake up 내가 뭘 잘못햇는지?  -->
 				<tr>
+			<!-- 내가 살던 고향은 꽃 피는 산 골 복숭아꽃 살구꽃~~~ -->
 					<td class="danger" >번호</td>
 					<td class="danger" >학생번호</td>
 					<td class="danger" width="400">학생명</td>
@@ -76,6 +81,7 @@
 					<td class="danger">취득 점수</td>
 					<td class="danger">취득등급</td>
 				</tr>
+				<!--  까리끼께 붐붐붐  -->
 				<c:forEach items="${insList}" var="ins" varStatus="status">
 					<tr>
 						<td>${status.index+1}</td>
