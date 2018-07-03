@@ -14,9 +14,9 @@ public interface NoticeService {
 	//입력
 	public void insertNotice(NoticeVO vo);
 	
-	/*//수정
+	//수정
 	public void updateNotice(NoticeVO vo);
 	
 	//삭제 
-	public void deleteNotice(NoticeVO vo);	*/
+	public void deleteNotice(NoticeVO vo);	
 }

@@ -29,7 +29,7 @@ public class NoticeDAO {
 			mybatis.insert("noticeDAO.insertNotice",vo);
 		}
 		
-		/*//수정
+		//수정
 		public void updateNotice(NoticeVO vo) {
 			mybatis.update("noticeDAO.updateNotice",vo);
 		}
@@ -37,5 +37,5 @@ public class NoticeDAO {
 		//삭제 
 		public void deleteNotice(NoticeVO vo) {
 			mybatis.delete("noticeDAO.deleteNotice",vo);
-		}*/
+		}
 }

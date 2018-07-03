@@ -20,26 +20,33 @@
 	<!-- 입력 -->
 	<insert id="insertNotice">
 		<selectKey keyProperty="seq" resultType="String" order="BEFORE">
-			select max(seq)+1 from board
+			select max(seq)+1 from notice
 		</selectKey>
 		INSERT INTO NOTICE(SEQ,TITLE,CONTENT,WRITER,REGDATE,CNT
-		)VALUES(#{seq}, #{title}, #{content}, #{writer}, sysdate, 0)
+		<if test= "uploadfile !=  null and uploadfile !='' ">	
+			,UPLOADFILE
+		</if>
+		)VALUES(#{seq}, #{title}, #{content}, #{writer}, sysdate, 0
+		<if test="uploadfile != null and uploadfile !=''">
+			,#{uploadfile}
+		</if>
+		)
 	</insert>
 	
-
-	<!-- <update id="updateNotice" parameterType="noticeVO">
-	UPDATE NOTICE
-	SET TITLE=#{title},
-		CONTENT=#{content},
-		WRITER=#{writer}
-	WHERE SEQ=#{seq} 
+	<!-- 수정 -->
+	<update id="updateNotice" parameterType="noticeVO">
+		UPDATE NOTICE
+		SET TITLE=#{title},
+			CONTENT=#{content},
+			WRITER=#{writer}
+		WHERE SEQ=#{seq} 
 	</update>
 	
 	
 	<delete id="deleteNotice" parameterType="noticeVO">
 		delete from notice
 		where seq = #{seq}
-	</delete> -->
+	</delete>
 	<!-- 	<select id="getBoardList" resultType="map">
 		SELECT a.* FROM(SELECT ROWNUM rn,b.* FROM(
 		SELECT seq, title, writer, content, regdate, cnt 

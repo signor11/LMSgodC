@@ -2,6 +2,10 @@ package com.yedam.admin.web.view;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,44 +28,66 @@ public class NoticeController {
 	//목록조회
 	@RequestMapping("/getNoticeList")
 	public String getNoticeList(NoticeVO vo,Model model) {
+		System.out.println(vo);
 		model.addAttribute("noticeList",noticeService.getNoticeList(vo));
-		return "notice/getNoticeList";
+		return "admin/notice/getNoticeList";
 	}
 	
 	//단건조회
 	@RequestMapping("/getNotice/{seq}")
 	public String getNotice(@PathVariable String seq, Model model) {
+		System.out.println("seq:" + seq);
 		model.addAttribute("vo",noticeService.getNotice(seq));
-		return "notice/getNotice";
+		return "admin/notice/getNotice";
 	}
 	
 	// 입력폼
 	@RequestMapping(value = "/insertNotice", method = RequestMethod.GET)
 	public String insertNoticeForm() {
-		return "notice/insertNotice";
+		return "admin/notice/insertNotice";
 	}
 
 	// 입력처리
-	@RequestMapping(value = "/insertBoard", method = RequestMethod.POST)
+	@RequestMapping(value = "/insertNotice", method = RequestMethod.POST)
 	public String insertNotice(@ModelAttribute("vo") NoticeVO vo) throws IllegalStateException, IOException {// 속성명 바꾸기위해 ModelAttribute
 		
+		//파일 업로드 처리
+		MultipartFile uploadFile =vo.getTempuploadfile();
+		if(!uploadFile.isEmpty()) {
+			 String fileName = uploadFile.getOriginalFilename();
+			 uploadFile.transferTo(new File("D:/upload"+fileName));
+			 vo.setUploadfile(fileName);
+		}
 		// 서비스 이용하여 등록처리하고 목록페이지로 이동
 		noticeService.insertNotice(vo);
-		// return "redirect:/getBoardList";
-		return "board/getBoard";
+		System.out.println(vo);
+		return "admin/notice/insertNotice";
 	}
 
-	/*// 수정폼
+	// 수정폼
 	@RequestMapping(value = "/updateNotice", method = RequestMethod.GET)
-	public String updateNoticeForm() {
-		return "notice/updateNotice";
+	public String updateNoticeForm(Model model,NoticeVO vo) {
+		model.addAttribute("no",noticeService.getNotice(vo.getSeq()));
+		return "admin/notice/updateNotice";
 	}
 
 	// 수정처리
 	@RequestMapping(value = "/updateNotice", method = RequestMethod.POST)
-	public String updateNotice(@ModelAttribute("board") NoticeVO vo) {
+	public String updateNotice(@ModelAttribute("vo") NoticeVO vo, HttpSession session, HttpServletResponse response) throws IOException {
+		PrintWriter out = response.getWriter();
 		// 서비스 수정처리
 		noticeService.updateNotice(vo);
-		return "notice/updateNotice";
-	}*/
+		if(vo.getContent() != null) {
+			out.print("<script>alert('update sucess'); location.assign('getNoticeList');</script>");
+		}else {
+			out.print("<script>alert('update fail'); history.go(-1);</script>");
+		}
+		return null;
+	}
+	//삭제 처리
+	@RequestMapping("/deleteNotice")
+	public String deleteNotice(@ModelAttribute("vo") NoticeVO vo) {
+		noticeService.deleteNotice(vo);
+		return "redirect:/updateNotice";
+	}
 }
