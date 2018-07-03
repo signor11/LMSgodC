@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yedam.lms.smp.ProfessorVO;
+import com.yedam.lms.smp.ProfessorsearchVO;
 
 @Repository
 public class ProfessorDAO {
@@ -14,24 +15,29 @@ public class ProfessorDAO {
 	@Autowired
 	SqlSessionTemplate mybatis; // 쓰레드 처리,커넥션관리 기능 추가
 
-	public List<Map<String, Object>> getProfessorList(ProfessorVO professorVO) {
-		return mybatis.selectList("com.yedam.lms.impl.ProfessorDAO.getProfessorList", professorVO);
+	public List<Map<String, Object>> getProfessorList(ProfessorVO vo) {
+		return mybatis.selectList("com.yedam.lms.impl.ProfessorDAO.getProfessorList", vo);
 	}
 
-	public ProfessorVO getProfessor(ProfessorVO professorVO) {
-		return (ProfessorVO) mybatis.selectOne("com.yedam.lms.impl.ProfessorDAO.getProfessor", professorVO);
+	public ProfessorVO getProfessor(String professornum) {
+		return (ProfessorVO) mybatis.selectOne("com.yedam.lms.impl.ProfessorDAO.getProfessor", professornum);
 	}
 
-	public void insertProfessor(ProfessorVO professorVO) {
-		mybatis.insert("com.yedam.lms.impl.ProfessorDAO.insertProfessor", professorVO);
+	public void insertProfessor(ProfessorVO vo) {
+		mybatis.insert("com.yedam.lms.impl.ProfessorDAO.insertProfessor", vo);
 	}
 
-	public void updateProfessor(ProfessorVO professorVO) {
-		mybatis.update("com.yedam.lms.impl.ProfessorDAO.updateProfessor", professorVO);
+	public void updateProfessor(ProfessorVO vo) {
+		mybatis.update("com.yedam.lms.impl.ProfessorDAO.updateProfessor", vo);
 	}
 
-	public void deleteProfessor(String professornum) {
-		mybatis.delete("com.yedam.lms.impl.ProfessorDAO.deleteProfessor", professornum);
+	public void deleteProfessor(ProfessorVO vo) {
+		mybatis.delete("com.yedam.lms.impl.ProfessorDAO.deleteProfessor", vo);
+	}
+
+	public int professorCount(ProfessorsearchVO vo) {
+		// TODO Auto-generated method stub
+		return mybatis.selectOne("com.yedam.lms.smp.impl.ProfessorDAO.professorCount", vo);
 	}
 
 }

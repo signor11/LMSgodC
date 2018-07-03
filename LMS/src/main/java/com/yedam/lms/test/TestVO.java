@@ -7,6 +7,8 @@ public class TestVO {
 	private String testdate;
 	private String testinfo;
 	private String classnum;
+	private String studentnum;
+	private String studentname; 
 	private boolean check;
 	private String testsum;
 	private String testtime;
@@ -14,6 +16,59 @@ public class TestVO {
 
 	
 	
+
+
+	@Override
+	public String toString() {
+		return "TestVO [testnum=" + testnum + ", testname=" + testname + ", studentnum=" + studentnum + ", studentname="
+				+ studentname + "]";
+	}
+
+
+	public TestVO(String testnum, String testname, String studentnum, String studentname) {
+		super();
+		this.testnum = testnum;
+		this.testname = testname;
+		this.studentnum = studentnum;
+		this.studentname = studentname;
+	}
+
+
+	public TestVO(String testnum, String testname, String testdate, String testinfo, String classnum, String studentnum,
+			String studentname, boolean check, String testsum, String testtime, String testing) {
+		super();
+		this.testnum = testnum;
+		this.testname = testname;
+		this.testdate = testdate;
+		this.testinfo = testinfo;
+		this.classnum = classnum;
+		this.studentnum = studentnum;
+		this.studentname = studentname;
+		this.check = check;
+		this.testsum = testsum;
+		this.testtime = testtime;
+		this.testing = testing;
+	}
+
+
+	public String getStudentnum() {
+		return studentnum;
+	}
+
+
+	public void setStudentnum(String studentnum) {
+		this.studentnum = studentnum;
+	}
+
+
+	public String getStudentname() {
+		return studentname;
+	}
+
+
+	public void setStudentname(String studentname) {
+		this.studentname = studentname;
+	}
 
 
 	public TestVO(String testname, String testdate, String classnum, String testtime,

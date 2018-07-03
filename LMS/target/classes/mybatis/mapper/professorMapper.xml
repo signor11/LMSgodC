@@ -4,57 +4,62 @@
 
 <mapper namespace="com.yedam.lms.impl.ProfessorDAO">
 
-	<select id="getProfessor" parameterType="string"
-		resultType="com.yedam.lms.smp.ProfessorVO">
-		SELECT
-		PROFESSORNUM,
-		PROFESSORNAME,
-		PROFESSORPHONE,
-		HIREDATE,
-		MAJORNUM
-		FROM professor
-		WHERE PROFESSORNUM =
-		#{professornum}
+	<select id="getProfessor" parameterType="string" resultType="com.yedam.lms.smp.ProfessorVO">
+		
+		SELECT p.PROFESSORNUM,
+			   p.MAJORNUM,
+			   m.MAJORNAME,
+			   p.PROFESSORPW,
+			   p.PROFESSORNAME,
+			   p.PROFESSORPHONE,
+			  TO_CHAR(p.hiredate, 'YYYY-MM-DD') HIREDATE
+			   
+		FROM PROFESSOR p JOIN MAJOR m
+    	ON p.MAJORNUM = m.MAJORNUM
+		WHERE PROFESSORNUM = #{professornum}
 	</select>
 
-	<!-- <resultMap type="#modelname" id="YourResultSet">
-		<id property="param1" column="columnname1" />
-		<result property="param2" column="columnname2" />
-		<result property="param3" column="columnname3" />
-	</resultMap> -->
+	<!-- <resultMap type="#modelname" id="YourResultSet"> <id property="param1" 
+		column="columnname1" /> <result property="param2" column="columnname2" /> 
+		<result property="param3" column="columnname3" /> </resultMap> -->
 
 	<select id="getProfessorList" resultType="map">
 		SELECT * FROM professor
 	</select>
-	<insert id="insertProfessor" parameterType="com.yedam.lms.smp.ProfessorVO">
-	<selectKey keyProperty="professornum" resultType="string"
-		order="BEFORE">
-		select max(PROFESSORNUM)+1 from professor
-	</selectKey>
+	<insert id="insertProfessor"
+		parameterType="com.yedam.lms.smp.ProfessorVO">
+		<selectKey keyProperty="professornum" resultType="string"
+			order="BEFORE">
+			select max(PROFESSORNUM)+1 from professor
+		</selectKey>
 		insert into
-		professor(PROFESSORNUM,MAJORNUM, PROFESSORPW, PROFESSORNAME,
-		PROFESSORPHONE,
-		HIREDATE)
+		professor(PROFESSORNUM, MAJORNUM, PROFESSORPW,PROFESSORNAME,PROFESSORPHONE,HIREDATE)
 		values
 		(#{professornum},
-		 #{majornum},
-		 #{professorpw},
-		 #{professorname}, 
-		 #{professorphone},
-	 	#{hiredate})
+		#{majornum},
+		#{professorpw},
+		#{professorname},
+		#{professorphone},
+		#{hiredate})
 	</insert>
 
-	  <update id="updateProfessor" parameterType="com.yedam.lms.smp.ProfessorVO">
-      UPDATE COMMENTS SET PROFESSORNUM = #{professornum},
-                     PROFESSORNAME = #{professorname},
-                     PROFESSORPHONE = #{professorphone},
-                     HIREDATE = #{hiredate},
-                     MAJORNUM = #{majornum} 
-             	     WHERE PROFESSORNUM = #{professornum}
-   </update>
-   
-   <delete id="deleteComments" parameterType="com.yedam.lms.smp.ProfessorVO">
-      DELETE PROFESSOR WHERE PROFESSORNUM = #{professornum}
-   </delete>
+	<update id="updateProfessor"
+		parameterType="com.yedam.lms.smp.ProfessorVO">
+		UPDATE PROFESSOR
+		SET MAJORNUM=#{majornum},
+			PROFESSORNAME=#{professorname},
+			PROFESSORPHONE=#{professorphone},
+			HIREDATE=#{hiredate},
+			PROFESSORPW=#{professorpw}
+		WHERE PROFESSORNUM=#{professornum}
+	</update>
+
+	<delete id="deleteProfessor"
+		parameterType="com.yedam.lms.smp.ProfessorVO">
+		DELETE FROM PROFESSOR
+		WHERE PROFESSORNUM=#{professornum}
+	</delete>
+
+
 
 </mapper>
