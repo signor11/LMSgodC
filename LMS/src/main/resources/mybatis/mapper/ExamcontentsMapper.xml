@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.yedam.lms.test.impl.ExamContentsDAO">
+
+	<insert id="examContentsInsert" parameterType="examVO">
+		<selectKey keyProperty="examcon" resultType="string" order="BEFORE">
+			SELECT MAX(EXAMCON)+1 FROM EXAMCONTENTS
+		</selectKey>
+		INSERT INTO EXAMCONTENTS(
+		EXAMCON,
+		SHOW1,
+		SHOW2,
+		SHOW3,
+		SHOW4,
+		ANSWER,
+		TESTNUM,
+		ADDFILEID,
+		TESTPOINT,
+		EXAMCONNUM
+		)
+		VALUES(
+		#{examcon},
+		#{show1},
+		#{show2},
+		#{show3},
+		#{show4},
+		#{answer},
+		#{testnum},
+		#{addfileid},
+		#{testpoint},
+		#{examconnum}
+		)
+						
+	</insert>
+	
+	<!-- 단건조회 -->
+	<select id="getExamSub" resultType="examVO" parameterType="string">
+		SELECT SUM(TESTPOINT) PSUM , 
+		COUNT(*) CNT 
+		FROM EXAMCONTENTS 
+		WHERE TESTNUM = #{testnum} 
+		GROUP BY TESTNUM
+	</select>
+	
+	<!-- 단건조회 -->
+	<select id="getexamContents" resultType="examVO" parameterType="string">
+		SELECT EXAMCON, 
+		SHOW1,
+		SHOW2,
+		SHOW3,
+		SHOW4,
+		ANSWER,
+		TESTNUM,
+		ADDFILEID,
+		TESTPOINT,
+		EXAMCONNUM 
+		FROM EXAMCONTENTS 
+		WHERE EXAMCONNUM=#{examconnum} 
+		ORDER BY EXAMCONNUM
+	</select>
+	
+	<update id="examContentsUpdate" parameterType="examVO">
+			UPDATE EXAMCONTENTS 
+			SET EXAMCON=#{examcon},
+			SHOW1=#{show1},
+			SHOW2=#{show2},
+			SHOW3=#{show3},
+			SHOW4=#{show4},
+			ANSWER=#{answer},
+			ADDFILEID=#{addfiledid},
+			TESTPOINT=#{testpoint}
+			WHERE EXAMCONNUM=#{examconnum}
+	</update>
+	
+	<select id="getExamList" resultType="examVO" parameterType="string">
+		SELECT EXAMCON,
+		SHOW1,
+		SHOW2,
+		SHOW3,
+		SHOW4,
+		ANSWER,
+		TESTNUM,
+		ADDFILEID,
+		TESTPOINT,
+		EXAMCONNUM 
+		FROM EXAMCONTENTS
+		WHERE TESTNUM=#{testnum}
+		ORDER BY EXAMCONNUM
+	</select>
+</mapper>
