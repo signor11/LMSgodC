@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -17,6 +19,7 @@ import com.yedam.lms.classs.ClassSearchVO;
 import com.yedam.lms.classs.ClassService;
 import com.yedam.lms.classs.ClassVO;
 import com.yedam.lms.classs.ClassapplyVO;
+import com.yedam.lms.smp.ProfessorVO;
 import com.yedam.lms.web.Paging;
 
 @Controller
@@ -25,20 +28,25 @@ public class ClassController {
 	@Autowired
 	ClassService classService;
 	
-	
-	@RequestMapping("/insertClass")
-	public String insertClass(ClassVO vo, HttpSession session, HttpServletResponse response)
-			throws IOException {
-		//한글 인코딩
-		response.setContentType("text/html; charset=UTF-8");
-		String stid =(String)session.getAttribute("loginvo");
-		PrintWriter out = response.getWriter();
-		vo.setStudentnum(stid);
-		classService.insertClass(vo);
+	//등록폼
+	@RequestMapping(value="/insertClass", method = RequestMethod.GET)
+	String insertClassForm(HttpServletRequest request, ClassVO vo)
+	{
+		request.setAttribute("class", ClassService.getClassList(vo));
 		
-		return "admin/";
+		return "admin/adminclass/getClassList";
 		
 	}
+	// 등록처리
+		// / localhost 밑 web 아래
+		@RequestMapping(value = "/insertClass", method = RequestMethod.POST)	
+		public String insertClass(@ModelAttribute("vo") ClassVO vo, HttpServletRequest request)
+
+				throws IllegalStateException, IOException {
+			System.out.println(vo);		
+			ClassService.insertClass(vo);
+			return "redirect:/getClassList";
+		}
 	@RequestMapping("/updateClass")
 	public String updateClass(ClassVO vo, HttpSession session, HttpServletResponse response)
 			throws IOException {

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.yedam.lms.poll.impl.PollDAO">
+
+	<!-- 설문 결과 등록 -->
+	<insert id="insertPoll" parameterType="com.yedam.lms.poll.PollVO">
+		<selectKey keyProperty="pollid" resultType="string" order="BEFORE">
+		SELECT max(POLLID)+1 FROM POLL
+		</selectKey>
+		INSERT INTO POLL( 		POLLID,
+								QUESTIONNUM,
+								ANSWER,
+								STUDENTNUM
+							)
+					VALUES(
+								#{pollid},
+								#{questionnum},
+								#{answer},
+								#{studentnum}
+							)
+	</insert>
+
+	<!-- 단건 조회 -->
+	<select id="getPoll" resultType="com.yedam.lms.poll.PollVO">
+
+		SELECT POLLID, QUESTIONNUM, ANSWER, STUDENTNUM FROM POLL
+		WHERE POLLID = #{pollid}
+		
+	</select>
+	
+	<!-- 설문 결과 수정 -->
+	<update id="updatePoll" parameterType="com.yedam.lms.poll.PollVO">
+		UPDATE POLL
+		SET ANSWER = #{answer}
+		WHERE POLLID = #{pollid} AND 
+		
+	
+	</update>
+	
+	<!-- 설문 중복 확인 -->
+	<select id="checkPoll" resultType="com.yedam.lms.poll.PollVO">
+		SELECT		POLLID,
+					QUESTIONNUM,
+					ANSWER,
+					STUDENTNUM
+		FROM		POLL
+		WHERE		STUDENTNUM = #{studentnum}		
+	
+	
+	</select>
+	
+	<!-- 차트 건수 조회 -->
+	<select id="countPoll" resultType="com.yedam.lms.poll.PollVO">
+			SELECT ANSWER,COUNT(ANSWER) as answercnt FROM POLL
+			WHERE QUESTIONNUM= #{questionnum}
+			GROUP BY ANSWER
+	
+	</select>
+	
+	
+	
+
+</mapper>
