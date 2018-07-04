@@ -59,8 +59,8 @@
 <%-- </c:forEach> --%>
 </table>
 <br>
-<button id="printbtn" type="button" class="btn btn-danger" onclick="javascript:openprint();">시간표 출력</button>
-<button id="openbtn" type="button" class="btn btn-danger" onclick="javascript:content_print();">출력하기</button>
+<button id="printbtn" type="button" class="form bst" onclick="javascript:openprint();">시간표 출력</button>
+<button id="openbtn" type="button" class="form bst" onclick="javascript:content_print();">출력하기</button>
 
 
 <script>

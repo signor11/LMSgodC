@@ -10,14 +10,15 @@
 <body>
 <div align="center" >
 		<p style="font-size: 34px">강의 조회</p>
+		<br>
 		<div style="display: inline-block;">
 			<form name="searchFrm">
 				
-					<input type="text" value="교수명" disabled="disabled" size="5" style="text-align: center;" class="btn btn-danger"> 
+					<input type="text" value="교수명" disabled="disabled" size="5" style="text-align: center;" class="form bst"> 
 					<input type="text" name="professorname" placeholder="내용을 입력해주세요" size="40">
-				 	<input type="text" value="강의명" disabled="disabled" size="5" 	style="text-align: center;" class="btn btn-danger"> 
+				 	<input type="text" value="강의명" disabled="disabled" size="5" 	style="text-align: center;" class="form bst"> 
 				 	<input type="text" name="classname" placeholder="내용을 입력해주세요" size="40">
-					<input type="submit" value="조회" size="3" style="text-align: center;"class="btn btn-danger">
+					<input type="submit" value="조회" size="3" style="text-align: center;"class="form bst">
 
 				<p>* 개설강좌 강의시간 목록</p>
 				<table class="table table-hover">

@@ -43,7 +43,7 @@
 		<span> 과목번호 </span> <span> 
 		<input type="text" name="classnum" size="40" placeholder="과목번호를 입력해주세요.">
 		</span> 
-			<input type="submit" value="조회" class="btn btn-danger"
+			<input type="submit" value="조회" class="form bst"
 				/>
 
 		 <br> <br>
@@ -72,7 +72,7 @@
 				<td>${vo.APPLYCNT}/${vo.MAXSTUDENT}</td>
 				<td style="text-align: center;">
 					<button type="button" onclick ="location.href='${pageContext.request.contextPath}/insertClassapply?classnum=${vo.CLASSNUM}';"
-						class="btn btn-danger">신청</button>
+						class="form bst">신청</button>
 				</td>
 
 			</tr>
@@ -123,7 +123,7 @@
 				<td>${classapply.credit}</td>
 				<td style="text-align: center;">
 					<button type="button" onclick="delcheck(${classapply.classapplynum});"
-						class="btn btn-danger">삭제</button>
+						class="form bst">삭제</button>
 				</td>
 
 			</tr>

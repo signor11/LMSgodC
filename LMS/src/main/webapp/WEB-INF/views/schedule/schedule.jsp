@@ -55,18 +55,21 @@
 </c:forEach>
 </table>
 <br>
-<button id="printbtn" type="button" class="btn btn-danger" onclick="javascript:openprint();">시간표 출력</button>
-<button id="openbtn" type="button" class="btn btn-danger" onclick="javascript:content_print();">출력하기</button>
 
-
+<button id="printbtn" type="button" class="form bst" onclick="javascript:openprint();">시간표 출력</button>
+<button id="openbtn" type="button" class="form bst" onclick="javascript:content_print();">출력하기</button>
 <script>
-	if (document.location.pathname == '${pageContext.request.contextPath}/getSchedule') {
-		 $("#openbtn").hide()
+var where = window.location.pathname;
+	if (where == '/LMS/getSchedule') {
+		 $("#openbtn").hide();
 		
 	}else {
-		$("#printbtn").hide()
+		$("#printbtn").hide();
 	}
+
 </script>
+
+
 
 <br><br>
 </form>
