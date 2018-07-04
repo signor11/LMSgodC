@@ -42,7 +42,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
 
 	}
+	
 </script>
+<style>
+		#bst { 
+    			color: #fff;
+    			background-color: #d2322d;
+   				border-color: #ac2925;
+   				display: inline-block;
+			    padding: 6px 12px;
+			    margin-bottom: 0;
+			    font-size: 14px;
+			    font-weight: normal;
+			    line-height: 1.42857143;
+			    text-align: center;
+			    white-space: nowrap;
+			    vertical-align: middle;
+			    -webkit-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			    background-image: none;
+			    border: 1px solid transparent;
+			    border-radius: 4px;
+    			}
+</style>
 
 </head>
 
@@ -202,8 +226,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="과제" class="dropdown-toggle"
 											data-toggle="dropdown"> 과제<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getHWList">과제조회</a></li>
-												<li><a href="getHWListPro">과제조회(교수)</a></li>
+												<li><a href="adminHW">과제조회(교수)</a></li>
 
 											</ul></li>
 
