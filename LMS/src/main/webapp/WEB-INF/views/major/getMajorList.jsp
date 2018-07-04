@@ -11,7 +11,7 @@
 	function update_major(a) {
 		var check = confirm('학과 정보를 수정하시겠습니까?');
 		if (check == true) {
-			window.location.href = "./updateStudent?studentnum="+a+"&majornum="+b
+			window.location.href = "./insertMajor?&majornum="+a
 		}
 	} 
 
@@ -19,14 +19,14 @@
 	function delete_major(a) {
 		var check = confirm('학과 정보를 삭제하시겠습니까?');
 		if (check == true) {
-			window.location.href = "./deleteStudent?studentnum="+a
+			window.location.href = "./deleteMajor?majornum="+a
 	}
 	
 	}
 		
-	/* function excel(){
-		window.location.href = "./stuExcelView?majornum="+document.majorform.majornum.value
-	} */
+	function excel(){
+		window.location.href = "./majExcelView"
+	}
 	
 	
 </script>
@@ -39,7 +39,7 @@
 	<br>
 	<br>
 	<p align=right>
-		<a href="./insertStudent"><button type="button" class="btn btn-danger" >등록</button></a>&emsp;&emsp;
+		<a href="./insertMajor"><button type="button" class="btn btn-danger" >등록</button></a>&emsp;&emsp;
 		<a href="#" onclick="excel()"><button type="button" class="btn btn-danger" >엑셀</button></a>
 	</p>
 	
