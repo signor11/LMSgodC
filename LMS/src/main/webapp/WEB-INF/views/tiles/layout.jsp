@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 </script>
 <style>
-		#bst {
+		#bst { 
     			color: #fff;
     			background-color: #d2322d;
    				border-color: #ac2925;
