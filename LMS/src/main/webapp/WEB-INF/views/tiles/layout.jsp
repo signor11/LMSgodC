@@ -42,11 +42,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						"width=2000, height=2000, resizable=yes, toolbar=yes, menubar=yes, scrollbars=yes");
 
 	}
+
 	function openpoll(){
 		window.open("insertPollForm","설문 조사","width=800, height = 800")
 	}
 
+
+	
 </script>
+<style>
+		.bst { 
+    			color: #fff;
+    			background-color: #d2322d;
+   				border-color: #ac2925;
+   				display: inline-block;
+			    padding: 6px 12px;
+			    margin-bottom: 0;
+			    font-size: 14px;
+			    font-weight: normal;
+			    line-height: 1.42857143;
+			    text-align: center;
+			    white-space: nowrap;
+			    vertical-align: middle;
+			    -webkit-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			    background-image: none;
+			    border: 1px solid transparent;
+			    border-radius: 4px;
+    			}
+    			
+    	.form{
+			
+		    height: 34px;
+		    padding: 6px 12px;
+		    font-size: 14px;
+		    line-height: 1.428571429;
+		    color: #555;
+		    vertical-align: middle;
+		    background-color: #fff;
+		    background-image: none;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+		    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+		    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	
+	}		
+</style>
 
 </head>
 
@@ -206,8 +251,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="과제" class="dropdown-toggle"
 											data-toggle="dropdown"> 과제<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getHWList">과제조회</a></li>
-												<li><a href="getHWListPro">과제조회(교수)</a></li>
+												<li><a href="adminHW">과제조회(교수)</a></li>
 
 											</ul></li>
 

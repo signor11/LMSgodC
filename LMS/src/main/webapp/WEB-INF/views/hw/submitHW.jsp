@@ -12,6 +12,9 @@
 	window.onload = function() {
 		CKEDITOR.replace("submitinfo");
 			}
+	window.onload = function() {
+		CKEDITOR.replace("hwinfo");
+			}
 	
 	function submitCheck(){
 		var editor_data = CKEDITOR.instances.hwinfo.getData();
@@ -24,16 +27,15 @@
 		}
 </script>
 
-
 </head>
 <body>
 <div class="w3-container w3-padding-30 w3-row-padding "style = " padding : 100px; max-width: 1500px">
-<h3 class="w3-wide">과제설명</h3>
+<h3 class="w3-wide">과제설명</h3><br>
 
 		<div>
-			<h6>과제명</h6>
+			<p class="bst">과제명</p>
 			<input name="hwname" type="text"
-				readonly="readonly" value="${sb.hwname}" class="w3-input w3-border"><br> <br>
+				readonly="readonly" value="${sb.hwname}" class="form"><br> <br>
 			<textarea name="hwinfo" cols="85" rows="13"
 				style="width: 100%;" readonly="readonly" class="scroll_form">${sb.hwinfo}</textarea>
 		</div>
@@ -48,7 +50,7 @@
 	<!--과제등록-->
 	<div class="w3-container w3-padding-30 w3-row-padding "style = "padding : 50px">
 	<div style="padding: 50px">
-		<h2>과제 제출</h2>
+		<h3 class="w3-wide">과제제출</h3><br>
 		<c:set value="./submitHW" var="u" />
 		<c:if test="${not empty up_hw}">
 			<c:set value="./submitHWUpdate&submithwnum=${up_hw.submithwnum}" var="u" />
@@ -64,10 +66,10 @@
 			<input type="text" name="hwnum" hidden="" value="${sb.hwnum}" /> 
 			<input type="text" name="classnum" hidden="" value="${sb.classnum}" />
 
-			<h6>제목</h6>
+			<p class="bst">제목</p>
 			<input name="submitname" type="text"
-				value="${up_hw.submitname}" required="required" class="w3-input w3-border"><br>
-			<h6>첨부파일</h6>
+				value="${up_hw.submitname}" required="required" class="form"><br><br>
+			<p class="bst">첨부파일
 			<c:if test="${not empty up_hw}">
 				&nbsp;&nbsp;&nbsp;
 				<i><a href="./getAddFile?addfileid=${up_hw.addfileid}">
@@ -75,9 +77,10 @@
 				</a></i>
 				<br><br>
 			</c:if>
-			<input type="file" name="tempuploadfile" class="w3-button w3-dark-grey"/>
-			<br>
-			<h6>내용</h6>
+		</p>
+			<input type="file" name="tempuploadfile" class="form"/>
+			<br><br>
+			<p class="bst">내용</p><br><br>
 			<textarea name="submitinfo" cols="85" rows="13" id="hwinfo"
 				style="width: 100%;" class="scroll_form" >${up_hw.submitinfo}</textarea><br>
 			<div>

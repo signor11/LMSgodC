@@ -13,6 +13,8 @@ public class HWVO {
 	private String submit;
 	private String studentnum;
 	private String professornum;
+	private String professorname;
+	
 	
 	
 	
@@ -64,14 +66,21 @@ public class HWVO {
 	public void setProfessornum(String professornum) {
 		this.professornum = professornum;
 	}
+	
+	
+	public String getProfessorname() {
+		return professorname;
+	}
+	public void setProfessorname(String professorname) {
+		this.professorname = professorname;
+	}
 	@Override
 	public String toString() {
 		return "HWVO [hwnum=" + hwnum + ", applydate=" + applydate + ", hwname=" + hwname + ", hwinfo=" + hwinfo
 				+ ", classnum=" + classnum + ", submit=" + submit + ", studentnum=" + studentnum + ", professornum="
-				+ professornum + "]";
+				+ professornum + ", professorname=" + professorname + "]";
 	}
-
-
+	
 
 }
 

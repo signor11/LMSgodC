@@ -25,14 +25,18 @@ public class MajorDAO {
 		}
 		//학과 수정
 		public void updateMajor(MajorVO vo) {
-			mybatis.update("com.yedam.lms.smp.impl.MajorDAO.getMajorList", vo);
+			mybatis.update("com.yedam.lms.smp.impl.MajorDAO.updateMajor", vo);
 		}
 		//학과 삭제
 		public void deleteMajor(MajorVO vo) {
-			mybatis.delete("com.yedam.lms.smp.impl.MajorDAO.getMajorList", vo);
+			mybatis.delete("com.yedam.lms.smp.impl.MajorDAO.deleteMajor", vo);
 		}
 		//학과 등록
 		public void insertMajor(MajorVO vo) {
 			mybatis.insert("com.yedam.lms.smp.impl.MajorDAO.insertMajor", vo);
+		}
+		//학과 건수
+		public int majorCount(MajorVO vo) {
+			return mybatis.selectOne("com.yedam.lms.smp.impl.MajorDAO.majorCount", vo);
 		}
 }

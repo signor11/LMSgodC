@@ -14,10 +14,8 @@
 
 	<div style="display: inline-block;">
 		<form action="./getHWList" name="hwform">
-		<input type="text" value="과목명" readonly="readonly"
-			style="padding: 10px; display: inline-block; text-align: center;"
-			size="5" class="btn btn-danger">
-			<select name="classnum" style="padding: 10px; text-align: center;" onchange="document.hwform.submit()">
+		<p class="bst">과목명</p>
+			<select name="classnum" class="form" onchange="document.hwform.submit()">
 			<option value="" selected hidden="">선택</option>
 			<c:forEach items="${classname}" var="n">
 				<option value="${n.CLASSNUM}"
@@ -29,9 +27,10 @@
 		</form>
 		</div>
 		
-
+		
 		<div align=center>
 			<table class="table table-hover">
+			<br><br>
 				<tr>
 					<td width="100">과제번호</td>
 					<td width="500">과제제목</td>

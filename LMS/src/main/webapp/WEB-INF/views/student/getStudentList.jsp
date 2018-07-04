@@ -21,7 +21,13 @@
 		if (check == true) {
 			window.location.href = "./deleteStudent?studentnum="+a
 	}
+	
 	}
+		
+	function excel(){
+		window.location.href = "./stuExcelView?majornum="+document.majorform.majornum.value
+	}
+	
 	
 </script>
 </head>
@@ -33,7 +39,8 @@
 	<br>
 	<br>
 	<p align=right>
-		<a href="./insertStudent"><button type="button" class="btn btn-danger" >등록</button></a>
+		<a href="./insertStudent"><button type="button" class="btn btn-danger" >등록</button></a>&emsp;&emsp;
+		<a href="#" onclick="excel()"><button type="button" class="btn btn-danger" >엑셀</button></a>
 	</p>
 	<br>
 	<br>
