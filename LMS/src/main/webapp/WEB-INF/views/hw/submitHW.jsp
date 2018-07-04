@@ -11,10 +11,9 @@
 
 	window.onload = function() {
 		CKEDITOR.replace("submitinfo");
-			}
-	window.onload = function() {
 		CKEDITOR.replace("hwinfo");
 			}
+
 	
 	function submitCheck(){
 		var editor_data = CKEDITOR.instances.hwinfo.getData();
@@ -36,7 +35,7 @@
 			<p class="bst">과제명</p>
 			<input name="hwname" type="text"
 				readonly="readonly" value="${sb.hwname}" class="form"><br> <br>
-			<textarea name="hwinfo" cols="85" rows="13"
+			<textarea name="hwinfo" id="hwinfo" cols="85" rows="13"
 				style="width: 100%;" readonly="readonly" class="scroll_form">${sb.hwinfo}</textarea>
 		</div>
 		<hr />
@@ -81,7 +80,7 @@
 			<input type="file" name="tempuploadfile" class="form"/>
 			<br><br>
 			<p class="bst">내용</p><br><br>
-			<textarea name="submitinfo" cols="85" rows="13" id="hwinfo"
+			<textarea name="submitinfo" cols="85" rows="13" id="submitinfo"
 				style="width: 100%;" class="scroll_form" >${up_hw.submitinfo}</textarea><br>
 			<div>
 				<input type="submit" value="등록" class="btn btn-danger"/><br>
