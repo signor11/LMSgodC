@@ -51,10 +51,12 @@ public class ClassDAO {
 		 mybatis.insert("com.yedam.lms.classs.impl.classDAO.insertClass",vo);
 	}
 	public void updateClass(ClassVO vo) {
-		mybatis.update("com.yedam.lms.classs.impl.classDAO.insertClass",vo);
+		mybatis.update("com.yedam.lms.classs.impl.classDAO.updateClass",vo);
 	}
 	public void deleteClass(ClassVO vo) {
-		mybatis.delete("com.yedam.lms.classs.impl.classDAO.insertClass",vo);
+		mybatis.delete("com.yedam.lms.classs.impl.classDAO.deleteClass",vo);
 	}
-	
+	public List<Map<String, Object>> getClassList2(String classnum) {
+		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.getClassList2", classnum);
+	}
 }

@@ -52,17 +52,13 @@ public class ClassServiceImpl implements ClassService{
 		dao.deleteClass(classVO);
 	}
 
-	@Override
-	public Object getClassList2() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
-	public List<Map<String, Object>> getClassList2(ClassVO classVO) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Map<String, Object>> getClassList2(String classnum) {
+		
+		return dao.getClassList2(classnum);
 	}
+
 
 	
 }
