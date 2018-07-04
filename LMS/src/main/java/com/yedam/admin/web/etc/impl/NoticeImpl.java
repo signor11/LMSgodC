@@ -30,7 +30,7 @@ public class NoticeImpl implements NoticeService{
 		return dao.getNoticeList(vo);
 	}
 
-	/*@Override
+	@Override
 	public void updateNotice(NoticeVO vo) {
 		dao.updateNotice(vo);
 	}
@@ -39,5 +39,5 @@ public class NoticeImpl implements NoticeService{
 	public void deleteNotice(NoticeVO vo) {
 		dao.deleteNotice(vo);
 	}
-*/
+
 }
