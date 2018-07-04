@@ -99,6 +99,13 @@
                       </a>
           </li>
           
+         <li class="active">
+            <a href="./getMajorList">
+                          <i class="icon_house_alt"></i>
+                          <span>학 과</span>
+                      </a>
+          </li>
+          
         </ul>
         <!-- sidebar menu end-->
       </div>
