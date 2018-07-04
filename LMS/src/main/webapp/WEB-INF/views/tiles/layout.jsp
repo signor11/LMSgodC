@@ -154,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="collapse navbar-collapse navbar-right"
 						id="bs-example-navbar-collapse-1">
 
-						<div class="top_nav_left">
+						<div class="top_nav_left" >
 							<nav class="cl-effect-15" id="cl-effect-15">
 								<ul>
 									<li class="active"><a href="home" data-hover="home">home</a></li>

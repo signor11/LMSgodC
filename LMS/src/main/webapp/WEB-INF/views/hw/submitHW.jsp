@@ -69,7 +69,7 @@
 			<p class="bst">제목</p>
 			<input name="submitname" type="text"
 				value="${up_hw.submitname}" required="required" class="form"><br><br>
-			<p class="bst">첨부파일
+			<p class="bst">첨부파일</p>
 			<c:if test="${not empty up_hw}">
 				&nbsp;&nbsp;&nbsp;
 				<i><a href="./getAddFile?addfileid=${up_hw.addfileid}">
@@ -77,7 +77,7 @@
 				</a></i>
 				<br><br>
 			</c:if>
-		</p>
+		
 			<input type="file" name="tempuploadfile" class="form"/>
 			<br><br>
 			<p class="bst">내용</p><br><br>
