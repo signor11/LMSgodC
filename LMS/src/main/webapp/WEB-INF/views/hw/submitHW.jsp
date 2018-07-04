@@ -33,7 +33,7 @@
 <h3 class="w3-wide">과제설명</h3><br>
 
 		<div>
-			<p id="bst">과제명</p>
+			<p class="bst">과제명</p>
 			<input name="hwname" type="text"
 				readonly="readonly" value="${sb.hwname}" class="w3-input w3-border"><br> <br>
 			<textarea name="hwinfo" cols="85" rows="13"
@@ -66,10 +66,10 @@
 			<input type="text" name="hwnum" hidden="" value="${sb.hwnum}" /> 
 			<input type="text" name="classnum" hidden="" value="${sb.classnum}" />
 
-			<p id="bst">제목</p>
+			<p class="bst">제목</p>
 			<input name="submitname" type="text"
 				value="${up_hw.submitname}" required="required" class="w3-input w3-border"><br><br>
-			<p id="bst">첨부파일
+			<p class="bst">첨부파일
 			<c:if test="${not empty up_hw}">
 				&nbsp;&nbsp;&nbsp;
 				<i><a href="./getAddFile?addfileid=${up_hw.addfileid}">
@@ -80,7 +80,7 @@
 		</p>
 			<input type="file" name="tempuploadfile" class="w3-button w3-dark-grey"/>
 			<br><br>
-			<p id="bst">내용</p><br><br>
+			<p class="bst">내용</p><br><br>
 			<textarea name="submitinfo" cols="85" rows="13" id="hwinfo"
 				style="width: 100%;" class="scroll_form" >${up_hw.submitinfo}</textarea><br>
 			<div>
