@@ -38,7 +38,7 @@ public class LoginController {
 			
 			session.setAttribute("mode", vo1.getUsertype());
 				
-			return "home/home2";
+			return "home/home";
 		}
 		else
 			return "home/home";
@@ -58,7 +58,7 @@ public class LoginController {
 	}
 	@RequestMapping("home")
 	public String goHome() {
-		return "home/home2";
+		return "home/home";
 	
 	}
 	
