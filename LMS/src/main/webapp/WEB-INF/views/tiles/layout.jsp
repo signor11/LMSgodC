@@ -42,7 +42,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						"width=2000, height=2000, resizable=yes, toolbar=yes, menubar=yes, scrollbars=yes");
 
 	}
+	
 </script>
+<style>
+		#bst {
+    			color: #fff;
+    			background-color: #d2322d;
+   				border-color: #ac2925;
+   				display: inline-block;
+			    padding: 6px 12px;
+			    margin-bottom: 0;
+			    font-size: 14px;
+			    font-weight: normal;
+			    line-height: 1.42857143;
+			    text-align: center;
+			    white-space: nowrap;
+			    vertical-align: middle;
+			    -webkit-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			    background-image: none;
+			    border: 1px solid transparent;
+			    border-radius: 4px;
+    			}
+</style>
 
 </head>
 

@@ -14,9 +14,7 @@
 
 	<div style="display: inline-block;">
 		<form action="./getHWList" name="hwform">
-		<input type="text" value="과목명" readonly="readonly"
-			style="padding: 10px; display: inline-block; text-align: center;"
-			size="5" class="btn btn-danger">
+		<p id="bst">과목명</p>
 			<select name="classnum" style="padding: 10px; text-align: center;" onchange="document.hwform.submit()">
 			<option value="" selected hidden="">선택</option>
 			<c:forEach items="${classname}" var="n">

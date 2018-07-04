@@ -74,16 +74,19 @@
 			<c:set value="./hwUpdate" var="a" />
 		</c:if>
 		<form action="${a}" name="hwUpdate" method="post">
-			<input type="hidden" name="hwnum" value="${hw.hwnum}" /> <input
-				type="hidden" name="classnum" value="${hw.classnum}" /> <span
-				class="btn btn-danger">과목명</span> <input type="text"
+			<input type="hidden" name="hwnum" value="${hw.hwnum}" /> 
+			<input type="hidden" name="classnum" value="${hw.classnum}" /> 
+			<p id="bst">과목명</p> 
+			<input type="text"
 				name="classname" value="${cn.classname}" readonly="readonly">
-			<span class="btn btn-danger">제목</span> <input type="text"
-				name="hwname" value="${hw.hwname}"> <span
-				class="btn btn-danger">제출기한</span> <input type="date"
+			<p id="bst">제목</p> 
+			<input type="text"
+				name="hwname" value="${hw.hwname}"> 
+				<p id="bst">제출기한</p> 
+				<input type="date"
 				name="applydate" value="${fn:substring(hw.applydate,0,10)}"
 				id="dateField" min="" onclick=" checkDay()"> <br>
-			<br> <span class="btn btn-danger">내용</span><br>
+			<br> <p id="bst">내용</p><br>
 			<br>
 			<textarea name="hwinfo" cols="85" rows="13" style="width: 100%;">${hw.hwinfo}</textarea>
 			<br>
