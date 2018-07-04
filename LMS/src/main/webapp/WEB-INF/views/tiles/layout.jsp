@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	function openprint() {
 		window
 				.open("admin", "관리자모드",
-						"width=2000, height=2000, resizable=yes, toolbar=yes, menubar=yes, scrollbars=yes");
+						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
 
 	}
 </script>
@@ -320,7 +320,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //Modal2 -->
-	</div>
 	<!--// header_top -->
 	<!--about-->
 
@@ -333,7 +332,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						href="http://w3layouts.com/">W3layouts</a>
 				</p>
 			</div>
-		</div>
 		</div>
 
 	</footer>
