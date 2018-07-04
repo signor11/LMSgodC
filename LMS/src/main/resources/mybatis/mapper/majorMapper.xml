@@ -44,5 +44,10 @@
 		)
 		
 	</insert>
+	
+	<!-- 건수 조회 -->
+	<select id="majorCount" resultType="integer">
+		SELECT COUNT(*) FROM MAJOR			
+	</select>
 
 </mapper>

@@ -1,6 +1,5 @@
 package com.yedam;
 
-
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Iterator;
@@ -10,10 +9,14 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -26,10 +29,22 @@ public class CommonExcelView extends AbstractXlsxView {
 	@Override
 	protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		Sheet sheet = workbook.createSheet("Datatypes in Java");
-		Row row;
-		Cell cell;
+		
+		Sheet sheet = workbook.createSheet("Datas in excel");
+		
+		
+		CellStyle cellStyle = workbook.createCellStyle();
+		cellStyle.setBorderTop(HSSFCellStyle.BORDER_THICK);
+		Row row= sheet.createRow(0);;
+		Cell cell= row.createCell(0);;
+		cell.setCellStyle(cellStyle);
 		int rowNum = 0;
+
+		Font font = workbook.createFont();
+		font.setFontName("맑은 고딕");
+
+		
+
 		String file_name = (String) model.get("filename") + System.currentTimeMillis() + ".xlsx";
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + file_name + "\"");
 		// header 출력

@@ -141,7 +141,7 @@ public class ProfessorController {
 		Workbook wb = new HSSFWorkbook(); // xls 버전
 		CellStyle cs = wb.createCellStyle();
 		Font f2 = wb.createFont();
-		f2.setFontName("궁서체");
+		f2.setFontName("맑은 고딕");
 		f2.setItalic(true);
 		cs.setFont(f2);
 		//시트 추가
