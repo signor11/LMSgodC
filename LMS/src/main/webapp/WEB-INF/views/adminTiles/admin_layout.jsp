@@ -43,7 +43,7 @@
       </div>
 
       <!--logo start-->
-      <a href="admin_layout.jsp" class="logo">Nice <span class="lite">Admin</span></a>
+      <a href="admin_layout.jsp" class="logo">Yedam <span class="lite">Admin</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -73,7 +73,7 @@
           </li>
          
           <li class="sub-menu">
-            <a href="" class="">
+            <a href="./chartPoll" class="">
                           <i class="icon_desktop"></i>
                           <span>설 문 조 사</span>
                           <span class="menu-arrow arrow_carrot-right"></span>

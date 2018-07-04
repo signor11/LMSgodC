@@ -58,7 +58,7 @@ public class PollController {
 	
 	@RequestMapping("/chartPoll")
 	public String goPoll() {
-		return "poll/chartPoll";
+		return "admin/poll/chartPoll";
 	}
 	
 	
