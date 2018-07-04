@@ -35,7 +35,8 @@ public class NoticeDAO {
 		}
 			
 		//삭제 
-		public void deleteNotice(NoticeVO vo) {
-			mybatis.delete("noticeDAO.deleteNotice",vo);
+		public void deleteNotice(String seq) {
+		   mybatis.delete("noticeDAO.deleteNotice",seq);
+
 		}
 }

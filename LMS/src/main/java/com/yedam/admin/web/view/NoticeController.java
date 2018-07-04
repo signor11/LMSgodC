@@ -28,6 +28,7 @@ public class NoticeController {
 	//목록조회
 	@RequestMapping("/getNoticeList")
 	public String getNoticeList(NoticeVO vo,Model model) {
+		
 		System.out.println(vo);
 		model.addAttribute("noticeList",noticeService.getNoticeList(vo));
 		return "admin/notice/getNoticeList";
@@ -49,8 +50,8 @@ public class NoticeController {
 
 	// 입력처리
 	@RequestMapping(value = "/insertNotice", method = RequestMethod.POST)
-	public String insertNotice(@ModelAttribute("vo") NoticeVO vo) throws IllegalStateException, IOException {// 속성명 바꾸기위해 ModelAttribute
-		
+	public String insertNotice(@ModelAttribute("vo") NoticeVO vo, HttpServletResponse response) throws IllegalStateException, IOException {// 속성명 바꾸기위해 ModelAttribute
+	PrintWriter out = response.getWriter();
 		//파일 업로드 처리
 		MultipartFile uploadFile =vo.getTempuploadfile();
 		if(!uploadFile.isEmpty()) {
@@ -61,7 +62,9 @@ public class NoticeController {
 		// 서비스 이용하여 등록처리하고 목록페이지로 이동
 		noticeService.insertNotice(vo);
 		System.out.println(vo);
-		return "admin/notice/insertNotice";
+		//저장하고 난뒤 목록 페이지로 이동
+		out.print("<script>alert('save'); location.assign('getNoticeList');</script>");
+		return null;
 	}
 
 	// 수정폼
@@ -77,17 +80,19 @@ public class NoticeController {
 		PrintWriter out = response.getWriter();
 		// 서비스 수정처리
 		noticeService.updateNotice(vo);
+		//alert창 뜨고난뒤 list 페이지로 이동
 		if(vo.getContent() != null) {
-			out.print("<script>alert('update sucess'); location.assign('getNoticeList');</script>");
+			out.print("<script>alert('successs'); location.assign('getNoticeList');</script>");
 		}else {
-			out.print("<script>alert('update fail'); history.go(-1);</script>");
+			out.print("<script>alert('fail'); history.go(-1);</script>");
 		}
 		return null;
 	}
 	//삭제 처리
 	@RequestMapping("/deleteNotice")
-	public String deleteNotice(@ModelAttribute("vo") NoticeVO vo) {
-		noticeService.deleteNotice(vo);
-		return "redirect:/updateNotice";
+	public String deleteNotice(NoticeVO vo) {
+		noticeService.deleteNotice(vo.getSeq());
+		//ajax json구조
+		return "{\"result\":true}";
 	}
 }

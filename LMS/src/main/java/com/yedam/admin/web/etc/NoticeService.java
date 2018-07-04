@@ -18,5 +18,5 @@ public interface NoticeService {
 	public void updateNotice(NoticeVO vo);
 	
 	//삭제 
-	public void deleteNotice(NoticeVO vo);	
+	public void deleteNotice(String seq);	
 }
