@@ -11,13 +11,14 @@
 
 	}
 	
+	//삭제
 	function delcheck(seq) {
 		result = confirm("delete ?");
 	
 		if(result == true){
 			var requestData={"seq" :  seq}
 			$.ajax({
-				url : "${pageContext.request.contextPath}/deleteClassapply",
+				url : "/deleteNotice",
 				data : requestData,
 				dataType : 'json',
 				success : function(data){
