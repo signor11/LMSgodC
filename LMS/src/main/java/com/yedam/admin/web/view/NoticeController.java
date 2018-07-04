@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -15,9 +16,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.yedam.admin.web.etc.NoticeService;
 import com.yedam.admin.web.etc.NoticeVO;
+import com.yedam.lms.classs.ClassSearchVO;
+import com.yedam.lms.classs.ClassVO;
+import com.yedam.lms.classs.ClassapplyVO;
+import com.yedam.lms.web.Paging;
 
 @Controller
 public class NoticeController {
@@ -33,7 +39,6 @@ public class NoticeController {
 		model.addAttribute("noticeList",noticeService.getNoticeList(vo));
 		return "admin/notice/getNoticeList";
 	}
-	
 	//단건조회
 	@RequestMapping("/getNotice/{seq}")
 	public String getNotice(@PathVariable String seq, Model model) {

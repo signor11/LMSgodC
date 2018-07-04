@@ -4,7 +4,6 @@ public class NoticeSearchVO extends NoticeVO{
 
 	private int first;
 	private int last;
-	
 	public int getFirst() {
 		return first;
 	}
@@ -17,6 +16,7 @@ public class NoticeSearchVO extends NoticeVO{
 	public void setLast(int last) {
 		this.last = last;
 	}
+	
 	
 	
 }

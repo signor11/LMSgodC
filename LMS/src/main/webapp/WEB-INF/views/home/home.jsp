@@ -23,7 +23,9 @@
 	}
 	//팝업 호출
 	$(function() {
-	console.log($("#modifyModal"))
+	console.log(location.href.indexOf("login.do"))
+	
+	if( "${sessionScope.loginvo}"=="" && location.href.indexOf("login.do")==-1 && location.href.indexOf("logout.do")==-1)
 			$("#modifyModal").modal();
 	}); 
 	
