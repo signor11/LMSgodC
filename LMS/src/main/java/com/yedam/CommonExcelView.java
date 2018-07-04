@@ -35,6 +35,10 @@ public class CommonExcelView extends AbstractXlsxView {
 		
 		CellStyle cellStyle = workbook.createCellStyle();
 		cellStyle.setBorderTop(HSSFCellStyle.BORDER_THICK);
+		cellStyle.setBorderBottom(HSSFCellStyle.BORDER_THICK);
+		cellStyle.setBorderLeft(HSSFCellStyle.BORDER_THICK);
+		cellStyle.setBorderRight(HSSFCellStyle.BORDER_THICK);
+		
 		Row row= sheet.createRow(0);;
 		Cell cell= row.createCell(0);;
 		cell.setCellStyle(cellStyle);
