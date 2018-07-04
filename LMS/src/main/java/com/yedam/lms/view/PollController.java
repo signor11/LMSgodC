@@ -1,10 +1,12 @@
 package com.yedam.lms.view;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +25,19 @@ public class PollController {
 	@Autowired
 	PollService pollService;
 	
-	
-	@RequestMapping("/insertPoll")
-	public String insertPoll(@RequestParam Map<String,String> param, HttpSession session) {
-		String stdnum = (String)session.getAttribute("loginvo");
+	@RequestMapping("/insertPollForm")
+	public String insertPollForm(@RequestParam Map<String,String> param, HttpServletResponse response,HttpSession session) throws IOException {
+			return "popup/poll/insertPoll";
 		
+			
+	}
+	@RequestMapping("/insertPoll")
+	public String insertPoll(@RequestParam Map<String,String> param, HttpServletResponse response,HttpSession session) throws IOException {
+		String stdnum = (String)session.getAttribute("loginvo");
 		pollService.insertPoll(param,stdnum);
-		return "poll/insertPoll";
+		PrintWriter out = response.getWriter();
+		out.print("<script>window.close();</script>");
+		return null;
 		
 			
 	}

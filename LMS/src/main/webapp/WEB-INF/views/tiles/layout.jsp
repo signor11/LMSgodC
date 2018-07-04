@@ -42,6 +42,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						"width=2000, height=2000, resizable=yes, toolbar=yes, menubar=yes, scrollbars=yes");
 
 	}
+	function openpoll(){
+		window.open("insertPollForm","설문 조사","width=800, height = 800")
+	}
+
 </script>
 
 </head>
@@ -68,7 +72,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 
 				 			<c:if test="${!empty sessionScope.stdname}">
-								<span style="font-size: 13px">${sessionScope.stdname}님환영합니다.&emsp;&nbsp;</span>
+								<span style="font-size: 13px">${sessionScope.stdname} 님 환영합니다.&emsp;&nbsp;</span>
 								<a class="shop" style="color: white; font-size: 13px"
 									href="logout.do">로그아웃</a>
 								&emsp;
@@ -86,9 +90,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							</c:if>
 							<c:if test="${sessionScope.mode =='std' }">
-								<a href="getSchedulepro" style="font-size: 12px; font-style: italic;">시간표</a>
+								<a href="getSchedule" style="font-size: 12px; font-style: italic;">시간표</a>
 								&ensp; 
-								<a href="" style="font-size: 12px; font-style: italic;">설문조사</a>
+								<a href="#" onclick= "javascript:openpoll()"style="font-size: 12px; font-style: italic;">설문조사</a>
 							</c:if>
 
 							<c:if test="${sessionScope.mode =='admin' }">
@@ -158,7 +162,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="강의" class="dropdown-toggle"
 											data-toggle="dropdown"> 강의<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getClassapplyList">강의조회(교수)</a></li>
+												<li><a href="getClassList">강의조회(교수)</a></li>
 
 											</ul></li>
 										<li class="dropdown"><a href="services.html"
@@ -194,7 +198,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="강의" class="dropdown-toggle"
 											data-toggle="dropdown"> 강의<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getClassapplyList">강의조회</a></li>
+												<li><a href="getClassList">강의조회</a></li>
 												<li><a href="getClassapplyList">수강신청</a></li>
 
 											</ul></li>

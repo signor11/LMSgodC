@@ -10,6 +10,7 @@
 
 </head>
 <body>
+<br>
 	<form action="./insertPoll" method="post">
 		<div align=center>
 			<div>
@@ -109,7 +110,9 @@
 			</table>
 			<br>
 			<hr>
-			<br> <input type="submit" value="저장">
+			<br> <button type="submit" class="btn btn-danger">저장</button>
 	</form>
+	<br>
+	<br>
 </body>
 </html>
