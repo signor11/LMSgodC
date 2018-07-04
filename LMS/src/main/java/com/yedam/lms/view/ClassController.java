@@ -20,6 +20,7 @@ import com.yedam.lms.classs.ClassService;
 import com.yedam.lms.classs.ClassVO;
 import com.yedam.lms.classs.ClassapplyVO;
 import com.yedam.lms.smp.ProfessorVO;
+import com.yedam.lms.smp.ProfessorsearchVO;
 import com.yedam.lms.web.Paging;
 
 @Controller
@@ -27,14 +28,23 @@ public class ClassController {
 	
 	@Autowired
 	ClassService classService;
+
+	
+	@RequestMapping("/getClassList2")
+	public ModelAndView getClassList2(HttpServletRequest request, ClassVO vo, ClassapplyVO vo2, HttpSession session, Paging paging) {
+		
+		ModelAndView mv = new ModelAndView();
+				mv.addObject("List",classService.getClassList2());
+				mv.setViewName("admin/adminclass/getClassList2");
+				return mv;}
 	
 	//등록폼
 	@RequestMapping(value="/insertClass", method = RequestMethod.GET)
 	String insertClassForm(HttpServletRequest request, ClassVO vo)
 	{
-		request.setAttribute("class", ClassService.getClassList(vo));
+		request.setAttribute("class", classService.getClassList2(vo));
 		
-		return "admin/adminclass/getClassList";
+		return "admin/adminclass/getClassList2";
 		
 	}
 	// 등록처리
@@ -44,32 +54,36 @@ public class ClassController {
 
 				throws IllegalStateException, IOException {
 			System.out.println(vo);		
-			ClassService.insertClass(vo);
+			classService.insertClass(vo);
 			return "redirect:/getClassList";
 		}
-	@RequestMapping("/updateClass")
-	public String updateClass(ClassVO vo, HttpSession session, HttpServletResponse response)
-			throws IOException {
-		//한글 인코딩
-		response.setContentType("text/html; charset=UTF-8");
-		String stid =(String)session.getAttribute("loginvo");
-		PrintWriter out = response.getWriter();
-		vo.setStudentnum(stid);
-		classService.updateClass(vo);
-		
-		return "admin/";
+	
+		//수정폼
+		@RequestMapping(value = "/updateClass", method = RequestMethod.GET)
+		 String updateClass(ClassVO vo, HttpServletRequest request)
+			{
+	
+			vo.setClassapplynum(vo.getClassapplynum());
+		request.setAttribute("get_class", classService.getClassList2(vo));
+		return "admin/adminclass/getClassList";
 		
 	}
+		//수정 처리
+				@RequestMapping(value = "/updateClass", method = RequestMethod.POST)
+				String updateClass(@ModelAttribute("vo") ClassVO vo) {
+					classService.updateClass(vo);
+					return "redirect:/getProfessorList";
+				}
 	
 	
 	
 	
 	@RequestMapping("/deleteClass")
-	@ResponseBody
+
 	public String deleteClass(ClassVO vo) {
 		classService.deleteClass(vo);
 		//ajax json구조로 리턴해줌
-		return "{\"result\":true}";
+		return "redirect:/getClassList2";
 	}
 	
 	

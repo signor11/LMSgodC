@@ -59,4 +59,11 @@ public class ProfessorImpl implements ProfessorService {
 		return dao.getProfessor(Professornum);
 	}
 
+
+	@Override
+	public List<Map<String, Object>> getProfessor(ProfessorsearchVO vo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

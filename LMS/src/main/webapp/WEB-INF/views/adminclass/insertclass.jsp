@@ -96,7 +96,7 @@
                   <div class="form-group">
                     <label class="col-sm-2 control-label">학점</label>
                     <div class="col-sm-10" >
-                      <input type="text" name="score" id="score" size="18"
+                      <input type="text" name="credit" id="credit" size="18"
 						maxlength="11" />
 					
                     </div>

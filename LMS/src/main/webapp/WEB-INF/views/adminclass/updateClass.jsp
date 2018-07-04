@@ -69,39 +69,39 @@
    </head>           
     <body>     
               <div class="panel-body">
-                <form action="./updateProfessor" method="post" name="pro_Form" class="form-horizontal " method="post">
+                <form action="./updateClass" method="post" name="pro_Form" class="form-horizontal " method="post">
                   <div class="form-group">
-                    <label class="col-sm-2 control-label" >아이디</label>
+                    <label class="col-sm-2 control-label" >과목번호</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="professornum" id="id" size="18"
-						maxlength="12" value="${get_pro.professornum}">
+                      <input type="text" class="form-control" name="classnum" id="id" size="18"
+						maxlength="12" value="${get_class.classnum}">
                     <span class="help-block">8자리</span>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">비밀번호</label>
+                    <label class="col-sm-2 control-label">과목명</label>
                     <div class="col-sm-10">
-                      <input type="text" name="professorpw" id="pwd" size="18"
-						maxlength="12" class="form-control" value="${get_pro.professorpw}"/>
+                      <input type="text" name="classname" id="classname" size="18"
+						maxlength="12" class="form-control" value="${get_class.classname}"/>
                      
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">이 름</label>
+                    <label class="col-sm-2 control-label">학점</label>
                     <div class="col-sm-10">
-                     <input type="text" name="professorname" id="name" size="18"
-						maxlength="12" class="form-control" value="${get_pro.professorname}"/>
+                     <input type="text" name="credit" id="credit" size="18"
+						maxlength="12" class="form-control" value="${get_class.credit}"/>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">연락처</label>
+                    <label class="col-sm-2 control-label">수강인원</label>
                     <div class="col-sm-10" >
-                      <input type="text" name="professorphone" id="tel1" size="18"
-						maxlength="11"  value="${get_pro.professorphone}"/>
-						 <span class="help-block">숫자만 11자리</span>
+                      <input type="text" name="maxstudent" id="maxstudent" size="18"
+						maxlength="11"  value="${get_class.maxstudent}"/>
+						
                     </div>
                   </div>
-                  <div class="form-group">
+                  <%-- <div class="form-group">
                     <label class="col-sm-2 control-label">학과명</label>
                     <div class="col-sm-10">
                     		<select id="major" name="majornum" style="position:relative; top:8px;">
@@ -111,18 +111,24 @@
                     		${m.MAJORNAME}</option>
 							</c:forEach>
 							
-							<%-- <option value="${major.majornum}" selected>${major.majorname}</option> --%>
+							<option value="${major.majornum}" selected>${major.majorname}</option>
 							<!-- <option value="" selected hidden="">선택</option>
 							<option value="38000001">컴공</option>
 							<option value="38000002">국문</option>
 							<option value="38000003">기계</option>
 							<option value="38000004">예절</option> -->						
 							</select>
-                    </div>
+                    </div> --%>
                  <div class="form-group" style="position:relative; top:20px;right:280px;">
-                    <label class="col-sm-2 control-label">등록일</label>
-                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:20px;"  value="${get_pro.hiredate}"/>         
+                    <label class="col-sm-2 control-label">담당교수</label>
+                    <input type="text" name="professorname" id="professorname" size="18" maxlength="10" style="position:relative; left:20px;"  value="${get_class.professorname}"/>         
                 </div>
+      			
+      			<div class="form-group" style="position:relative; top:20px;right:280px;">
+                    <label class="col-sm-2 control-label">강의시간</label>
+                    <input type="text" name="classtime" id="classtime" size="18" maxlength="10" style="position:relative; left:20px;"  value="${get_class.classtime}"/>         
+                </div>
+      			
       			
       			<div align="center">
       			  <input type="submit" id="btn_insert" value="수정">

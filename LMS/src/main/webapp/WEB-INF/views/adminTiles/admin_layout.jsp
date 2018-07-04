@@ -93,7 +93,7 @@
                       </a>
           </li>
            <li class="active">
-            <a href="./getClassList">
+            <a href="./getClassList2">
                           <i class="icon_house_alt"></i>
                           <span>과 목</span>
                       </a>

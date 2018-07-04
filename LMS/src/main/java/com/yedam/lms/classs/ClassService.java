@@ -5,9 +5,9 @@ import java.util.Map;
 
 public interface ClassService {
 	
-	public ClassVO getClass(String classnum);
+	public ClassVO getClass(String string);
 	
-	public List<Map<String, Object>> getClassList(ClassVO classVO);
+	public List<Map<String, Object>> getClassList2(ClassVO classVO);
 	
 	public List<Map<String, Object>> stu_classnameList(String studentnum);
 	
@@ -20,4 +20,6 @@ public interface ClassService {
 	public void updateClass(ClassVO classVO);
 	
 	public void deleteClass(ClassVO classVO);
+
+	public Object getClassList2();
 }

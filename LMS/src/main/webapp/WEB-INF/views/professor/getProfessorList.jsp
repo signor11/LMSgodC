@@ -26,7 +26,9 @@
 </script>
 </head>
 <body>
-
+	<p align=right>
+		<a href="./professorExcelCreate"><button type="button" class="btn btn-danger" >엑셀출력</button></a>
+	</p>
 	<br>
 	<br>
 	<h3 align="center">관리자용 교수 조회</h3>

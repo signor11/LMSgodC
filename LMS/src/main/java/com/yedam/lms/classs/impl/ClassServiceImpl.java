@@ -21,10 +21,6 @@ public class ClassServiceImpl implements ClassService{
 		return dao.getClass(classnum);
 	}
 
-	@Override
-	public List<Map<String, Object>> getClassList(ClassVO classVO) {
-		return dao.getClassList(classVO);
-	}
 
 	@Override
 	public List<Map<String, Object>> stu_classnameList(String studentnum) {
@@ -56,4 +52,17 @@ public class ClassServiceImpl implements ClassService{
 		dao.deleteClass(classVO);
 	}
 
+	@Override
+	public Object getClassList2() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Map<String, Object>> getClassList2(ClassVO classVO) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }
