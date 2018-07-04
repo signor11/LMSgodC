@@ -202,8 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="과제" class="dropdown-toggle"
 											data-toggle="dropdown"> 과제<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getHWList">과제조회</a></li>
-												<li><a href="getHWListPro">과제조회(교수)</a></li>
+												<li><a href="adminHW">과제조회(교수)</a></li>
 
 											</ul></li>
 

@@ -73,14 +73,16 @@
 	<!-- 교수용 다건조회 -->
 	<select id="getHWListPro" resultType="map" parameterType="hwVO">
 		SELECT 		H.HWNUM, H.HWNAME, TO_CHAR(H.APPLYDATE , 'YYYY-MM-DD') APPLYDATE, 
-					H.CLASSNUM, H.HWINFO
+					H.CLASSNUM, H.HWINFO, P.PROFESSORNUM, P.PROFESSORNAME
 		FROM  HW H JOIN CLASS C                          
 		ON H.CLASSNUM = C.CLASSNUM
+		JOIN PROFESSOR P
+   		ON C.PROFESSORNUM = P.PROFESSORNUM
 		WHERE 1=1 
 		<if test="professornum != null and professornum != ''">
 			AND C.PROFESSORNUM = #{professornum}
 		</if>
 		ORDER BY HWNUM
 	</select>
-
+	
 </mapper>
