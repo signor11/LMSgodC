@@ -48,8 +48,8 @@ public class ClassServiceImpl implements ClassService{
 	}
 	
 	@Override
-	public void deleteClass(ClassVO classVO) {
-		dao.deleteClass(classVO);
+	public void deleteClass(String classnum) {
+		dao.deleteClass(classnum);
 	}
 
 

@@ -88,7 +88,7 @@
                     <label class="col-sm-2 control-label">수강인원</label>
                     <div class="col-sm-10" >
                       <input type="text" name="maxstudent" id="maxstudent" size="18"
-						maxlength="11"  value="${get_class.maxstudent}"/>
+						maxlength="12"  value="${get_class.maxstudent}"/>
 						
                     </div>
                   </div>
@@ -109,23 +109,28 @@
 							<option value="38000003">기계</option>
 							<option value="38000004">예절</option> -->						
 							</select>
-                    </div> --%>
-                 <label class="col-sm-2 control-label">담당교수</label>
-                    <div class="col-sm-10">
-                    		<select id="pnum" name="professornum" style="position:relative; top:8px;">
-                    		 <c:forEach items="${c_list}" var="c">
-                    		<option value="${c.PROFESSORNUM}" 
-                    			<c:if test="${c.PROFESSORNUM==param.professornum}">selected</c:if>> 
-                    		${c.PROFESSORNAME}</option>
-							</c:forEach>
-							</select>
-					</div>
-      			
-      			<div class="form-group" style="position:relative; top:20px;right:280px;">
-                    <label class="col-sm-2 control-label">강의시간</label>
-                    <input type="text" name="cti" id="classtime" size="18" 
-                  	  maxlength="20" style="position:relative; left:20px;"  value="${get_class.classtime}"/>         
-                </div>
+				                    </div> --%>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">담당교수</label>
+								<div class="col-sm-10">
+									<select id="pnum" name="professornum"
+										style="position: relative; top: 8px;">
+										<c:forEach items="${c_list}" var="c">
+											<option value="${c.PROFESSORNUM}"
+												<c:if test="${c.PROFESSORNUM==param.professornum}">selected</c:if>>
+												${c.PROFESSORNAME}</option>
+										</c:forEach>
+									</select>
+								</div>
+							</div>
+
+
+
+			<div class="form-group" style="position:relative; top:20px;right:280px;">
+	                    <label class="col-sm-2 control-label">강의시간</label>
+	                    <input type="text" name="cti" id="classtime" size="18" 
+	                  	  maxlength="20" style="position:relative; left:20px;"  value="${get_class.classtime}"/>         
+	                </div>
       			
       			
       			<div align="center">

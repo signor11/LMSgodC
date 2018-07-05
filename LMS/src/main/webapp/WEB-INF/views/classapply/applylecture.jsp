@@ -119,7 +119,7 @@
 				<td>${classapply.professorname}</td>
 				<td>${classapply.credit}</td>
 				<td style="text-align: center;">
-					<button type="button" onclick="delcheck(${classapply.classapplynum});"	class="btn btn-danger">삭제</button>
+					<button type="button" onclick="delcheck('${classapply.classapplynum}');"	class="btn btn-danger">삭제</button>
 				</td>
 
 			</tr>

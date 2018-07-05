@@ -44,7 +44,7 @@
 	
 	
 	<!--  삭제 -->
-	<delete id="deleteClass" parameterType="classVO">
+	<delete id="deleteClass" parameterType="string">
 		DELETE FROM CLASS
 		WHERE		CLASSNUM = #{classnum}
 	</delete>
@@ -107,15 +107,13 @@
 	<!-- 관리자 과목 전체 조회 (조건x) -->		
 	<select id="getClassList2" resultType="map" parameterType="classVO">
 		
-		SELECT C.CLASSNUM,
+		SELECT 							C.CLASSNUM,
 										C.CLASSNAME,
 										C.CREDIT,
 										C.MAXSTUDENT,
 										P.PROFESSORNAME,
-										C.CLASSTIME,
-										(SELECT COUNT(*) FROM CLASSAPPLY CA 
-										WHERE CA.CLASSNUM = C.CLASSNUM) APPLYCNT
-								FROM CLASS C JOIN PROFESSOR P
+										C.CLASSTIME
+										FROM CLASS C JOIN PROFESSOR P
 							 	ON C.PROFESSORNUM = P.PROFESSORNUM
 							 	where 1=1 
 							 	<if test="classnum !=null and classnum !=''">
