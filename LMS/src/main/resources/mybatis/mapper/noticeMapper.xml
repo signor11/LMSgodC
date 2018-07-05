@@ -8,6 +8,7 @@
 	<select id="getNoticeList" resultType="map">
 		SELECT SEQ, TITLE, WRITER, CONTENT, REGDATE, CNT
 		FROM NOTICE
+		ORDER BY SEQ DESC
 	</select>
 	
 	<!-- 단건 조회 -->

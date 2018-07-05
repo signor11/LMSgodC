@@ -27,7 +27,7 @@ public class PollDAO {
 			return mybatis.selectOne("com.yedam.lms.poll.impl.PollDAO.getPoll",pollid);
 		}
 		//설문 중복 확인
-		public PollVO checkPoll(PollVO vo) {
+		public int checkPoll(PollVO vo) {
 			return mybatis.selectOne("com.yedam.lms.poll.impl.PollDAO.checkPoll",vo);
 		}
 		//설문 문항별 건수 확인
