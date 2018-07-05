@@ -33,14 +33,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link
 	href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
 	rel='stylesheet' type='text/css'>
-<!-- js -->
+
+	<!-- js -->
+
 	<script type="text/javascript" src="./resources/web/js/jquery.min.js"></script>
 <script>
 	//새창 열기
 	function openprint() {
 		window
 				.open("admin", "관리자모드",
-						"width=2000, height=2000, resizable=yes, toolbar=yes, menubar=yes, scrollbars=yes");
+						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
 
 	}
 
@@ -369,7 +371,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //Modal2 -->
-	</div>
 	<!--// header_top -->
 	<!--about-->
 
@@ -383,11 +384,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</p>
 			</div>
 		</div>
-		</div>
 
 	</footer>
 
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> branch 'master' of https://github.com/signor11/LMSgodc
 
 	<!--search-bar-->
 	<script src="./resources/web/js/search.js"></script>

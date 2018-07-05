@@ -36,8 +36,10 @@ public class NoticeImpl implements NoticeService{
 	}
 
 	@Override
-	public void deleteNotice(NoticeVO vo) {
-		dao.deleteNotice(vo);
+	public void deleteNotice(String seq) {
+		dao.deleteNotice(seq);
+		
+		
 	}
 
 }

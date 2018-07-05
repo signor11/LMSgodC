@@ -14,21 +14,26 @@
 </script>
 <script>
 
+
 //목록 페이지로 이동
 	function opennotice() {
 		location.assign("./getNoticeList");
-
 	}
 
 </script>
 </head>
+<div>
+		<h2>
+			<strong>글 입력</strong>
+		</h2>
+	</div>
 	<body>
 		<form action="./insertNotice" name="NoticeForm"  method = "post" enctype  ="multipart/form-data" onsubmit="return submitCheck()">
 			제목<input type="text" name="title" >
 			작성자<input type="text" name="writer"><br>
 			내용<textarea name = "content" id = "content"></textarea><br>
 			첨부파일<input type="file" name="tempuploadfile"><br>
-		 	<button type="submit"  class="btn btn-default">저장</button>
+		 	<button type="submit"  class="btn btn-default"  >저장</button>
 		 	<button id="searchbtn" type="button" class="btn btn-default"  onclick="javascript:opennotice();">목록</button> 
 		</form>
 		<script>

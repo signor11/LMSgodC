@@ -46,7 +46,7 @@ public class TestResultController {
 	@RequestMapping(value = "/insertTestResult")
 	public String insertTestResult(TestResultVO vo) {
 		testResultService.insertTestResult(vo);
-		return "result/getTestresultList";// main 페이지 리턴
+		return "classscore/getTestresultList";// main 페이지 리턴
 	}
 
 
@@ -54,7 +54,7 @@ public class TestResultController {
 	@RequestMapping("/gettestResult")
 	public String gettestResult(TestResultVO vo, Model model) {
 		model.addAttribute("inList", testResultService.gettestresult(vo));
-		return "result/getTestresultList";
+		return "classscore/getTestresultList";
 	}
        
 

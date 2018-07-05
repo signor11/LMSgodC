@@ -43,9 +43,9 @@
 				<td>작성일</td>
 			</tr>
 
-			<c:forEach items="${noticeList}" var="no">
+			<c:forEach items="${noticeList}" var="no" varStatus="status">
 				<tr>
-					<td>${no.SEQ }</td>
+					<td>${status.index+1}</td>
 					<td>
 					<form name="NoticeForm" method="get" action="./updateNotice">
 				            <c:choose>
@@ -68,12 +68,12 @@
 		</table>
 	</div>
 	<button id="insertbtn" type="button" class="btn btn-default"  onclick="javascript:openinsert();">입력</button>
-	<!-- 페이징
+	<!-- 페이징 -->
 	<my:paging paging="${paging}"/> 
 	<script>
 		function doList(page){
 			location.href="./getBoardList? page=" + page
 		}
-	</script> -->
+	</script>
 </body>
 </html>

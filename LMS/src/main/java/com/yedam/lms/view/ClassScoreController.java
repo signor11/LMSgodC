@@ -55,7 +55,7 @@ public class ClassScoreController {
 		// model 정보저장
 		vo.setStudentnum("18000001");// 학생 정보
 		model.addAttribute("serList", testResultService.getTestresultListstu(vo));
-		return "result/getClassScoreListstu";// View 이름 리턴
+		return "classscore/getClassScoreListstu";// View 이름 리턴
 
 	}	
 	
@@ -88,7 +88,7 @@ public class ClassScoreController {
 	public String gettestresultList(TestResultVO vo, Model model)  {
 		vo.setClassnum("48000001");
 		model.addAttribute("insList", testResultService.getTestresultList(vo));
-		return "result/getClassScoreList";
+		return "classscore/getClassScoreList";
 
 	}
 
