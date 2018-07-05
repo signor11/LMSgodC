@@ -13,51 +13,40 @@
              
                
  <script>
-	$(document).ready(function() {
+	 $(document).ready(function() {
 
 		$("#btn_insert").click(	function() {
 
 						 	var tel1_pattern = /(^01[016789]$)/;
 
 							//alert("ok");
-							if ($("#id").val().length != 8) {
-								alert("아이디 8자리를 꼭 입력하세요!");
-								$("#id").focus();
-							} else if ($("#pwd").val() == "") {
-								alert("비밀번호를 꼭 입력하세요!");
-								$("#pwd").focus();
+							if ($("#cnum").val().length != 8) {
+								alert("과목번호 8자리를 꼭 입력하세요!");
+								$("#cnum").focus();
+							}   else if ($("#cname").val() == "") {
+								alert("과목명을 꼭 입력하세요!");
+								$("#cname").focus();
+								
+							}	else if ($("#credit").val() == "") {
+									alert("학점을 꼭 입력하세요!");
+									$("#credit").focus();
+							}else if ($("#mstu").val() == "") {
+								alert("수강인원을  꼭 입력하세요!");
+								$("#mstu").focus();
+							}
+							 else if ($("#pnum").val() == "") {
+								alert("담당교수을  꼭 선택하세요!");
+								$("#pnum").focus();
 
-							}  else if ($("#name").val() == "") {
-								alert("이름을 꼭 입력하세요!");
-								$("#name").focus();
-
-							} else if ($("#tel1").val() == "") {
-								alert("전화번호를 입력하세요!");
-								$("#tel1").focus();
-
-							} else if ($("#tel1").val().length != 11) {
-
-								alert("전화번호를 11개의 숫자로 꼭 입력하세요!");
-								$("#tel1").val("");
-								$("#tel1").focus();
-
+							}else if ($("#cti").val() == "") {
+								alert("강의시간을  꼭 입력하세요!");
+								$("#cti").focus();
 							}  
-							 else if ($("#majornum").val() == "") {
-								alert("담당과목을  꼭 선택하세요!");
-								$("#majornum").focus();
-
-							} else if ($("#hiredate").val() == "") {
-								alert("등록일을  꼭 입력하세요!");
-								$("#hiredate").focus();
-
-							} else {
-								alert("등록 완료");
+							 else {
+								alert("수정 완료");
 							} 
 					});
 		
-					$("#hiredate").datepicker({
-						dateFormat : 'yy-mm-dd'
-					});
 						
 		});
 
@@ -69,7 +58,7 @@
    </head>           
     <body>     
               <div class="panel-body">
-                <form action="./updateClass" method="post" name="pro_Form" class="form-horizontal " method="post">
+                <form action="./updateClass" method="get" name="pro_Form" class="form-horizontal ">
                   <div class="form-group">
                     <label class="col-sm-2 control-label" >과목번호</label>
                     <div class="col-sm-10">
@@ -93,6 +82,8 @@
 						maxlength="12" class="form-control" value="${get_class.credit}"/>
                     </div>
                   </div>
+                  
+                  
                   <div class="form-group">
                     <label class="col-sm-2 control-label">수강인원</label>
                     <div class="col-sm-10" >
@@ -119,14 +110,21 @@
 							<option value="38000004">예절</option> -->						
 							</select>
                     </div> --%>
-                 <div class="form-group" style="position:relative; top:20px;right:280px;">
-                    <label class="col-sm-2 control-label">담당교수</label>
-                    <input type="text" name="professorname" id="professorname" size="18" maxlength="10" style="position:relative; left:20px;"  value="${get_class.professorname}"/>         
-                </div>
+                 <label class="col-sm-2 control-label">담당교수</label>
+                    <div class="col-sm-10">
+                    		<select id="pnum" name="professornum" style="position:relative; top:8px;">
+                    		 <c:forEach items="${c_list}" var="c">
+                    		<option value="${c.PROFESSORNUM}" 
+                    			<c:if test="${c.PROFESSORNUM==param.professornum}">selected</c:if>> 
+                    		${c.PROFESSORNAME}</option>
+							</c:forEach>
+							</select>
+					</div>
       			
       			<div class="form-group" style="position:relative; top:20px;right:280px;">
                     <label class="col-sm-2 control-label">강의시간</label>
-                    <input type="text" name="classtime" id="classtime" size="18" maxlength="10" style="position:relative; left:20px;"  value="${get_class.classtime}"/>         
+                    <input type="text" name="cti" id="classtime" size="18" 
+                  	  maxlength="20" style="position:relative; left:20px;"  value="${get_class.classtime}"/>         
                 </div>
       			
       			
@@ -134,8 +132,9 @@
       			  <input type="submit" id="btn_insert" value="수정">
 					<input type="reset" id="btn_cancel" value="취소">
                 </div>
-                </div>
+                
                 </form>
               </div>
+             
 </body>
 </html>

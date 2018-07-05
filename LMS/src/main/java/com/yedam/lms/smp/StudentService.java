@@ -21,6 +21,7 @@ public interface StudentService {
 		
 		//삭제
 		public void deleteStudent(StudentVO vo);
+		
 		//로그인 체크
 		public StudentVO getLogin(StudentVO vo);
 		

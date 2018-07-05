@@ -27,9 +27,10 @@
 </head>
 
 <body>
-<br>
+<br><br>
 <div align="center" id="printarea">
 <h3>학기 시간표</h3>
+<br><br><br>
 <form name=scheduleFrm2 method="post" action="">
 <table border="1" class="table table-hover" id="table1">
 <tr>

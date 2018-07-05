@@ -43,10 +43,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
 
 	}
+
+	function openpoll(){
+		window.open("insertPollForm","설문 조사","width=800, height = 800")
+	}
+
+
 	
 </script>
 <style>
-		#bst { 
+		.bst { 
     			color: #fff;
     			background-color: #d2322d;
    				border-color: #ac2925;
@@ -67,6 +73,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			    border: 1px solid transparent;
 			    border-radius: 4px;
     			}
+    			
+    	.form{
+			
+		    height: 34px;
+		    padding: 6px 12px;
+		    font-size: 14px;
+		    line-height: 1.428571429;
+		    color: #555;
+		    vertical-align: middle;
+		    background-color: #fff;
+		    background-image: none;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+		    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+		    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	
+	}		
 </style>
 
 </head>
@@ -93,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 
 				 			<c:if test="${!empty sessionScope.stdname}">
-								<span style="font-size: 13px">${sessionScope.stdname}님환영합니다.&emsp;&nbsp;</span>
+								<span style="font-size: 13px">${sessionScope.stdname} 님 환영합니다.&emsp;&nbsp;</span>
 								<a class="shop" style="color: white; font-size: 13px"
 									href="logout.do">로그아웃</a>
 								&emsp;
@@ -111,9 +136,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							</c:if>
 							<c:if test="${sessionScope.mode =='std' }">
-								<a href="getSchedulepro" style="font-size: 12px; font-style: italic;">시간표</a>
+								<a href="getSchedule" style="font-size: 12px; font-style: italic;">시간표</a>
 								&ensp; 
-								<a href="" style="font-size: 12px; font-style: italic;">설문조사</a>
+								<a href="#" onclick= "javascript:openpoll()"style="font-size: 12px; font-style: italic;">설문조사</a>
 							</c:if>
 
 							<c:if test="${sessionScope.mode =='admin' }">
@@ -136,7 +161,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="collapse navbar-collapse navbar-right"
 						id="bs-example-navbar-collapse-1">
 
-						<div class="top_nav_left">
+						<div class="top_nav_left" >
 							<nav class="cl-effect-15" id="cl-effect-15">
 								<ul>
 									<li class="active"><a href="home" data-hover="home">home</a></li>
@@ -183,7 +208,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="강의" class="dropdown-toggle"
 											data-toggle="dropdown"> 강의<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getClassapplyList">강의조회(교수)</a></li>
+												<li><a href="getClassList">강의조회(교수)</a></li>
 
 											</ul></li>
 										<li class="dropdown"><a href="services.html"
@@ -219,7 +244,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="강의" class="dropdown-toggle"
 											data-toggle="dropdown"> 강의<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getClassapplyList">강의조회</a></li>
+												<li><a href="getClassList">강의조회</a></li>
 												<li><a href="getClassapplyList">수강신청</a></li>
 
 											</ul></li>

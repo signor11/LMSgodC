@@ -110,15 +110,16 @@
                     			<c:if test="${m.MAJORNUM==param.majornum}">selected</c:if>> 
                     		${m.MAJORNAME}</option>
 							</c:forEach>
-							
+							</select>
+					</div>
 							<%-- <option value="${major.majornum}" selected>${major.majorname}</option> --%>
 							<!-- <option value="" selected hidden="">선택</option>
 							<option value="38000001">컴공</option>
 							<option value="38000002">국문</option>
 							<option value="38000003">기계</option>
 							<option value="38000004">예절</option> -->						
-							</select>
-                    </div>
+							
+                   
                  <div class="form-group" style="position:relative; top:20px;right:280px;">
                     <label class="col-sm-2 control-label">등록일</label>
                     <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:20px;"  value="${get_pro.hiredate}"/>         

@@ -18,9 +18,7 @@
 	src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <script type="text/javascript"></script>
 
-
              
-               
  <script>
 	$(document).ready(function() {
 
@@ -49,7 +47,7 @@
 
 							}  
 							 else if ($("#major").val() == "") {
-								alert("과목명을  꼭 선택하세요!");
+								alert("학과명을  꼭 선택하세요!");
 								$("#major").focus();
 
 							} else if ($("#hiredate").val() == "") {

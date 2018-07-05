@@ -10,7 +10,7 @@
 	function update_class(a, b) {
 		var check = confirm('과목 정보를 수정하시겠습니까?');
 		if (check == true) {
-			window.location.href = "./updateClass?classnum="+ a + "&majornum="+ b
+			window.location.href = "./updateClass?classnum="+ a 
 		}
 	}
 
@@ -33,8 +33,7 @@
 
 	<br>
 	<p align=right>
-		<a href="./insertClass"><button type="button"
-				class="btn btn-danger">등록</button></a>
+		<a href="./insertClass"><button type="button" class="btn btn-danger">등록</button></a>
 	</p>
 	<br>
 	<br>

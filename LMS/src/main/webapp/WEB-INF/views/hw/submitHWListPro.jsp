@@ -54,7 +54,11 @@
 		document.getElementById("dateField").setAttribute("min", today);
 	}
 </script>
+<style>
 
+	
+
+</style>
 
 </head>
 <body>
@@ -76,17 +80,17 @@
 		<form action="${a}" name="hwUpdate" method="post">
 			<input type="hidden" name="hwnum" value="${hw.hwnum}" /> 
 			<input type="hidden" name="classnum" value="${hw.classnum}" /> 
-			<p id="bst">과목명</p> 
+			<p class="bst">과목명</p> 
 			<input type="text"
-				name="classname" value="${cn.classname}" readonly="readonly">
-			<p id="bst">제목</p> 
+				name="classname" class="form" value="${cn.classname}" readonly="readonly">&emsp;&emsp;
+			<p class="bst">제목</p> 
 			<input type="text"
-				name="hwname" value="${hw.hwname}"> 
-				<p id="bst">제출기한</p> 
+				name="hwname" class="form" value="${hw.hwname}"> <br><br>
+				<p class="bst">제출기한</p> 
 				<input type="date"
 				name="applydate" value="${fn:substring(hw.applydate,0,10)}"
-				id="dateField" min="" onclick=" checkDay()"> <br>
-			<br> <p id="bst">내용</p><br>
+				id="dateField" class="form" min="" onclick=" checkDay()"> <br>
+			<br> <p class="bst">내용</p><br>
 			<br>
 			<textarea name="hwinfo" cols="85" rows="13" style="width: 100%;">${hw.hwinfo}</textarea>
 			<br>
@@ -124,9 +128,8 @@
 				<ul style="display: inline-block;">
 					<li>제출된 과제 확인</li>
 				</ul>
-
-
 			</form>
+			<br>
 		</div>
 		<table class="table table-hover">
 			<tr>
