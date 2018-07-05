@@ -52,7 +52,7 @@
 	<!-- 단건조회 -->
 	
 	<select id ="getClass" resultType="classVO" parameterType="String">
-			<![CDATA[
+			
 			SELECT		CLASSNUM,
 						CLASSNAME,
 						CREDIT,
@@ -61,7 +61,7 @@
 						CLASSTIME
 			FROM 		CLASS
 			WHERE 		CLASSNUM = #{classnum}
-			]]>
+			
 			
 	</select>		
 			
