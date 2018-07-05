@@ -20,17 +20,22 @@
 
              
  <script>
-	$(document).ready(function() {
+ function openprofessor() {
+		location.assign("./getProfessorList");
+	}	
+
+ 
+ $(document).ready(function() {
 
 		$("#btn_insert").click(	function() {
-
+			
 						 	var tel1_pattern = /(^01[016789]$)/;
 
 							//alert("ok");
 							if ($("#pwd").val() == "") {
 								alert("비밀번호를 꼭 입력하세요!");
 								$("#pwd").focus();
-
+							
 							}  else if ($("#name").val() == "") {
 								alert("이름을 꼭 입력하세요!");
 								$("#name").focus();
@@ -94,7 +99,7 @@
                     <div class="col-sm-10" >
                       <input type="text" name="professorphone" id="tel1" size="18"
 						maxlength="11" />
-						 <span class="help-block">숫자만 11자리</span>
+						 
                     </div>
                   </div>
                  
@@ -116,7 +121,7 @@
                 </div>
       			<div align="center">
       			  <input type="submit" id="btn_insert"value="등록">
-					<input type="reset" id="btn_cancel" value="취소"> 
+					<input type="reset" id="btn_cancel" onclick="javascript:openprofessor();"value="취소">
                 </div>
                 </form>
                 </div>

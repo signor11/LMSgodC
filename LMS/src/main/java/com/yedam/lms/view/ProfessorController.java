@@ -117,26 +117,26 @@ public class ProfessorController {
 			return "redirect:/getProfessorList";
 		}
 	
-		//엑셀출력(viewResolver)
-	/*	@RequestMapping("./professorExcelView")
+		/*//엑셀출력(viewResolver)
+		@RequestMapping("/professorExcelView")
 		public ModelAndView professorExcelView(ProfessorVO vo) {
 			List<Map<String, Object>> list = professorService.getProfessorList(vo);
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			
-			String[] header = {"professornum","professorname","majorname"};
+			String[] header = {"professornum","professorpw","professorname","majorname"};
 			map.put("filename", "excel_pro");
 			map.put("datas", list);
 			map.put("headers", header);
 			return new ModelAndView("commonExcelView", map);
-			}
-	*/
+			}*/
+	
 		
 		
 		//엑셀출력
 		@RequestMapping("/professorExcelCreate")
 		public void excelCreate(ProfessorVO vo, HttpServletResponse response) throws IOException{
-		/*response.setCharacterEncoding("utf-8");
-		PrintWriter out = response.getWriter();*/
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
 		//엑셀 wookbook 생성
 		Workbook wb = new HSSFWorkbook(); // xls 버전
 		CellStyle cs = wb.createCellStyle();
