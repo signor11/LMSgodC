@@ -39,7 +39,7 @@
 		<level value="debug" />
 	</logger>
 	<logger name="jdbc.resultsettable">
-		<level value="error" />
+		<level value="debug" />
 	</logger>
 	<!-- Root Logger -->
 	<root>

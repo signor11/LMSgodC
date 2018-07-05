@@ -13,7 +13,11 @@
              
                
  <script>
-	$(document).ready(function() {
+ function openprofessor() {
+		location.assign("./getProfessorList");
+	}	
+ 
+ $(document).ready(function() {
 
 		$("#btn_insert").click(	function() {
 
@@ -23,35 +27,38 @@
 							if ($("#id").val().length != 8) {
 								alert("아이디 8자리를 꼭 입력하세요!");
 								$("#id").focus();
+								
 							} else if ($("#pwd").val() == "") {
 								alert("비밀번호를 꼭 입력하세요!");
 								$("#pwd").focus();
+								
 
 							}  else if ($("#name").val() == "") {
 								alert("이름을 꼭 입력하세요!");
 								$("#name").focus();
+								
 
 							} else if ($("#tel1").val() == "") {
 								alert("전화번호를 입력하세요!");
 								$("#tel1").focus();
-
+								
 							} else if ($("#tel1").val().length != 11) {
 
 								alert("전화번호를 11개의 숫자로 꼭 입력하세요!");
 								$("#tel1").val("");
 								$("#tel1").focus();
-
+								
 							}  
 							 else if ($("#majornum").val() == "") {
 								alert("담당과목을  꼭 선택하세요!");
 								$("#majornum").focus();
-
+								
 							} else if ($("#hiredate").val() == "") {
 								alert("등록일을  꼭 입력하세요!");
 								$("#hiredate").focus();
-
+								
 							} else {
-								alert("등록 완료");
+								alert("수정 완료");
 							} 
 					});
 		
@@ -110,23 +117,24 @@
                     			<c:if test="${m.MAJORNUM==param.majornum}">selected</c:if>> 
                     		${m.MAJORNAME}</option>
 							</c:forEach>
-							
+							</select>
+					</div>
 							<%-- <option value="${major.majornum}" selected>${major.majorname}</option> --%>
 							<!-- <option value="" selected hidden="">선택</option>
 							<option value="38000001">컴공</option>
 							<option value="38000002">국문</option>
 							<option value="38000003">기계</option>
 							<option value="38000004">예절</option> -->						
-							</select>
-                    </div>
+							
+                   
                  <div class="form-group" style="position:relative; top:20px;right:280px;">
                     <label class="col-sm-2 control-label">등록일</label>
                     <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:20px;"  value="${get_pro.hiredate}"/>         
                 </div>
       			
       			<div align="center">
-      			  <input type="submit" id="btn_insert" value="수정">
-					<input type="reset" id="btn_cancel" value="취소">
+      			  <input type="submit" id="btn_insert"value="수정">
+					<input type="reset" id="btn_cancel" onclick="javascript:openprofessor();"value="취소">
                 </div>
                 </div>
                 </form>

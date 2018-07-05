@@ -21,6 +21,7 @@ public interface StudentService {
 		
 		//삭제
 		public void deleteStudent(StudentVO vo);
+		
 		//로그인 체크
 		public StudentVO getLogin(StudentVO vo);
 		
@@ -30,7 +31,7 @@ public interface StudentService {
 		//건수조회
 		public int studentCount(StudentSearchVO vo);
 		
-		
-		
+		//로그인 체크
+		public int checklogin(StudentVO vo);
 		
 }

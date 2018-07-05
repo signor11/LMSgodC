@@ -37,7 +37,9 @@ public class ProfessorDAO {
 
 	public int professorCount(ProfessorsearchVO vo) {
 		// TODO Auto-generated method stub
-		return mybatis.selectOne("com.yedam.lms.smp.impl.ProfessorDAO.professorCount", vo);
+		return mybatis.selectOne("com.yedam.lms.impl.ProfessorDAO.professorCount", vo);
 	}
-
+	public List<Map<String,Object>> classProfessor() {
+		return mybatis.selectList("com.yedam.lms.impl.ProfessorDAO.classProfessor");
+	}
 }

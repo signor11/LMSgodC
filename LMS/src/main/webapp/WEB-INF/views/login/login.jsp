@@ -20,6 +20,8 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+
 <body>
 
 
@@ -42,15 +44,18 @@
 				
 					<div class = "w3-center">
 				
-					<label> id</label> 
+						<label> id</label> 
 							<input class="w3-input w3-border" type="text" placeholder="id" 
 								name="studentnum" maxlength="15">
 							<label> password</label> <input
 								class="w3-input w3-border" type="password" placeholder="password" 
 								name="studentpw"  maxlength="20" required>
-							<%-- 	<c:if test="">
+							<%-- <c:if test="">
 								<a>아이디 또는 비밀번호가 맞지 않습니다.</a>
-								</c:if> --%>
+								</c:if>  --%>
+		
+
+
 					</div>
 					<br>
 					<button class="w3-button w3-dark-grey" type="submit" onclick="javascript:logincheck()">Login</button>
@@ -58,7 +63,7 @@
 			</div>
 		</div>
 
-	</header>
+
 
 
 

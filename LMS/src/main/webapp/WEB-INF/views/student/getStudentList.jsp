@@ -21,7 +21,13 @@
 		if (check == true) {
 			window.location.href = "./deleteStudent?studentnum="+a
 	}
+	
 	}
+		
+	function excel(){
+		window.location.href = "./stuExcelView?majornum="+document.majorform.majornum.value
+	}
+	
 	
 </script>
 </head>
@@ -33,16 +39,15 @@
 	<br>
 	<br>
 	<p align=right>
-		<a href="./insertStudent"><button type="button" class="btn btn-danger" >등록</button></a>
+		<a href="./insertStudent"><button type="button" class="btn btn-danger" >등록</button></a>&emsp;&emsp;
+		<a href="#" onclick="excel()"><button type="button" class="btn btn-danger" >엑셀</button></a>
 	</p>
 	<br>
 	<br>
 	
 		<div style="display: inline-block;">
 		<form action="./getStudentList" name="majorform">
-		<input type="text" value="학과명" readonly="readonly"
-			style="padding: 10px; display: inline-block; text-align: center;"
-			size="5" class="btn btn-danger">
+		<p class="bst">학과명</p>
 			<select name="majornum" style="padding: 10px; text-align: center;" onchange="document.majorform.submit()">
 			<option value="">전체</option>
 			<c:forEach items="${major}" var="m">

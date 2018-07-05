@@ -20,121 +20,111 @@ import com.yedam.lms.classs.ClassService;
 import com.yedam.lms.classs.ClassVO;
 import com.yedam.lms.classs.ClassapplyVO;
 import com.yedam.lms.smp.ProfessorVO;
+import com.yedam.lms.smp.ProfessorsearchVO;
 import com.yedam.lms.web.Paging;
 
 @Controller
 public class ClassController {
-	
+
 	@Autowired
 	ClassService classService;
-	
-	//등록폼
-	@RequestMapping(value="/insertClass", method = RequestMethod.GET)
-	String insertClassForm(HttpServletRequest request, ClassVO vo)
-	{
-		request.setAttribute("class", ClassService.getClassList(vo));
-		
-		return "admin/adminclass/getClassList";
-		
-	}
-	// 등록처리
-		// / localhost 밑 web 아래
-		@RequestMapping(value = "/insertClass", method = RequestMethod.POST)	
-		public String insertClass(@ModelAttribute("vo") ClassVO vo, HttpServletRequest request)
 
-				throws IllegalStateException, IOException {
-			System.out.println(vo);		
-			ClassService.insertClass(vo);
-			return "redirect:/getClassList";
-		}
-	@RequestMapping("/updateClass")
-	public String updateClass(ClassVO vo, HttpSession session, HttpServletResponse response)
-			throws IOException {
-		//한글 인코딩
-		response.setContentType("text/html; charset=UTF-8");
-		String stid =(String)session.getAttribute("loginvo");
-		PrintWriter out = response.getWriter();
-		vo.setStudentnum(stid);
-		classService.updateClass(vo);
-		
-		return "admin/";
-		
+	@RequestMapping("/getClassList2")
+	public ModelAndView getClassList2(ClassVO vo, String classnum) {
+
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("List", classService.getClassList2(classnum));
+		mv.setViewName("admin/adminclass/getClassList2");
+		return mv;
 	}
-	
-	
-	
-	
+
+	// 등록 및 수정 폼
+	@RequestMapping(value = "/insertClassForm", method = RequestMethod.GET)
+	String insertClassForm(HttpServletRequest request, ClassVO vo, String classnum) {
+		request.setAttribute("class", classService.getClassList2(classnum));
+		request.setAttribute("c_list", classService.classProfessor());
+		return "admin/adminclass/insertClass";
+
+	}
+
+	// 등록처리
+	//localhost 밑 web 아래
+	@RequestMapping(value = "/insertClass", method = RequestMethod.POST)
+	public String insertClass(ClassVO vo) {
+		classService.insertClass(vo);
+		return "redirect:/getClassList2";
+	}
+
+	// 수정폼
+	@RequestMapping(value = "/insertClass", method = RequestMethod.GET)
+	String updateClass(ClassVO vo, HttpServletRequest request, String classnum) {
+		
+		request.setAttribute("get_class", classService.getClassList2(classnum));
+		return "admin/adminclass/updateClass";
+
+	}
+
+	// 수정 처리
+	@RequestMapping(value = "/updateClass", method = RequestMethod.POST)
+	String updateClass(@ModelAttribute("vo") ClassVO vo) {
+		classService.updateClass(vo);
+		return "redirect:/getClassList2";
+	}
+
 	@RequestMapping("/deleteClass")
 	@ResponseBody
 	public String deleteClass(ClassVO vo) {
-		classService.deleteClass(vo);
-		//ajax json구조로 리턴해줌
+		classService.deleteClass(vo.getClassnum());
+		// ajax json구조로 리턴해줌
 		return "{\"result\":true}";
 	}
-	
-	
-	/*@RequestMapping("/getClassapplyList")
-	public ModelAndView getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session, Paging paging,ClassVO vo3	) {
 
-		ModelAndView mv = new ModelAndView();
-		
-		//페이지 번호 파라미터
-		if(paging.getPage() == null)
-			paging.setPage(1);
-		
-		String stid=(String)session.getAttribute("loginvo");
-		vo.setStudentnum(stid);
-		//페이징 하기 위한 start,end 조건 검색
-		//page1 ==> 1~5 2 ==> 6~10
-		vo2.setStart(paging.getStart());
-		vo2.setEnd(paging.getEnd());
-		//전체 건수
-		paging.setTotalRecord(classService.getCountclass(vo2));
-		
-		
-		//////결과를 모델에 저장
-		
-		mv.addObject("paging",paging);
-		//수강신청내역 조회
-		mv.addObject("classapplyList",classService.getClassapplyList(vo));
-		//수강신청목록 조회
-		mv.addObject("classlist", classService.getClassList(vo2));
-		
-		//뷰페이지 지정
-		mv.setViewName("classapply/applylecture");
-		return mv;
-	}
-	@RequestMapping("/getClassList")
-	public ModelAndView getClassList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2, HttpSession session, Paging paging) {
-		
-ModelAndView mv = new ModelAndView();
-		
-		//페이지 번호 파라미터
-		if(paging.getPage() == null)
-			paging.setPage(1);
-		
-		String stid=(String)session.getAttribute("loginvo");
-		vo.setStudentnum(stid);
-		//페이징 하기 위한 start,end 조건 검색
-		//page1 ==> 1~5 2 ==> 6~10
-		vo2.setStart(paging.getStart());
-		vo2.setEnd(paging.getEnd());
-		//전체 건수
-		paging.setTotalRecord(classService.getCountclass(vo2));
-		
-		
-		//////결과를 모델에 저장
-		
-		mv.addObject("paging",paging);
-		
-		//수강신청목록 조회
-		mv.addObject("classlist", classService.getClassList(vo2));
-		
-		//뷰페이지 지정
-		mv.setViewName("classs/searchlecture");
-		return mv;
-		
-	}*/
-	
-	
+	/*
+	 * @RequestMapping("/getClassapplyList") public ModelAndView
+	 * getClassapplyList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO
+	 * vo2, HttpSession session, Paging paging,ClassVO vo3 ) {
+	 * 
+	 * ModelAndView mv = new ModelAndView();
+	 * 
+	 * //페이지 번호 파라미터 if(paging.getPage() == null) paging.setPage(1);
+	 * 
+	 * String stid=(String)session.getAttribute("loginvo"); vo.setStudentnum(stid);
+	 * //페이징 하기 위한 start,end 조건 검색 //page1 ==> 1~5 2 ==> 6~10
+	 * vo2.setStart(paging.getStart()); vo2.setEnd(paging.getEnd()); //전체 건수
+	 * paging.setTotalRecord(classService.getCountclass(vo2));
+	 * 
+	 * 
+	 * //////결과를 모델에 저장
+	 * 
+	 * mv.addObject("paging",paging); //수강신청내역 조회
+	 * mv.addObject("classapplyList",classService.getClassapplyList(vo)); //수강신청목록
+	 * 조회 mv.addObject("classlist", classService.getClassList(vo2));
+	 * 
+	 * //뷰페이지 지정 mv.setViewName("classapply/applylecture"); return mv; }
+	 * 
+	 * @RequestMapping("/getClassList") public ModelAndView
+	 * getClassList(HttpServletRequest request,ClassapplyVO vo,ClassSearchVO vo2,
+	 * HttpSession session, Paging paging) {
+	 * 
+	 * ModelAndView mv = new ModelAndView();
+	 * 
+	 * //페이지 번호 파라미터 if(paging.getPage() == null) paging.setPage(1);
+	 * 
+	 * String stid=(String)session.getAttribute("loginvo"); vo.setStudentnum(stid);
+	 * //페이징 하기 위한 start,end 조건 검색 //page1 ==> 1~5 2 ==> 6~10
+	 * vo2.setStart(paging.getStart()); vo2.setEnd(paging.getEnd()); //전체 건수
+	 * paging.setTotalRecord(classService.getCountclass(vo2));
+	 * 
+	 * 
+	 * //////결과를 모델에 저장
+	 * 
+	 * mv.addObject("paging",paging);
+	 * 
+	 * //수강신청목록 조회 mv.addObject("classlist", classService.getClassList(vo2));
+	 * 
+	 * //뷰페이지 지정 mv.setViewName("classs/searchlecture"); return mv;
+	 * 
+	 * }
+	 */
+
 }

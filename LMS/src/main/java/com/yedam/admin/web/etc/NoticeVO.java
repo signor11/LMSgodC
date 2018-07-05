@@ -8,8 +8,13 @@ public class NoticeVO {
 	private String title;
 	private String writer;
 	private String content;
-	private String regDate;
+	private String regdate;
 	private int cnt;
+	private int first;
+	private int last;
+	private String uploadfile;//data에 들어갈 파일
+	//멀티 파트 파일
+	MultipartFile tempuploadfile;//임시
 	
 	public String getSeq() {
 		return seq;
@@ -35,11 +40,12 @@ public class NoticeVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getRegDate() {
-		return regDate;
+	
+	public String getRegdate() {
+		return regdate;
 	}
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
+	public void setRegdate(String regdate) {
+		this.regdate = regdate;
 	}
 	public int getCnt() {
 		return cnt;
@@ -47,11 +53,38 @@ public class NoticeVO {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+	public String getUploadfile() {
+		return uploadfile;
+	}
+	public void setUploadfile(String uploadfile) {
+		this.uploadfile = uploadfile;
+	}
+	public MultipartFile getTempuploadfile() {
+		return tempuploadfile;
+	}
+	public void setTempuploadfile(MultipartFile tempuploadfile) {
+		this.tempuploadfile = tempuploadfile;
+	}
+	
+	public int getFirst() {
+		return first;
+	}
+	public void setFirst(int first) {
+		this.first = first;
+	}
+	public int getLast() {
+		return last;
+	}
+	public void setLast(int last) {
+		this.last = last;
+	}
 	@Override
 	public String toString() {
 		return "NoticeVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content
-				+ ", regDate=" + regDate + ", cnt=" + cnt + "]";
+				+ ", regdate=" + regdate + ", cnt=" + cnt + ", uploadfile=" + uploadfile + ", tempuploadfile="
+				+ tempuploadfile + "]";
 	}
+	
 	
 	
 	

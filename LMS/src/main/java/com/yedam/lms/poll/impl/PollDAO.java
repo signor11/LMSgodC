@@ -1,5 +1,7 @@
 package com.yedam.lms.poll.impl;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,9 +27,12 @@ public class PollDAO {
 			return mybatis.selectOne("com.yedam.lms.poll.impl.PollDAO.getPoll",pollid);
 		}
 		//설문 중복 확인
-		public PollVO checkPoll(PollVO vo) {
+		public int checkPoll(PollVO vo) {
 			return mybatis.selectOne("com.yedam.lms.poll.impl.PollDAO.checkPoll",vo);
 		}
-		
+		//설문 문항별 건수 확인
+		public List<PollVO> countPoll(PollVO vo) {
+			return mybatis.selectList("com.yedam.lms.poll.impl.PollDAO.countPoll",vo);
+		}
 
 }

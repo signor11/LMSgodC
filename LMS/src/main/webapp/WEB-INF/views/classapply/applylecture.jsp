@@ -30,21 +30,19 @@
 	</script>
 </head>
 <body>
-
+<br><br>
 <div align = center>
  	<div>
-	<h1>
-			수강신청<br> <br>
-		</h1>
+	<h3>수강신청	</h3>
 	</div>
+	<br><br><br>
 	<div  style="display: inline-block;">
 	<form name =searchFrm method="post" action="">
 	<div>
 		<span> 과목번호 </span> <span> 
-		<input type="text" name="classnum" size="40" placeholder="과목번호를 입력해주세요.">
+		<input type="text" name="classnum" size="40" placeholder="과목번호를 입력해주세요." class="form">
 		</span> 
-			<input type="submit" value="조회" class="btn btn-danger"
-				/>
+			<input type="submit" value="조회" class="btn btn-danger"	/>
 
 		 <br> <br>
 	</div>
@@ -98,8 +96,7 @@
 	<br>
 	<hr>
 	<br>
-	<br>
-	<br>
+	
 	<form name = form1 method=post>
 	<div>● 수강정정</div>
 	<br>
@@ -122,8 +119,7 @@
 				<td>${classapply.professorname}</td>
 				<td>${classapply.credit}</td>
 				<td style="text-align: center;">
-					<button type="button" onclick="delcheck(${classapply.classapplynum});"
-						class="btn btn-danger">삭제</button>
+					<button type="button" onclick="delcheck('${classapply.classapplynum}');"	class="btn btn-danger">삭제</button>
 				</td>
 
 			</tr>

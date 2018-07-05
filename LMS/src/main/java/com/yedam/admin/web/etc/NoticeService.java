@@ -1,4 +1,4 @@
-package com.yedam.admin.web.etc;
+ package com.yedam.admin.web.etc;
 
 import java.util.List;
 import java.util.Map;
@@ -14,9 +14,11 @@ public interface NoticeService {
 	//입력
 	public void insertNotice(NoticeVO vo);
 	
-	/*//수정
+	//수정
 	public void updateNotice(NoticeVO vo);
 	
 	//삭제 
-	public void deleteNotice(NoticeVO vo);	*/
+	public void deleteNotice(String seq);
+
+	public int getCount(NoticeVO vo);	
 }

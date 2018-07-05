@@ -26,8 +26,11 @@
 </script>
 </head>
 <body>
+<br>
+<br><br>
 <div align="center" id="printarea">
 <h3>학기 시간표</h3>
+<br><br><br>
 <form name=scheduleFrm method="post" action="">
 <table border="1" class="table table-hover" id="table1">
 <tr>
@@ -54,18 +57,20 @@
 </c:forEach>
 </table>
 <br>
+
 <button id="printbtn" type="button" class="btn btn-danger" onclick="javascript:openprint();">시간표 출력</button>
 <button id="openbtn" type="button" class="btn btn-danger" onclick="javascript:content_print();">출력하기</button>
-
-
 <script>
-	if (document.location.pathname == '${pageContext.request.contextPath}/getSchedule') {
-		 $("#openbtn").hide()
+var where = window.location.pathname;
+	if (where=='/LMS/getSchedule') {
+		 $("#openbtn").hide();
 		
 	}else {
-		$("#printbtn").hide()
+		$("#printbtn").hide();
 	}
 </script>
+
+
 
 <br><br>
 </form>

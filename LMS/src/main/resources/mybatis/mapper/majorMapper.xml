@@ -33,6 +33,9 @@
 
 <!-- 등록 -->
 	<insert id="insertMajor" parameterType="majorVO">
+		<selectKey keyProperty="majornum" resultType="string" order="BEFORE">
+			SELECT MAX(MAJORNUM)+1 FROM MAJOR
+		</selectKey>
 		INSERT INTO MAJOR(
 							MAJORNUM,
 							MAJORNAME
@@ -44,5 +47,10 @@
 		)
 		
 	</insert>
+	
+	<!-- 건수 조회 -->
+	<select id="majorCount" resultType="integer">
+		SELECT COUNT(*) FROM MAJOR			
+	</select>
 
 </mapper>

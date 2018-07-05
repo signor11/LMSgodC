@@ -10,7 +10,8 @@
 
 </head>
 <body>
-	<form action="./insertPoll" method="post">
+<br>
+	<form action="./insertPoll" onsubmit="return insertcheck();" method="post">
 		<div align=center>
 			<div>
 				<h1>
@@ -30,21 +31,22 @@
 
 			<table border='0' cellspacing='0' cellpadding='0'>
 				<tr>
-					<td><input type="radio" name="answer1" value="1" />1. 매우 그렇지
+					<td><input type="radio" id="answer1" name="answer1" value="1" />1. 매우 그렇지
 						않다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer1" value="2" />2. 그렇지 않다</td>
+					<td><input type="radio" id="answer1" name="answer1" value="2" />2. 그렇지 않다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer1" value="3" />3. 보통이다</td>
+					<td><input type="radio" id="answer1"  name="answer1" value="3" />3. 보통이다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer1" value="4" />4. 그렇다</td>
+					<td><input type="radio" id="answer1"  name="answer1" value="4" />4. 그렇다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer1" value="5" />5. 매우 그렇다</td>
+					<td><input type="radio" id="answer1" name="answer1" value="5" />5. 매우 그렇다</td>
 				</tr>
+				
 			</table>
 			<br>
 			<hr>
@@ -61,21 +63,22 @@
 
 			<table border='0' cellspacing='0' cellpadding='0'>
 				<tr>
-					<td><input type="radio" name="answer2" value="1" /> 1. 매우 그렇지
+					<td><input type="radio" id="answer2" name="answer2" value="1" /> 1. 매우 그렇지
 						않다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer2" value="2" />2. 그렇지 않다</td>
+					<td><input type="radio" id="answer2"  name="answer2" value="2" />2. 그렇지 않다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer2" value="3" />3. 보통이다</td>
+					<td><input type="radio" id="answer2"  name="answer2" value="3" />3. 보통이다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer2" value="4" />4. 그렇다</td>
+					<td><input type="radio" id="answer2"  name="answer2" value="4" />4. 그렇다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer2" value="5" />5. 매우 그렇다</td>
+					<td><input type="radio" id="answer2"  name="answer2" value="5" />5. 매우 그렇다</td>
 				</tr>
+				
 			</table>
 			<br>
 			<hr>
@@ -92,24 +95,52 @@
 
 			<table border='0' cellspacing='0' cellpadding='0'>
 				<tr>
-					<td><input type="radio" name="answer3" value="1" />1. 매우 그렇지 않다</td>
+					<td><input type="radio" id="answer3" name="answer3" value="1" />1. 매우 그렇지 않다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer3" value="2" />2. 그렇지 않다</td>
+					<td><input type="radio" id="answer3"  name="answer3" value="2" />2. 그렇지 않다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer3" value="3" />3. 보통이다</td>
+					<td><input type="radio" id="answer3"  name="answer3" value="3" />3. 보통이다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer3" value="4" />4. 그렇다</td>
+					<td><input type="radio" id="answer3"  name="answer3" value="4" />4. 그렇다</td>
 				</tr>
 				<tr>
-					<td><input type="radio" name="answer3" value="5" />5. 매우 그렇다</td>
+					<td><input type="radio" id="answer3"  name="answer3" value="5" />5. 매우 그렇다</td>
 				</tr>
+				
 			</table>
 			<br>
 			<hr>
-			<br> <input type="submit" value="저장">
+			<br> <button type="submit" class="btn btn-danger">저장</button>
 	</form>
+	<script>
+	function insertcheck(){
+				var Category1 = $('#answer1');
+				 
+				if($(':radio[name="answer1"]:checked').length < 1){
+				    alert('1번 문항이 빠졌습니다');                        
+				    return false;
+				}
+		
+				var Category2 = $('#answer2');
+				 
+				if($(':radio[name="answer2"]:checked').length < 1){
+				    alert('2번 문항이 빠졌습니다');                        
+				    return false;
+				}
+
+				var Category3 = $('#answer3');
+				 
+				if($(':radio[name="answer3"]:checked').length < 1){
+				    alert('3번 문항이 빠졌습니다');                        
+				    return false;
+				}
+				return true;
+	}
+</script>
+	<br>
+	<br>
 </body>
 </html>

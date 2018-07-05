@@ -34,6 +34,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
 	rel='stylesheet' type='text/css'>
 
+	<!-- js -->
+
+	<script type="text/javascript" src="./resources/web/js/jquery.min.js"></script>
 <script>
 	//새창 열기
 	function openprint() {
@@ -42,7 +45,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
 
 	}
+
+	function openpoll(){
+		window.open("insertPollForm","설문 조사","width=800, height = 800")
+	}
+
+
+	
 </script>
+<style>
+		.bst { 
+    			color: #fff;
+    			background-color: #d2322d;
+   				border-color: #ac2925;
+   				display: inline-block;
+			    padding: 6px 12px;
+			    margin-bottom: 0;
+			    font-size: 14px;
+			    font-weight: normal;
+			    line-height: 1.42857143;
+			    text-align: center;
+			    white-space: nowrap;
+			    vertical-align: middle;
+			    -webkit-user-select: none;
+			    -moz-user-select: none;
+			    -ms-user-select: none;
+			    user-select: none;
+			    background-image: none;
+			    border: 1px solid transparent;
+			    border-radius: 4px;
+    			}
+    			
+    	.form{
+			
+		    height: 34px;
+		    padding: 6px 12px;
+		    font-size: 14px;
+		    line-height: 1.428571429;
+		    color: #555;
+		    vertical-align: middle;
+		    background-color: #fff;
+		    background-image: none;
+		    border: 1px solid #ccc;
+		    border-radius: 4px;
+		    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+		    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+		    -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+		    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	
+	}		
+</style>
 
 </head>
 
@@ -68,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<ul>
 
 				 			<c:if test="${!empty sessionScope.stdname}">
-								<span style="font-size: 13px">${sessionScope.stdname}님환영합니다.&emsp;&nbsp;</span>
+								<span style="font-size: 13px">${sessionScope.stdname} 님 환영합니다.&emsp;&nbsp;</span>
 								<a class="shop" style="color: white; font-size: 13px"
 									href="logout.do">로그아웃</a>
 								&emsp;
@@ -86,9 +138,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							</c:if>
 							<c:if test="${sessionScope.mode =='std' }">
-								<a href="getSchedulepro" style="font-size: 12px; font-style: italic;">시간표</a>
+								<a href="getSchedule" style="font-size: 12px; font-style: italic;">시간표</a>
 								&ensp; 
-								<a href="" style="font-size: 12px; font-style: italic;">설문조사</a>
+								<a href="#" onclick= "javascript:openpoll()"style="font-size: 12px; font-style: italic;">설문조사</a>
 							</c:if>
 
 							<c:if test="${sessionScope.mode =='admin' }">
@@ -111,7 +163,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="collapse navbar-collapse navbar-right"
 						id="bs-example-navbar-collapse-1">
 
-						<div class="top_nav_left">
+						<div class="top_nav_left" >
 							<nav class="cl-effect-15" id="cl-effect-15">
 								<ul>
 									<li class="active"><a href="home" data-hover="home">home</a></li>
@@ -158,7 +210,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="강의" class="dropdown-toggle"
 											data-toggle="dropdown"> 강의<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getClassapplyList">강의조회(교수)</a></li>
+												<li><a href="getClassList">강의조회(교수)</a></li>
 
 											</ul></li>
 										<li class="dropdown"><a href="services.html"
@@ -194,7 +246,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="강의" class="dropdown-toggle"
 											data-toggle="dropdown"> 강의<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getClassapplyList">강의조회</a></li>
+												<li><a href="getClassList">강의조회</a></li>
 												<li><a href="getClassapplyList">수강신청</a></li>
 
 											</ul></li>
@@ -202,8 +254,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="과제" class="dropdown-toggle"
 											data-toggle="dropdown"> 과제<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="getHWList">과제조회</a></li>
-												<li><a href="getHWListPro">과제조회(교수)</a></li>
+												<li><a href="adminHW">과제조회(교수)</a></li>
 
 											</ul></li>
 
@@ -320,7 +371,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //Modal2 -->
-	</div>
 	<!--// header_top -->
 	<!--about-->
 
@@ -334,12 +384,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</p>
 			</div>
 		</div>
-		</div>
 
 	</footer>
 
-	<!-- js -->
-	<script type="text/javascript" src="./resources/web/js/jquery.min.js"></script>
 
 	<!--search-bar-->
 	<script src="./resources/web/js/search.js"></script>

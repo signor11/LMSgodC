@@ -40,4 +40,11 @@ public class MajorImpl implements MajorService {
 		dao.insertMajor(vo);
 	}
 
+	@Override
+	public int majorCount(MajorVO vo) {
+		return dao.majorCount(vo);
+	}
+
+	
+
 }

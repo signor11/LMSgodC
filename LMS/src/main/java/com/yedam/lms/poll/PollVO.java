@@ -9,12 +9,21 @@ public class PollVO {
 	private String questionnum;
 	private String answer;
 	private String studentnum;
+	private String answercnt;
 	
 	
 	
 	
 	
 	
+	
+	
+	public String getAnswercnt() {
+		return answercnt;
+	}
+	public void setAnswercnt(String answercnt) {
+		this.answercnt = answercnt;
+	}
 	public String getStudentnum() {
 		return studentnum;
 	}
@@ -42,7 +51,7 @@ public class PollVO {
 	@Override
 	public String toString() {
 		return "PollVO [pollid=" + pollid + ", questionnum=" + questionnum + ", answer=" + answer + ", studentnum="
-				+ studentnum + "]";
+				+ studentnum + ", answercnt=" + answercnt + "]";
 	}
 	
 	
