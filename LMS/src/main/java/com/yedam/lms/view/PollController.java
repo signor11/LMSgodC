@@ -27,6 +27,7 @@ public class PollController {
 	
 	@RequestMapping("/insertPollForm")
 	public String insertPollForm(@RequestParam Map<String,String> param, HttpServletResponse response,HttpSession session) throws IOException {
+			
 			return "popup/poll/insertPoll";
 		
 			
