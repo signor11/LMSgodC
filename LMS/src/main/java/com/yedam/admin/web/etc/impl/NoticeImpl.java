@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.yedam.admin.web.etc.NoticeSearchVO;
 import com.yedam.admin.web.etc.NoticeService;
 import com.yedam.admin.web.etc.NoticeVO;
 
@@ -23,6 +24,11 @@ public class NoticeImpl implements NoticeService{
 	@Override
 	public void insertNotice(NoticeVO vo) {
 		dao.insertNotice(vo);
+	}
+	
+	@Override
+	public int getCount(NoticeVO vo) {
+		return dao.getCount(vo);
 	}
 
 	@Override

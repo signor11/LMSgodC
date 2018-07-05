@@ -16,6 +16,7 @@
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
 	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/upload/**" location="/upload/" />
 
 	<bean p:order="1"
 		class="org.springframework.web.servlet.view.BeanNameViewResolver"/>
