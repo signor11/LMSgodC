@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.yedam.admin.web.etc.NoticeSearchVO;
 import com.yedam.admin.web.etc.NoticeService;
 import com.yedam.admin.web.etc.NoticeVO;
 
@@ -37,7 +38,8 @@ public class HomeController {
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
 		
 		String formattedDate = dateFormat.format(date);
-		
+		vo.setFirst(1);
+		vo.setLast(1);
 		model.addAttribute("no",noticeService.getNoticeList(vo).get(0));
 		model.addAttribute("serverTime", formattedDate );
 		

@@ -6,11 +6,19 @@
 	
 	<!-- 목록 조회 -->
 	<select id="getNoticeList" resultType="map">
+		SELECT a.* FROM(SELECT ROWNUM rn,b.* FROM(
 		SELECT SEQ, TITLE, WRITER, CONTENT, REGDATE, CNT
 		FROM NOTICE
-		ORDER BY SEQ DESC
+		ORDER BY REGDATE DESC)b)a
+		WHERE rn BETWEEN #{first} AND #{last}
+		
 	</select>
 	
+	<!-- 전체 갯수 카운트 -->
+	<select id="getCount" resultType="int">
+		SELECT COUNT(*) FROM NOTICE
+	</select>
+
 	<!-- 단건 조회 -->
 	<select id="getNotice" resultType="noticeVO">
 		SELECT SEQ, TITLE, WRITER, CONTENT, REGDATE, CNT
@@ -40,6 +48,9 @@
 		SET TITLE=#{title},
 			CONTENT=#{content},
 			WRITER=#{writer}
+		<if test = "uploadfile != null and uploadfile !=''">
+			,UPLOADFILE=#{uploadfile}	
+		</if>
 		WHERE SEQ=#{seq} 
 	</update>
 	
@@ -48,12 +59,5 @@
 		delete from notice
 		where seq = #{seq}
 	</delete>
-	<!-- 	<select id="getBoardList" resultType="map">
-		SELECT a.* FROM(SELECT ROWNUM rn,b.* FROM(
-		SELECT seq, title, writer, content, regdate, cnt 
-		 FROM board
-		 )b)a
-		 where rn between #{first} and #{last}
-	</select> -->
 	
 </mapper>

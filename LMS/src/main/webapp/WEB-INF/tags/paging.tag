@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!-- 학생 및 교수 페이지 -->
+
 <c:forEach begin="${paging.startPage}" end="${paging.endPage}" var="i">
 	<c:if test="${i != paging.page}">
 		<a href="javascript:doList(${i})">${i}</a>
@@ -11,6 +12,5 @@
 		${i}
 	</c:if>
 </c:forEach>
-
 
 

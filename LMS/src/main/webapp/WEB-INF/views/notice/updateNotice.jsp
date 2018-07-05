@@ -58,6 +58,12 @@
 					<textarea name = "content" id = "content">${no.content}</textarea><br>
 					</td>
 				</tr>
+				<tr>
+					<th height="23">첨부파일</th>
+					<td colspan="5">
+					<input type="file" name="tempuploadfile" value = "${no.uploadfile}">
+					</td>
+				</tr>
 			</table>
 		<button type="submit" class="btn btn-default">수정</button>
 		<button id = "deletebtn" class="btn btn-default" onclick="delcheck(${no.seq});">삭제</button>

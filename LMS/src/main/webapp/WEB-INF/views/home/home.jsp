@@ -80,6 +80,9 @@
 						<div class="form-group" id="content" name="content">
 							${no.CONTENT}
 						</div>
+						<c:if test = "${no.UPLOADFILE != null}">
+							<img src = "./upload/${no.UPLOADFILE}">
+						</c:if>
 					</div>
 					<div class="modal-footer">
 						<label><input type="checkbox" name="todayChk" onclick="javascript:fnClose();"> <span>오늘 하루 이 창을열지 않음</span></label>
