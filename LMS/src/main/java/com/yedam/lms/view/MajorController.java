@@ -52,7 +52,7 @@ public class MajorController {
 
 	//학과 수정 및 등록폼
 	@RequestMapping(value = "/insertMajor", method = RequestMethod.GET)
-	String insertMajorForm(HttpServletRequest request, @RequestParam String majornum) {
+	String insertMajorForm(HttpServletRequest request, @RequestParam(defaultValue="0", required=false) String majornum) {
 		request.setAttribute("maj", majorService.getMajor(majornum));
 		return "admin/major/insertMajor";
 	}
