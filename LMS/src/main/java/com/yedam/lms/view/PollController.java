@@ -27,17 +27,29 @@ public class PollController {
 	
 	@RequestMapping("/insertPollForm")
 	public String insertPollForm(@RequestParam Map<String,String> param, HttpServletResponse response,HttpSession session) throws IOException {
-			
-			return "popup/poll/insertPoll";
+		//한글 인코딩
+		response.setContentType("text/html; charset=UTF-8");
+		String stdnum = (String)session.getAttribute("loginvo");
+		PollVO vo = new PollVO();
+		vo.setStudentnum(stdnum);
 		
-			
+		PrintWriter out = response.getWriter();
+		int r = pollService.checkPoll(vo);
+		if(r==0) {
+			return "popup/poll/insertPoll";
+		}else {
+			out.print("<script>alert('설문 조사 중복');window.close();</script>");
+			return null; 
+		}
 	}
 	@RequestMapping("/insertPoll")
 	public String insertPoll(@RequestParam Map<String,String> param, HttpServletResponse response,HttpSession session) throws IOException {
+		//한글 인코딩
+		response.setContentType("text/html; charset=UTF-8");
 		String stdnum = (String)session.getAttribute("loginvo");
 		pollService.insertPoll(param,stdnum);
 		PrintWriter out = response.getWriter();
-		out.print("<script>window.close();</script>");
+		out.print("<script>alert('설문완료');window.close();</script>");
 		return null;
 		
 			

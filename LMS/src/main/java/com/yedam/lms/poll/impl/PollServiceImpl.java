@@ -43,7 +43,7 @@ public class PollServiceImpl implements PollService {
 	}
 
 	@Override
-	public PollVO checkPoll(PollVO vo) {
+	public int checkPoll(PollVO vo) {
 		return dao.checkPoll(vo);
 	}
 

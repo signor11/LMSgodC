@@ -387,11 +387,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	</footer>
 
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodc
 
 	<!--search-bar-->
 	<script src="./resources/web/js/search.js"></script>
