@@ -33,7 +33,7 @@
 			작성자<input type="text" name="writer"><br>
 			내용<textarea name = "content" id = "content"></textarea><br>
 			첨부파일<input type="file" name="tempuploadfile"><br>
-		 	<button type="submit"  class="btn btn-default"  >저장</button>
+		 	<button type="submit"  class="btn btn-default">저장</button>
 		 	<button id="searchbtn" type="button" class="btn btn-default"  onclick="javascript:opennotice();">목록</button> 
 		</form>
 		<script>
