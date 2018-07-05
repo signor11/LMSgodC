@@ -16,7 +16,7 @@ public interface PollService {
 	public PollVO getPoll(String pollid);
 	
 	//설문 중복 확인
-	public PollVO checkPoll(PollVO vo);
+	public int checkPoll(PollVO vo);
 	
 	//설문 문항별 건수 확인
 	public List<PollVO> countPoll(PollVO vo);

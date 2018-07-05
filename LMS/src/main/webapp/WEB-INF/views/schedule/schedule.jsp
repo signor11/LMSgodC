@@ -62,13 +62,12 @@
 <button id="openbtn" type="button" class="btn btn-danger" onclick="javascript:content_print();">출력하기</button>
 <script>
 var where = window.location.pathname;
-	if (where == '/LMS/getSchedule') {
+	if (where=='/LMS/getSchedule') {
 		 $("#openbtn").hide();
 		
 	}else {
 		$("#printbtn").hide();
 	}
-
 </script>
 
 

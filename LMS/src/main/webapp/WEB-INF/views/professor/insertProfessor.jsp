@@ -20,17 +20,22 @@
 
              
  <script>
-	$(document).ready(function() {
+ function openprofessor() {
+		location.assign("./getProfessorList");
+	}	
+
+ 
+ $(document).ready(function() {
 
 		$("#btn_insert").click(	function() {
-
+			
 						 	var tel1_pattern = /(^01[016789]$)/;
 
 							//alert("ok");
 							if ($("#pwd").val() == "") {
 								alert("비밀번호를 꼭 입력하세요!");
 								$("#pwd").focus();
-
+							
 							}  else if ($("#name").val() == "") {
 								alert("이름을 꼭 입력하세요!");
 								$("#name").focus();
@@ -71,7 +76,7 @@
    </head>           
     <body>      
               <div class="panel-body">
-                <form class="form-horizontal " method="post">
+                <form class="form-horizontal" class="form-group"style="top:20px;right:298px;"" method="post">
                
                   <div class="form-group">
                     <label class="col-sm-2 control-label">비밀번호</label>
@@ -82,7 +87,7 @@
                     </div>
                   </div>
                  
-                  <div class="form-group">
+                  <div class="form-group"style="top:20px;right:298px;">
                     <label class="col-sm-2 control-label">이 름</label>
                     <div class="col-sm-10">
                      <input type="text" name="professorname" id="name" size="18"
@@ -94,7 +99,7 @@
                     <div class="col-sm-10" >
                       <input type="text" name="professorphone" id="tel1" size="18"
 						maxlength="11" />
-						 <span class="help-block">숫자만 11자리</span>
+						 
                     </div>
                   </div>
                  
@@ -110,13 +115,13 @@
                     </div>
                   </div>
                 
-                 <div class="form-group" style="top:20px;right:298px;">
+                 <div class="form-group" >
                     <label class="col-sm-2 control-label">등록일</label>
-                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" />         
+                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10"/>         
                 </div>
       			<div align="center">
-      			  <input type="submit" id="btn_insert"value="등록">
-					<input type="reset" id="btn_cancel" value="취소"> 
+      			    <input type="submit" id="btn_insert" class="btn btn-danger"value="등록">
+					<input type="reset" id="btn_cancel" class="btn btn-danger"onclick="javascript:openprofessor();"value="취소">
                 </div>
                 </form>
                 </div>

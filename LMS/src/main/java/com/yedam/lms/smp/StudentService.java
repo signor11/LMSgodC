@@ -31,7 +31,7 @@ public interface StudentService {
 		//건수조회
 		public int studentCount(StudentSearchVO vo);
 		
-		
-		
+		//로그인 체크
+		public int checklogin(StudentVO vo);
 		
 }

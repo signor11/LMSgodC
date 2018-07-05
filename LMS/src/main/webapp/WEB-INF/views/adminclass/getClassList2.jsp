@@ -7,19 +7,28 @@
 <head>
 <title></title>
 <script>
-	function update_class(a, b) {
+	function updateclass(a, b) {
 		var check = confirm('과목 정보를 수정하시겠습니까?');
 		if (check == true) {
 			window.location.href = "./updateClass?classnum="+ a 
 		}
 	}
 
-	function delete_class(a) {
-		var check = confirm('과목 정보를 삭제하시겠습니까?');
-		if (check == true) {
-			window.location.href = "./deleteClass?classnum=" + a
-		}
+	function deleteclass(classnum) {
+		var result = confirm('과목 정보를 삭제하시겠습니까?');
+				if (result == true) {
+				var requestData={"classnum" : classnum}
+					$.ajax({
+						url : "${pageContext.request.contextPath}/deleteClass",
+						data : requestData,
+						dataType : 'json',
+						success : function(data){
+							alert('처리되었습니다')
+							$("#my"+classnum).remove();
+			}
+		});
 	}
+}
 </script>
 
 </head>
@@ -46,10 +55,12 @@
 			<td>수강인원</td>
 			<td>담당교수</td>
 			<td>강의시간</td>
+			<td>수정</td>
+			<td>삭제</td>
 		</tr>
 
 		<c:forEach items="${List}" var="c" varStatus="a">
-			<tr>
+			<tr id ="my${c.CLASSNUM}">
 				<td>${c.CLASSNUM}</td>
 				<td>${c.CLASSNAME}</td>
 				<td>${c.CREDIT}</td>
@@ -57,9 +68,9 @@
 				<td>${c.PROFESSORNAME}</td>
 				<td>${c.CLASSTIME}</td>
 				<td><button type="button" class="btn btn-danger"
-						onclick="update_class('${c.CLASSNUM}')">수정</button></td>
+						onclick="updateclass('${c.CLASSNUM}');">수정</button></td>
 				<td><button type="button" class="btn btn-danger"
-						onclick="delete_class('${c.CLASSNUM}')">삭제</button></td>
+						onclick="deleteclass('${c.CLASSNUM}');">삭제</button></td>
 		</c:forEach>
 	</table>
 

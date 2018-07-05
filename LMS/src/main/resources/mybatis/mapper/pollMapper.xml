@@ -40,18 +40,12 @@
 	
 	</update>
 	
-	<!-- 설문 중복 확인 -->
-	<select id="checkPoll" resultType="com.yedam.lms.poll.PollVO">
-		SELECT		POLLID,
-					QUESTIONNUM,
-					ANSWER,
-					STUDENTNUM
-		FROM		POLL
-		WHERE		STUDENTNUM = #{studentnum}		
-	
-	
+
+	<!-- 설문 중복 조회 -->
+	<select id="checkPoll" resultType="int">
+		SELECT COUNT(POLLID) FROM POLL
+		WHERE STUDENTNUM = #{studentnum}
 	</select>
-	
 	<!-- 차트 건수 조회 -->
 	<select id="countPoll" resultType="com.yedam.lms.poll.PollVO">
 			SELECT		CASE

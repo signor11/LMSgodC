@@ -74,11 +74,11 @@ public class ClassController {
 	}
 
 	@RequestMapping("/deleteClass")
-
+	@ResponseBody
 	public String deleteClass(ClassVO vo) {
-		classService.deleteClass(vo);
+		classService.deleteClass(vo.getClassnum());
 		// ajax json구조로 리턴해줌
-		return "redirect:/getClassList2";
+		return "{\"result\":true}";
 	}
 
 	/*

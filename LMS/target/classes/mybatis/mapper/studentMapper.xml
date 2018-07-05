@@ -30,6 +30,13 @@
 	  WHERE STUDENTNUM= #{studentnum} and STUDENTPW= #{studentpw}
 	</select>
 	
+	<!-- 로그인 체크 -->
+	<select id="checklogin" resultType="int">
+		select count(studentnum) from vlog where studentnum=#{studentnum} and STUDENTPW= #{studentpw}
+	
+	
+	
+	</select>
 	
 	<!-- 전체조회 -->
 	<select id="getStudentList" resultType="map">

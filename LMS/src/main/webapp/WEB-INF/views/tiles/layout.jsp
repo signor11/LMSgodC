@@ -33,7 +33,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link
 	href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,900,900italic,700italic'
 	rel='stylesheet' type='text/css'>
+
 	<!-- js -->
+
 	<script type="text/javascript" src="./resources/web/js/jquery.min.js"></script>
 <script>
 	//새창 열기
@@ -384,7 +386,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 
 	</footer>
-
 
 
 	<!--search-bar-->
