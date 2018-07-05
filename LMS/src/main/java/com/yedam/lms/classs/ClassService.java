@@ -3,6 +3,8 @@ package com.yedam.lms.classs;
 import java.util.List;
 import java.util.Map;
 
+import com.yedam.lms.smp.ProfessorVO;
+
 public interface ClassService {
 	
 	public ClassVO getClass(String classnum);
@@ -20,5 +22,7 @@ public interface ClassService {
 	public void updateClass(ClassVO classVO);
 	
 	public void deleteClass(String classnum);
+	
+	public List<Map<String,Object>> classProfessor();
 
 }

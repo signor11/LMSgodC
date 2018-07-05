@@ -42,7 +42,7 @@
 
 	<br>
 	<p align=right>
-		<a href="./insertClass"><button type="button" class="btn btn-danger">등록</button></a>
+		<a href="./insertClassForm"><button type="button" class="btn btn-danger">등록</button></a>
 	</p>
 	<br>
 	<br>

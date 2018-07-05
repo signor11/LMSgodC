@@ -38,27 +38,25 @@ public class ClassController {
 		return mv;
 	}
 
-	// 등록폼
-	@RequestMapping(value = "/insertClass", method = RequestMethod.GET)
+	// 등록 및 수정 폼
+	@RequestMapping(value = "/insertClassForm", method = RequestMethod.GET)
 	String insertClassForm(HttpServletRequest request, ClassVO vo, String classnum) {
 		request.setAttribute("class", classService.getClassList2(classnum));
-
+		request.setAttribute("c_list", classService.classProfessor());
 		return "admin/adminclass/insertClass";
 
 	}
 
 	// 등록처리
-	// / localhost 밑 web 아래
+	//localhost 밑 web 아래
 	@RequestMapping(value = "/insertClass", method = RequestMethod.POST)
-	public String insertClass(@ModelAttribute("vo") ClassVO vo, HttpServletRequest request)
-
-			throws IllegalStateException, IOException {
+	public String insertClass(ClassVO vo) {
 		classService.insertClass(vo);
 		return "redirect:/getClassList2";
 	}
 
 	// 수정폼
-	@RequestMapping(value = "/updateClass", method = RequestMethod.GET)
+	@RequestMapping(value = "/insertClass", method = RequestMethod.GET)
 	String updateClass(ClassVO vo, HttpServletRequest request, String classnum) {
 		
 		request.setAttribute("get_class", classService.getClassList2(classnum));
