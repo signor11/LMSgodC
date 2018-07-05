@@ -50,5 +50,11 @@ public class StudentDAO {
 	public int studentCount(StudentSearchVO vo) {
 		return mybatis.selectOne("com.yedam.lms.smp.impl.StudentDAO.studentCount", vo);
 	}
+	//로그인 체크
+	public int checklogin(StudentVO vo) {
+		return  mybatis.selectOne("com.yedam.lms.smp.impl.StudentDAO.checklogin", vo);
+	}
+
+
 }
 

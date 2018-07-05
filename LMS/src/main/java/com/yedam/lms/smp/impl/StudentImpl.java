@@ -65,6 +65,11 @@ public class StudentImpl implements StudentService{
 		return dao.studentCount(vo);
 	}
 
+	@Override
+	public int checklogin(StudentVO vo) {
+		return dao.checklogin(vo);
+	}
+
 	
 	
 }
