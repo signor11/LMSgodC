@@ -31,6 +31,10 @@
 					
 						
 		});
+	
+	function cancel(){
+		window.history.back();
+	}
 
 	 
 </script>
@@ -60,8 +64,8 @@
     
       			<br>
       			<div align="center">
-      			  <input type="submit" id="btn_insert" value="등록">
-					<input type="reset" id="btn_cancel" value="취소">
+      			  <input type="submit" id="btn_insert" class="btn btn-danger" value="등록">
+					<input type="button" class="btn btn-danger" onclick="cancel()" value="취소">
                 </div>
                 </form>
                 </div>

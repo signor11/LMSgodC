@@ -47,9 +47,7 @@
 	
 		<div style="display: inline-block;">
 		<form action="./getStudentList" name="majorform">
-		<input type="text" value="학과명" readonly="readonly"
-			style="padding: 10px; display: inline-block; text-align: center;"
-			size="5" class="btn btn-danger">
+		<p class="bst">학과명</p>
 			<select name="majornum" style="padding: 10px; text-align: center;" onchange="document.majorform.submit()">
 			<option value="">전체</option>
 			<c:forEach items="${major}" var="m">
