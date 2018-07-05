@@ -39,8 +39,8 @@
 <style>
 .bst {
 	color: #fff;
-	background-color: #d2322d;
-	border-color: #ac2925;
+	background-color: #ff2d55;
+	border-color: #ff2d55;
 	display: inline-block;
 	padding: 6px 12px;
 	margin-bottom: 0;
