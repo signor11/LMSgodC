@@ -80,7 +80,7 @@
 						<div class="form-group" id="content" name="content">
 							${no.CONTENT}
 						</div>
-						<c:if test = "${no.UPLOADFILE != null}">
+						<c:if test = "${not empty no.UPLOADFILE}">
 							<img src = "./upload/${no.UPLOADFILE}">
 						</c:if>
 					</div>

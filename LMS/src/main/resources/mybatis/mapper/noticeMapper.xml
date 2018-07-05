@@ -7,7 +7,7 @@
 	<!-- 목록 조회 -->
 	<select id="getNoticeList" resultType="map">
 		SELECT a.* FROM(SELECT ROWNUM rn,b.* FROM(
-		SELECT SEQ, TITLE, WRITER, CONTENT, REGDATE, CNT
+		SELECT SEQ, TITLE, WRITER, CONTENT, REGDATE, CNT,UPLOADFILE
 		FROM NOTICE
 		ORDER BY REGDATE DESC)b)a
 		WHERE rn BETWEEN #{first} AND #{last}
@@ -21,7 +21,7 @@
 
 	<!-- 단건 조회 -->
 	<select id="getNotice" resultType="noticeVO">
-		SELECT SEQ, TITLE, WRITER, CONTENT, REGDATE, CNT
+		SELECT SEQ, TITLE, WRITER, CONTENT, REGDATE, CNT,UPLOADFILE
 		FROM NOTICE
 		WHERE seq = #{seq}
 	</select>
