@@ -53,8 +53,8 @@ public class ClassDAO {
 	public void updateClass(ClassVO vo) {
 		mybatis.update("com.yedam.lms.classs.impl.classDAO.updateClass",vo);
 	}
-	public void deleteClass(ClassVO vo) {
-		mybatis.delete("com.yedam.lms.classs.impl.classDAO.deleteClass",vo);
+	public void deleteClass(String classnum) {
+		mybatis.delete("com.yedam.lms.classs.impl.classDAO.deleteClass",classnum);
 	}
 	public List<Map<String, Object>> getClassList2(String classnum) {
 		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.getClassList2", classnum);

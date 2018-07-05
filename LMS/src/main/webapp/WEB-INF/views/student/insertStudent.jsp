@@ -13,6 +13,11 @@
              
                
  <script>
+ function openstudent() {
+		location.assign("./getStudentList");
+	
+ }
+ 
 	$(document).ready(function() {
 
 		$("#btn_insert").click(	function() {
@@ -126,7 +131,7 @@
       			
       			<div align="center">
       			  <input type="submit" id="btn_insert" value="등록">
-					<input type="reset" id="btn_cancel" value="취소">
+					<input type="reset" id="btn_cancel" onclick="javascript:openstudent();"value="취소">
                 </div>
                 </form>
                 </div>

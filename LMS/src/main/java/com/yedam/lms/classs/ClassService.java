@@ -19,6 +19,6 @@ public interface ClassService {
 	
 	public void updateClass(ClassVO classVO);
 	
-	public void deleteClass(ClassVO classVO);
+	public void deleteClass(String classnum);
 
 }
