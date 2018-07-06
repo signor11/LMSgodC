@@ -65,6 +65,7 @@
 			<p class="bst">제목</p>
 			<input name="submitname" type="text"
 				value="${up_hw.submitname}" required="required"  size="80" class="form"><br><br>
+			<div style="display: inline-block;">
 			<p class="bst">첨부파일</p>
 			<c:if test="${not empty up_hw}">
 				&nbsp;&nbsp;&nbsp;
@@ -75,6 +76,7 @@
 			</c:if>
 		
 			<input type="file" name="tempuploadfile" class="form"/>
+			</div>
 			<br><br>
 			<p class="bst">내용</p><br><br>
 			<textarea name="submitinfo" cols="85" rows="13" id="submitinfo"

@@ -184,4 +184,21 @@
 			
 	</select>	
 	
+	<!-- 학생 수와 과목 정보 조회 -->
+	<select id="stuCnt" resultType="map">
+		SELECT		CLASSNUM,
+						CLASSNAME,
+						CREDIT,
+						MAXSTUDENT,
+						PROFESSORNUM,
+						CLASSTIME,
+						(SELECT COUNT(STUDENTNUM)
+						   FROM CLASSAPPLY
+						   WHERE CLASSNUM = A.classnum) AS cnt
+			FROM 		CLASS A
+			WHERE 		CLASSNUM = #{classnum}
+		
+		
+	</select>
+	
 </mapper>
