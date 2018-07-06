@@ -33,6 +33,29 @@
 	function cancel() {
 		window.history.back();
 	}
+	
+	$(document).ready(function(){
+        $('#name').on('keyup', function(){
+        	$(this).val($(this).val().toUpperCase());
+        	var requestData={"majorname" : $("#name").val()}
+            $.ajax({
+                type: 'POST',
+                url: '${pageContext.request.contextPath}/getMajor',
+                data: requestData,
+                dataType : 'json',
+                success: function(data){
+                    if(data.result == true){
+                        $('#check_m').html('<p style="color:blue">사용가능</p>');
+                    }
+                    else if(data.result == false){
+                        $('#check_m').html('<p style="color:red">사용불가능</p>');
+                    }
+                }
+            });    //end ajax    
+        });    //end on    
+    });
+
+	
 </script>
 </head>
 <body>
@@ -57,8 +80,8 @@
 				<label class="col-sm-2 control-label">학과명</label>
 				<div class="col-sm-10">
 					<input type="text" id="name" name="majorname" size="18"
-						maxlength="12" value="${maj.majorname}" class="form-control" />
-
+						maxlength="12" value="${maj.majorname}" class="form-control" style="text-transform: uppercase;" />
+				<div id="check_m"></div>
 				</div>
 			</div>
 
