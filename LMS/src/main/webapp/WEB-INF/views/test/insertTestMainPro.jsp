@@ -25,11 +25,13 @@
 <c:set var="today" value="<%=new Date() %>"></c:set>
 <fmt:formatDate value="${today}" timeStyle="short" pattern="yyyy-MM-dd" var="d"/>
 <div align="center" >
+<br><br>
 <h3 align="left" style="margin-left: 3%;">시험출제</h3>
+<br><br>
 		<br><form action = "./insertTestDetailPro1" method="post" name="sct">
 		<table style="width: 1000px">
 		<tr><td>
-			<input type="text" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5"/>
+			<input type="text" value="과목명" disabled="disabled" class="bst" style="padding: 10px; display: inline-block; text-align: center;" size="5"/>
 			<select name="classnum" style="padding: 10px; text-align: center;" required="required">
 				<option value="" hidden="" >선택</option>
 				<option value="48000001">자바</option>
@@ -56,7 +58,7 @@
 			<input type = "number" name = "testing" min="1" required="required" id="bbb" onchange="upinfo();"/><br><br>
 			</td></tr><tr><td>
 			<input type="text" name="testinfo" hidden="" id="ccc"/>
-			<input type="submit" value="시험등록" style="left: 25%; position: absolute;" />
+			<input type="submit" value="시험등록" style="left: 25%; position: absolute;" class="btn btn-danger"/>
 			</td></tr>
 			</table>
 			<div style="margin-bottom: 30%"></div>
