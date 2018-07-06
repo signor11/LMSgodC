@@ -132,7 +132,7 @@ var dd="";
 		<tr><td height="700" width=80% id="c1" colspan="2"><table width=100%><tr>
 		<c:forEach begin="${nowp}" end="${maxp}" step="1" var="i" varStatus="s" items="${elist}">
 		<td id="ss${s.index }" width=50%>
-		${countp=countp+1}<input type="text" value="${i.examcon }" id="text${countp}"><input type="text" value="${i.testpoint}">
+		${countp=countp+1}<input type="text" value="${i.examcon }" id="text${countp}" size="100"><br><input type="text" value="배점 : ${i.testpoint}">
 		<ol>
 		<li><input type="radio" name="moon${countp}" value="0" onclick="checkedNum(1,${countp});" id="moon1${countp}">${i.show1}</li>
 		<li><input type="radio" name="moon${countp}" value="0" onclick="checkedNum(2,${countp});" id="moon2${countp}">${i.show2}</li>
@@ -159,7 +159,7 @@ var dd="";
 		<input type="button" onclick="showExam();" value="다음" ></td>
 		<td><input type="button" onclick="finishExam();" value="시험제출" ></td></tr>
 	</table>
-	<form name="ee" action="testResult">
+	<form name="ee" action="./testResult">
 		<input name="action" value="getscore" hidden="">
 		<input name="myanswer" id="myanswer" hidden="">
 		<input name="classnum" value="${clnum}" hidden="">

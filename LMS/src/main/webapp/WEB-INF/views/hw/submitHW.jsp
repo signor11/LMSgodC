@@ -10,9 +10,18 @@
 <script>
 
 	window.onload = function() {
-		CKEDITOR.replace("submitinfo");
-			}
-
+		CKEDITOR.replace("submitinfo",{
+		toolbarGroups: [
+			{"name":"basicstyles","groups":["basicstyles"]},
+			{"name":"links","groups":["links"]},
+			{"name":"paragraph","groups":["list","blocks"]},
+			{"name":"document","groups":["mode"]},
+			{"name":"insert","groups":["insert"]},
+			{"name":"styles","groups":["styles"]},
+			{"name":"about","groups":["about"]}
+		]
+			})
+	}
 	
 	function submitCheck(){
 		var editor_data = CKEDITOR.instances.hwinfo.getData();
