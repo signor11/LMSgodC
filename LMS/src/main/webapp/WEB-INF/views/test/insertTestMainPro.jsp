@@ -26,7 +26,7 @@
 <fmt:formatDate value="${today}" timeStyle="short" pattern="yyyy-MM-dd" var="d"/>
 <div align="center" >
 <br><br>
-<h3 align="left" style="margin-left: 3%;">시험출제</h3>
+<h1 align="center">시험출제</h1>
 <br><br>
 		<br><form action = "./insertTestDetailPro1" method="post" name="sct">
 		<table style="width: 1000px">

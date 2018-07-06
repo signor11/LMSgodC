@@ -34,7 +34,7 @@
 
 	<div class="w3-container " style="padding: 50px">
 		<br><br>
-		<h2>시험출제</h2>
+		<h1 align="center">시험출제</h1>
 		<br><br>
 		<form action="./insertTestDetailPro3">
 			<input type="text" name="testnum" required="required"

@@ -13,7 +13,7 @@
 <body>
 <div align="center">
 <br><br>
-<h3 align="left" style="margin-left: 3%;">시험조회</h3>
+<h1 align="center">시험조회</h1>
 <br><br>
 <form action="./gettestListPro" name="cls" >
 <input type="text" value="과목명" class="bst" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
