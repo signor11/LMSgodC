@@ -82,7 +82,7 @@ public class TestController {
 	}
 	
 	@RequestMapping("/insertTestDetailPro4")
-	public String insertTestDetailPro4(ExamContentsVO vo ,Model model, TestVO tVO, ExamContentsVO eVO){
+	public String insertTestDetailPro4(ExamContentsVO vo ,Model model){
 		ExamContentsVO ex = examContentsService.getexamContents(vo.getExamconnum());
 		ExamContentsVO e = examContentsService.getExamSub(vo.getTestnum());
 		model.addAttribute("sub", e);

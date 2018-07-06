@@ -17,6 +17,20 @@
 							#{testnum},
 							#{classapplynum})
 	</insert>
+	<insert id="testResultInsert" parameterType="testResultVO">
+		<selectKey keyProperty="testresultnum" resultType="string" order="BEFORE">
+			SELECT MAX(TESTRESULTNUM)+1 FROM TESTRESULT
+		</selectKey> 
+	
+		INSERT INTO TESTRESULT (TESTRESULTNUM,
+								TESTSCORE,
+								TESTNUM,
+								CLASSAPPLYNUM)
+					VALUES (#{testresultnum},
+							#{testscore},
+							#{testnum},
+							#{classapplynum})
+	</insert>
 
 	<!-- 온라인 시험 성적 수정 -->
 	<update id = "updateTestResult" parameterType="com.yedam.lms.classs.impl.ClassapplyDAO">

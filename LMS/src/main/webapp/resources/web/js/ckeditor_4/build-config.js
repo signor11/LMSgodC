@@ -13,6 +13,57 @@
  * (1) http://ckeditor.com/builder
  *     Visit online builder to build CKEditor from scratch.
  *
+<<<<<<< HEAD
+ * (2) http://ckeditor.com/builder/8b37330cbb5b78ddd6d6575b77b43773
+ *     Visit online builder to build CKEditor, starting with the same setup as before.
+ *
+ * (3) http://ckeditor.com/builder/download/8b37330cbb5b78ddd6d6575b77b43773
+ *     Straight download link to the latest version of CKEditor (Optimized) with the same setup as before.
+ *
+ * NOTE:
+ *    This file is not used by CKEditor, you may remove it.
+ *    Changing this file will not change your CKEditor configuration.
+ */
+
+var CKBUILDER_CONFIG = {
+	skin: 'moono-lisa',
+	preset: 'basic',
+	ignore: [
+		'.DS_Store',
+		'.bender',
+		'.editorconfig',
+		'.gitattributes',
+		'.gitignore',
+		'.idea',
+		'.jscsrc',
+		'.jshintignore',
+		'.jshintrc',
+		'.mailmap',
+		'.travis.yml',
+		'bender-err.log',
+		'bender-out.log',
+		'bender.ci.js',
+		'bender.js',
+		'dev',
+		'gruntfile.js',
+		'less',
+		'node_modules',
+		'package.json',
+		'tests'
+	],
+	plugins : {
+		'about' : 1,
+		'basicstyles' : 1,
+		'clipboard' : 1,
+		'enterkey' : 1,
+		'entities' : 1,
+		'floatingspace' : 1,
+		'indentlist' : 1,
+		'link' : 1,
+		'list' : 1,
+		'toolbar' : 1,
+		'undo' : 1,
+=======
  * (2) http://ckeditor.com/builder/2f57fc244039d7273aeb5bb45ddb4866
  *     Visit online builder to build CKEditor, starting with the same setup as before.
  *
@@ -88,6 +139,7 @@ var CKBUILDER_CONFIG = {
 		'undo' : 1,
 		'uploadimage' : 1,
 		'wsc' : 1,
+>>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 		'wysiwygarea' : 1
 	},
 	languages : {
