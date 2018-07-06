@@ -109,6 +109,5 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	public int getCountclass(ClassSearchVO classSearchVO) {
 		return dao2.getCountclass(classSearchVO);
 	}
-
 	
 }

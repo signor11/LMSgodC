@@ -53,7 +53,7 @@ request.setAttribute("time", time);
 		<c:if test="${!empty list }">
 		<tr>
 			<td>${list.testnum}</td>
-			<td><a href="searchtest_control.jsp?action=doexam&testnum=${list.testnum}&timer=${time }&classnum=${list.classnum}&testname=${list.testname}" target="_blank">${list.testname}</a></td>
+			<td><a href="testExam?testnum=${list.testnum}&timer=${time }&classnum=${list.classnum}&testname=${list.testname}&temp=123" target="_blank">${list.testname}</a></td>
 			<td>${date}<br>${list.testinfo }</td>
 			<td>${list.check}</td>
 		</tr>

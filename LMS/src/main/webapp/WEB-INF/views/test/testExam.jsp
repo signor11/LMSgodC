@@ -78,13 +78,13 @@ var dd="";
 		//var exnum = a.slice(4);
 		
 		if(num==1)
-			document.getElementById("ex"+exnum).src= "im/m1.PNG";
+			document.getElementById("ex"+exnum).src= "./resources/im/m1.PNG";
 		else if(num==2)
-			document.getElementById("ex"+exnum).src= "im/m2.PNG";
+			document.getElementById("ex"+exnum).src= "./resources/im/m2.PNG";
 		else if(num==3)
-			document.getElementById("ex"+exnum).src= "im/m3.PNG";
+			document.getElementById("ex"+exnum).src= "./resources/im/m3.PNG";
 		else if(num==4)
-			document.getElementById("ex"+exnum).src= "im/m4.PNG";
+			document.getElementById("ex"+exnum).src= "./resources/im/m4.PNG";
 		document.getElementById("moon0"+exnum).value=10;
 		document.getElementById("moon"+num+exnum).value=num;
 		redioCheck(num,exnum);
@@ -147,7 +147,7 @@ var dd="";
 		
 		<script>//우측 OMR생성
 				for(i=1;i<=maxcount;i++){
-					document.write('<li><img alt="시험" src="im/m0.PNG" id="ex'+i+'"usemap="#image'+i+'"><map name = "image'+i+'">'+
+					document.write('<li><img alt="시험" src="./resources/im/m0.PNG" id="ex'+i+'"usemap="#image'+i+'"><map name = "image'+i+'">'+
 							'<area shape="rect" coords="0,0,25,30" onclick="checkedNum(1,'+i+');">'+
 							'<area shape="rect" coords="25,0,50,30" onclick="checkedNum(2,'+i+');">'+
 							'<area shape="rect" coords="50,0,75,30" onclick="checkedNum(3,'+i+');">'+
@@ -159,7 +159,7 @@ var dd="";
 		<input type="button" onclick="showExam();" value="다음" ></td>
 		<td><input type="button" onclick="finishExam();" value="시험제출" ></td></tr>
 	</table>
-	<form name="ee" action="searchtest_control.jsp">
+	<form name="ee" action="testResult">
 		<input name="action" value="getscore" hidden="">
 		<input name="myanswer" id="myanswer" hidden="">
 		<input name="classnum" value="${clnum}" hidden="">
