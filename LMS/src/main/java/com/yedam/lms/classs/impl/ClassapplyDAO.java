@@ -73,6 +73,7 @@ public class ClassapplyDAO {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.ClassapplyDAO.getcanum", vo);
 	}
 	
+	
 	//최대학점 조회 프로시저
 	public void maxCredit(ClassapplyVO vo) {
 		mybatis.insert("com.yedam.lms.classs.impl.ClassapplyDAO.maxCredit",vo);

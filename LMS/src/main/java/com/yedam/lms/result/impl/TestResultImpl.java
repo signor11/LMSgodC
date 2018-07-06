@@ -58,6 +58,10 @@ public class TestResultImpl implements TestResultService{
 	public List<TestResultVO> getresult(TestResultVO vo) {
 		return dao.getresult(vo);
 	}
+	@Override
+	public void testResultInsert(TestResultVO trVO) {
+		dao.testResultInsert(trVO);
+	}
 	
 	
 	

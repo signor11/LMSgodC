@@ -5,9 +5,9 @@
 <mapper namespace="com.yedam.lms.test.impl.ExamContentsDAO">
 
 	<insert id="examContentsInsert" parameterType="examVO">
-		<selectKey keyProperty="examcon" resultType="string" order="BEFORE">
-			SELECT MAX(EXAMCON)+1 FROM EXAMCONTENTS
-		</selectKey>
+		<!-- <selectKey keyProperty="examconnum" resultType="string" order="BEFORE">
+			SELECT MAX(EXAMCONNUM)+1 FROM EXAMCONTENTS
+		</selectKey> -->
 		INSERT INTO EXAMCONTENTS(
 		EXAMCON,
 		SHOW1,
@@ -28,7 +28,7 @@
 		#{show4},
 		#{answer},
 		#{testnum},
-		#{addfileid},
+		NULL,
 		#{testpoint},
 		#{examconnum}
 		)
@@ -69,7 +69,7 @@
 			SHOW3=#{show3},
 			SHOW4=#{show4},
 			ANSWER=#{answer},
-			ADDFILEID=#{addfiledid},
+			ADDFILEID=NULL,
 			TESTPOINT=#{testpoint}
 			WHERE EXAMCONNUM=#{examconnum}
 	</update>

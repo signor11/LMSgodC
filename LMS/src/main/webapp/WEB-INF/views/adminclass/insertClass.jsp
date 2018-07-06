@@ -58,15 +58,7 @@
    </head>           
     <body>     
               <div class="panel-body">
-                <form action="./updateClass" method="get" name="pro_Form" class="form-horizontal ">
-                  <div class="form-group">
-                    <label class="col-sm-2 control-label" >과목번호</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" name="classnum" id="id" size="18"
-						maxlength="12" value="${get_class.classnum}">
-                    <span class="help-block">8자리</span>
-                    </div>
-                  </div>
+                <form action="./insertClass" method="POST" name="pro_Form" class="form-horizontal ">
                   <div class="form-group">
                     <label class="col-sm-2 control-label">과목명</label>
                     <div class="col-sm-10">
@@ -116,27 +108,23 @@
 									<select id="pnum" name="professornum"
 										style="position: relative; top: 8px;">
 										<c:forEach items="${c_list}" var="c">
-											<option value="${c.PROFESSORNUM}"
-												<c:if test="${c.PROFESSORNUM==param.professornum}">selected</c:if>>
-												${c.PROFESSORNAME}</option>
+											<option value="${c.PROFESSORNUM}">${c.PROFESSORNAME}</option>
 										</c:forEach>
 									</select>
 								</div>
 							</div>
-
-
-
-			<div class="form-group" style="position:relative; top:20px;right:280px;">
-	                    <label class="col-sm-2 control-label">강의시간</label>
-	                    <input type="text" name="cti" id="classtime" size="18" 
-	                  	  maxlength="20" style="position:relative; left:20px;"  value="${get_class.classtime}"/>         
-	                </div>
-      			
-      			
-      			<div align="center">
-      			  <input type="submit" id="btn_insert" value="수정">
-					<input type="reset" id="btn_cancel" value="취소">
-                </div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">강의시간</label>
+								<div class="col-sm-10">
+									<input type="text" name="classtime" id="classtime" size="18"
+										maxlength="20" value="${get_class.classtime}" />
+				
+								</div>
+							</div>
+			      			<div align="center">
+			      			  <input type="submit" id="btn_insert" value="등록 및 수정">
+								<input type="reset" id="btn_cancel" value="취소">
+			                </div>
                 
                 </form>
               </div>

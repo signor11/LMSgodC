@@ -9,13 +9,17 @@ import org.springframework.stereotype.Service;
 import com.yedam.lms.classs.ClassSearchVO;
 import com.yedam.lms.classs.ClassService;
 import com.yedam.lms.classs.ClassVO;
+import com.yedam.lms.smp.ProfessorVO;
+import com.yedam.lms.smp.impl.ProfessorDAO;
 
 @Service("classService")
 public class ClassServiceImpl implements ClassService{
 	
 	@Autowired
 	ClassDAO dao;
-
+	@Autowired
+	ProfessorDAO dao2;
+	
 	@Override
 	public ClassVO getClass(String classnum) {
 		return dao.getClass(classnum);
@@ -59,6 +63,12 @@ public class ClassServiceImpl implements ClassService{
 		return dao.getClassList2(classnum);
 	}
 
+
+	@Override
+	public List<Map<String, Object>> classProfessor() {
+		return dao2.classProfessor();
+	}
+	
 
 	
 }

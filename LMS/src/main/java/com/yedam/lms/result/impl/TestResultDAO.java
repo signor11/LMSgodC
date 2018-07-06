@@ -21,6 +21,10 @@ public class TestResultDAO {
 		mybatis.insert("testResultDAO.testResultInsert",vo);
 	}
 	
+	public void testResultInsert(TestResultVO vo) {
+		mybatis.insert("testResultDAO.testResultInsert",vo);
+	}
+	
 	//온라인 성적 수정
 	public void updateTestResult(TestResultVO vo) {
 		mybatis.update("testResultDAO.updateTestResult",vo);

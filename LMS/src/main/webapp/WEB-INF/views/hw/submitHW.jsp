@@ -11,7 +11,6 @@
 
 	window.onload = function() {
 		CKEDITOR.replace("submitinfo");
-		CKEDITOR.replace("hwinfo");
 			}
 
 	
@@ -34,9 +33,8 @@
 		<div>
 			<p class="bst">과제명</p>
 			<input name="hwname" type="text"
-				readonly="readonly" value="${sb.hwname}" class="form"><br> <br>
-			<textarea name="hwinfo" id="hwinfo" cols="85" rows="13"
-				style="width: 100%;" readonly="readonly" class="scroll_form">${sb.hwinfo}</textarea>
+				readonly="readonly" value="${sb.hwname}" class="form"><br><hr> 
+			<div style="font-size: 20px;">${sb.hwinfo}</div>
 		</div>
 		<hr />
 
@@ -64,10 +62,9 @@
 			<input type="hidden" value="${a}" name = "addfileid" />
 			<input type="text" name="hwnum" hidden="" value="${sb.hwnum}" /> 
 			<input type="text" name="classnum" hidden="" value="${sb.classnum}" />
-
 			<p class="bst">제목</p>
 			<input name="submitname" type="text"
-				value="${up_hw.submitname}" required="required" class="form"><br><br>
+				value="${up_hw.submitname}" required="required"  size="80" class="form"><br><br>
 			<p class="bst">첨부파일</p>
 			<c:if test="${not empty up_hw}">
 				&nbsp;&nbsp;&nbsp;

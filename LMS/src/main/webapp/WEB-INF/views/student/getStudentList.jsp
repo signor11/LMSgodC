@@ -48,7 +48,7 @@
 		<div style="display: inline-block;">
 		<form action="./getStudentList" name="majorform">
 		<p class="bst">학과명</p>
-			<select name="majornum" style="padding: 10px; text-align: center;" onchange="document.majorform.submit()">
+			<select name="majornum" class="form" onchange="document.majorform.submit()">
 			<option value="">전체</option>
 			<c:forEach items="${major}" var="m">
 				<option value="${m.MAJORNUM}"
@@ -67,7 +67,6 @@
 			
 			<td></td>
 			<td>학생번호</td>
-			<td>비밀번호</td>
 			<td>학생명</td>
 			<td>학과번호</td>
 			<td>학과명</td>
@@ -83,7 +82,6 @@
 			<tr>
 				<td>${(paging.page-1)*10+1+a.index}</td>			
 				<td>${h.STUDENTNUM}</td>
-				<td>${h.STUDENTPW}</td>
 				<td>${h.STUDENTNAME}</td>
 				<td>${h.MAJORNUM}</td>
 				<td>${h.MAJORNAME}</td>
