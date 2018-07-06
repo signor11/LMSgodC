@@ -8,9 +8,16 @@ public class ProfessorVO {
 	private String professorphone;
 	private String hiredate;
 	private String majornum;
+	private String majorname;
 	private String cnt;
 	
 	
+	public String getMajorname() {
+		return majorname;
+	}
+	public void setMajorname(String majorname) {
+		this.majorname = majorname;
+	}
 	public String getProfessorpw() {
 		return professorpw;
 	}
