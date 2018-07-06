@@ -23,7 +23,7 @@ date = date.substring(0,10);
 request.setAttribute("date", date);
 
 String time = ((TestVO)request.getAttribute("list")).getTestinfo();
-time = time.substring(7,10);
+time = time.substring(7,9);
 request.setAttribute("time", time);
 %> 
 <div align="center">
