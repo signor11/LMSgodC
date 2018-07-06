@@ -15,7 +15,7 @@
 <br><br>
 <h1 align="center">시험조회</h1>
 <br><br>
-<form action="./gettestListPro" name="cls" >
+<form action="./gettestListPro" name="cls" class="form-horizontal">
 <input type="text" value="과목명" class="bst" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
 
 <select name="classnum" style="padding: 10px; text-align: center;" onchange="sumb();">

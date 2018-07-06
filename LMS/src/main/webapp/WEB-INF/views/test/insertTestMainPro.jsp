@@ -28,8 +28,8 @@
 <br><br>
 <h1 align="center">시험출제</h1>
 <br><br>
-		<br><form action = "./insertTestDetailPro1" method="post" name="sct">
-		<table style="width: 1000px">
+		<br><form action = "./insertTestDetailPro1" method="post" name="sct" class="form-horizontal">
+		<table style="width: 1000px" class="table table-hover">
 		<tr><td>
 			<input type="text" value="과목명" disabled="disabled" class="bst" style="padding: 10px; display: inline-block; text-align: center;" size="5"/>
 			<select name="classnum" style="padding: 10px; text-align: center;" required="required">

@@ -36,7 +36,7 @@
 		<br><br>
 		<h1 align="center">시험출제</h1>
 		<br><br>
-		<form action="./insertTestDetailPro3">
+		<form action="./insertTestDetailPro3" class="form-horizontal">
 			<input type="text" name="testnum" required="required"
 				value="<%=tnum%>" hidden=""> <input type="text" value="과목명" class="bst"
 				style="padding: 10px; display: inline-block; text-align: center;"

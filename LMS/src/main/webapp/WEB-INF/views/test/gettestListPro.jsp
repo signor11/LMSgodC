@@ -16,7 +16,7 @@
 <br><br>
 <h1 align="center">시험조회</h1>
 <br><br>
-<form action="./gettestList" name="cls">
+<form action="./gettestList" name="cls" class="form-horizontal">
 <input type="text" class="bst" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
 
 <select name="classnum" style="padding: 10px; text-align: center;" onchange="sumb();">
@@ -32,7 +32,7 @@
 </select> 
 </form>
 
-<table border="1">
+<table border="1" class="table table-hover">
 		<tr>
 			<td>시험번호</td>
 			<td width="100">학번</td>
