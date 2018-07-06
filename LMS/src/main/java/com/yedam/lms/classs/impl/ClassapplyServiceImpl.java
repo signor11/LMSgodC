@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.yedam.lms.classs.ClassSearchVO;
-import com.yedam.lms.classs.ClassVO;
 import com.yedam.lms.classs.ClassapplyService;
 import com.yedam.lms.classs.ClassapplyVO;
-import com.yedam.lms.result.TestResultVO;
 
 @Service("classapplyService")
 public class ClassapplyServiceImpl implements ClassapplyService  {
@@ -109,5 +107,6 @@ public class ClassapplyServiceImpl implements ClassapplyService  {
 	public int getCountclass(ClassSearchVO classSearchVO) {
 		return dao2.getCountclass(classSearchVO);
 	}
+	
 	
 }
