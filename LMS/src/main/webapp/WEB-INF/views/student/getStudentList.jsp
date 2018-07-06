@@ -47,6 +47,7 @@
 	
 		<div style="display: inline-block;">
 		<form action="./getStudentList" name="majorform">
+		<input type="hidden" name=page value="1">
 		<p class="bst">학과명</p>
 			<select name="majornum" class="form" onchange="document.majorform.submit()">
 			<option value="">전체</option>
@@ -101,7 +102,8 @@
 			
 		<script>
 				function doList2(page) {
-					location.href = "./getStudentList?page=" + page
+					majorform.page.value=page;
+					majorform.submit();
 				}
 		</script>
 	</div>		
