@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 package com.yedam.lms.web;
 
 import java.text.DateFormat;
