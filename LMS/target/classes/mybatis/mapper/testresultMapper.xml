@@ -23,12 +23,12 @@
 		</selectKey> 
 	
 		INSERT INTO TESTRESULT (TESTRESULTNUM,
-								TESTSCORE,
 								TESTNUM,
+								TESTSCORE,
 								CLASSAPPLYNUM)
 					VALUES (#{testresultnum},
-							#{testscore},
 							#{testnum},
+							#{testscore},
 							#{classapplynum})
 	</insert>
 
