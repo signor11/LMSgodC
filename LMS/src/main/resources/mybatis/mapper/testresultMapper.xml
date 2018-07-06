@@ -121,12 +121,12 @@
 	<!-- 성적표 출력-->
 	<select id="getresult" resultType="map">
 		SELECT S.STUDENTNUM,
-				STUDENTNAME,
+				S.STUDENTNAME,
 				M.MAJORNAME,
 				C.CLASSNUM,
-				CLASSNAME, 
+				CL.CLASSNAME, 
 				GRADE_TOTAL(C.SCORE) AS GRADE,
-				SCORE_TOTAL(C.SCORE) AS SCORET,
+				to_number(SCORE_TOTAL(C.SCORE)) AS SCORET,
 				C.SCORE,
 				C.CLASSAPPLYNUM,
 				CL.CREDIT 
