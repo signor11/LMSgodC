@@ -82,7 +82,7 @@
 				<label class="col-sm-2 control-label">아이디</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" name="studentnum" id="id"
-						size="18" maxlength="12" value="${get_stu.studentnum}"> <span
+						size="18" maxlength="12" readonly="readonly" value="${get_stu.studentnum}"> <span
 						class="help-block">8자리</span>
 				</div>
 			</div>

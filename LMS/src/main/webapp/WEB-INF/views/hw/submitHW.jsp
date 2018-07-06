@@ -62,10 +62,9 @@
 			<input type="hidden" value="${a}" name = "addfileid" />
 			<input type="text" name="hwnum" hidden="" value="${sb.hwnum}" /> 
 			<input type="text" name="classnum" hidden="" value="${sb.classnum}" />
-
 			<p class="bst">제목</p>
 			<input name="submitname" type="text"
-				value="${up_hw.submitname}" required="required" class="form"><br><br>
+				value="${up_hw.submitname}" required="required"  size="80" class="form"><br><br>
 			<p class="bst">첨부파일</p>
 			<c:if test="${not empty up_hw}">
 				&nbsp;&nbsp;&nbsp;
