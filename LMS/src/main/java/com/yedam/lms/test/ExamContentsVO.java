@@ -13,7 +13,19 @@ public class ExamContentsVO {
 	private String examconnum;
 	private String psum;
 	private String cnt;
+	private String temp;
 	
+	
+	
+	
+
+	public ExamContentsVO(String temp, String testnum, String examconnum) {
+		super();
+		this.temp = temp;
+		this.testnum = testnum;
+		this.examconnum = examconnum;
+	}
+
 	@Override
 	public String toString() {
 		return "ExamContentsVO [examcon=" + examcon + ", show1=" + show1 + ", show2=" + show2 + ", show3=" + show3
