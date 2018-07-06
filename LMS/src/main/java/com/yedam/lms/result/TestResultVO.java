@@ -17,6 +17,9 @@ public class TestResultVO {
 	private String scoret;	//학점 function
 	
 	
+	public TestResultVO() {
+		super();
+	}
 	public TestResultVO(String testresultnum, String testnum, String testscore, String classapplynum) {
 		super();
 		this.testresultnum = testresultnum;

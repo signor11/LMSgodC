@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.yedam.lms.classs.ClassService;
+import com.yedam.lms.classs.ClassapplyService;
 import com.yedam.lms.hw.HWService;
 import com.yedam.lms.hw.HWVO;
 
@@ -58,7 +59,11 @@ public class HWController {
 	@RequestMapping("/getHWListPro")
 	public String getHWListPro(HttpServletRequest request, HWVO vo, HttpSession session) {
 		vo.setProfessornum((String) session.getAttribute("loginvo"));
+		if(vo.getClassnum() != null && !vo.getClassnum().equals("")) {
+			request.setAttribute("cnt", classService.stuCnt(vo.getClassnum()));
+		}
 		request.setAttribute("HWListPro", hwService.getHWListPro(vo));
+		request.setAttribute("classname", classService.pro_classnameList(vo.getProfessornum()));
 		return "hw/getHWListPro";
 	}
 

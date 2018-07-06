@@ -68,6 +68,12 @@ public class ClassServiceImpl implements ClassService{
 	public List<Map<String, Object>> classProfessor() {
 		return dao2.classProfessor();
 	}
+
+
+	@Override
+	public Map<String, Object> stuCnt(String classnum) {
+		return dao.stuCnt(classnum);
+	}
 	
 
 	

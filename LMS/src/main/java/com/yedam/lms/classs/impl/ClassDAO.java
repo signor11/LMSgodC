@@ -59,4 +59,7 @@ public class ClassDAO {
 	public List<Map<String, Object>> getClassList2(String classnum) {
 		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.getClassList2", classnum);
 	}
+	public Map<String, Object> stuCnt(String classnum){
+		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.stuCnt", classnum);
+	}
 }

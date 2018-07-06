@@ -19,6 +19,14 @@ public class ExamContentsVO {
 	
 	
 
+	public String getTemp() {
+		return temp;
+	}
+
+	public void setTemp(String temp) {
+		this.temp = temp;
+	}
+
 	public ExamContentsVO(String temp, String testnum, String examconnum) {
 		super();
 		this.temp = temp;
