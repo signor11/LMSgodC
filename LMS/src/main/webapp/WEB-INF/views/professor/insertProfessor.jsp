@@ -75,8 +75,18 @@
 </script>
    </head>           
     <body>      
+              	
+	<br>
+	<br>
+	<h3 align="center"> 교수 등록</h3>
+	<br>
+
+	
+	<br>
+              
+              
               <div class="panel-body">
-                <form class="form-horizontal" class="form-group"style="top:20px;right:298px;"" method="post">
+                <form class="form-horizontal" class="form-group"style="top:20px;right:298px;"" method="post"  >
                
                   <div class="form-group">
                     <label class="col-sm-2 control-label">비밀번호</label>
@@ -104,7 +114,7 @@
                   </div>
                  
                   <div class="form-group">
-                    <label class="col-sm-2 control-label">과목명</label>
+                    <label class="col-sm-2 control-label">학과명</label>
                     <div class="col-sm-10">
                     		<select id="major" name="majornum" style="position:relative; top:8px;">
 								<option value="" selected hidden="">선택</option>
@@ -117,14 +127,15 @@
                 
                  <div class="form-group" >
                     <label class="col-sm-2 control-label">등록일</label>
-                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10"/>         
+                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:15px;"/>         
                 </div>
+                
       			<div align="center">
       			    <input type="submit" id="btn_insert" class="btn btn-danger"value="등록">
 					<input type="reset" id="btn_cancel" class="btn btn-danger"onclick="javascript:openprofessor();"value="취소">
                 </div>
                 </form>
-                </div>
+              
              
 </body>
 </html>

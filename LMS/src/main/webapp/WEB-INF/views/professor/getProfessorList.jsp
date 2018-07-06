@@ -26,9 +26,7 @@
 </script>
 </head>
 <body>
-	<p align=right>
-		<a href="./professorExcelCreate"><button type="button" class="btn btn-danger" >엑셀출력</button></a>
-	</p>
+	
 	<br>
 	<br>
 	<h3 align="center">관리자용 교수 조회</h3>
@@ -37,9 +35,14 @@
 	
 	<br>
 	<p align=right>
-		<a href="./insertProfessor"><button type="button" class="btn btn-danger" >등록</button></a>
+		<a href="./insertProfessor"><button type="button" class="btn btn-danger" >등록</button></a>&emsp;&emsp;
+		<a href="./professorExcelCreate"><button type="button" class="btn btn-danger" >엑셀출력</button></a>
+	
+	
+	
+		
 	</p>
-	<br>
+
 	<br>
 
 	<table class="table table-hover">
@@ -47,7 +50,7 @@
 			<td>교수번호</td>
 			<td>비밀번호</td>
 			<td>교수명</td>
-			<td>학과번호</td>
+			<td>학과명</td>
 			<td>연락처</td>
 			<td>등록일</td>
 			<td>수정</td>
@@ -60,9 +63,9 @@
 			<tr>
 							
 				<td>${p.PROFESSORNUM}</td>
-				<td>${p.PROFESSORPW}</td>
+				<td>***</td>
 				<td>${p.PROFESSORNAME}</td>
-				<td>${p.MAJORNUM}</td>
+				<td>${p.MAJORNAME}</td>
 				<td>${p.PROFESSORPHONE}</td>
 				<td>${p.HIREDATE}</td>
 				<td><button type="button" class="btn btn-danger" onclick="update_pro('${p.PROFESSORNUM}', '${p.MAJORNUM}')">수정</button></td>

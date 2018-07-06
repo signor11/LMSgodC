@@ -75,12 +75,21 @@
 </script>
    </head>           
     <body>     
+    	
+	<br>
+	<br>
+	<h3 align="center"> 교수정보 수정</h3>
+	<br>
+
+	
+	<br>
+    
               <div class="panel-body">
                 <form action="./updateProfessor" method="post" name="pro_Form" class="form-horizontal " method="post">
                   <div class="form-group">
                     <label class="col-sm-2 control-label" >아이디</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="professornum" id="id" size="18"
+                      <input readonly="readonly" type="text" class="form-control" name="professornum" id="id" size="18"
 						maxlength="12" value="${get_pro.professornum}">
                     <span class="help-block">8자리</span>
                     </div>
@@ -127,14 +136,14 @@
 							<option value="38000004">예절</option> -->						
 							
                    
-                 <div class="form-group" style="position:relative; top:20px;right:280px;">
+                 <div class="form-group" >
                     <label class="col-sm-2 control-label">등록일</label>
-                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:20px;"  value="${get_pro.hiredate}"/>         
+                    <input type="text" name="hiredate" id="hiredate" size="18" maxlength="10" style="position:relative; left:15px;"  value="${get_pro.hiredate}"/>         
                 </div>
-      			
+      		
       			<div align="center">
-      			  <input type="submit" id="btn_insert"value="수정">
-					<input type="reset" id="btn_cancel" onclick="javascript:openprofessor();"value="취소">
+      			  <input type="submit" id="btn_insert" class="btn btn-danger"value="수정">
+					<input type="reset" id="btn_cancel" class="btn btn-danger" onclick="javascript:openprofessor();"value="취소">
                 </div>
                 </div>
                 </form>
