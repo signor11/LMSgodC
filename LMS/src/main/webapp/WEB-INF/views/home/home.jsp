@@ -7,7 +7,7 @@
 <title>예담대학교(학생용)</title>
 
 <script type="text/javascript"></script>
-<script>
+<script> 
 	//getCookie
 	function getCookie(name) {
 		var nameOfCookie = name + '=';
