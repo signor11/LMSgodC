@@ -108,6 +108,7 @@
 			<button type="submit" class="w3-button w3-grey w3-round">문제추가</button>
 			<a href="goHome"><button type="button" class="w3-button w3-grey w3-round"> 시험등록</button></a>
 	</form>
+	
 	</div>
 	<br>
 	
