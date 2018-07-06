@@ -6,10 +6,46 @@
 <head>
 <title>예담대학교(학생용)</title>
 
-
-
-<script>
+<script type="text/javascript"></script>
+<script> 
+	//getCookie
+	function getCookie(name) {
+		var nameOfCookie = name + '=';
+		var x = 0;
+		while (x <= document.cookie.length) {
+			var y = (x + nameOfCookie.length);
+			if (document.cookie.substring(x, y) == nameOfCookie) {
+				if ((endOfCookie = document.cookie.indexOf(';', y)) == -1)
+					endOfCookie = document.cookie.length;
+				return unescape(document.cookie.substring(y, endOfCookie));
+			}
+			x = document.cookie.indexOf(' ', x) + 1;
+			if (x == 0)
+				break;
+		}
+		return '';
+	}
+	//setcookie
+	function setCookie(name, value, expiredays) {
+        var todayDate = new Date();
+        todayDate.setDate(todayDate.getDate() + expiredays);
+        document.cookie = name + "=" + escape(value) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+    }
+ 	
 	//하루동안 보지않기
+    function fnClose() {
+    	
+    	if ($('#todayChk').is(":checked")){
+            setCookie("popup_main1", "done", 1);
+ 
+            //self.close();
+            $("#modifyModal").modal("hide");
+
+
+        }
+    } 
+
+	/* //하루동안 보지않기
 	function fnClose() {
 		var form = document.dtlForm;
 
@@ -18,17 +54,22 @@
 			date.setHours(23, 59, 59, 999);
 			opener.document.cookie = "injusticePopup=Yes; path=/;domain=.g2b.go.kr; expires="
 					+ date.toUTCString();
-		};
+		}
+		;
 		self.close();
-	}
+	} */ 
 	//팝업 호출
 	$(function() {
-	console.log(location.href.indexOf("login.do"))
-	
-	if( "${sessionScope.loginvo}"=="" && location.href.indexOf("login.do")==-1 && location.href.indexOf("logout.do")==-1)
+		var a = getCookie("popup_main1")
+		console.log(location.href.indexOf("login.do"))
+
+		if ("${sessionScope.loginvo}" == ""
+				&& location.href.indexOf("login.do") == -1
+				&& location.href.indexOf("logout.do") == -1
+				&& a != "done")
 			$("#modifyModal").modal();
-	}); 
-	
+	});
+
 	/* //사이즈 조정
 	function modifyModal(){
 		.modal-content.modal-fullsize {
@@ -80,6 +121,9 @@
 						<div class="form-group" id="content" name="content">
 							${no.CONTENT}
 						</div>
+						<c:if test = "${not empty no.UPLOADFILE}">
+							<img src = "./upload/${no.UPLOADFILE}">
+						</c:if>
 					</div>
 					<div class="modal-footer">
 						<label><input type="checkbox" name="todayChk" onclick="javascript:fnClose();"> <span>오늘 하루 이 창을열지 않음</span></label>

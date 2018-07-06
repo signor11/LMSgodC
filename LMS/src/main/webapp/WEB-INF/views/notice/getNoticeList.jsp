@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib tagdir="/WEB-INF/tags" prefix="my" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +47,7 @@
 			<c:forEach items="${noticeList}" var="no" varStatus="status">
 				<tr>
 					<td>${status.index+1}</td>
-					<td>
+					<td width="500px">
 					<form name="NoticeForm" method="get" action="./updateNotice">
 				            <c:choose>
 				                <c:when test="">
@@ -55,7 +56,7 @@
 				                <c:otherwise>
 				                		<input type="hidden" name="seq" value="${no.SEQ}">
 				                        <span class="link">
-											<input type="submit" style="width:200px;border:solid 0px black;text-align:left;" value="<c:out value="${no.TITLE}"/>" >
+											<input type="submit" style="width:500px;border:solid 0px black;text-align:left;" value="<c:out value="${no.TITLE}"/>" >
 										</span>
 				                </c:otherwise>
 				            </c:choose>
@@ -68,12 +69,15 @@
 		</table>
 	</div>
 	<button id="insertbtn" type="button" class="btn btn-default"  onclick="javascript:openinsert();">입력</button>
+	<br>
 	<!-- 페이징 -->
 	<my:paging paging="${paging}"/> 
 	<script>
 		function doList(page){
-			location.href="./getBoardList? page=" + page
+			location.href="./getNoticeList?page=" + page
 		}
 	</script>
+	
+	
 </body>
 </html>

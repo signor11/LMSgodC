@@ -15,6 +15,11 @@ public class ClassapplyVO {
 	
 	
 	
+	public ClassapplyVO(String studentnum, String classnum) {
+		super();
+		this.studentnum = studentnum;
+		this.classnum = classnum;
+	}
 	public String getpMessage() {
 		return pMessage;
 	}

@@ -13,9 +13,48 @@ public class TestVO {
 	private String testsum;
 	private String testtime;
 	private String testing;
+	private String timer;
+	private int temp;
+	private String myanswer;
 
-	
-	
+
+	public int getTemp() {
+		return temp;
+	}
+
+
+	public void setTemp(int temp) {
+		this.temp = temp;
+	}
+
+
+	public String getMyanswer() {
+		return myanswer;
+	}
+
+
+	public void setMyanswer(String myanswer) {
+		this.myanswer = myanswer;
+	}
+
+
+	public TestVO(String testnum, String testname, String classnum, String timer, int tmep) {
+		super();
+		this.testnum = testnum;
+		this.testname = testname;
+		this.classnum = classnum;
+		this.timer = timer;
+	}
+
+
+	public String getTimer() {
+		return timer;
+	}
+
+
+	public void setTimer(String timer) {
+		this.timer = timer;
+	}
 
 
 	@Override

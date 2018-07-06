@@ -82,8 +82,8 @@
 						<td>${ins.getStudentnum()}</td>
 						<td>${ins.getStudentname()}</td>
 						<td id="gr${ins.getClassapplynum()}">${ins.getGrade()}</td>
-						<td><span style="display: none">${ins.getClassapplynum()}</span>
-						<input id="${ins.getClassapplynum()}" name="score" value="${ins.getScore()}"></td>
+						<td><span style="display: none">${ins.getClassapplynum()} </span>
+						<input id="${ins.getClassapplynum()}" class="form" name="score" value="${ins.getScore()}"></td>
 						<td id="sc${ins.getClassapplynum()}">${ins.getScoret()}</td>
 					</tr>
 				</c:forEach>

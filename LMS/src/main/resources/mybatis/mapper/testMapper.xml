@@ -20,7 +20,7 @@
 		ORDER BY T.TESTNUM
 	</select>
 	
-	<select id="testCheck" resultType="map" parameterType="testVO">
+	<select id="testCheck" resultType="testVO" parameterType="testVO">
 	SELECT T.TESTNUM, 
 	T.TESTNAME,
 	T.TESTDATE,

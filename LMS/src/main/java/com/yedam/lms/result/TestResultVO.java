@@ -15,6 +15,15 @@ public class TestResultVO {
 	private String professornum;
 	private String grade;	//등급 function
 	private String scoret;	//학점 function
+	
+	
+	public TestResultVO(String testresultnum, String testnum, String testscore, String classapplynum) {
+		super();
+		this.testresultnum = testresultnum;
+		this.testnum = testnum;
+		this.testscore = testscore;
+		this.classapplynum = classapplynum;
+	}
 	public String getTestresultnum() {
 		return testresultnum;
 	}

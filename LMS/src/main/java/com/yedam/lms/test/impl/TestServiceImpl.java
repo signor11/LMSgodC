@@ -6,7 +6,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yedam.lms.classs.ClassapplyVO;
 import com.yedam.lms.test.TestService;
 import com.yedam.lms.test.TestVO;
 
@@ -22,8 +21,8 @@ public class TestServiceImpl implements TestService{
 	}
 
 	@Override
-	public TestVO testCheck(ClassapplyVO classapplyvo) {
-		return dao.testCheck(classapplyvo);
+	public TestVO testCheck(TestVO vo) {
+		return dao.testCheck(vo);
 	}
 
 	@Override

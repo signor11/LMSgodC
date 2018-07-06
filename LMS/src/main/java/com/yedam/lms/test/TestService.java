@@ -10,7 +10,7 @@ public interface TestService {
 	
 	public List<Map<String, Object>> gettestListPro(String classnum);
 	
-	public TestVO testCheck(ClassapplyVO classapplyvo);
+	public TestVO testCheck(TestVO vo);
 	
 	public void testInsert(TestVO vo);
 	

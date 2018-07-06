@@ -7,7 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.yedam.lms.classs.ClassapplyVO;
+
 import com.yedam.lms.test.TestVO;
 
 @Repository
@@ -20,8 +20,8 @@ public class TestDAO {
 		return mybatis.selectList("com.yedam.lms.test.impl.TestDAO.gettestListPro", classnum);
 	}
 	
-	public TestVO testCheck(ClassapplyVO classapplyvo) {
-		return mybatis.selectOne("com.yedam.lms.test.impl.TestDAO.testCheck", classapplyvo);
+	public TestVO testCheck(TestVO vo) {
+		return mybatis.selectOne("com.yedam.lms.test.impl.TestDAO.testCheck", vo);
 	}
 	
 	public void testInsert(TestVO vo) {
@@ -31,5 +31,6 @@ public class TestDAO {
 	public String gettestn() {
 		return mybatis.selectOne("com.yedam.lms.test.impl.TestDAO.gettestn");
 	}
+
 	
 }

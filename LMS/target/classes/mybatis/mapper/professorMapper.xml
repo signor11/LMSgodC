@@ -69,6 +69,11 @@
 		WHERE PROFESSORNUM=#{professornum}
 	</delete>
 
-
+	<select id="classProfessor" resultType="map">
+		SELECT 	PROFESSORNAME,
+				PROFESSORNUM
+		FROM	PROFESSOR	
+		ORDER BY PROFESSORNAME
+	</select>
 
 </mapper>
