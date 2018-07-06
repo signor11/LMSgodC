@@ -43,14 +43,16 @@
 			<table>
 				<tr id = "my${no.seq}">
 					<th width="15%" height="23" nowrap>제목</th>
-					<td width="85%" colspan="5" nowrap="nowrap"><input type="text" name="title" value="${no.title}"></td>
+					<td>
+					<input type="text" name="title" value="${no.title}" style="width:700px;">
+					</td>
 				</tr>
 				<tr>
 					<th width="15%" height="23" nowrap>작성자</th>
-					<td width="15%" nowrap="nowrap"><input type="text" readonly="readonly" name="writer" value="${no.writer}"></td>
+					<td>
+					<input type="text" readonly="readonly" name="writer" value="${no.writer}">
+					</td>
 					
-					<th width="15%" height="23" nowrap>조회수</th>
-					<td width="15%" nowrap="nowrap">1</td>
 				</tr>
 				<tr>
 					<th height="23">글내용</th>

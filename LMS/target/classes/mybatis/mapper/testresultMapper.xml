@@ -121,6 +121,7 @@
 	<!-- 성적표 출력-->
 	<select id="getresult" resultType="map">
 		SELECT S.STUDENTNUM,
+				STUDENTNAME,
 				M.MAJORNAME,
 				C.CLASSNUM,
 				CLASSNAME, 
