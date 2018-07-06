@@ -15,6 +15,9 @@ public class ClassapplyVO {
 	
 	
 	
+	public ClassapplyVO() {
+		super();
+	}
 	public ClassapplyVO(String studentnum, String classnum) {
 		super();
 		this.studentnum = studentnum;

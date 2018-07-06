@@ -112,11 +112,11 @@ public class TestController {
 	}
 	
 	@RequestMapping("/testResult")
-	public String testResult(Model model, TestVO tVO, TestResultVO trVO, HttpSession session){
+	public String testResult(Model model, TestVO tVO, TestResultVO trVO, HttpSession session, ClassapplyVO cVO){
 		//tVO.setStudentnum((String)session.getAttribute("loginvo"));
-		//cVO = new ClassapplyVO((String)session.getAttribute("loginvo"),tVO.getClassnum());
-		//ClassapplyVO cac = classapplyService.getcanum(cVO);
-		//String cccn = cac.getClassapplynum();
+		cVO = new ClassapplyVO((String)session.getAttribute("loginvo"),tVO.getClassnum());
+		ClassapplyVO cac = classapplyService.getcanum(cVO);
+		String cccn = cac.getClassapplynum();
 		List<ExamContentsVO> elist = new ArrayList<ExamContentsVO>(examContentsService.getExamList(tVO.getTestnum()));
 		String myanswer = tVO.getMyanswer();
 		String tp;
@@ -136,6 +136,9 @@ public class TestController {
 		model.addAttribute("testscore",sco);
 		model.addAttribute("d",xnum);
 		//testResultService.testResultInsert(Integer.toString(sco), tVO.getTestnum(), cccn);
+		//trVO = new TestResultVO(testresultnum, testnum, testscore, classapplynum)
+		trVO.setTestscore("testscore");
+		trVO.setClassapplynum(cccn);
 		testResultService.testResultInsert(trVO);
 		return "test/testResult";
 	}
