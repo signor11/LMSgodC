@@ -7,7 +7,9 @@
 <title>교수용 과제확인</title>
 <style>
 p {
-	margin-right: 1cm;
+	margin-left: 0.5cm;
+	margin-right: 0.5cm;
+	
 }
 </style>
 <script>
@@ -32,7 +34,8 @@ p {
 	<br>
 
 	<div>
-		<form action="./getHWListPro" name="hwform" style="text-align: center;">
+		<form action="./getHWListPro" name="hwform"
+			style="text-align: center;">
 			<p class="bst">과목명</p>
 			<select name="classnum" class="form"
 				onchange="document.hwform.submit()">
@@ -47,11 +50,11 @@ p {
 			<p class="bst">수강인원</p>${cnt.CNT}
 			<p class="bst">과목명</p>${cnt.CLASSNAME}
 			<p class="bst">학점</p>${cnt.CREDIT}
-			<p class="bst">최대 수강인원 수</p>${cnt.MAXSTUDENT}
+			<p class="bst">최대수강인원 수</p>${cnt.MAXSTUDENT}
 			<p class="bst">수업시간</p>${cnt.CLASSTIME}
-			
-			
-			
+
+
+
 		</form>
 	</div>
 

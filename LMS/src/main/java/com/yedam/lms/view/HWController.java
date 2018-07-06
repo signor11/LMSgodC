@@ -26,11 +26,11 @@ public class HWController {
 	// 학생용 다건조회
 	@RequestMapping("/getHWList")
 	public String getHWList(HttpServletRequest request, HWVO vo, HttpSession session) {
-		// vo.setStudentnum((String)session.getAttribute("loginvo"));
-
 		vo.setStudentnum((String) session.getAttribute("loginvo"));
+		if(vo.getClassnum() != null && !vo.getClassnum().equals("")) {
+			request.setAttribute("HWList", hwService.getHWList(vo));
+		}
 		session.setAttribute("stn", vo.getStudentnum());
-		request.setAttribute("HWList", hwService.getHWList(vo));
 		request.setAttribute("classname", classService.stu_classnameList(vo.getStudentnum()));
 		return "hw/getHWList";
 	}
@@ -61,8 +61,8 @@ public class HWController {
 		vo.setProfessornum((String) session.getAttribute("loginvo"));
 		if(vo.getClassnum() != null && !vo.getClassnum().equals("")) {
 			request.setAttribute("cnt", classService.stuCnt(vo.getClassnum()));
+			request.setAttribute("HWListPro", hwService.getHWListPro(vo));
 		}
-		request.setAttribute("HWListPro", hwService.getHWListPro(vo));
 		request.setAttribute("classname", classService.pro_classnameList(vo.getProfessornum()));
 		return "hw/getHWListPro";
 	}
