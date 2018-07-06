@@ -26,8 +26,9 @@ String time = ((TestVO)request.getAttribute("list")).getTestinfo();
 time = time.substring(7,10);
 request.setAttribute("time", time);
 %> 
-
-<form action="./gettestList" name="cls">
+<div align="center">
+<h3 align="left" style="margin-left: 3%">시험조회</h3>
+<form action="./gettestList" name="cls" >
 <input type="text" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
 
 <select name="classnum" style="padding: 10px; text-align: center;" onchange="sumb();">
@@ -59,5 +60,7 @@ request.setAttribute("time", time);
 		</tr>
 		</c:if>
 </table>
+<div style="margin-bottom: 30%"></div>
+</div>
 </body>
 </html>

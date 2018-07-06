@@ -24,10 +24,11 @@
 <body>
 <c:set var="today" value="<%=new Date() %>"></c:set>
 <fmt:formatDate value="${today}" timeStyle="short" pattern="yyyy-MM-dd" var="d"/>
-
-<h2>시험출제</h2>
-		<br>
-		<form action = "./insertTestDetailPro1" method="post" name="sct">
+<div align="center" >
+<h3 align="left" style="margin-left: 3%;">시험출제</h3>
+		<br><form action = "./insertTestDetailPro1" method="post" name="sct">
+		<table style="width: 1000px">
+		<tr><td>
 			<input type="text" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5"/>
 			<select name="classnum" style="padding: 10px; text-align: center;" required="required">
 				<option value="" hidden="" >선택</option>
@@ -41,18 +42,24 @@
 				<option value="58000002">수학</option>
 			</select> 
 			<br><br>
+			</td></tr><tr><td>
 			<span class="addButton1 w3-round">시험명</span>
 			<input class="w3-border" type="text" name="testname"
 				placeholder="내용을 입력해주세요." style="width: 30%; height: 40px" required="required"/>
 			<br>
+			</td></tr><tr><td>
 			<span class="addButton1 w3-round">시험일시</span>
 			<input type = "date" name = "testdate"  min="${d}" required="required"/>
 			<span class="addButton1 w3-round">시작시간</span>
 			<input type = "time" name = "testtime"  min="09:00" max="18:00" required="required" id="aaa" onchange="upinfo();"/>
 			<span class="addButton1 w3-round">진행시간</span>
 			<input type = "number" name = "testing" min="1" required="required" id="bbb" onchange="upinfo();"/><br><br>
+			</td></tr><tr><td>
 			<input type="text" name="testinfo" hidden="" id="ccc"/>
 			<input type="submit" value="시험등록" style="left: 25%; position: absolute;" />
-			</form>
+			</td></tr>
+			</table>
+			<div style="margin-bottom: 30%"></div>
+			</div></form>
 </body>
 </html>

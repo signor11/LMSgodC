@@ -11,7 +11,8 @@
 </script>
 </head>
 <body>
-
+<div align="center">
+<h3 align="left" style="margin-left: 3%;">시험조회</h3>
 <form action="./gettestList" name="cls">
 <input type="text" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
 
@@ -27,7 +28,8 @@
 	<option value="58000002">수학</option>
 </select> 
 </form>
-
+<div style="margin-bottom: 30%"></div>
+</div>
 
 
 </body>
