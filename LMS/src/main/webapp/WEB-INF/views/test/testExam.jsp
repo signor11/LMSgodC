@@ -159,7 +159,7 @@ var dd="";
 		<input type="button" onclick="showExam();" value="다음" ></td>
 		<td><input type="button" onclick="finishExam();" value="시험제출" ></td></tr>
 	</table>
-	<form name="ee" action="testResult">
+	<form name="ee" action="./testResult">
 		<input name="action" value="getscore" hidden="">
 		<input name="myanswer" id="myanswer" hidden="">
 		<input name="classnum" value="${clnum}" hidden="">

@@ -12,7 +12,7 @@
 </head>
 <body>
 <div style="text-align: center;font-size: 50px">${testscore }점<br>맞은 번호 : ${d }<br>
-<a href="#">메인으로</a>
+<a href="./goHome">메인으로</a>
 </div>
 
 </body>
