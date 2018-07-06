@@ -11,7 +11,6 @@
 
 	window.onload = function() {
 		CKEDITOR.replace("submitinfo");
-		CKEDITOR.replace("hwinfo");
 			}
 
 	
@@ -34,9 +33,8 @@
 		<div>
 			<p class="bst">과제명</p>
 			<input name="hwname" type="text"
-				readonly="readonly" value="${sb.hwname}" class="form"><br> <br>
-			<textarea name="hwinfo" id="hwinfo" cols="85" rows="13"
-				style="width: 100%;" readonly="readonly" class="scroll_form">${sb.hwinfo}</textarea>
+				readonly="readonly" value="${sb.hwname}" class="form"><br><hr> 
+			<div style="font-size: 20px;">${sb.hwinfo}</div>
 		</div>
 		<hr />
 
