@@ -86,9 +86,9 @@ public class ProfessorController {
 	public String insertProfessor(@ModelAttribute("vo") ProfessorVO vo, HttpServletRequest request)
 
 			throws IllegalStateException, IOException {
-		System.out.println(vo);		
-		professorService.insertProfessor(vo);
-		return "redirect:/getProfessorList";
+			System.out.println(vo);		
+			professorService.insertProfessor(vo);
+			return "redirect:/getProfessorList";
 	}
 	
 		//수정폼
