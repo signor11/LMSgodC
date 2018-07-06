@@ -68,7 +68,7 @@
 			</c:forEach>
 		</table>
 	</div>
-	<button id="insertbtn" type="button" class="btn btn-default"  onclick="javascript:openinsert();">입력</button>
+	<button id="insertbtn" type="button" class="btn btn-default"  onclick="javascript:openinsert();">등록</button>
 	<br>
 	<!-- 페이징 -->
 	<my:paging paging="${paging}"/> 

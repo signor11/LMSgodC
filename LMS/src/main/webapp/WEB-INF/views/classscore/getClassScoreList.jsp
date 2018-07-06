@@ -49,9 +49,9 @@
 <body>
 	<!--body -->
 	<div align=center>
-		<p style="font-size: 34px">성적 조회</p>
+		<p style="font-size: 34px">성적 입력</p>
 		<div style="display: inline-block;">
-			<form method="post" action="updateClassapply" >
+			<%-- <form method="post" action="updateClassapply" >
 				<input type="hidden" name="action" value="list"> 
 				<input class="btn btn-danger" type="text" value="과목명" disabled="disabled" 
 				       style="padding: 10px; display: inline-block; text-align: center;"size="5">
@@ -63,7 +63,7 @@
 							${cl.classname}</option>
 					</c:forEach>
 				</select>
-			</form>
+			</form> --%>
 			<br> <br>
 			<table class="table table-hover"
 				style="border-top:; border-bottom:; border-color: black; text-align: center;">
