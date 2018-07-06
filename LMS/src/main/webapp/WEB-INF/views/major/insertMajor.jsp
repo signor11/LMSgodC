@@ -79,7 +79,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">학과명</label>
 				<div class="col-sm-10">
-					<input type="text" id="name" name="majorname" size="18"
+					<input type="text" id="name" name="majorname"
 						maxlength="12" value="${maj.majorname}" class="form-control" style="text-transform: uppercase;" />
 				<div id="check_m"></div>
 				</div>

@@ -33,7 +33,7 @@ request.setAttribute("time", time);
 <form action="./gettestList" name="cls" class="form-horizontal">
 <input type="text" class="bst" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
 
-<select name="classnum" style="padding: 10px; text-align: center;" onchange="sumb();">
+<select name="classnum" class="form"  onchange="sumb();">
 	<option value="" hidden="" >선택</option>
 	<option value="48000001">자바</option>
 	<option value="48000002">데이터베이스</option>
@@ -46,7 +46,7 @@ request.setAttribute("time", time);
 </select> 
 </form>
 
-<table border="1" style="border-top: ; border-bottom: ; border-color:black; background-color: #eeeeee; text-align: center;" class="table table-hover">
+<table class="table table-hover">
 		<tr>
 			<td width="100">시험번호</td>
 			<td width="400">시험제목</td>

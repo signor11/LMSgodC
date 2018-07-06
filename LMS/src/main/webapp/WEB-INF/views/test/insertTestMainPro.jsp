@@ -31,8 +31,8 @@
 		<br><form action = "./insertTestDetailPro1" method="post" name="sct" class="form-horizontal">
 		<table style="width: 1000px" class="table table-hover">
 		<tr><td>
-			<input type="text" value="과목명" disabled="disabled" class="bst" style="padding: 10px; display: inline-block; text-align: center;" size="5"/>
-			<select name="classnum" style="padding: 10px; text-align: center;" required="required">
+			<input type="text" value="과목명" class="bst" style="padding: 10px; display: inline-block; text-align: center;" size="5"/>
+			<select name="classnum" class="form" required="required">
 				<option value="" hidden="" >선택</option>
 				<option value="48000001">자바</option>
 				<option value="48000002">데이터베이스</option>
@@ -43,22 +43,21 @@
 				<option value="58000001">영어</option>
 				<option value="58000002">수학</option>
 			</select> 
-			<br><br>
 			</td></tr><tr><td>
-			<span class="addButton1 w3-round">시험명</span>
-			<input class="w3-border" type="text" name="testname"
-				placeholder="내용을 입력해주세요." style="width: 30%; height: 40px" required="required"/>
+			<p class="bst">시험명</p>
+			<input type="text" name="testname"
+				placeholder="내용을 입력해주세요." class="form" required="required"/>
 			<br>
 			</td></tr><tr><td>
-			<span class="addButton1 w3-round">시험일시</span>
-			<input type = "date" name = "testdate"  min="${d}" required="required"/>
-			<span class="addButton1 w3-round">시작시간</span>
-			<input type = "time" name = "testtime"  min="09:00" max="18:00" required="required" id="aaa" onchange="upinfo();"/>
-			<span class="addButton1 w3-round">진행시간</span>
-			<input type = "number" name = "testing" min="1" required="required" id="bbb" onchange="upinfo();"/><br><br>
+			<p class="bst">시험일시</p>
+			<input type = "date" class="form" name = "testdate"  min="${d}" required="required"/>
+			<p class="bst">시작시간</p>
+			<input type = "time" class="form" name = "testtime"  min="09:00" max="18:00" required="required" id="aaa" onchange="upinfo();"/>
+			<p class="bst">진행시간</p>
+			<input type = "number" class="form" name = "testing" min="1" required="required" id="bbb" onchange="upinfo();"/><br><br>
 			</td></tr><tr><td>
 			<input type="text" name="testinfo" hidden="" id="ccc"/>
-			<input type="submit" value="시험등록" style="left: 25%; position: absolute;" class="btn btn-danger"/>
+			<input type="submit"  value="시험등록" style="left: 25%; position: absolute;" class="btn btn-danger"/>
 			</td></tr>
 			</table>
 			<div style="margin-bottom: 30%"></div>
