@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.yedam.lms.classs.ClassService;
 import com.yedam.lms.classs.ClassapplyService;
 import com.yedam.lms.classs.ClassapplyVO;
 import com.yedam.lms.classs.impl.ClassapplyDAO;
@@ -38,6 +40,8 @@ public class ClassScoreController {
 	ClassapplyService classapplyService;
 	@Autowired
 	TestResultService testResultService;
+	@Autowired
+	ClassService classService;
 	
 	// 성적 처리
 	@RequestMapping(value = "/updateClassapply")
@@ -85,9 +89,13 @@ public class ClassScoreController {
 
 	// 교수 성적 조회
 	@RequestMapping("/getClassScoreList")
-	public String gettestresultList(TestResultVO vo, Model model)  {
-		vo.setClassnum("48000001");
+	public String gettestresultList(HttpServletRequest request,HttpSession session,TestResultVO vo, Model model)  {
+		vo.setProfessornum((String) session.getAttribute("loginvo"));
+		if(vo.getClassnum() != null && !vo.getClassnum().equals("")) {
+			request.setAttribute("cnt", classService.stuCnt(vo.getClassnum()));
+		}
 		model.addAttribute("insList", testResultService.getTestresultList(vo));
+		request.setAttribute("classname", classService.pro_classnameList(vo.getProfessornum()));
 		return "classscore/getClassScoreList";
 
 	}

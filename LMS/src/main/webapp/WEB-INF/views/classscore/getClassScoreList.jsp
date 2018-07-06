@@ -50,8 +50,26 @@
 	<!--body -->
 	<div align=center>
 		<p style="font-size: 34px">성적 입력</p>
-		<div style="display: inline-block;">
-			<%-- <form method="post" action="updateClassapply" >
+	<div>
+		<form method="post" action="updateClassapply" name="CSform" style="text-align: center;">
+			<p class="bst">과목명</p>
+			<select name="classnum" class="form" onchange="document.CSform.submit()">
+				<option value="" selected hidden="">선택</option>
+				<c:forEach items="${classname}" var="n">
+					<option value="${n.CLASSNUM}"
+						<c:if test="${n.CLASSNUM==param.classnum}">selected</c:if>>${n.CLASSNAME}
+					</option>
+				</c:forEach>
+			</select>&nbsp;&nbsp;&nbsp;&nbsp;
+			<p class="bst">수강인원</p>${cnt.CNT}
+			<p class="bst">과목명</p>${cnt.CLASSNAME}
+			<p class="bst">학점</p>${cnt.CREDIT}
+			<p class="bst">최대 수강인원 수</p>${cnt.MAXSTUDENT}
+			<p class="bst">수업시간</p>${cnt.CLASSTIME}
+		</form>
+	</div>
+		<%-- <div style="display: inline-block;">
+			<form method="post" action="updateClassapply" >
 				<input type="hidden" name="action" value="list"> 
 				<input class="btn btn-danger" type="text" value="과목명" disabled="disabled" 
 				       style="padding: 10px; display: inline-block; text-align: center;"size="5">
@@ -63,7 +81,7 @@
 							${cl.classname}</option>
 					</c:forEach>
 				</select>
-			</form> --%>
+			</form> --%> 
 			<br> <br>
 			<table class="table table-hover"
 				style="border-top:; border-bottom:; border-color: black; text-align: center;">

@@ -44,7 +44,7 @@
 				<tr id = "my${no.seq}">
 					<th width="15%" height="23" nowrap>제목</th>
 					<td>
-					<input type="text" name="title" value="${no.title}">
+					<input type="text" name="title" value="${no.title}" style="width:700px;">
 					</td>
 				</tr>
 				<tr>
