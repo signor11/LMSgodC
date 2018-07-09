@@ -36,11 +36,9 @@
 	<br>
 	<p align=right>
 		<a href="./insertProfessor"><button type="button" class="btn btn-danger" >등록</button></a>&emsp;&emsp;
-		<a href="./professorExcelCreate"><button type="button" class="btn btn-danger" >엑셀출력</button></a>
+		<a href="./professorExcelView"><button type="button" class="btn btn-danger" >엑셀출력</button></a>
 	
-	
-	
-		
+
 	</p>
 
 	<br>
