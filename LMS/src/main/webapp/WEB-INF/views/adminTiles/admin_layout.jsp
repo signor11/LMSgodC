@@ -100,7 +100,7 @@ input[type="number"]::-webkit-inner-spin-button {
 			</div>
 
 			<!--logo start-->
-			<a href="admin_layout.jsp" class="logo">Yedam <span class="lite">Admin</span></a>
+			<a href="./admin" class="logo">Yedam <span class="lite">Admin</span></a>
 			<!--logo end-->
 
 		</header>
