@@ -37,8 +37,9 @@
 		SET CLASSNAME 	= #{classname},
 			CLASSTIME 	= #{classtime},
 			CREDIT		= #{credit},
-			MAXSTUDENT	= #{maxstudent}
-		WHERE CLASSNUM 	= #{classnum}
+			MAXSTUDENT	= #{maxstudent},
+			PROFESSORNUM = #{professornum}
+		WHERE CLASSNUM 	= #{classnum}   
 	
 	</update>	
 	

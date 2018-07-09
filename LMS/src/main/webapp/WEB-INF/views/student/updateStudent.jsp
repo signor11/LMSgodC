@@ -82,6 +82,7 @@
 	<div class="panel-body">
 		<form action="./updateStudent" method="post" name="stu_Form"
 			class="form-horizontal " method="post">
+			<input type="hidden" name="page" value="${param.page}"/>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">아이디</label>
 				<div class="col-sm-10">

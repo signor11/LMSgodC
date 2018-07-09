@@ -79,6 +79,14 @@
 </script>
 </head>
 <body>
+
+	<br>
+	<br>
+	<h3 align="center">관리자용 과목 등록</h3>
+	<br>
+
+
+	<br>
 	<div class="panel-body">
 		<form action="./insertClass" method="POST" name="pro_Form"
 			class="form-horizontal ">
