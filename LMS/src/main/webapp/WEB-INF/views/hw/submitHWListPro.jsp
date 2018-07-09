@@ -7,7 +7,7 @@
 <head>
 <title>교수용 제출된 학생과제 확인</title>
 
-<script src="./resources/web/js/ckeditor_4/ckeditor/ckeditor.js"></script>
+<script src="./resources/web/js/ckeditor_4/ckeditor.js"></script>
 <script>
 	window.onload = function() {
 		CKEDITOR.replace("hwinfo");
@@ -53,6 +53,16 @@
 		today = yyyy + '-' + mm + '-' + dd;
 		document.getElementById("dateField").setAttribute("min", today);
 	}
+	
+	function content(a){
+		var q = window.open("","","width=500, height=400, left=30, top=5000");
+		q.document.write($("#"+a).find("#submitname").val());
+		q.document.write("<br><br><br>");
+		q.document.write($("#"+a).find("#submitinfo").val());
+	}
+	
+	
+	
 </script>
 <style>
 
@@ -144,12 +154,16 @@
 			<c:forEach items="${sh}" var="s">
 
 
-				<tr>
+				<tr id="st${s.STUDENTNUM}">
 					<td>${s.STUDENTNUM}</td>
 					<td>${s.STUDENTNAME}</td>
 					<td><c:if test="${not empty s.SUBMITINFO}">
+							<%-- <a href='javascript:window.open("./submitHWDetail?submithwnum=${s.SUBMITHWNUM}","","width=800, height=600, left=30, top=200")'>${s.SUBMITNAME}</a>
+							<input type="hidden" value="${s.SUBMITNAME}" id="submitname">
+							<input type="hidden" value="${s.SUBMITINFO}" id="submitinfo"> --%>
 							<a href="#" onclick="popup('${s.SUBMITNAME}\n\n${s.SUBMITINFO}')">${s.SUBMITNAME}</a>
-						</c:if> <c:if test="${empty s.SUBMITINFO}">
+						</c:if> 
+						<c:if test="${empty s.SUBMITINFO}">
 							<div>${s.SUBMITNAME}</div>
 						</c:if></td>
 					<td><c:if test="${not empty s.ADDFILEID}">
