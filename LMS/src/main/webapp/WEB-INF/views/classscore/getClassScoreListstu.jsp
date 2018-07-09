@@ -10,25 +10,31 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<style>
+	.p{
+		color:black;
+		padding-top: 50px;
+		}
+		
+	.tab{
+	 	color:red;
+	 	font-size:medium;
+	 	font-weight: normal;
+	 	padding: 30px;
+	 	font-weight: bold;
+		 }
+		 
+	 .ul{
+		display: inline-block;
+		text-align: left;	
+		padding-top: 20px;	 
+	 }
+	 .table table-hover{
+	 	padding-top: 70px;
+	 }
+	 
+</style>
 <script>
-<!-- 	$(document).ready(function() {
-
-		$("#print").dialog({
-			autoOpen : false,
-			height : 800,
-			width : 1000,
-			modal : true,
-			open : function(event, ui) {
-				$(event.target).load("")
-			}		 
-		});
-
-		// 버튼 클릭 이벤트(모달 폼이 보이도록)
-		$("#btnPrint").click(function() {
-			$("#print").dialog("open");
-		});
--->
 	//새창 열기
 	function openprint() {
 		window.open("./result", "출력",
@@ -40,27 +46,25 @@
 </head>
 <!-- body -->
 <body>
-	<div align=center>
-		<h3 align="center">학생용 성적 조회</h3>
+	<div align=center >
+		<h3 class = "p">학생용 성적 조회</h3>
 		<div style="display: inline-block;">
 
-			<ul style="display: inline-block; align: left;">
+			<ul class="ul">
 				<li>과목별 성적</li>
 			</ul>
-			<br> <br>
-			<p style="color: red;" align="center">※성적상태가 '수강신청'인 과목은 성적입력이 안된
-				과목입니다. 담당 교수에게 문의 하시기 바랍니다.</p>
-
+			<p class="tab">※성적상태가 '수강신청'인 과목은 성적입력이 안된 과목입니다. 담당 교수에게 문의 하시기 바랍니다.</p>
+			
 			<table class="table table-hover" style="text-align: center;">
 				<tr>
-					<td class="danger" >학생번호</td>
-					<td class="danger" width="400">과목명</td>
-					<td class="danger">이수학점</td>
-					<td class="danger">학점</td>
-					<td class="danger">취득점수</td>
-					<td class="danger">취득등급</td>
-					<td class="danger">담당교수</td>
-					<td class="danger" width="100">성적상태</td>
+					<td class="active">학생번호</td>
+					<td class="active" width="700px">과목명</td>
+					<td class="active">이수학점</td>
+					<td class="active">학점</td>
+					<td class="active">취득점수</td>
+					<td class="active">취득등급</td>
+					<td class="active">담당교수</td>
+					<td class="active" width="100">성적상태</td>
 				</tr>
 				<c:forEach items="${serList}" var="ser">
 					<tr>
@@ -76,11 +80,10 @@
 				</c:forEach>
 			</table>
 			<br> <br>
-			<div align="center">
+			<div align="center" style = "padding:50px;">
 				<button id="printbtn" type="button" class="btn btn-danger" onclick="javascript:openprint();">출력</button>
-				<div id="print" title="출력"></div>
 			</div>
-			<br><br>
+			
 		</div>
 	</div>
 </body>
