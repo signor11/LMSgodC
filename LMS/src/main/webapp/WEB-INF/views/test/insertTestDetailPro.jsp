@@ -101,7 +101,7 @@
 
 			<c:if test="<%=cnt != 0%>">
 				<c:forEach begin="1" end="<%=cnt%>" step="1" var="i" varStatus="s">
-					<a class="w3-button w3-grey w3-round"
+					<a class="btn btn_danger"
 						href="insertTestDetailPro4?examconnum=${exnum2+s.count-1}&testnum=${testnum}&temp=${temp}">
 						${s.count } </a>
 				</c:forEach>
