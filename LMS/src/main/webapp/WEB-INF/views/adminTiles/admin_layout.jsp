@@ -76,6 +76,14 @@
 		ease-in-out .15s;
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+
 </style>
 
 </head>
@@ -95,17 +103,6 @@
 			<a href="admin_layout.jsp" class="logo">Yedam <span class="lite">Admin</span></a>
 			<!--logo end-->
 
-			<div class="nav search-row" id="top_menu">
-				<!--  search form start -->
-				<ul class="nav top-menu">
-					<li>
-						<form class="navbar-form">
-							<input class="form-control" placeholder="Search" type="text">
-						</form>
-					</li>
-				</ul>
-				<!--  search form end -->
-			</div>
 		</header>
 		<!--header end-->
 

@@ -9,7 +9,7 @@
 		SELECT p.PROFESSORNUM,
 			   p.MAJORNUM,
 			   m.MAJORNAME,
-			   p.PROFESSORPW,
+			  <!--  p.PROFESSORPW, -->
 			   p.PROFESSORNAME,
 			   p.PROFESSORPHONE,
 			  TO_CHAR(p.hiredate, 'YYYY-MM-DD') HIREDATE
@@ -27,7 +27,7 @@
 	SELECT p.PROFESSORNUM,
 			   p.MAJORNUM,
 			   m.MAJORNAME,
-			   p.PROFESSORPW,
+			  <!--  p.PROFESSORPW, -->
 			   p.PROFESSORNAME,
 			   p.PROFESSORPHONE,
 			  TO_CHAR(p.hiredate, 'YYYY-MM-DD') HIREDATE
@@ -42,11 +42,11 @@
 			select max(PROFESSORNUM)+1 from professor
 		</selectKey>
 		insert into
-		professor(PROFESSORNUM, MAJORNUM, PROFESSORPW,PROFESSORNAME,PROFESSORPHONE,HIREDATE)
+		professor(PROFESSORNUM, MAJORNUM,PROFESSORPW,PROFESSORNAME,PROFESSORPHONE,HIREDATE)
 		values
 		(#{professornum},
 		#{majornum},
-		#{professorpw},
+	 	#{professorpw},
 		#{professorname},
 		#{professorphone},
 		#{hiredate})
@@ -58,8 +58,8 @@
 		SET MAJORNUM=#{majornum},
 			PROFESSORNAME=#{professorname},
 			PROFESSORPHONE=#{professorphone},
-			HIREDATE=#{hiredate},
-			PROFESSORPW=#{professorpw}
+			HIREDATE=#{hiredate}
+			<!-- PROFESSORPW=#{professorpw} -->
 		WHERE PROFESSORNUM=#{professornum}
 	</update>
 

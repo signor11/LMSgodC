@@ -117,21 +117,25 @@ public class ProfessorController {
 			return "redirect:/getProfessorList";
 		}
 	
-		/*//엑셀출력(viewResolver)
+		//엑셀출력(viewResolver)
 		@RequestMapping("/professorExcelView")
-		public ModelAndView professorExcelView(ProfessorVO vo) {
+		public ModelAndView professorExcelView(ProfessorVO vo, HttpServletResponse response) throws IOException {
 			List<Map<String, Object>> list = professorService.getProfessorList(vo);
 			HashMap<String, Object> map = new HashMap<String, Object>();
 			
-			String[] header = {"professornum","professorpw","professorname","majorname"};
+			String[] header = {"PROFESSORNUM",
+					"PROFESSORNAME",
+					"MAJORNAME",
+					"PROFESSORPHONE",
+					"HIREDATE"};
 			map.put("filename", "excel_pro");
 			map.put("datas", list);
 			map.put("headers", header);
 			return new ModelAndView("commonExcelView", map);
-			}*/
+			}
 	
 		
-		
+	/*	
 		//엑셀출력
 		@RequestMapping("/professorExcelCreate")
 		public void excelCreate(ProfessorVO vo, HttpServletResponse response) throws IOException{
@@ -195,5 +199,5 @@ public class ProfessorController {
 		uFile.delete(); //파일삭제
 		response.getOutputStream().flush();
 		response.getOutputStream().close();
-		}
+		}*/
 	}

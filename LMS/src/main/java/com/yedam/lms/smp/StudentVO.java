@@ -10,7 +10,7 @@ public class StudentVO {
 	private String studentdate;
 	private String startdate;
 	private String usertype;
-	private String cnt;
+	private String page;
 	
 	
 	
@@ -74,18 +74,18 @@ public class StudentVO {
 		this.startdate = startdate;
 	}
 	
-	public String getCnt() {
-		return cnt;
+	public String getpage() {
+		return page;
 	}
-	public void setCnt(String cnt) {
-		this.cnt = cnt;
+	public void setpage(String page) {
+		this.page = page;
 	}
 	@Override
 	public String toString() {
 		return "StudentVO [studentnum=" + studentnum + ", majornum=" + majornum + ", majorname=" + majorname
 				+ ", studentpw=" + studentpw + ", studentname=" + studentname + ", studentphone=" + studentphone
-				+ ", studentdate=" + studentdate + ", startdate=" + startdate + ", usertype=" + usertype + ", cnt="
-				+ cnt + "]";
+				+ ", studentdate=" + studentdate + ", startdate=" + startdate + ", usertype=" + usertype + ", page="
+				+ page + "]";
 	}
 	
 	

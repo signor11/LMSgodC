@@ -62,7 +62,6 @@
 	$(function() {
 		var a = getCookie("popup_main1")
 		console.log(location.href.indexOf("login.do"))
-
 		if ("${sessionScope.loginvo}" == ""
 				&& location.href.indexOf("login.do") == -1
 				&& location.href.indexOf("logout.do") == -1
@@ -125,7 +124,7 @@
 						</c:if>
 					</div>
 					<div class="modal-footer">
-						<label><input type="checkbox" name="todayChk" onclick="javascript:fnClose();"> <span>오늘 하루 이 창을열지 않음</span></label>
+						<label><input type="checkbox" id="todayChk" name="todayChk" onclick="javascript:fnClose();"> <span>오늘 하루 이 창을열지 않음</span></label>
 					</div>
 				</div>
 			</div>

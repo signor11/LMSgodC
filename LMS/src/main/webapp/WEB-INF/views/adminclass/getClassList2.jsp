@@ -7,10 +7,10 @@
 <head>
 <title></title>
 <script>
-	function updateclass(a, b) {
+	function updateclass(a) {
 		var check = confirm('과목 정보를 수정하시겠습니까?');
 		if (check == true) {
-			window.location.href = "./updateClass?classnum="+ a 
+			window.location.href = "${pageContext.request.contextPath}/updateClassForm?classnum="+a
 		}
 	}
 

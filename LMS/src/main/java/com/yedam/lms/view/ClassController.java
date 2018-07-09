@@ -30,18 +30,18 @@ public class ClassController {
 	ClassService classService;
 
 	@RequestMapping("/getClassList2")
-	public ModelAndView getClassList2(ClassVO vo, String classnum) {
+	public ModelAndView getClassList2(ClassVO vo) {
 
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("List", classService.getClassList2(classnum));
+		mv.addObject("List", classService.getClassList2(vo));
 		mv.setViewName("admin/adminclass/getClassList2");
 		return mv;
 	}
 
-	// 등록 및 수정 폼
-	@RequestMapping(value = "/insertClassForm", method = RequestMethod.GET)
-	String insertClassForm(HttpServletRequest request, ClassVO vo, String classnum) {
-		request.setAttribute("class", classService.getClassList2(classnum));
+	// 등록 폼
+	@RequestMapping("/insertClassForm")
+	String insertClassForm(HttpServletRequest request, ClassVO vo) {
+		request.setAttribute("class", classService.getClassList2(vo));
 		request.setAttribute("c_list", classService.classProfessor());
 		return "admin/adminclass/insertClass";
 
@@ -56,17 +56,17 @@ public class ClassController {
 	}
 
 	// 수정폼
-	@RequestMapping(value = "/insertClass", method = RequestMethod.GET)
-	String updateClass(ClassVO vo, HttpServletRequest request, String classnum) {
-		
-		request.setAttribute("get_class", classService.getClassList2(classnum));
+	@RequestMapping("/updateClassForm")
+	String updateClass(ClassVO vo, HttpServletRequest request,String classnum) {
+		request.setAttribute("get_class", classService.getClass(vo.getClassnum()));
+		request.setAttribute("c_list", classService.classProfessor());
 		return "admin/adminclass/updateClass";
 
 	}
 
 	// 수정 처리
-	@RequestMapping(value = "/updateClass", method = RequestMethod.POST)
-	String updateClass(@ModelAttribute("vo") ClassVO vo) {
+	@RequestMapping("/updateClass")
+	String updateClass(@ModelAttribute("vo") ClassVO vo,HttpServletRequest request) {
 		classService.updateClass(vo);
 		return "redirect:/getClassList2";
 	}
@@ -76,7 +76,17 @@ public class ClassController {
 	public String deleteClass(ClassVO vo) {
 		classService.deleteClass(vo.getClassnum());
 		// ajax json구조로 리턴해줌
-		return "{\"result\":true}";
+		return "{\"result\":true}"; 
+	}
+	@RequestMapping("/checkClass")
+	@ResponseBody
+	
+	public String checkClass(ClassVO vo) {
+		int a = classService.checkClass(vo);
+		if(a==0) {
+			return "{\"result\":true}";
+		}else 
+			return "{\"result\":false}";
 	}
 
 	/*
