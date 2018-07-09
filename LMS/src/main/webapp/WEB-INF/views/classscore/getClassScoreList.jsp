@@ -49,7 +49,7 @@
 <body>
 	<!--body -->
 	<div align=center>
-		<p style="font-size: 34px">성적 입력</p>
+		<h3 align="center">성적 입력</h3>
 	<div>
 		<form method="post" name="CSform" style="text-align: center;">
 			<p class="bst">과목명</p>
@@ -94,7 +94,9 @@
 			</table>
 		</div>
 		<br> <br>
+		<div align="center">
 		<p style="color: red">점수를 변경하면 자동저장됩니다. tab키를 눌러주세요</p>
+		</div>
 		<br> <br>
 	</div>
 </body>

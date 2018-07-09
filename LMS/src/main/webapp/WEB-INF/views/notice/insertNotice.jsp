@@ -21,9 +21,7 @@
 </script>
 </head>
 <div>
-		<h2>
-			<strong>글 입력</strong>
-		</h2>
+		<h3>글 입력</h3>
 	</div>
 	<body>
 		<form action="./insertNotice" name="NoticeForm"  method = "post" enctype  ="multipart/form-data" onsubmit="return submitCheck()">
@@ -31,8 +29,10 @@
 			작성자<input type="text" name="writer" value = "관리자" readonly="readonly"><br>
 			내용<textarea name = "content" id = "content"></textarea><br>
 			첨부파일<input type="file" name="tempuploadfile"><br>
-		 	<button type="submit"  class="btn btn-default">저장</button>
-		 	<button id="searchbtn" type="button" class="btn btn-default"  onclick="javascript:opennotice();">목록</button> 
+		 	<div align="center">
+		 	<button type="submit"  class="btn btn-danger">저장</button>
+		 	<button id="searchbtn" type="button" class="btn btn-danger"  onclick="javascript:opennotice();">목록</button>
+		 	</div> 
 		</form>
 		<script>
 			CKEDITOR.replace("content", {//내장객체 pageContext, contextPath local정보

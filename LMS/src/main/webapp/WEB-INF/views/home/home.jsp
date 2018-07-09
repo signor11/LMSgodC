@@ -82,7 +82,7 @@
 </head>
 <body>
 	<!-- banner -->
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" >
 
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
@@ -103,16 +103,15 @@
 	
 	<!-- 공지사항 Model -->
 
-	<div class="modal" id="modifyModal" role="dialog" >
+	<div class="modal" id="modifyModal" role="dialog"  >
 		<div class="modal-dialog">
 			<!-- Modal content-->
-			<div class="modal-content">
+			<div class="modal-content" style="width: 800px;">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title">공지사항</h4>
+					<h3 class="modal-title">공지사항</h3>
 					<hr>
 					<div class="modal-body">
 						<div class="form-group" id="title" name="title">
