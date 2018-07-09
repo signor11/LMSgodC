@@ -33,11 +33,12 @@
 %>
 
 	<div class="w3-container " style="padding: 50px">
-		<br>
-		<h2>시험출제</h2>
-		<form action="./insertTestDetailPro3">
+		<br><br>
+		<h3 align="center">시험출제</h3>
+		<br><br>
+		<form action="./insertTestDetailPro3" class="form-horizontal">
 			<input type="text" name="testnum" required="required"
-				value="<%=tnum%>" hidden=""> <input type="text" value="과목명"
+				value="<%=tnum%>" hidden=""> <input type="text" value="과목명" class="bst"
 				style="padding: 10px; display: inline-block; text-align: center;"
 				size="5" disabled="disabled">
 			<c:if test="${regi.classnum == '48000001' }">자바</c:if>
@@ -94,7 +95,7 @@
 					placeholder="내용을 입력해주세요."style="width: 85%; height: 40px;" name="show4" required="required" value="${ex.show4 }"><br>	
 				</span>
 
-			<button type="submit" class="w3-button w3-grey w3-round">수정하기</button>
+			<button type="submit" class="btn btn-danger">수정하기</button>
 	</div>
 	<br>
 	</form>

@@ -28,6 +28,8 @@ public interface TestResultService {
 	
 	//성적표 출력
 	public List<TestResultVO> getresult(TestResultVO vo);
+
+	public void testResultInsert(TestResultVO trVO);
 	
 
 	

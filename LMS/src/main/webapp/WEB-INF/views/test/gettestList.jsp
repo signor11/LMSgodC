@@ -23,14 +23,17 @@ date = date.substring(0,10);
 request.setAttribute("date", date);
 
 String time = ((TestVO)request.getAttribute("list")).getTestinfo();
-time = time.substring(7,10);
+time = time.substring(7,9);
 request.setAttribute("time", time);
 %> 
+<div align="center">
+<br><br>
+<h3 align="center">시험조회</h3>
+<br><br>
+<form action="./gettestList" name="cls" class="form-horizontal">
+<input type="text" class="bst" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
 
-<form action="./gettestList" name="cls">
-<input type="text" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
-
-<select name="classnum" style="padding: 10px; text-align: center;" onchange="sumb();">
+<select name="classnum" class="form"  onchange="sumb();">
 	<option value="" hidden="" >선택</option>
 	<option value="48000001">자바</option>
 	<option value="48000002">데이터베이스</option>
@@ -43,7 +46,7 @@ request.setAttribute("time", time);
 </select> 
 </form>
 
-<table border="1" style="border-top: ; border-bottom: ; border-color:black; background-color: #eeeeee; text-align: center;" >
+<table class="table table-hover">
 		<tr>
 			<td width="100">시험번호</td>
 			<td width="400">시험제목</td>
@@ -53,11 +56,13 @@ request.setAttribute("time", time);
 		<c:if test="${!empty list }">
 		<tr>
 			<td>${list.testnum}</td>
-			<td><a href="searchtest_control.jsp?action=doexam&testnum=${list.testnum}&timer=${time }&classnum=${list.classnum}&testname=${list.testname}" target="_blank">${list.testname}</a></td>
+			<td><a href="testExam?testnum=${list.testnum}&timer=${time }&classnum=${list.classnum}&testname=${list.testname}&temp=123" target="_blank">${list.testname}</a></td>
 			<td>${date}<br>${list.testinfo }</td>
 			<td>${list.check}</td>
 		</tr>
 		</c:if>
 </table>
+<div style="margin-bottom: 30%"></div>
+</div>
 </body>
 </html>

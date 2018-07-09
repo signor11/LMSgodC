@@ -62,4 +62,7 @@ public class ClassDAO {
 	public int checkClass(ClassVO vo) {
 		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.checkClass",vo);
 	}
+	public Map<String, Object> stuCnt(String classnum){
+		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.stuCnt", classnum);
+	}
 }

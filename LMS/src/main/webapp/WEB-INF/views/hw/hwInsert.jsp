@@ -7,7 +7,7 @@
 <head>
 <title>hwInsert.jsp</title>
 
-<script src="./resources/web/js/ckeditor_4/ckeditor.js"></script>
+<script src="./resources/web/js/ckeditor_4/ckeditor/ckeditor.js"></script>
 <script>
 	window.onload = function() {
 		CKEDITOR.replace("hwinfo");
@@ -54,9 +54,9 @@
 
 	
 	<form action="./hwInsert" method="post" onsubmit="return submitCheck()" name="hwForm" class="form-inline" role="form">
-	<span class="btn btn-danger">과목명</span>
+	<p class="bst">과목명</p>
 		<div class = "form-group">
-		<select name="classnum" class="btn btn-outline-secondary dropdown-toggle" style="padding: 10px; text-align: center;"
+		<select name="classnum" class="form" style="padding: 10px; text-align: center;"
 			required="required" size="1">
 			<option value="" selected hidden="">선택</option>
 			<c:forEach items="${classname}" var="n">
@@ -64,18 +64,17 @@
 			</c:forEach>
 		</select>
 		</div>
+		&nbsp;&nbsp;&nbsp;&nbsp;
 		<div class = "form-group">
-		<span class="btn btn-danger">제출기한</span>
+		<p class="bst">제출기한</p>
 		<input type="date" class="btn btn-outline-secondary dropdown-toggle" name="applydate" required="required" class="form-control" id="dateField" min="" onclick=" checkDay()">
 		</div>
 		<br><br>
 		
 		<div class="form-group">
-    <label class="control-label col-md-3" id="d" for="inputSuccess3">제목</label>
-    <div class="col-md-9">
+    <p class="bst">제목</p>&nbsp;
       <input type="text" name="hwname" id="hwname" placeholder="제목을 입력해주세요."
-				required="required" class="form-control" >
-    </div>
+				required="required" size="80" class="form">
   </div>
 		
 		<!-- <div class = "form-group">
@@ -85,9 +84,9 @@
 				<input type="text" name="hwname" id="hwname" placeholder="제목을 입력해주세요."
 				required="required" class="form-control" >
 			</div>
-		</div> --><br>
+		</div> -->
 		<br><br>
-		<span class="btn btn-danger">내용</span><br><br>
+		<p class="bst">내용</p><br><br>
 		<textarea name="hwinfo" id="hwinfo" rows="50" cols="40"></textarea><br>
 		<div>
 			<input type="submit" value="등록" class="btn btn-danger"/><br>

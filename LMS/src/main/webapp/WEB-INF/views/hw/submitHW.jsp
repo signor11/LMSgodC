@@ -6,14 +6,22 @@
 <html>
 <head>
 <title>학생용 과제 제출</title>
-<script src="./resources/web/js/ckeditor_4/ckeditor.js"></script>
+<script src="./resources/web/js/ckeditor_4/ckeditor/ckeditor.js"></script>
 <script>
 
 	window.onload = function() {
-		CKEDITOR.replace("submitinfo");
-		CKEDITOR.replace("hwinfo");
-			}
-
+		CKEDITOR.replace("submitinfo",{
+		toolbarGroups: [
+			{"name":"basicstyles","groups":["basicstyles"]},
+			{"name":"links","groups":["links"]},
+			{"name":"paragraph","groups":["list","blocks"]},
+			{"name":"document","groups":["mode"]},
+			{"name":"insert","groups":["insert"]},
+			{"name":"styles","groups":["styles"]},
+			{"name":"about","groups":["about"]}
+		]
+			})
+	}
 	
 	function submitCheck(){
 		var editor_data = CKEDITOR.instances.hwinfo.getData();
@@ -34,9 +42,8 @@
 		<div>
 			<p class="bst">과제명</p>
 			<input name="hwname" type="text"
-				readonly="readonly" value="${sb.hwname}" class="form"><br> <br>
-			<textarea name="hwinfo" id="hwinfo" cols="85" rows="13"
-				style="width: 100%;" readonly="readonly" class="scroll_form">${sb.hwinfo}</textarea>
+				readonly="readonly" value="${sb.hwname}" class="form"><br><hr> 
+			<div style="font-size: 20px;">${sb.hwinfo}</div>
 		</div>
 		<hr />
 
@@ -64,10 +71,10 @@
 			<input type="hidden" value="${a}" name = "addfileid" />
 			<input type="text" name="hwnum" hidden="" value="${sb.hwnum}" /> 
 			<input type="text" name="classnum" hidden="" value="${sb.classnum}" />
-
 			<p class="bst">제목</p>
 			<input name="submitname" type="text"
-				value="${up_hw.submitname}" required="required" class="form"><br><br>
+				value="${up_hw.submitname}" required="required"  size="80" class="form"><br><br>
+			<div style="display: inline-block;">
 			<p class="bst">첨부파일</p>
 			<c:if test="${not empty up_hw}">
 				&nbsp;&nbsp;&nbsp;
@@ -78,6 +85,7 @@
 			</c:if>
 		
 			<input type="file" name="tempuploadfile" class="form"/>
+			</div>
 			<br><br>
 			<p class="bst">내용</p><br><br>
 			<textarea name="submitinfo" cols="85" rows="13" id="submitinfo"

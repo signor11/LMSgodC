@@ -15,6 +15,14 @@ public class ClassapplyVO {
 	
 	
 	
+	public ClassapplyVO() {
+		super();
+	}
+	public ClassapplyVO(String studentnum, String classnum) {
+		super();
+		this.studentnum = studentnum;
+		this.classnum = classnum;
+	}
 	public String getpMessage() {
 		return pMessage;
 	}
@@ -88,6 +96,11 @@ public class ClassapplyVO {
 				+ professorname + ", credit=" + credit + ", studentname=" + studentname + ", professornum="
 				+ professornum + ", pMessage=" + pMessage + "]";
 	}
+	
+	
+	
+	
+	
 	
 	
 	

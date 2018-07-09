@@ -9,13 +9,18 @@
 		SELECT *
 		FROM MAJOR
 		WHERE MAJORNUM = #{majornum}
+	
 	</select>
 	
 <!-- 다건 조회 -->
 	<select id="getMajorList" resultType="map">
 		SELECT *
 		FROM MAJOR
+	<if test="majorname != null and majorname != ''">
+		WHERE MAJORNAME = #{majorname}
+	</if>	
 		ORDER BY MAJORNUM
+		
 	</select>
 	
 <!-- 수정 -->

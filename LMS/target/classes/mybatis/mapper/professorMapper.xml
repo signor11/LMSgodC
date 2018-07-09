@@ -24,7 +24,16 @@
 		<result property="param3" column="columnname3" /> </resultMap> -->
 
 	<select id="getProfessorList" resultType="map">
-		SELECT * FROM professor
+	SELECT p.PROFESSORNUM,
+			   p.MAJORNUM,
+			   m.MAJORNAME,
+			   p.PROFESSORPW,
+			   p.PROFESSORNAME,
+			   p.PROFESSORPHONE,
+			  TO_CHAR(p.hiredate, 'YYYY-MM-DD') HIREDATE
+			   
+		FROM PROFESSOR p JOIN MAJOR m
+    	ON p.MAJORNUM = m.MAJORNUM
 	</select>
 	<insert id="insertProfessor"
 		parameterType="com.yedam.lms.smp.ProfessorVO">

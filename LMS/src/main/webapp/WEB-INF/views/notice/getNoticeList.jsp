@@ -46,29 +46,29 @@
 
 			<c:forEach items="${noticeList}" var="no" varStatus="status">
 				<tr>
-					<td>${status.index+1}</td>
+					<td width="50px">${status.index+1}</td>
 					<td width="500px">
-					<form name="NoticeForm" method="get" action="./updateNotice">
-				            <c:choose>
-				                <c:when test="">
-				                    <c:out value="${no.TITLE}" />
-				                </c:when>
-				                <c:otherwise>
-				                		<input type="hidden" name="seq" value="${no.SEQ}">
-				                        <span class="link">
-											<input type="submit" style="width:500px;border:solid 0px black;text-align:left;" value="<c:out value="${no.TITLE}"/>" >
-										</span>
-				                </c:otherwise>
-				            </c:choose>
-				    </form>
+						<form name="NoticeForm" method="get" action="./updateNotice">
+					            <c:choose>
+					                <c:when test="">
+					                    <c:out value="${no.TITLE}" />
+					                </c:when>
+					                <c:otherwise>
+					                		<input type="hidden" name="seq" value="${no.SEQ}">
+					                        <span class="link">
+												<input type="submit" style="width:700px;border:solid 0px black;text-align:left;" value="<c:out value="${no.TITLE}"/>" >
+											</span>
+					                </c:otherwise>
+					            </c:choose>
+					    </form>
 					</td>
-					<td>${no.WRITER}</td>
-					<td>${no.REGDATE}</td>
+					<td width="200px">${no.WRITER}</td>
+					<td width="200px">${no.REGDATE}</td>
 				</tr>
 			</c:forEach>
 		</table>
 	</div>
-	<button id="insertbtn" type="button" class="btn btn-default"  onclick="javascript:openinsert();">입력</button>
+	<button id="insertbtn" type="button" class="btn btn-default"  onclick="javascript:openinsert();">등록</button>
 	<br>
 	<!-- 페이징 -->
 	<my:paging paging="${paging}"/> 

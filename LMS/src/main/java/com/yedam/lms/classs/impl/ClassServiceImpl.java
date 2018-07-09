@@ -74,6 +74,9 @@ public class ClassServiceImpl implements ClassService{
 	public int checkClass(ClassVO classvo) {
 		return dao.checkClass(classvo);
 	}
+	public Map<String, Object> stuCnt(String classnum) {
+		return dao.stuCnt(classnum);
+	}
 	
 
 	

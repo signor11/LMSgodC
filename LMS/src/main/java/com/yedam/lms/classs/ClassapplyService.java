@@ -3,7 +3,6 @@
 import java.util.List;
 import java.util.Map;
 
-import com.yedam.lms.result.TestResultVO;
 
 public interface ClassapplyService {
 	
@@ -54,6 +53,8 @@ public interface ClassapplyService {
 	//과목 전체 건수 조회
 	
 	public int getCountclass(ClassSearchVO classSearchVO);
+	
+	
 	
 	
 }

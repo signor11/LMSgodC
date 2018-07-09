@@ -188,7 +188,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="시험" class="dropdown-toggle"
 											data-toggle="dropdown"> 시험<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="">시험조회</a></li>
+												<li><a href="showTestList">시험조회</a></li>
 
 
 											</ul></li>
@@ -225,8 +225,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="시험" class="dropdown-toggle"
 											data-toggle="dropdown"> 시험<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="">시험조회(교수)</a></li>
-												<li><a href="">시험출제(교수)</a></li>
+												<li><a href="showTestListPro">시험조회(교수)</a></li>
+												<li><a href="insertTestMainPro">시험출제(교수)</a></li>
 
 											</ul></li>
 
@@ -262,9 +262,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											data-hover="시험" class="dropdown-toggle"
 											data-toggle="dropdown"> 시험<b class="fa fa-angle-down"></b></a>
 											<ul class="dropdown-menu">
-												<li><a href="">시험조회</a></li>
-												<li><a href="">시험조회(교수)</a></li>
-												<li><a href="">시험출제(교수)</a></li>
+												<li><a href="showTestList">시험조회</a></li>
+												<li><a href="showTestListPro">시험조회(교수)</a></li>
+												<li><a href="insertTestMainPro">시험출제(교수)</a></li>
 
 											</ul></li>
 

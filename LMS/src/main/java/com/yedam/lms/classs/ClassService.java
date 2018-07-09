@@ -3,7 +3,6 @@ package com.yedam.lms.classs;
 import java.util.List;
 import java.util.Map;
 
-import com.yedam.lms.smp.ProfessorVO;
 
 public interface ClassService {
 	
@@ -25,6 +24,9 @@ public interface ClassService {
 	
 	public List<Map<String,Object>> classProfessor();
 	
+
 	public int checkClass(ClassVO classvo);
+
+	public Map<String, Object> stuCnt(String classnum);
 
 }

@@ -12,11 +12,14 @@
 </script>
 </head>
 <body>
+<div align="center">
+<br><br>
+<h3 align="center">시험조회</h3>
+<br><br>
+<form action="./gettestListPro" name="cls" class="form-horizontal">
+<input type="text" class="bst" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
 
-<form action="./gettestList" name="cls">
-<input type="text" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
-
-<select name="classnum" style="padding: 10px; text-align: center;" onchange="sumb();">
+<select name="classnum" class="form" onchange="sumb();">
 	<option value="" hidden="" >선택</option>
 	<option value="48000001">자바</option>
 	<option value="48000002">데이터베이스</option>
@@ -29,7 +32,7 @@
 </select> 
 </form>
 
-<table border="1">
+<table class="table table-hover">
 		<tr>
 			<td>시험번호</td>
 			<td width="100">학번</td>
@@ -47,6 +50,7 @@
 
 		</c:forEach>
 </table>
-
+<div style="margin-bottom: 30%"></div>
+</div>
 </body>
 </html>
