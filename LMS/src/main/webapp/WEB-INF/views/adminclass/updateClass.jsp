@@ -65,7 +65,15 @@
 	 
 </script>
    </head>     
-    <body>     
+    <body>
+
+	<br>
+	<br>
+	<h3 align="center">관리자용 과목 수정</h3>
+	<br>
+
+
+	<br>   
               <div class="panel-body">
                 <form action="./updateClass" name="pro_Form" class="form-horizontal ">
                 	<div class="form-group">

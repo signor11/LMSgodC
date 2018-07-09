@@ -34,42 +34,19 @@
 </script>
 <body>
 	<div>
-		<h2>
-			<strong>글수정</strong>
-		</h2>
+		<h3>글 수정</h3>
 	</div>
 		<form action="./updateNotice" name="NoticeForm"  method = "post" enctype  ="multipart/form-data" onsubmit="return submitCheck()">
 			<input type="hidden" name="seq" value="${no.seq}">
-			<table>
-				<tr id = "my${no.seq}">
-					<th width="15%" height="23" nowrap>제목</th>
-					<td>
-					<input type="text" name="title" value="${no.title}" style="width:700px;">
-					</td>
-				</tr>
-				<tr>
-					<th width="15%" height="23" nowrap>작성자</th>
-					<td>
-					<input type="text" readonly="readonly" name="writer" value="${no.writer}">
-					</td>
-					
-				</tr>
-				<tr>
-					<th height="23">글내용</th>
-					<td colspan="5">
-					<textarea name = "content" id = "content">${no.content}</textarea><br>
-					</td>
-				</tr>
-				<tr>
-					<th height="23">첨부파일</th>
-					<td colspan="5">
-					<input type="file" name="tempuploadfile" value = "${no.uploadfile}">
-					</td>
-				</tr>
-			</table>
-		<button type="submit" class="btn btn-default">수정</button>
-		<button id = "deletebtn" class="btn btn-default" onclick="delcheck(${no.seq});">삭제</button>
-		<button id="searchbtn" type="button" class="btn btn-default"  onclick="opennotice();">목록</button> 
+					제목<input type="text" name="title" value="${no.title}" style="width:700px;">
+					작성자<input type="text" readonly="readonly" name="writer" value="${no.writer}"><br>
+					글내용<textarea name = "content" id = "content">${no.content}</textarea><br>
+					첨부파일<input type="file" name="tempuploadfile" value = "${no.uploadfile}"  style="width:700px; height:23;">
+		<div align="center">
+		<button type="submit" class="btn btn-danger">수정</button>
+		<button id = "deletebtn" class="btn btn-danger" onclick="delcheck(${no.seq});">삭제</button>
+		<button id="searchbtn" type="button" class="btn btn-danger"  onclick="opennotice();">목록</button>
+		</div> 
 	</form>
 	<script>
 			CKEDITOR.replace("content", {//내장객체 pageContext, contextPath local정보

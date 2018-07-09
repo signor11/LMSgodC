@@ -21,6 +21,47 @@
 </script>
 </head>
 <div>
+<<<<<<< HEAD
+		<h3>글 입력</h3>
+	</div>
+	<body>
+		<form action="./insertNotice" name="NoticeForm"  method = "post" enctype  ="multipart/form-data" onsubmit="return submitCheck()">
+			제목<input type="text" name="title" style="width:700px;">
+			작성자<input type="text" name="writer" value = "관리자" readonly="readonly"><br>
+			내용<textarea name = "content" id = "content"></textarea><br>
+			첨부파일<input type="file" name="tempuploadfile"><br>
+		 	<div align="center">
+		 	<button type="submit"  class="btn btn-danger">저장</button>
+		 	<button id="searchbtn" type="button" class="btn btn-danger"  onclick="javascript:opennotice();">목록</button>
+		 	</div> 
+		</form>
+		<script>
+			CKEDITOR.replace("content", {//내장객체 pageContext, contextPath local정보
+				filebrowserUploadUrl : "${pageContext.request.contextPath}/fileUpload.jsp"//upload탭 추가
+			});
+			
+			function submitCheck(){
+				if(document.noticeForm.writer.value == ""){
+					alert("작성자 등록");
+					document.noticeForm.writer.focus();
+					return false;
+				}
+				if(document.noticeForm.title.value == ""){
+					alert("제목등록");
+					document.noticeForm.title.focus();
+					return false;
+				}
+				var editor_data = CKEDITOR.instances.content.getData();
+				if(document.noticeForm.content.value == ""){
+					alert("내용 등록");
+					document.noticeForm.content.focus();
+					return false;
+				}
+				return true;
+			}   
+		</script>
+	</body>
+=======
       <h3>글 입력</h3>
    </div>
    <body>
@@ -58,4 +99,5 @@
          }   
       </script>
    </body>
+>>>>>>> branch 'master' of https://github.com/signor11/LMSgodC
 </html>

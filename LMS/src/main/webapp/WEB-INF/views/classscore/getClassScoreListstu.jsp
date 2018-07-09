@@ -41,7 +41,7 @@
 <!-- body -->
 <body>
 	<div align=center>
-		<p style="font-size: 34px">성적 조회</p>
+		<h3 align="center">학생용 성적 조회</h3>
 		<div style="display: inline-block;">
 
 			<ul style="display: inline-block; align: left;">

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="result" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="71e714a3-e890-4226-a53c-2b542b712d3b">
 	<property name="ireport.zoom" value="1.9487171000000025"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="7"/>
+	<property name="ireport.x" value="8"/>
+	<property name="ireport.y" value="142"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
@@ -13,7 +13,8 @@
 from classapply c join student s
 on (s.studentnum = c.studentnum) join major m on (s.majornum = m.majornum)
 join class cl on (c.classnum = cl.classnum)
-join testresult tr on (c.classapplynum=tr.classapplynum)]]>
+join testresult tr on (c.classapplynum=tr.classapplynum)
+where s.studentnum='18000001']]>
 	</queryString>
 	<field name="STUDENTNUM" class="java.math.BigDecimal"/>
 	<field name="STUDENTNAME" class="java.lang.String"/>
@@ -21,20 +22,20 @@ join testresult tr on (c.classapplynum=tr.classapplynum)]]>
 	<field name="CLASSNUM" class="java.math.BigDecimal"/>
 	<field name="CLASSNAME" class="java.lang.String"/>
 	<field name="GRADE" class="java.lang.String"/>
-	<field name="SCORET" class="java.lang.String"/>
+	<field name="SCORET" class="java.math.BigDecimal"/>
 	<field name="SCORE" class="java.math.BigDecimal"/>
 	<field name="CLASSAPPLYNUM" class="java.math.BigDecimal"/>
 	<field name="CREDIT" class="java.math.BigDecimal"/>
-	<variable name="SUMC" class="java.math.BigDecimal" resetType="Group" resetGroup="studentnum" calculation="Sum">
+	<variable name="SUMC" class="java.math.BigDecimal" resetType="Group" resetGroup="studentnum">
 		<variableExpression><![CDATA[$V{SUMC}.add($F{CREDIT})]]></variableExpression>
 		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
 	</variable>
-	<variable name="SUMS" class="java.math.BigDecimal" resetType="Group" resetGroup="studentnum" calculation="Average">
-		<variableExpression><![CDATA[$V{SUMS}.add($F{SCORE})]]></variableExpression>
+	<variable name="SUMS" class="java.math.BigDecimal" resetType="Group" resetGroup="studentnum">
+		<variableExpression><![CDATA[$V{SUMS}.add($F{SCORE}*$F{CREDIT})]]></variableExpression>
 		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
 	</variable>
-	<variable name="SUM" class="java.math.BigDecimal" resetType="Group" resetGroup="studentnum" calculation="Average">
-		<variableExpression><![CDATA[$V{SUM}.add(Float.parseFloat($F{SCORET}))]]></variableExpression>
+	<variable name="SUM" class="java.math.BigDecimal" resetType="Group" resetGroup="studentnum">
+		<variableExpression><![CDATA[$V{SUM}.add($F{SCORET}*$F{CREDIT})]]></variableExpression>
 		<initialValueExpression><![CDATA[BigDecimal.ZERO]]></initialValueExpression>
 	</variable>
 	<group name="studentnum">
@@ -141,14 +142,14 @@ join testresult tr on (c.classapplynum=tr.classapplynum)]]>
 						<text><![CDATA[평균 점수]]></text>
 					</staticText>
 					<textField>
-						<reportElement x="444" y="3" width="100" height="20" uuid="cbb0bc70-c085-4680-a317-0817e68dd7c9"/>
+						<reportElement x="444" y="3" width="100" height="20" isPrintInFirstWholeBand="true" uuid="cbb0bc70-c085-4680-a317-0817e68dd7c9"/>
 						<textElement textAlignment="Center" verticalAlignment="Middle"/>
-						<textFieldExpression><![CDATA[$V{SUM}]]></textFieldExpression>
+						<textFieldExpression><![CDATA[$V{SUM}.divide($V{SUMC})]]></textFieldExpression>
 					</textField>
 					<textField>
 						<reportElement x="301" y="3" width="100" height="20" uuid="f79296a1-9312-40f8-97a4-d7a57d83ec97"/>
 						<textElement textAlignment="Center" verticalAlignment="Middle"/>
-						<textFieldExpression><![CDATA[$V{SUMS}]]></textFieldExpression>
+						<textFieldExpression><![CDATA[$V{SUMS}.divide( $V{SUMC} )]]></textFieldExpression>
 					</textField>
 					<staticText>
 						<reportElement style="style1" mode="Transparent" x="401" y="3" width="43" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="325c3bf8-b871-4d9e-9150-9e51fc69bc8f"/>

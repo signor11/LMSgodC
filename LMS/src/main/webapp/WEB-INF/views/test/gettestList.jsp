@@ -25,6 +25,9 @@ request.setAttribute("date", date);
 String time = ((TestVO)request.getAttribute("list")).getTestinfo();
 time = time.substring(7,9);
 request.setAttribute("time", time);
+String info = ((TestVO)request.getAttribute("list")).getTestinfo();
+info = info.substring(0, 5);
+request.setAttribute("info", info);
 %> 
 <div align="center">
 <br><br>
@@ -57,12 +60,12 @@ request.setAttribute("time", time);
 		<tr>
 			<td>${list.testnum}</td>
 			<td><a href="testExam?testnum=${list.testnum}&timer=${time }&classnum=${list.classnum}&testname=${list.testname}&temp=123" target="_blank">${list.testname}</a></td>
-			<td>${date}<br>${list.testinfo }</td>
+			<td>${date}<br>${info}시부터 ${time }분동안</td>
 			<td>${list.check}</td>
 		</tr>
 		</c:if>
 </table>
-<div style="margin-bottom: 30%"></div>
+<div style="margin-bottom: 30%"></div> 
 </div>
 </body>
 </html>

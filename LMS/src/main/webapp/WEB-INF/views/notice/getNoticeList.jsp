@@ -6,9 +6,7 @@
 <html>
 <head>
 <title>Insert title here</title>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <script>
 	//등록 폼으로 넘어감
 	function openinsert() {
@@ -24,19 +22,11 @@
 </head>
 <body>
 	<div>
-		    <h2><strong>공지사항</strong></h2>
+		    <h3>공지사항</h3>
 	</div>
-	<div>
-		<select name="searchCnd" class="select" title="검색조건 선택">
-				<option value="0">제목</option>
-				<option value="1">내용</option>
-				<option value="2">작성자</option>
-		</select>
-		<input name="searchWrd" type="text" size="35" value='' maxlength="35" onkeypress="press(event);" title="검색어 입력">
-		<button id="searchbtn" type="button" class="btn btn-default" onclick="javascript:opennotice();">조회</button>
-	</div>
+	
 	<div align=center>
-		<table class="table table-hover" border="1">
+		<table class="table table-hover">
 			<tr>
 				<td>번호</td>
 				<td>제목</td>
@@ -68,15 +58,19 @@
 			</c:forEach>
 		</table>
 	</div>
-	<button id="insertbtn" type="button" class="btn btn-default"  onclick="javascript:openinsert();">등록</button>
+	<div align="center">
+	<button id="insertbtn" type="button" class="btn btn-danger"  onclick="javascript:openinsert();">등록</button>
+	</div>
 	<br>
 	<!-- 페이징 -->
+	<div align="center">
 	<my:paging paging="${paging}"/> 
 	<script>
 		function doList(page){
 			location.href="./getNoticeList?page=" + page
 		}
 	</script>
+	</div>
 	
 	
 </body>
