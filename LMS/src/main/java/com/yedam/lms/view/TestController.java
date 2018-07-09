@@ -108,7 +108,7 @@ public class TestController {
 		session.setAttribute("clnum", tVO.getClassnum());
 		session.setAttribute("timer", tVO.getTimer());
 		session.setAttribute("tnum", tVO.getTestnum());
-		return "test/testExam";
+		return "popup/test/testExam";
 	}
 	
 	@RequestMapping("/testResult")

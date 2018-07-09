@@ -12,11 +12,13 @@
 </head>
 <body>
 <div align="center">
-<h3 align="left" style="margin-left: 3%;">시험조회</h3>
-<form action="./gettestList" name="cls">
-<input type="text" value="과목명" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
+<br><br>
+<h3 align="center">시험조회</h3>
+<br><br>
+<form action="./gettestList" name="cls" class="form-horizontal">
+<input type="text" value="과목명" class="bst" disabled="disabled" style="padding: 10px; display: inline-block; text-align: center;" size="5">
 
-<select name="classnum" style="padding: 10px; text-align: center;" onchange="sumb();">
+<select name="classnum" class="form" onchange="sumb();">
 	<option value="" hidden="" >선택</option>
 	<option value="48000001">자바</option>
 	<option value="48000002">데이터베이스</option>

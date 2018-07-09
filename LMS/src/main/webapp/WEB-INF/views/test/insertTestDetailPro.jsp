@@ -33,11 +33,12 @@
 %>
 
 	<div class="w3-container " style="padding: 50px">
-		<br>
-		<h2>시험출제</h2>
+		<br><br>
+		<h3 align="center">>시험출제</h3>
+		<br><br>
 		<form action="./insertTestDetailPro2">
 			<input type="text" name="testnum" required="required"
-				value="<%=tnum%>" hidden=""> <input type="text" value="과목명"
+				value="<%=tnum%>" hidden=""> <input type="text" value="과목명" class="bst"
 				style="padding: 10px; display: inline-block; text-align: center;"
 				size="5" disabled="disabled">
 			<c:if test="${regi.classnum == '48000001' }">자바</c:if>
@@ -105,8 +106,8 @@
 						${s.count } </a>
 				</c:forEach>
 			</c:if>
-			<button type="submit" class="w3-button w3-grey w3-round">문제추가</button>
-			<a href="goHome"><button type="button" class="w3-button w3-grey w3-round"> 시험등록</button></a>
+			<button type="submit" class="btn btn-danger">문제추가</button>
+			<a href="goHome"><button type="button" class="btn btn-danger"> 시험등록</button></a>
 	</form>
 	
 	</div>
