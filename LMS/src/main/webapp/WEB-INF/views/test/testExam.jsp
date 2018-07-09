@@ -155,9 +155,9 @@ var dd="";
 	
 				}
 			</script></td></tr>
-		<tr><td height="100" colspan="2" style="text-align: center;"><input type="button" onclick="backExam();" value="이전" >
-		<input type="button" onclick="showExam();" value="다음" ></td>
-		<td><input type="button" onclick="finishExam();" value="시험제출" ></td></tr>
+		<tr><td height="100" colspan="2" style="text-align: center;"><input class="bts" type="button" onclick="backExam();" value="이전" >
+		<input class="bts" type="button" onclick="showExam();" value="다음" ></td>
+		<td><input class="btn btn-danger" type="button" onclick="finishExam();" value="시험제출" ></td></tr>
 	</table>
 	<form name="ee" action="./testResult">
 		<input name="action" value="getscore" hidden="">
