@@ -73,7 +73,7 @@ public class SubmitHWController {
 			
 			submitHWService.submitHwInsert(vo);
 			request.setAttribute("id", vo.getAddfileid());
-			return "redirect:/getHWList";
+			return "redirect:/getHWList?classnum="+vo.getClassnum();
 		}
 		
 	//학생과제수정

@@ -24,6 +24,10 @@
 
 	}
 </script>
+<style>
+td {width : 1000;}
+
+</style>
 </head>
 <body>
 <br>
@@ -34,8 +38,8 @@
 <form name=scheduleFrm method="post" action="">
 <table border="1" class="table table-hover" id="table1">
 <tr>
-<td>&nbsp;</td><td>월</td><td>화</td>
-<td>수</td><td>목</td><td>금</td>
+<td width="40">&nbsp;</td><td width="40">월</td><td width="40">화</td>
+<td width="40">수</td><td width="40">목</td><td width="40">금</td>
 </tr>
 <% String[] dayarr = {"월","화","수","목","금"}; %>
 <c:set var="d" value="<%=dayarr %>">

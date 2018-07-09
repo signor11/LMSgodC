@@ -25,37 +25,43 @@
 			var tel1_pattern = /(^01[016789]$)/;
 
 			//alert("ok");
-			if ($("#id").val().length != 8) {
-				alert("아이디 8자리를 꼭 입력하세요!");
-				$("#id").focus();
-			} else if ($("#pwd").val() == "") {
+			
+			if ($("#pwd").val() == "") {
 				alert("비밀번호를 꼭 입력하세요!");
 				$("#pwd").focus();
+				return false;
 
 			} else if ($("#name").val() == "") {
 				alert("이름을 꼭 입력하세요!");
 				$("#name").focus();
+				return false;
 
 			} else if ($("#tel1").val() == "") {
 				alert("전화번호를 입력하세요!");
 				$("#tel1").focus();
+				return false;
 
 			} else if ($("#tel1").val().length != 11) {
 
 				alert("전화번호를 11개의 숫자로 꼭 입력하세요!");
 				$("#tel1").val("");
 				$("#tel1").focus();
+				return false;
 
 			} else if ($("#majornum").val() == "") {
 				alert("학과번호을  꼭 선택하세요!");
 				$("#majornum").focus();
+				return false;
 
-			} else if ($("#startdate").val() == "") {
+			} else if ($("#hiredate").val() == "") {
 				alert("등록일을  꼭 입력하세요!");
 				$("#startdate").focus();
+				return false;
 
 			} else {
 				alert("등록 완료");
+				//return true;
+				a.submit();
 			}
 		});
 
@@ -77,7 +83,7 @@
 	<br>
 	<br>
 	<div class="panel-body">
-		<form action="./insertStudent" class="form-horizontal" method="post">
+		<form action="./insertStudent" name="a" class="form-horizontal" method="post">
 			<input type="hidden" name="studentnum" />
 			<!-- <div class="form-group">
                     <label class="col-sm-2 control-label" >아이디</label>
@@ -91,7 +97,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">비밀번호</label>
 				<div class="col-sm-10">
-					<input type="password" name="studentpw" size="18" maxlength="12"
+					<input type="password" id="pwd" name="studentpw" size="18" maxlength="12"
 						class="form-control" />
 
 				</div>
@@ -118,7 +124,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">학과 번호</label>
 				<div class="col-sm-10">
-					<select id="major" class="form" name="majornum"
+					<select id="majornum" class="form" name="majornum"
 						style="position: relative; top: 8px;">
 						<option value="" selected hidden="">선택</option>
 						<c:forEach items="${major}" var="m">
@@ -134,7 +140,7 @@
 			</div>
 
 			<div align="center">
-				<input type="submit" id="btn_insert" class="btn btn-danger"
+				<input type="button" id="btn_insert" class="btn btn-danger"
 					value="등록"> <input type="reset" id="btn_cancel"
 					class="btn btn-danger" onclick="javascript:openstudent();"
 					value="취소">

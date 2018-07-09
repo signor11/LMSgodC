@@ -42,7 +42,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	function openprint() {
 		window
 				.open("admin", "관리자모드",
-						"width=800, height=700, toolbar=no, menubar=no, scrollbars=no, resizable=yes");
+						"width=2000, height=2000, toolbar=yes, menubar=yes, scrollbars=yes, resizable=yes");
 
 	}
 
