@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>학생용 과제 제출</title>
-<script src="./resources/web/js/ckeditor_4/ckeditor.js"></script>
+<script src="./resources/web/js/ckeditor_4/ckeditor/ckeditor.js"></script>
 <script>
 
 	window.onload = function() {
