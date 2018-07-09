@@ -78,10 +78,25 @@ public class SubmitHWController {
 		
 	//학생과제수정
 		@RequestMapping(value = "/submitHWUpdate", method= RequestMethod.POST)
-		public String submitHwUpdate(SubmitHWVO vo, HttpSession session) {
+		public String submitHwUpdate(SubmitHWVO vo, HttpSession session, HttpServletRequest request) throws IllegalStateException, IOException {
+			MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+			MultipartFile file = multipartRequest.getFile("tempuploadfile");
+
+			if (!file.isEmpty() && file.getSize() > 0) {
+				String filename = file.getOriginalFilename();
+				file.transferTo(new File("d:/upload", filename));
+			
+				AddFileVO addvo = new AddFileVO();
+				addvo.setAddfilename(filename);
+				addfileService.addfileInsert(addvo);
+				vo.setAddfileid(addvo.getAddfileid());
+				
+			}
+			
+			
 			vo.setStudentnum((String)session.getAttribute("loginvo"));
 			submitHWService.submitHwUpdate(vo);
-			return "redirect:/getHWList";
+			return "redirect:/getHWList?classnum="+ vo.getClassnum();
 		}
 		
 	//교수의 학생 과제 확인

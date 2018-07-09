@@ -59,18 +59,17 @@
 		<h3 class="w3-wide">과제제출</h3><br>
 		<c:set value="./submitHW" var="u" />
 		<c:if test="${not empty up_hw}">
-			<c:set value="./submitHWUpdate&submithwnum=${up_hw.submithwnum}" var="u" />
+			<c:set value="./submitHWUpdate?submithwnum=${up_hw.submithwnum}" var="u" />
 		</c:if>
 		
 		<form method="post" action="${u}" encType="multipart/form-data" name="hwForm" onsubmit="return submitCheck()">
-		
 		<c:set value="" var = "a" />
 		<c:if test="${not empty id}">
 			<c:set value="${id.addfileid}" var="a" />
 		</c:if>
 			<input type="hidden" value="${a}" name = "addfileid" />
 			<input type="text" name="hwnum" hidden="" value="${sb.hwnum}" /> 
-			<input type="text" name="classnum" hidden="" value="${sb.classnum}" />
+			<input type="hidden" name="classnum" value="${sb.classnum}" />
 			<p class="bst">제목</p>
 			<input name="submitname" type="text"
 				value="${up_hw.submitname}" required="required"  size="80" class="form"><br><br>
