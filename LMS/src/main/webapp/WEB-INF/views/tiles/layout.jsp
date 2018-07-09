@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript" src="./resources/web/js/jquery.min.js"></script>
 <script>
 	//새창 열기
-	function openprint() {
+	function openprint123() {
 		window
 				.open("admin", "관리자모드",
 						"width=2000, height=2000, toolbar=yes, menubar=yes, scrollbars=yes, resizable=yes");
@@ -146,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<c:if test="${sessionScope.mode =='admin' }">
 
 								<button type="button" class="btn btn-outline-primary"
-									onclick="javascript:openprint()">관리자모드</button>
+									onclick="javascript:openprint123()">관리자모드</button>
 							</c:if>
 
 
