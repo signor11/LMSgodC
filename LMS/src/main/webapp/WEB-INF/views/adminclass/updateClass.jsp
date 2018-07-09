@@ -18,29 +18,38 @@
 	}	
 	 $(document).ready(function() {
 
-		$("#btn_insert").click(	function() {
+		$("#btn_update").click(function() {
 
 						 	var tel1_pattern = /(^01[016789]$)/;
 
-							//alert("ok");
-							if ($("#classname").val() == "") {
+							//alert("ok")
+							if ($("#classnum").val().length != 8) {
+								alert("과목번호 8자리를 꼭 입력하세요!");
+								$("#classnum").focus();
+								return false;
+							}   else if ($("#classname").val() == "") {
 								alert("과목명을 꼭 입력하세요!");
 								$("#classname").focus();
+								return false;
 								
 							}	else if ($("#credit").val() == "") {
 									alert("학점을 꼭 입력하세요!");
 									$("#credit").focus();
+									return false;
 							}else if ($("#maxstudent").val() == "") {
 								alert("수강인원을  꼭 입력하세요!");
 								$("#maxstudent").focus();
+								return false;
 							}
 							 else if ($("#pnum").val() == "") {
 								alert("담당교수을  꼭 선택하세요!");
 								$("#pnum").focus();
+								return false;
 
 							}else if ($("#classtime").val() == "") {
 								alert("강의시간을  꼭 입력하세요!");
 								$("#classtime").focus();
+								return false;
 							}  
 							 else {
 								 pro_Form.submit();
@@ -49,37 +58,29 @@
 		
 						
 		});
- function checkClass(){
-	var requestData = {"classname" : $("#classname").val()}
-	$.ajax({
-		url : '${pageContext.request.contextPath}/checkClass',
-		type : 'POST',
-		data : requestData,
-		dataType : 'json',
-		success : function(data){
-			
-		if(data.result==true){
-		$("#checkname").html(' 과목명 사용 가능');
-		}
-		else if(data.result==false){
-			$("#checkname").html(' 중복 사용 불가');
-		}
-		}
-	
-	});
-} 
+
+	//$("#birth").datepicker();
+	//$.datepicker.setDefaults( $.datepicker.regional[ "" ] );
+	//$("#birth").datepicker($.datepicker.regional["ko"]);
 	 
 </script>
-   </head>           
+   </head>     
     <body>     
               <div class="panel-body">
-                <form action="./insertClass" method="POST" name="pro_Form" class="form-horizontal ">
+                <form action="./updateClass" name="pro_Form" class="form-horizontal ">
+                	<div class="form-group">
+                    <label class="col-sm-2 control-label">과목번호</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="classnum" id="classnum" size="18"
+						maxlength="12" class="form" readonly value="${get_class.classnum}"/>
+                     
+                    </div>
+                  </div>
                   <div class="form-group">
                     <label class="col-sm-2 control-label">과목명</label>
                     <div class="col-sm-10">
                       <input type="text" name="classname" id="classname" size="18"
-						maxlength="12" class="form" onkeyup="checkClass();"/>
-						<span id="checkname"></span>
+						maxlength="12" class="form" value="${get_class.classname}"/>
                      
                     </div>
                   </div>
@@ -87,7 +88,7 @@
                     <label class="col-sm-2 control-label">학점</label>
                     <div class="col-sm-10">
                      <input type="number" name="credit" id="credit" size="18"
-						maxlength="12" class="form" />
+						maxlength="12" class="form" value="${get_class.credit}"/>
                     </div>
                   </div>
                   
@@ -96,7 +97,7 @@
                     <label class="col-sm-2 control-label">수강인원</label>
                     <div class="col-sm-10" >
                       <input type="number" name="maxstudent" id="maxstudent" size="18"
-						maxlength="12"  class="form"/>
+						maxlength="12"  value="${get_class.maxstudent}" class="form"/>
 						
                     </div>
                   </div>
@@ -133,12 +134,12 @@
 								<label class="col-sm-2 control-label">강의시간</label>
 								<div class="col-sm-10">
 									<input type="text" name="classtime" id="classtime" size="18"
-										maxlength="20"  class="form"/>   입력예시 : 월요일 1교시 ~ 월요일 2교시 -> 월1,월2
+										maxlength="20" value="${get_class.classtime}"  class="form"/>   입력예시 : 월요일 1교시 ~ 월요일 2교시 -> 월1,월2
 				
 								</div>
 							</div>
 			      			<div align="center">
-			      			  <input type="button" id="btn_insert" value="등록" class="btn btn-danger">
+			      			  <input type="button" id="btn_update" value="수정" class="btn btn-danger">
 								<input type="reset" id="btn_cancel" value="취소" onclick="javascript:redo();" class="btn btn-danger">
 			                </div>
                 

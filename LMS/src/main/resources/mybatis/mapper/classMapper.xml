@@ -51,7 +51,7 @@
 	
 	<!-- 단건조회 -->
 	
-	<select id ="getClass" resultType="classVO" parameterType="String">
+	<select id ="getClass" resultType="classVO">
 			
 			SELECT		CLASSNUM,
 						CLASSNAME,
@@ -183,5 +183,15 @@
 			]]>
 			
 	</select>	
+	
+	<!-- 과목 중복 건수 조회 -->
+	<select id="checkClass" resultType="int">
+		SELECT 	COUNT(CLASSNAME)
+		FROM	CLASS
+		WHERE	CLASSNAME = #{classname}
+	
+	
+	</select>
+	
 	
 </mapper>

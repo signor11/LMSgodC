@@ -58,15 +58,21 @@ public class ClassServiceImpl implements ClassService{
 
 
 	@Override
-	public List<Map<String, Object>> getClassList2(String classnum) {
+	public List<Map<String, Object>> getClassList2(ClassVO vo) {
 		
-		return dao.getClassList2(classnum);
+		return dao.getClassList2(vo);
 	}
 
 
 	@Override
 	public List<Map<String, Object>> classProfessor() {
 		return dao2.classProfessor();
+	}
+
+
+	@Override
+	public int checkClass(ClassVO classvo) {
+		return dao.checkClass(classvo);
 	}
 	
 

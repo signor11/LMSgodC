@@ -56,7 +56,10 @@ public class ClassDAO {
 	public void deleteClass(String classnum) {
 		mybatis.delete("com.yedam.lms.classs.impl.classDAO.deleteClass",classnum);
 	}
-	public List<Map<String, Object>> getClassList2(String classnum) {
-		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.getClassList2", classnum);
+	public List<Map<String, Object>> getClassList2(ClassVO vo) {
+		return mybatis.selectList("com.yedam.lms.classs.impl.classDAO.getClassList2", vo);
+	}
+	public int checkClass(ClassVO vo) {
+		return mybatis.selectOne("com.yedam.lms.classs.impl.classDAO.checkClass",vo);
 	}
 }

@@ -9,7 +9,7 @@ public interface ClassService {
 	
 	public ClassVO getClass(String classnum);
 	
-	public List<Map<String, Object>> getClassList2(String classnum);
+	public List<Map<String, Object>> getClassList2(ClassVO vo);
 	
 	public List<Map<String, Object>> stu_classnameList(String studentnum);
 	
@@ -24,5 +24,7 @@ public interface ClassService {
 	public void deleteClass(String classnum);
 	
 	public List<Map<String,Object>> classProfessor();
+	
+	public int checkClass(ClassVO classvo);
 
 }
