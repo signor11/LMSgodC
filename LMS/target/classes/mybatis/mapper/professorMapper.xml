@@ -42,11 +42,11 @@
 			select max(PROFESSORNUM)+1 from professor
 		</selectKey>
 		insert into
-		professor(PROFESSORNUM, MAJORNUM, <!-- PROFESSORPW, -->PROFESSORNAME,PROFESSORPHONE,HIREDATE)
+		professor(PROFESSORNUM, MAJORNUM,PROFESSORPW,PROFESSORNAME,PROFESSORPHONE,HIREDATE)
 		values
 		(#{professornum},
 		#{majornum},
-	<!-- 	#{professorpw}, -->
+	 	#{professorpw},
 		#{professorname},
 		#{professorphone},
 		#{hiredate})

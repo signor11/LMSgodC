@@ -27,7 +27,7 @@
 			if ($("#id").val().length != 8) {
 				alert("아이디 8자리를 꼭 입력하세요!");
 				$("#id").focus();
-
+			return false;
 			} /* else if ($("#pwd").val() == "") {
 				alert("비밀번호를 꼭 입력하세요!");
 				$("#pwd").focus();
@@ -35,25 +35,25 @@
 			} */ else if ($("#name").val() == "") {
 				alert("이름을 꼭 입력하세요!");
 				$("#name").focus();
-
+				return false;
 			} else if ($("#tel1").val() == "") {
 				alert("전화번호를 입력하세요!");
 				$("#tel1").focus();
-
+				return false;
 			} else if ($("#tel1").val().length != 11) {
 
 				alert("전화번호를 11개의 숫자로 꼭 입력하세요!");
 				$("#tel1").val("");
 				$("#tel1").focus();
-
+				return false;
 			} else if ($("#majornum").val() == "") {
 				alert("담당과목을  꼭 선택하세요!");
 				$("#majornum").focus();
-
+				return false;
 			} else if ($("#hiredate").val() == "") {
 				alert("등록일을  꼭 입력하세요!");
 				$("#hiredate").focus();
-
+				return false;
 			} else {
 				alert("수정 완료");
 			}

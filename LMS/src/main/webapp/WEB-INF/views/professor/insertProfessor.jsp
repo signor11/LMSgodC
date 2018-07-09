@@ -34,31 +34,30 @@
 			if ($("#pwd").val() == "") {
 				alert("비밀번호를 꼭 입력하세요!");
 				$("#pwd").focus();
-
+			return false;
 			} else if ($("#name").val() == "") {
 				alert("이름을 꼭 입력하세요!");
 				$("#name").focus();
-
+				return false;
 			} else if ($("#tel1").val() == "") {
 				alert("전화번호를 입력하세요!");
 				$("#tel1").focus();
-
+				return false;
 			} else if ($("#tel1").val().length != 11) {
-
 				alert("전화번호를 11개의 숫자로 꼭 입력하세요!");
 				$("#tel1").val("");
 				$("#tel1").focus();
-
+				return false;
 			} else if ($("#major").val() == "") {
 				alert("학과명을  꼭 선택하세요!");
 				$("#major").focus();
-
+				return false;
 			} else if ($("#hiredate").val() == "") {
 				alert("등록일을  꼭 입력하세요!");
 				$("#hiredate").focus();
-
+				return false;
 			} else {
-				alert("등록 완료");
+				inpro.submit();
 
 			}
 		});
@@ -84,15 +83,16 @@
 
 
 	<div class="panel-body">
-		<form class="form-horizontal" class="form-group"
+		<form class="form-horizontal" class="form-group" name="inpro"
 			style="top: 20px; right: 298px;" " method="post">
+	<input type="hidden" name="professornum" />
+
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">비밀번호</label>
 				<div class="col-sm-10">
 					<input type="password" name="professorpw" id="pwd" size="18"
 						maxlength="12" class="form" />
-
 				</div>
 			</div>
 
@@ -126,14 +126,16 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-sm-2 control-label">등록일</label> <input type="text"
+				<label class="col-sm-2 control-label">등록일</label> 
+				<input type="text"
 					name="hiredate" id="hiredate" size="18" maxlength="10"
 					style="position: relative; left: 15px;" class="form" />
 			</div>
 
 			<div align="center">
-				<input type="submit" id="btn_insert" class="btn btn-danger"
-					value="등록"> <input type="reset" id="btn_cancel"
+				<input type="button" id="btn_insert" class="btn btn-danger"
+					value="등록"> 
+				<input type="reset" id="btn_cancel"
 					class="btn btn-danger" onclick="javascript:openprofessor();"
 					value="취소">
 			</div>
