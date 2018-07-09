@@ -40,7 +40,7 @@
 	<form name =searchFrm method="post" action="">
 	<div>
 		<span> 과목번호 </span> <span> 
-		<input type="text" name="classnum" size="40" placeholder="과목번호를 입력해주세요." class="form">
+		<input type="number" name="classnum" size="40" placeholder="과목번호를 입력해주세요." class="form">
 		</span> 
 			<input type="submit" value="조회" class="btn btn-danger"	/>
 

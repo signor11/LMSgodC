@@ -6,7 +6,12 @@
 <html>
 <head>
 <title>Insert title here</title>
-
+<style>
+	.mypaging{
+		padding-top: 20px;
+	}
+	
+</style>
 <script>
 	//등록 폼으로 넘어감
 	function openinsert() {
@@ -58,12 +63,13 @@
 			</c:forEach>
 		</table>
 	</div>
+	<br><br>
 	<div align="center">
 	<button id="insertbtn" type="button" class="btn btn-danger"  onclick="javascript:openinsert();">등록</button>
 	</div>
 	<br>
 	<!-- 페이징 -->
-	<div align="center">
+	<div class ="mypaging" align="center">
 	<my:paging paging="${paging}"/> 
 	<script>
 		function doList(page){

@@ -71,7 +71,7 @@
 			   SCORE_TOTAL(C.SCORE) AS SCORET
 	   FROM CLASSAPPLY C JOIN STUDENT S 
 			ON (S.STUDENTNUM = C.STUDENTNUM) 
-			LEFT OUTER JOIN TESTRESULT TR 
+			FULL OUTER JOIN TESTRESULT TR 
 			ON (C.CLASSAPPLYNUM = TR.CLASSAPPLYNUM)
 	   WHERE 1=1 
 	   <if test="classnum != null and classnum != ''">
@@ -95,7 +95,7 @@
 			   P.PROFESSORNAME,
 			   GRADE_TOTAL(C.SCORE) AS GRADE,
 			   SCORE_TOTAL(C.SCORE) AS SCORET
-			   FROM CLASSAPPLY C JOIN TESTRESULT TR 
+			   FROM CLASSAPPLY C FULL OUTER JOIN TESTRESULT TR 
 					ON (C.CLASSAPPLYNUM = TR.CLASSAPPLYNUM) 
 					JOIN STUDENT S ON (S.STUDENTNUM = C.STUDENTNUM)
 				    JOIN CLASS CL ON (C.CLASSNUM = CL.CLASSNUM)
@@ -110,9 +110,7 @@
 			   <if test="credit != null and credit != ''">
 			   		AND CL.CREDIT = #{credit}	
 			   </if>	
-			   <if test="score != null and score != ''">
-			   		AND C.SCORE = #{score}	
-			   </if>
+	
 			   <if test="classapplynum != null and classapplynum != ''">
 			   		AND C.CLASSAPPLYNUM = #{classapplynum}	
 			   </if>
@@ -133,7 +131,7 @@
 		FROM CLASSAPPLY C JOIN STUDENT S ON (S.STUDENTNUM = C.STUDENTNUM) 
 		JOIN MAJOR M ON (S.MAJORNUM = M.MAJORNUM)
 		JOIN CLASS CL ON (C.CLASSNUM = CL.CLASSNUM)  
-		JOIN TESTRESULT TR ON (C.CLASSAPPLYNUM=TR.CLASSAPPLYNUM)
+		FULL OUTER JOIN TESTRESULT TR ON (C.CLASSAPPLYNUM=TR.CLASSAPPLYNUM)
 		WHERE S.STUDENTNUM = #{studentnum}
 	   
 	</select> 
