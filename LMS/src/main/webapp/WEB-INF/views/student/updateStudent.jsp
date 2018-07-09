@@ -84,16 +84,16 @@
 			class="form-horizontal " method="post">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">아이디</label>
-				<div class="col-sm-10" id="id">
-					<input type="text" class="form-control" name="studentnum" 
+				<div class="col-sm-10">
+					<input type="text" id="id" class="form-control" name="studentnum" 
 						size="18" maxlength="12" readonly="readonly" value="${get_stu.studentnum}"> <span
 						class="help-block">8자리</span>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">비밀번호</label>
-				<div class="col-sm-10" id="pwd">
-					<input type="text" name="studentpw" size="18" maxlength="12"
+				<div class="col-sm-10" >
+					<input type="text" id="pwd" name="studentpw" size="18" maxlength="12"
 						class="form-control" value="${get_stu.studentpw}" />
 
 				</div>
@@ -101,23 +101,23 @@
 
 			<div class="form-group">
 				<label class="col-sm-2 control-label">이 름</label>
-				<div class="col-sm-10" id="name">
-					<input type="text" name="studentname" size="18"
+				<div class="col-sm-10" >
+					<input type="text" id="name" name="studentname" size="18"
 						maxlength="12" class="form-control" value="${get_stu.studentname}" />
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">연락처</label>
-				<div class="col-sm-10" id="tel1">
-					<input type="text" name="studentphone" size="18"
+				<div class="col-sm-10">
+					<input type="text" id="tel1" name="studentphone" size="18"
 						maxlength="11" class="form" value="${get_stu.studentphone}" /> <span
 						class="help-block">숫자만 11자리</span>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">학과명</label>
-				<div class="col-sm-10" id="major">
-					<select id="major" class="form" name="majornum"
+				<div class="col-sm-10">
+					<select id="major" id="major" class="form" name="majornum"
 						style="position: relative; top: 8px;">
 						<c:forEach items="${m_list}" var="m">
 							<option value="${m.MAJORNUM}"
