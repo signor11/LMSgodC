@@ -11,7 +11,7 @@
 	function update_stu(a,b) {
 		var check = confirm('학생 정보를 수정하시겠습니까?');
 		if (check == true) {
-			window.location.href = "./updateStudent?studentnum="+a+"&majornum="+b
+			window.location.href = "./updateStudent?studentnum="+a+"&majornum="+b+"&page=${paging.page}"
 		}
 	} 
 
@@ -19,7 +19,7 @@
 	function delete_stu(a) {
 		var check = confirm('학생 정보를 삭제하시겠습니까?');
 		if (check == true) {
-			window.location.href = "./deleteStudent?studentnum="+a
+			window.location.href = "./deleteStudent?studentnum="+a+"&page=${paging.page}"
 	}
 	
 	}

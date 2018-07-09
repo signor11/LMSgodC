@@ -99,16 +99,16 @@ public class StudentController {
 
 	// 수정처리
 	@RequestMapping(value = "/updateStudent", method = RequestMethod.POST)
-	String updateStudent(@ModelAttribute("vo") StudentVO vo) {
+	String updateStudent(@ModelAttribute("vo") StudentVO vo, HttpServletRequest request) {
 		studentService.updateStudent(vo);
-		return "redirect:/getStudentList";
+		return "redirect:/getStudentList?page="+request.getParameter("page");
 	}
 
 	// 삭제
 	@RequestMapping("/deleteStudent")
-	String deleteStudent(@ModelAttribute("vo") StudentVO vo) {
+	String deleteStudent(@ModelAttribute("vo") StudentVO vo, HttpServletRequest request) {
 		studentService.deleteStudent(vo);
-		return "redirect:/getStudentList";
+		return "redirect:/getStudentList?page="+request.getParameter("page");
 	}
 
 	// 엑셀출력
