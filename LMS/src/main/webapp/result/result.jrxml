@@ -22,7 +22,7 @@ where s.studentnum='18000001']]>
 	<field name="CLASSNUM" class="java.math.BigDecimal"/>
 	<field name="CLASSNAME" class="java.lang.String"/>
 	<field name="GRADE" class="java.lang.String"/>
-	<field name="SCORET" class="java.math.BigDecimal"/>
+	<field name="SCORET" class="java.lang.String"/>
 	<field name="SCORE" class="java.math.BigDecimal"/>
 	<field name="CLASSAPPLYNUM" class="java.math.BigDecimal"/>
 	<field name="CREDIT" class="java.math.BigDecimal"/>
