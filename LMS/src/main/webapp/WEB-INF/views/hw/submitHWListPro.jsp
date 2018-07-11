@@ -34,8 +34,9 @@
 		}
 
 	};
-	function popup(a) {
-		alert(a);
+	function popup() {
+		alert($('#submitname').val()+"\n\n"+$('#submitinfo').text());
+		
 	};
 	function checkDay() {
 
@@ -53,21 +54,15 @@
 		today = yyyy + '-' + mm + '-' + dd;
 		document.getElementById("dateField").setAttribute("min", today);
 	}
-	
-	function content(a){
-		var q = window.open("","","width=500, height=400, left=30, top=5000");
-		q.document.write($("#"+a).find("#submitname").val());
+
+	function content(a) {
+		var q = window.open("", "", "width=500, height=400, left=30, top=5000");
+		q.document.write($("#" + a).find("#submitname").val());
 		q.document.write("<br><br><br>");
-		q.document.write($("#"+a).find("#submitinfo").val());
+		q.document.write($("#" + a).find("#submitinfo").val());
 	}
-	
-	
-	
 </script>
 <style>
-
-	
-
 </style>
 
 </head>
@@ -88,26 +83,27 @@
 			<c:set value="./hwUpdate" var="a" />
 		</c:if>
 		<form action="${a}" name="hwUpdate" method="post">
-			<input type="hidden" name="hwnum" value="${hw.hwnum}" /> 
-			<input type="hidden" name="classnum" value="${hw.classnum}" /> 
-			<p class="bst">과목명</p> 
-			<input type="text"
-				name="classname" class="form" value="${cn.classname}" readonly="readonly">&emsp;&emsp;
-			<p class="bst">제목</p> 
-			<input type="text"
-				name="hwname" class="form" value="${hw.hwname}"> <br><br>
-				<p class="bst">제출기한</p> 
-				<input type="date"
-				name="applydate" value="${fn:substring(hw.applydate,0,10)}"
-				id="dateField" class="form" min="" onclick=" checkDay()"> <br>
-			<br> <p class="bst">내용</p><br>
+			<input type="hidden" name="hwnum" value="${hw.hwnum}" /> <input
+				type="hidden" name="classnum" value="${hw.classnum}" />
+			<p class="bst">과목명</p>
+			<input type="text" name="classname" class="form"
+				value="${cn.classname}" readonly="readonly">&emsp;&emsp;
+			<p class="bst">제목</p>
+			<input type="text" name="hwname" class="form" value="${hw.hwname}">
 			<br>
+			<br>
+			<p class="bst">제출기한</p>
+			<input type="date" name="applydate"
+				value="${fn:substring(hw.applydate,0,10)}" id="dateField"
+				class="form" min="" onclick=" checkDay()"> <br> <br>
+			<p class="bst">내용</p>
+			<br> <br>
 			<textarea name="hwinfo" cols="85" rows="13" style="width: 100%;">${hw.hwinfo}</textarea>
-			<br>
-			<br>
+			<br> <br>
 			<div align="left">
 				<input type="button" value="수정" class="btn btn-danger"
-					onclick="update_hw()" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					onclick="update_hw()" />
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<c:if test="${sessionScope.mode == 'admin'}">
 					<c:set value="delete_hw_adm()" var="b" />
 				</c:if>
@@ -158,12 +154,13 @@
 					<td>${s.STUDENTNUM}</td>
 					<td>${s.STUDENTNAME}</td>
 					<td><c:if test="${not empty s.SUBMITINFO}">
-							<%-- <a href='javascript:window.open("./submitHWDetail?submithwnum=${s.SUBMITHWNUM}","","width=800, height=600, left=30, top=200")'>${s.SUBMITNAME}</a>
 							<input type="hidden" value="${s.SUBMITNAME}" id="submitname">
-							<input type="hidden" value="${s.SUBMITINFO}" id="submitinfo"> --%>
-							<a href="#" onclick="popup('${s.SUBMITNAME}\n\n${s.SUBMITINFO}')">${s.SUBMITNAME}</a>
-						</c:if> 
-						<c:if test="${empty s.SUBMITINFO}">
+							<div style="display: none;" id="submitinfo">${s.SUBMITINFO}</div>
+							<%-- <a href='javascript:window.open("./submitHWDetail?submithwnum=${s.SUBMITHWNUM}","","width=800, height=600, left=30, top=200")'>${s.SUBMITNAME}</a>
+							 --%>
+							<a href="#"
+								onclick="popup()">${s.SUBMITNAME}</a>
+						</c:if> <c:if test="${empty s.SUBMITINFO}">
 							<div>${s.SUBMITNAME}</div>
 						</c:if></td>
 					<td><c:if test="${not empty s.ADDFILEID}">
