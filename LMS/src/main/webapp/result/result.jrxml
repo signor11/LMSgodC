@@ -22,7 +22,7 @@ where s.studentnum='18000001']]>
 	<field name="CLASSNUM" class="java.math.BigDecimal"/>
 	<field name="CLASSNAME" class="java.lang.String"/>
 	<field name="GRADE" class="java.lang.String"/>
-	<field name="SCORET" class="java.lang.String"/>
+	<field name="SCORET" class="java.math.BigDecimal"/>
 	<field name="SCORE" class="java.math.BigDecimal"/>
 	<field name="CLASSAPPLYNUM" class="java.math.BigDecimal"/>
 	<field name="CREDIT" class="java.math.BigDecimal"/>
@@ -144,12 +144,12 @@ where s.studentnum='18000001']]>
 					<textField>
 						<reportElement x="444" y="3" width="100" height="20" isPrintInFirstWholeBand="true" uuid="cbb0bc70-c085-4680-a317-0817e68dd7c9"/>
 						<textElement textAlignment="Center" verticalAlignment="Middle"/>
-						<textFieldExpression><![CDATA[$V{SUM}.divide($V{SUMC})]]></textFieldExpression>
+						<textFieldExpression><![CDATA[$V{SUM}.divide($V{SUMC}, 2, BigDecimal.ROUND_CEILING)]]></textFieldExpression>
 					</textField>
 					<textField>
 						<reportElement x="301" y="3" width="100" height="20" uuid="f79296a1-9312-40f8-97a4-d7a57d83ec97"/>
 						<textElement textAlignment="Center" verticalAlignment="Middle"/>
-						<textFieldExpression><![CDATA[$V{SUMS}.divide( $V{SUMC} )]]></textFieldExpression>
+						<textFieldExpression><![CDATA[$V{SUMS}.divide( $V{SUMC}, 2, BigDecimal.ROUND_CEILING )]]></textFieldExpression>
 					</textField>
 					<staticText>
 						<reportElement style="style1" mode="Transparent" x="401" y="3" width="43" height="20" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="325c3bf8-b871-4d9e-9150-9e51fc69bc8f"/>
