@@ -48,7 +48,6 @@ p {
 				</c:forEach>
 			</select>&nbsp;&nbsp;&nbsp;&nbsp;
 			<p class="bst">수강인원</p>${cnt.CNT}
-			<p class="bst">과목명</p>${cnt.CLASSNAME}
 			<p class="bst">학점</p>${cnt.CREDIT}
 			<p class="bst">최대수강인원 수</p>${cnt.MAXSTUDENT}
 			<p class="bst">수업시간</p>${cnt.CLASSTIME}

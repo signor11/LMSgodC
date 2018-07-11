@@ -7,7 +7,7 @@
 <head>
 <title>hwInsert.jsp</title>
 
-<script src="./resources/web/js/ckeditor_4/ckeditor/ckeditor.js"></script>
+<script src="./resources/web/js/ckeditor_4/ckeditor.js"></script>
 <script>
 	window.onload = function() {
 		CKEDITOR.replace("hwinfo");

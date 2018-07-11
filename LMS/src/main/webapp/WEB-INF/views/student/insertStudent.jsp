@@ -49,7 +49,7 @@
 				return false;
 
 			} else if ($("#majornum").val() == "") {
-				alert("학과번호을  꼭 선택하세요!");
+				alert("학과명을  꼭 선택하세요!");
 				$("#majornum").focus();
 				return false;
 
@@ -122,7 +122,7 @@
 			</div>
 
 			<div class="form-group">
-				<label class="col-sm-2 control-label">학과 번호</label>
+				<label class="col-sm-2 control-label">학과명</label>
 				<div class="col-sm-10">
 					<select id="majornum" class="form" name="majornum"
 						style="position: relative; top: 8px;">
